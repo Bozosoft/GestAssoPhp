@@ -1,0 +1,6 @@
+<ifDefine Free>
+ PHP 1
+</ifDefine>
+
+# pour éviter les rep vides
+Options -Indexes
