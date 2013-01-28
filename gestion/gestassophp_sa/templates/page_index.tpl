@@ -95,7 +95,7 @@ background-color:#FFFFFF;
 	</div> {* / défini les infos .. *}
 	 
 	<div id="pied_page">  {*défini le pied de page  ne pas modifier lces lignes*}
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.xtreemhost.com/cms/" target="_blank" title="R&eacute;alisation" >{$version}</a>&nbsp;&nbsp;&nbsp;&nbsp; <span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="R&eacute;alisation" >{$version}</a>&nbsp;&nbsp;&nbsp;&nbsp; <span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span>
     </div> {* / défini le pied de page *}
 	
 </div> {* / défini la page extérieure *}
