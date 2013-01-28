@@ -4,7 +4,7 @@
 // +--------------------------------------------------------------------------------------+
 // |
 /*****************************************************************************
-*   Définit le Rep racine
+*   DÃ©finit le Rep racine
     ****************************************************************************/
 
 // -----------Les chemins
@@ -13,7 +13,7 @@
 	define('ROOT_DIR', $dirname);
 
 // le repertoire de gestasso = ROOT_DIR_GESTASSO
-// Peut etre modifié en modifiant  'gestassophp_s'  par 'votre-dossier'
+// Peut etre modifiÃ© en modifiant  'gestassophp_s'  par 'votre-dossier'
 	define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');	 //F:\Sites\TestDevel\gestion\gestassophp_sa
 	
 	//define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa_u');	 //F:\Sites\TestDevel\gestion\gestassophp_sa_u HTML5
