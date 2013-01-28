@@ -2,9 +2,9 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du prÃ©sent contrat appelÃ© Contrat Public Creative Commons 
  * Auteur original : Jean-Claude Etiemble
- * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - PaternitÃ© - Partage Ã  l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/config/
  *   Fichier :
- *   Le fichier de connexion à la BD 
+ *   Le fichier de connexion Ã  la BD 
 */	
 
 //----------------------------------------------------------------------------------
@@ -26,10 +26,10 @@
 
 	$file_loc = 'fileloc_gestasso_sa.php';  //******************** A DEFINIR
 
-//information sur la Base de donnée
+//information sur la Base de donnÃ©e
 	@eval("include 'connexion.cfg.php';");
 	// Utilisation de adodb   TYPE_BD_AODB =  postgres ou  mysql
-	define("TYPE_BD_AODB", strtolower(TYPE_BD) ); // pour compibilté version antérieure si  TYPE_BD = MySql
+	define("TYPE_BD_AODB", strtolower(TYPE_BD) ); // pour compibiltÃ© version antÃ©rieure si  TYPE_BD = MySql
 	
 		
 // Inclu le fichier qui dispatch les autres 

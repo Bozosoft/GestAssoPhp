@@ -2,9 +2,9 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du prÃ©sent contrat appelÃ© Contrat Public Creative Commons 
  * Auteur original : Jean-Claude Etiemble
- * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - PaternitÃ© - Partage Ã  l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
@@ -17,14 +17,14 @@
  *  Directory :  /ROOT_DIR_GESTASSO/lang/
  *   Fichier : lang.php
  *   Fichier de langue
- *   ENCODAGE entitiées pour UTF8  é = &eacute; à = &agrave; è = &egrave;  î = &icirc; ê = &ecirc;
+ *   ENCODAGE entitiÃ©es pour UTF8  Ã© = &eacute; Ã  = &agrave; Ã¨ = &egrave;  Ã® = &icirc; Ãª = &ecirc;
  
  
 *  Textes et messages pour affichage
 *  	define('_LANG_VIDE', 'le texte de votre langue ici');
 *	Inscrivez votre texte entre les guillemets simples  ,'.....'
 *	define('_LANG_VIDE', 'texte vide de texte');    sur template {language name=vide}  affiche => texte vide de texte
-*  Voir le fichier /lang/infoasso.php qui définit les informations de l'association
+*  Voir le fichier /lang/infoasso.php qui dÃ©finit les informations de l'association
 * --------------------------------------------------------------------
 * LES MENUS
 * Localisation sur   /templates/pageindex.tpl  +  /templates/login.tpl
@@ -33,39 +33,39 @@
 //Gestion Membres
 	define('_LANG_MENU_ADHT_MEMBRES', 'Gestion Membres'); // Gestion Membres  
 	define('_LANG_MENU_ADHT_INFORMATION', 'Mes informations'); // Mes informations  	
-	define('_LANG_MENU_ADHT_LISTE', 'Liste '.ADHERENT_BENE.'s');  // liste Bénévoles 
+	define('_LANG_MENU_ADHT_LISTE', 'Liste '.ADHERENT_BENE.'s');  // liste BÃ©nÃ©voles 
 //Administration	
 	define('_LANG_MENU_ADMIN_GESTION', 'Administration');  // Administration	
 	define('_LANG_MENU_ADMIN_GESTION_TB', 'Tableau bord');// Tableau bord 
-	define('_LANG_MENU_ADMIN_GESTION_PA', 'Priorit&eacute; Acc&egrave;s');// Priorité Accès 
+	define('_LANG_MENU_ADMIN_GESTION_PA', 'Priorit&eacute; Acc&egrave;s');// PrioritÃ© AccÃ¨s 
 	define('_LANG_MENU_ADMIN_GESTION_LOG', 'Logs');// Logs 
-	define('_LANG_MENU_ADMIN_GESTION_PREF', 'Pr&eacute;f&eacute;rences');// Préférences et Antennes(sections)  // ++ 24/10/08
-	define('_LANG_MENU_ADMIN_GESTION_MAINT_BD', 'Maintenance BD');// Maintenance base données//+07/08/08
-//Adhérents		
-	define('_LANG_MENU_ADHERENT_BENE',  ADHERENT_BENE.'s');// Bénévoles  
-	define('_LANG_MENU_ADHERENT_GESTION', 'Gestion '.ADHERENT_BENE.'s');// Gestion Bénévoles
-	//+ Liste des adhérents en partie admin pour affichage simplifié des données  v 5.4.0 dec 2011
+	define('_LANG_MENU_ADMIN_GESTION_PREF', 'Pr&eacute;f&eacute;rences');// PrÃ©fÃ©rences et Antennes(sections)  // ++ 24/10/08
+	define('_LANG_MENU_ADMIN_GESTION_MAINT_BD', 'Maintenance BD');// Maintenance base donnÃ©es//+07/08/08
+//AdhÃ©rents		
+	define('_LANG_MENU_ADHERENT_BENE',  ADHERENT_BENE.'s');// BÃ©nÃ©voles  
+	define('_LANG_MENU_ADHERENT_GESTION', 'Gestion '.ADHERENT_BENE.'s');// Gestion BÃ©nÃ©voles
+	//+ Liste des adhÃ©rents en partie admin pour affichage simplifiÃ© des donnÃ©es  v 5.4.0 dec 2011
 	define('_LANG_TITRE_ADMIN_LISTE_ADHT2', 'Liste des '.ADHERENT_BENE.'s');
 	define('_LANG_MENU__GESTION_COTIS', 'Gestion Cotisations');// Gestion Cotisations
 	define('_LANG_MENU__GESTIONE_FILE','Gestion fichiers');// Gestion fichiers
 //sortie	
-	define('_LANG_MENU_EXIT','D&eacute;connexion');//  Déconnexion 	 
-	define('_LANG_MENU_EXIT_TITLE','Se D&eacute;connecter'); //title="Se Dé;connecter"
+	define('_LANG_MENU_EXIT','D&eacute;connexion');//  DÃ©connexion 	 
+	define('_LANG_MENU_EXIT_TITLE','Se D&eacute;connecter'); //title="Se DÃ©;connecter"
 	
 /**
 * --------------------------------------------------------------------
-* Localisation sur /templates   parties communes à toutes les templates
+* Localisation sur /templates   parties communes Ã  toutes les templates
 * --------------------------------------------------------------------
 */
-	define('_LANG_CHARSET', 'iso-8859-1');  // charset=> iso-8859-1  ou utf-8  // charset dans /templates/*.tpl et dans fichiers /aide/*.php   echo _LANG_CHARSET   ATTENTION SI utf-8 Gérer les accents en base de données
+	define('_LANG_CHARSET', 'iso-8859-1');  // charset=> iso-8859-1  ou utf-8  // charset dans /templates/*.tpl et dans fichiers /aide/*.php   echo _LANG_CHARSET   ATTENTION SI utf-8 GÃ©rer les accents en base de donnÃ©es
 /*
-l'ISO-8859-1 (parfois appelé latin1), qui permet d'enregistrer presque tous les caractères du français ;
-l'ISO-8859-15 (parfois appelé latin9), une variation de l'ISO-8859-1, qui rajoute le symbole « euro » et le « l'o dans l'e» ;
-l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au japonais en passant par l'arabe.
+l'ISO-8859-1 (parfois appelÃ© latin1), qui permet d'enregistrer presque tous les caractÃ¨res du franÃ§ais ;
+l'ISO-8859-15 (parfois appelÃ© latin9), une variation de l'ISO-8859-1, qui rajoute le symbole Â« euro Â» et le Â« l'o dans l'eÂ» ;
+l'UTF-8, qui permet thÃ©oriquement d'encoder toutes les langues, du franÃ§ais au japonais en passant par l'arabe.
 */		
 	define('_LANG_AIDE', 'Aide'); // {language name=aide} 
-	define('_LANG_TITLE_AIDE', 'Un peu d\'aide'); // NOTA  = l ' doit être echapée
-	define('_LANG_TPL_PAGES', 'Pages :');// donne le Numéro des pages  {language name=tpl_pages}
+	define('_LANG_TITLE_AIDE', 'Un peu d\'aide'); // NOTA  = l ' doit Ãªtre echapÃ©e
+	define('_LANG_TPL_PAGES', 'Pages :');// donne le NumÃ©ro des pages  {language name=tpl_pages}
 	define('_LANG_TPL_GO_PAGES', 'Allez &agrave; la page');// title= ...  {language name=tpl_go_pages}
 //Tri dans les listes
 	define('_LANG_TPL_TITLE_CLICTRI', 'Cliquer pour trier');//title= ...  {language name=tpl_title_clictri}
@@ -79,18 +79,18 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_TPL_COL_NUM', 'N&deg;');//  {language name=tpl_col_num}
 	define('_LANG_TPL_COL_NOMPRE', 'Nom Pr&eacute;nom');//  {language name=tpl_col_nompre}  
 	define('_LANG_TPL_COL_ADHT_VILLE', 'Ville'); // Ville       {language name=tpl_col_adht_ville}  
-    define('_LANG_TPL_COL_ADHT_TELEPH', 'T&eacute;l&eacute;phone'); //Téléphone      {language name=tpl_col_adht_teleph}  
+    define('_LANG_TPL_COL_ADHT_TELEPH', 'T&eacute;l&eacute;phone'); //TÃ©lÃ©phone      {language name=tpl_col_adht_teleph}  
 	define('_LANG_TPL_COL_ADHT_PORTABLE', 'Portable'); //Portable    {language name=tpl_col_adht_portable}  
 	define('_LANG_TPL_COL_DATE', 'Date'); // {language name=tpl_col_date}
 	define('_LANG_TPL_COL_DESCRIPTION', 'Description'); // {language name=tpl_col_description}
 	define('_LANG_TPL_COL_ADHT_NOM', 'Nom'); // {language name=tpl_col_adht_nom}
     define('_LANG_TPL_FILTER_BUTTON', 'Filtrer'); // value="Filtrer"   // {language name=tpl_filter_button} 
-    define('_LANG_TPL_FILTER_BUTTON_TITLE', 'Valider la s&eacute;lection');	 //title="Valider la sélection"  {language name=tpl_filter_button_title}  
-	define('_LANG_TPL_TEXTE_SELECT', 'S&eacute;lectionner');//Sélectionner    {language name=tpl_texte_select} 
+    define('_LANG_TPL_FILTER_BUTTON_TITLE', 'Valider la s&eacute;lection');	 //title="Valider la sÃ©lection"  {language name=tpl_filter_button_title}  
+	define('_LANG_TPL_TEXTE_SELECT', 'S&eacute;lectionner');//SÃ©lectionner    {language name=tpl_texte_select} 
 	define('_LANG_TPL_LISTE_ADHT_PARMI_TITLE', 'Entrer les caract&egrave;res du nom ou pr&eacute;nom');//title="  {language name=tpl_liste_adht_parmi_title}
 //  Boutons
     define('_LANG_TPL_SAV_BUTTON', 'Sauvegarder'); // {language name=tpl_sav_button}
-	define('_LANG_TPL_RETOUR_BUTTON_TITLE', 'Retour'); //title=  ... à la page précédente  {language name=tpl_retour_button_title}
+	define('_LANG_TPL_RETOUR_BUTTON_TITLE', 'Retour'); //title=  ... Ã  la page prÃ©cÃ©dente  {language name=tpl_retour_button_title}
 	define('_LANG_TPL_RETOUR_BUTTON', 'Retour');	 // {language name=tpl_retour_button}
 	define('_LANG_TPL_VALID_BUTTON', 'Valider'); //value="Valider"   {language name=tpl_valid_button}
 	define('_LANG_TPL_VALID_BUTTON_TITLE', 'Valider la saisie'); //title=   {language name=tpl_valid_button_title}
@@ -103,15 +103,15 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_TPL_TEXTE_DATE_TITLE', 'La date au format jj/mm/aaaa');	//title=...    {language name=tpl_texte_date_title}
 /**  Messages PHP  /index.php */ /* <?php echo _LANG_TPL_TEXTE_SELECT  ;?>*/
 	define('_LANG_MESSAGE_TEXTERREUR', 'Erreur... Identifiez-vous de nouveau ... !!'); 
-	define('_LANG_ARRAY_SELECTIONNEZ_NOM' , 'S&eacute;lectionnez le Nom');  //array('' => ('Sélectionnez le Nom'));
+	define('_LANG_ARRAY_SELECTIONNEZ_NOM' , 'S&eacute;lectionnez le Nom');  //array('' => ('SÃ©lectionnez le Nom'));
 	define('_LANG_MESSAGE_CREATE', 'Cr&eacute;ation');
 	define('_LANG_MESSAGE_MODIF', 'Modification');
 	
 /** ---------------------------------------------------------------------- */
 /**
-*  Nombre de caractères des fichiers téléchargeables    Number of characters for upload files 25/01/2009 passe en avant
+*  Nombre de caractÃ¨res des fichiers tÃ©lÃ©chargeables    Number of characters for upload files 25/01/2009 passe en avant
 */
-	define('NB_CARRACT_FILE', '25');  // Nombre de carractéres X du fichier  NON compris extension  File = X + 1+3)
+	define('NB_CARRACT_FILE', '25');  // Nombre de carractÃ©res X du fichier  NON compris extension  File = X + 1+3)
 /* --------------------------------------------------------------------*/	
 
 /**
@@ -127,7 +127,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_LOGIN_ENTER_PASSWD', 'Veuillez saisir votre mot de passe'); 
 	define('_LANG_LOGIN_BUTTON', 'Connexion'); //Bouton value="Entrer" 
 	define('_LANG_LOGIN_BUTTON_TITLE', 'Se connecter &agrave; votre espace membres'); //title=
-// J'ai oublié mon mot de passe !
+// J'ai oubliÃ© mon mot de passe !
 	define('_LANG_MAIL_CONTACTER', 'Contacter l\''); 	//Contacter l'Admin....
 	define('_LANG_MAIL_MAIL', 'par mail');
 // NON TRADUIT  {mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} 
@@ -174,9 +174,9 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 
 	
 /**	
-* Informations sur mes fichiers et mes missions  OPTION  -> Module  INFO_FICHIER_MISSIONS Affiche si un adhérent a des fichiers 
-* Informations complémentaires OPTION  -> Module  INFO_COMPLEMENTAIRES 
-* INFO_FICHIER_MISSIONS Affiche si un adhérent a des fichiers  -- Possibilité de supprimer la gestion des fichiers
+* Informations sur mes fichiers et mes missions  OPTION  -> Module  INFO_FICHIER_MISSIONS Affiche si un adhÃ©rent a des fichiers 
+* Informations complÃ©mentaires OPTION  -> Module  INFO_COMPLEMENTAIRES 
+* INFO_FICHIER_MISSIONS Affiche si un adhÃ©rent a des fichiers  -- PossibilitÃ© de supprimer la gestion des fichiers
 * MODIFIER LE FICHIER    \adherent\gerer_fiche_adht.php
 * fichier /adherent/consulter_info_fichiermission_adht.php 
 */
@@ -184,7 +184,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_TITRE_FICHIER_MISSIONS', 'Informations sur mes fichiers'); // {language name=titre_fichier_missions}	
 	define('_LANG_FICHIER_MISSIONS_MYFILES', 'Mes fichiers');
 	
-/** Commun à adherent/gerer_fiche_adht ET remplir_infogene_adht */
+/** Commun Ã  adherent/gerer_fiche_adht ET remplir_infogene_adht */
     define('_LANG_FICHE_ADHT_CIVIL', 'Civilit&eacute;'); //  {language name=fiche_adht_civil}	 
 	define('_LANG_FICHE_ADHT_NOM_TITLE', 'Indiquer le nom Sans accent'); 
     define('_LANG_FICHE_ADHT_PRENOM', 'Pr&eacute;nom'); //   {language name=fiche_adht_prenom}	
@@ -220,7 +220,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_FICHE_ADHT_CONFIRM', 'Confirmation');
 //NON TRADUIT  define('_LANG_FICHE_ADHT_NO_PHOTO', '[ Pas de photo ]');//[ Pas de photo ] 
 	define('_LANG_FICHE_ADHT_DEL_PHOTO', 'Supprimer la photo');
-	define('_LANG_FICHE_ADHT_CONFIRM_DEL_PHOTO', '&Ecirc;tes vous sûr de vouloir supprimer la photo ?');
+	define('_LANG_FICHE_ADHT_CONFIRM_DEL_PHOTO', '&Ecirc;tes vous sÃ»r de vouloir supprimer la photo ?');
 	define('_LANG_FICHE_ADHT_DEL_PHOTO_TITLE', 'Supprimer la photo');//title=
 	define('_LANG_FICHE_ADHT_UPLOAD_PHOTO', 'Possibilit&eacute; d\'envoyer une photo depuis votre ordinateur');
 	define('_LANG_FICHE_ADHT_ADD_PHOTO_TITLE', 'Cliquer ici pour ajouter une photo au format jpg ou gif');//title=
@@ -251,7 +251,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 *  ajout d'une zone .... Note
 * MODIFIER LE FICHIER    \adherent\gerer_fiche_adht.php +tpl
 *  MODIFIER LE FICHIER    \adherent\ remplir_infogene_adh.php  + tpl
-* Modifier la BD ajout de :    disponib_adht	varchar(250)  // compatibilité avec GesassoPhp spécial FB
+* Modifier la BD ajout de :    disponib_adht	varchar(250)  // compatibilitÃ© avec GesassoPhp spÃ©cial FB
 */	
 	define('_LANG_FICHE_ADHT_COMPL', 'Observations'); //Note, Commentaire, observation  ...  {language name=fiche_adht_compl}	
 	define('_LANG_FICHE_ADHT_COMPL_NBC', 'caract&egrave;re(s) restants');
@@ -323,7 +323,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 * Localisation sur      /templates/admin/remplir_priorite.tpl    ET   /admin/remplir_priorite.php
 */
 	define('_LANG_TITRE_ADMIN_GERER_PRIORITE_ADHERENTS', 'Gestion des priorit&eacute;s d\'acc&egrave;s '.ADHERENT_BENE.'s'); 
-	define('_LANG_ADMIN_PRIORITE_CODE_PRIORITE', 'Code priorit&eacute; acc&egrave;s'); // Code priorité accès
+	define('_LANG_ADMIN_PRIORITE_CODE_PRIORITE', 'Code priorit&eacute; acc&egrave;s'); // Code prioritÃ© accÃ¨s
 	define('_LANG_ADMIN_PRIORITE_COL_PRIORITE', 'Priorit&eacute;');//admin_priorite_col_priorite
 /**  Messages PHP   */
 	define('_LANG_MESSAGE_SELECTIONNEZ_NOM' , 'S&eacute;lectionnez un Nom !!');
@@ -341,7 +341,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_ADMIN_LOGS_EXPORT', 'Exporter les logs ?');
 	define('_LANG_ADMIN_LOGS_TITLE_EXPORT', 'Exporter les logs ?');//title=
 	define('_LANG_ADMIN_LOGS_CLEAR_LOGS', 'Effacer les logs ?');
-	define('_LANG_ADMIN_LOGS_JS_CLEAR_LOGS', '&Ecirc;tes vous sûr(e) de vouloir supprimer les TOUS logs');//
+	define('_LANG_ADMIN_LOGS_JS_CLEAR_LOGS', '&Ecirc;tes vous sÃ»r(e) de vouloir supprimer les TOUS logs');//
 	define('_LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS', 'Effacer TOUS les logs ?');//title=
 	define('_LANG_ADMIN_LOGS_COL_UTILISATEUR', 'Utilisateur'); 
 
@@ -382,7 +382,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_PREF_ADHERENT_BENE', 'Nom d&eacute;finissant les membres');	
 	define('_LANG_PREF_ADHERENT_BENE_TITLE', '(Ex adh&eacute;rent, soci&eacute;taire, b&eacute;n&eacute;vole, ou ...)  mettre au singulier');	
 	define('_LANG_PREF_ADHERENT_BENE_INFO', 'D&eacute;signation, au singulier, du nom des membres de l\'espace, qui appara&icirc;tra dans les menus et pages (Ex adh&eacute;rent, soci&eacute;taire, b&eacute;n&eacute;vole, ou ...)');
-	define('_LANG_PREF_LANG_FICHE_ADHT_ANT_INFO', 'D&eacute;signation en fonction de l\'association : Antennes, Sections, Secteurs d\'activit&eacute;, ou ...');	//  en fonction de l'association les antennes ou sections ou secteurs d'activité
+	define('_LANG_PREF_LANG_FICHE_ADHT_ANT_INFO', 'D&eacute;signation en fonction de l\'association : Antennes, Sections, Secteurs d\'activit&eacute;, ou ...');	//  en fonction de l'association les antennes ou sections ou secteurs d'activitÃ©
 	define('_LANG_PREF_LANG_FICHE_ADHT_ANT', 'Nom d&eacute;finissant les activit&eacute;s');
 	define('_LANG_PREF_LANG_FICHE_ADHT_ANT_TITLE', 'En fonction de l\'association : Antennes, Sections, Secteurs d\'activit&eacute;');	
 // nom des onglets des pages
@@ -394,11 +394,11 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_PREF_NEW_DESIGNATION_TITLE', 'Indiquer le nouveau nom de la liste'); // {language name=pref_new_designation}
 	define('_LANG_PREF_COL_DESIGNATION_MODIF_ICON_TITLE', 'Modifier le nom'); // 	{language name=pref_col_designation_modif_icon_title}
 	define('_LANG_PREF_COL_DESIGNATION_COTIS', 'Nom des types de cotisation'); // {language name=pref_col_designation_cotis}
-	//+ ajout montant cotisation dans préférences
+	//+ ajout montant cotisation dans prÃ©fÃ©rences
 	define('_LANG_PREF_NEW_MONT_COTISATION', 'Montant de la cotisation'); // {language name=pref_new_mont_cotisation}
 	define('_LANG_PREF_NEW_MONT_COTISATION_TITLE', 'Indiquer le montant de la cotisation  en chiffres (Ex 10.50 - 10 Point 50) qui d&eacute;finie sera par d&eacute;faut');
 	define('_LANG_PREF_COL_MONT_COTISATION', 'Montant cotisation'); // {language name=pref_col_mont_cotisation}
-	// + la date de "Date fin cotisation" affiché par défaut
+	// + la date de "Date fin cotisation" affichÃ© par dÃ©faut
 	define('_LANG_PREF_LANG_JMA_FIN_COTIS_INFO', 'Indiquer le jour/mois/ann&eacute;e de fin de cotisation au format jj/jj/aaaa. Exemple 31/12/2011 ou 30/09/2011 pour le menu '. _LANG_MENU__GESTION_COTIS);	
 
 	
@@ -408,7 +408,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 /** --- FIN Administration -------------------------------------------------------- */	
 
 
-/** --- Adhérents ------------------------------------------------------------------- */	
+/** --- AdhÃ©rents ------------------------------------------------------------------- */	
 
 /**
 * Localisation sur      /templates/adherent/liste_adht_admin.tpl    ET   /adherent/liste_adht_admin.php 
@@ -427,7 +427,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_ADMIN_LISTE_ADHT_ENR_TITLE', 'Fiche enrgistr&eacute;e par : ');//title="
 	define('_LANG_ADMIN_LISTE_ADHT_ADDFILE_TITLE', 'Joindre un fichier');
 	define('_LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE', 'G&eacute;rer les cotisations');//title=
-	define('_LANG_ADMIN_LISTE_ADHT_JS_CONFIRM_DELFICHE', '&Ecirc;tes vous sûr(e) de vouloir supprimer la fiche N&deg;');
+	define('_LANG_ADMIN_LISTE_ADHT_JS_CONFIRM_DELFICHE', '&Ecirc;tes vous sÃ»r(e) de vouloir supprimer la fiche N&deg;');
 	define('_LANG_ADMIN_LISTE_ADHT_DEL_FICHE_ICON_TITLE', 'Supprimer la fiche');//title="
 /**  Messages PHP   */
 	define('_LANG_MESSAGE_ADMIN_LISTE_ADHT_', 'NON r&egrave;gl&eacute;e'); 
@@ -459,7 +459,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE', 'Archiver la fiche cotisation');//title=
 	define('_LANG_LISTE_COTIS_ADHT_CONSULT_ICON_TITLE', 'Consulter la fiche cotisation archiv&eacute;e');//title=		
 /**  Messages PHP   */
-	define('_LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV', 'Archiv&eacute;e'); //Archivée
+	define('_LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV', 'Archiv&eacute;e'); //ArchivÃ©e
 	define('_LANG_MESSAGE_LISTE_COTIS_ADHT_DATE_DEB', 'Date de d&eacute;but Non valide - Format jj/mm/aaaa');
 	define('_LANG_MESSAGE_LISTE_COTIS_ADHT_DATE_FIN', 'Date de fin Non valide - Format jj/mm/aaaa'); 
 	
@@ -482,13 +482,13 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_FICHE_COTIS_ADHT_COMM_TITLE', 'Information sur la cotisation');//title=
 	define('_LANG_FICHE_COTIS_ADHT_RAISON', 'Raison de l\'archivage');
 	define('_LANG_FICHE_COTIS_ADHT_RAISON_TITLE', 'Information sur archivage');// title=
-	define('_LANG_FICHE_COTIS_ADHT_JS_CONFIRM_ARCHIV', '&Ecirc;tes vous sûr de vouloir archiver la fiche N&deg; ');
+	define('_LANG_FICHE_COTIS_ADHT_JS_CONFIRM_ARCHIV', '&Ecirc;tes vous sÃ»r de vouloir archiver la fiche N&deg; ');
 	define('_LANG_FICHE_COTIS_ADHT_ARCHIV_BUTTON_TITLE', 'Archiver la fiche');
 	
 	// Add pour Visulisation avant impression  Ajout le 27/01/2009
 	define('_LANG_FICHE_COTIS_ADHT_VISU_BUTTON', 'Visualiser');	
 	define('_LANG_FICHE_COTIS_ADHT_VISU_BUTTON_TITLE', 'Pour impression &eacute;ventuelle');
-	define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'Reçu cotisation ');
+	define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'ReÃ§u cotisation ');
 	define('_LANG_FICHE_COTIS_ADHT_EURO', 'Euros');
 	define('_LANG_FICHE_COTIS_VISU_FAITLE', 'Fait le ');	
 	//+ ajout montant cotisation si cr&eacute;ation fiche
@@ -511,9 +511,9 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_MESSAGE_COTIS_ADHT_ALERT_EXIST1', 'la fiche');  //{language name=message_cotis_adht_alert_exist1}
 	define('_LANG_MESSAGE_COTIS_ADHT_ALERT_EXIST2', 'existe d&eacute;j&agrave; - Vous pouvez proc&eacute;der &agrave; l&#039;archivage de cette fiche avant d&#039;en cr&eacute;er une nouvelle');
 	define('_LANG_MESSAGE_COTIS_ADHT_AUTRE_FEN', '!! Ouvrir la fiche dans une autre fen&ecirc;tre !!'); 
-    define('_LANG_MESSAGE_COTIS_ADHT_ALERT_DEB_FIN', 'La p&eacute;riode d&#039;adh&eacute;sion chevauche la p&eacute;riode commençant le ');
+    define('_LANG_MESSAGE_COTIS_ADHT_ALERT_DEB_FIN', 'La p&eacute;riode d&#039;adh&eacute;sion chevauche la p&eacute;riode commenÃ§ant le ');
     define('_LANG_MESSAGE_COTIS_ADHT_ALERT_FICHE', 'sur la fiche ');
-    define('_LANG_ARRAY_SELECTIONNEZ_TYPE', 'S&eacute;lectionnez le type');//$tab_nomcotis = array('' => ('Sélectionnez le type'))
+    define('_LANG_ARRAY_SELECTIONNEZ_TYPE', 'S&eacute;lectionnez le type');//$tab_nomcotis = array('' => ('SÃ©lectionnez le type'))
 
 /** ---------------------------------------------------------------------- */	
 
@@ -529,7 +529,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 	define('_LANG_LISTE_FICHIERS_ADHT_ADFILE_BUTTON_TITLE', 'Pour ajouter fichier');//title="
 	define('_LANG_LISTE_FICHIERS_ADHT_VISU_FILE_ICON_TITLE', 'Visualisation des informations fichier');//title=
 	define('_LANG_LISTE_FICHIERS_ADHT_DOWNLOAD_FILE_ICON_TITLE', 'T&eacute;l&eacute;charger le fichier');//title=
-	define('_LANG_LISTE_FICHIERS_ADHT_JS_CONFIRM_FILE', '&Ecirc;tes vous sûr(e) de vouloir supprimer le fichier N&deg; ');
+	define('_LANG_LISTE_FICHIERS_ADHT_JS_CONFIRM_FILE', '&Ecirc;tes vous sÃ»r(e) de vouloir supprimer le fichier N&deg; ');
 	define('_LANG_LISTE_FICHIERS_ADHT_DEL_FILE_ICON_TITLE', 'Supprimer le fichier');//title=
 	define('_LANG_LISTE_FICHIERS_COL_NOMFICHIER', 'Nom fichier'); //   {language name=liste_fichiers_col_nomfichier}
 /**  Messages PHP   */
@@ -573,7 +573,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 
 	
 	
-/** --- FIN Adhérents ----------------------------------------------- */	
+/** --- FIN AdhÃ©rents ----------------------------------------------- */	
 /** ---------------------------------------------------------------------- */	
 
 /**
@@ -582,13 +582,13 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au j
 * ------------------------------------------------------------------
 */		
 	$T_CIVILITE = array( 'Monsieur'=>'Monsieur','Madame'=>'Madame', 'Mademoiselle'=>'Mademoiselle');
-	// Priorités
+	// PrioritÃ©s
 	$T_PRIORITE_ACCESS = array('1'=>'1-Membre normal', '4'=>'4-Membre CA', '5'=>'5-Secr&eacute;taire', '7'=>'7-Tr&eacute;sorier', '9'=>'9-Administrateur', '0'=>'0-Acc&egrave;s INTERDIT');	
 	// Nb de lignes par page
 	$T_AFFICHE_NB_PAGE = array(	10 => '10',	20 => '20',	50 => '50',	0 => 'Tous '); 		
 	// pour afficher le filtrage des membres dans Admin / liste des membres 
 	$T_AFFICHE_FILTRE_MEMBRES = array(0 => 'Les membres actifs', 1 => 'Les membres &agrave; jour', 2 => 'Les membres en retard',3 => 'Les fiches supprim&eacute;es',4 => 'Toutes les fiches');
-	// pour afficher le filtrage des cotisation  adhérents dans Admin 
+	// pour afficher le filtrage des cotisation  adhÃ©rents dans Admin 
 	$T_AFFICHE_FILTRE_COTISATIONS = array(0 => 'Les fiches actives', 1 => 'Toutes les fiches', 2 => 'Les fiches archiv&eacute;es');
 
 // voir Module  la gestion des fichiers		

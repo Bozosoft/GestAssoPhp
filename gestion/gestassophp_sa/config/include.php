@@ -2,9 +2,9 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du prÃ©sent contrat appelÃ© Contrat Public Creative Commons 
  * Auteur original : Jean-Claude Etiemble
- * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - PaternitÃ© - Partage Ã  l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
@@ -18,7 +18,7 @@
  *   Fichier :
  *   Les fichiers Include  et les chemins de repertoires  et les menus pour les templates page_index et login
  *   MODIFICATIONS
- *  - 08/08/2008 Maintenance base données
+ *  - 08/08/2008 Maintenance base donnÃ©es
  *  - 22/08/2008  Refonte pour ajout fichier Langues	
  *  - 
 */
@@ -34,7 +34,7 @@
 	define('TABLE_ADHERENTS', DB_PREFIX.'adherent');
 	//  TABLES Pour ecrire les logs
 	define('TABLE_LOGS', DB_PREFIX.'logs');
-	// Table cotisation Commune pour les adhérents et les associations	
+	// Table cotisation Commune pour les adhÃ©rents et les associations	
 	define('TABLE_COTISATIONS', DB_PREFIX.'cotisations');
 	// Table Type de cotisation 
 	define('TABLE_TYPE_COTISATIONS', DB_PREFIX.'types_cotisations');
@@ -49,7 +49,7 @@
 /* --------------------------------------------------------------------*/
 
 /**** Les chemins fonctions et classes  */	
-	//NOTA  le repertoire de gestasso =  ROOT_DIR_GESTASSO Défini dans   fileloc_gestasso à la racine du site
+	//NOTA  le repertoire de gestasso =  ROOT_DIR_GESTASSO DÃ©fini dans   fileloc_gestasso Ã  la racine du site
 	include ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR.'include/fonctions.php'; // les fonctions
 //echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR.'include/fonctions.php';
 	include ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR.'include/class_session.php'; // la classe session
@@ -61,19 +61,19 @@
 	define('AODB_DIR', join_path(ROOT_LIB ,'adodb'). DIRECTORY_SEPARATOR );
 	include (AODB_DIR.'adodb.inc.php');  //charge le code deADOdb  
 	// include (AODB_DIR.'toexport.inc.php'); //  Voir
-	// Creé une connexion sur la Base de donnée   TYPE_BD_AODB=  postgres ou  mysql
-	$db = ADONewConnection(TYPE_BD_AODB); //crée une connexion  Strict Standards: Only variables should be assigned by reference SUPRESSION de &  deavant &ADONewConnection
-	$db->debug =  false;//true; // false; // Mode débug ou Non
+	// CreÃ© une connexion sur la Base de donnÃ©e   TYPE_BD_AODB=  postgres ou  mysql
+	$db = ADONewConnection(TYPE_BD_AODB); //crÃ©e une connexion  Strict Standards: Only variables should be assigned by reference SUPRESSION de &  deavant &ADONewConnection
+	$db->debug =  false;//true; // false; // Mode dÃ©bug ou Non
 	if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	
 
-//Jeux de caractères et collations de connexion http://dev.mysql.com/doc/refman/5.0/fr/charset-connection.html	
-//iso-8859-1 correspond effectivement à latin1
-//le SET NAMES indique avec quel jeu de caractères on envoie les données à MySQL, quel que soit le jeu utilisé dans la colonne cible.   "SET NAMES utf8",  "SET NAMES latin1"	
+//Jeux de caractÃ¨res et collations de connexion http://dev.mysql.com/doc/refman/5.0/fr/charset-connection.html	
+//iso-8859-1 correspond effectivement Ã  latin1
+//le SET NAMES indique avec quel jeu de caractÃ¨res on envoie les donnÃ©es Ã  MySQL, quel que soit le jeu utilisÃ© dans la colonne cible.   "SET NAMES utf8",  "SET NAMES latin1"	
 		//Pour Postgres, charset to iso-8859-1 (LATIN1)
         if ( TYPE_BD_AODB == 'postgres' ) {		
 			$db->SetCharSet('LATIN1');
 		 }
-        // Pour mysql,  jeu de caractères iso-8859-1 correspond effectivement à latin1
+        // Pour mysql,  jeu de caractÃ¨res iso-8859-1 correspond effectivement Ã  latin1
         if ( TYPE_BD_AODB == 'mysql' ) {
             $db->Execute("SET NAMES 'latin1'");
         }
@@ -94,24 +94,24 @@
 	include_once 'version.php'; //  -> PHP 5.3
 
 	
-/**** Les chemins des répertoires  pour SMARTY */
-	define('TEMPLATES_LOCATION', join_path(ROOT_DIR_GESTASSO,'templates' ) ); // répertoire Fichiers des templates
-	define('TMP_LOCATION', join_path(ROOT_DIR_GESTASSO,'temp'));  // répertoire  des Fichiers temporaires
-	define('TMP_TEMPLATES_C_LOCATION', join_path(ROOT_DIR_GESTASSO,'temp','templates_c')); // répertoire  des Fichiers temporaires de templates  
+/**** Les chemins des rÃ©pertoires  pour SMARTY */
+	define('TEMPLATES_LOCATION', join_path(ROOT_DIR_GESTASSO,'templates' ) ); // rÃ©pertoire Fichiers des templates
+	define('TMP_LOCATION', join_path(ROOT_DIR_GESTASSO,'temp'));  // rÃ©pertoire  des Fichiers temporaires
+	define('TMP_TEMPLATES_C_LOCATION', join_path(ROOT_DIR_GESTASSO,'temp','templates_c')); // rÃ©pertoire  des Fichiers temporaires de templates  
 // OPTIONS	
 
 
 /**** Les chemins et variables  pour SMARTY  */	
-	//Il doit s'agir du chemin complet du répertoire où se trouvent les fichiers classes de Smarty., le chemin doit se terminer par un slash.
+	//Il doit s'agir du chemin complet du rÃ©pertoire oÃ¹ se trouvent les fichiers classes de Smarty., le chemin doit se terminer par un slash.
 	define('SMARTY_DIR', join_path(ROOT_LIB ,'smarty'). DIRECTORY_SEPARATOR );
 	require (SMARTY_DIR.'Smarty.class.php'); // la classe
 
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c 
-//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
+//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// rÃ©pertoire par dÃ©faut de compilation = templates_c 
+//	$tpl->template_dir = TEMPLATES_LOCATION; // rÃ©pertoire par dÃ©faut des templates = templates
 //  verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
-	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// rÃ©pertoire par dÃ©faut de compilation = templates_c // Smarty version 3.x
+	$tpl->setTemplateDir (TEMPLATES_LOCATION); // rÃ©pertoire par dÃ©faut des templates = templates // Smarty version 3.x
 	
 // OPTIONS	
 	//$tpl->debugging = true;
@@ -121,21 +121,21 @@
 	$tpl->error_reporting = E_ALL & ~E_NOTICE;
 
 
-/**** Les chemins des répertoires  utilisés en interne */	
-	define('DIR_PHOTOS', join_path(ROOT_DIR_GESTASSO,'photos')); // répertoire photo
-	define('DIR_FILES_ADHTS', join_path(ROOT_DIR_GESTASSO,'fichiersadht').DIRECTORY_SEPARATOR); // répertoire Fichiers pour les adhts
+/**** Les chemins des rÃ©pertoires  utilisÃ©s en interne */	
+	define('DIR_PHOTOS', join_path(ROOT_DIR_GESTASSO,'photos')); // rÃ©pertoire photo
+	define('DIR_FILES_ADHTS', join_path(ROOT_DIR_GESTASSO,'fichiersadht').DIRECTORY_SEPARATOR); // rÃ©pertoire Fichiers pour les adhts
 
-/**** Les chemins WEB en fonction du serveur et des répertoires utilisés pour le téléchargement des fichiers */	
-	// Pour le téléchargement des fichiers qui se trouve dans le dossier gestassophp_s/adherent/ on détemine :
+/**** Les chemins WEB en fonction du serveur et des rÃ©pertoires utilisÃ©s pour le tÃ©lÃ©chargement des fichiers */	
+	// Pour le tÃ©lÃ©chargement des fichiers qui se trouve dans le dossier gestassophp_s/adherent/ on dÃ©temine :
 	//echo dirname($_SERVER['PHP_SELF']);  //  le chemin  /xxx/xx/gestassophp_s/adherent
 	$path_adht = rtrim(dirname($_SERVER['PHP_SELF']), 'adherent'); // On supprime  le Rep  /adherent  pour avoir   /xxx/xx/gestassophp_s/
-/**** Définir   WEB_FILES_ ADHTS   */	
+/**** DÃ©finir   WEB_FILES_ ADHTS   */	
 	define('WEB_FILES_ADHTS', " http://".$_SERVER['SERVER_NAME'].$path_adht."fichiersadht/");
 	//echo WEB_FILES_ADHTS;   // http://localhost         /xxx/xx/gestassophp_s/     fichiersadht/
 
 
 // Affichage en template 
-	$tpl->assign('adherent_bene',ADHERENT_BENE); // adhérent ou  Bénévole au singulier
+	$tpl->assign('adherent_bene',ADHERENT_BENE); // adhÃ©rent ou  BÃ©nÃ©vole au singulier
 // FIN  Affichage en template
 	
 ?>
