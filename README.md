@@ -15,4 +15,4 @@ Et une aide sur chaque page.
 L'impression se faut par le menu Fichier/Imprimer du navigateur
 
 
-- http://gestassophp.xtreemhost.com/  ou  http://gestassophp.free.fr
+- Site web http://gestassophp.free.fr
