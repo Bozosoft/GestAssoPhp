@@ -1,0 +1,465 @@
+/**
+ * Projet : gestassophp_sa [GestAssoPhp+Pg]
+ * ---------------------------
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Auteur original : Jean-Claude Etiemble
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * ---------------------------
+ *	
+ * @author : JC Etiemble - http://jc.etiemble.free.fr
+ * @version :  2013
+ * @copyright 2007-2013  (c) JC Etiemble
+ * @package   GestAssoPhp+Pg
+ */
+ 
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/js/
+ *   Fichier :
+ *   feuille de style POUR IMPRESSION
+*/
+
+
+body{
+background-color: #FFFFFF;
+font-family: Verdana,Arial, Helvetica, sans-serif;
+}
+
+/* Links */
+
+a {
+	color: #0002CA;
+	text-decoration: none;
+	background: inherit;
+}
+a:hover {
+	color: #113D8D;
+	background-color: #C8C8C8; /*#898989*/
+	text-decoration: underline;
+}
+
+/*Suprimme la bordure bleue de images et Suprimme  les images*/
+a img {
+border: none; /*Suprimme la bordure bleue de images*/
+ display: none; /*Suprimme  les image */
+} 
+
+
+
+
+
+/* Pour la page index Gabarit de page*/
+/*{*défini la page extérieure *} */
+#conteneur_page {
+position: absolute;
+width: 98%;
+/*width:850px;
+margin:0 auto;*/
+
+}
+
+/* {*défini le bandeau haut  et éventuellement du logo*} */
+#header_page {
+font-size: 1em;
+font-weight: bold;
+text-align:center;
+padding-top: .5em;
+height: 1.5em; /* 1.5em  - Hauteur  du Header  - A modifier en fonction de la hauteur du logo*/
+text-indent: 1.5em; /* 15em  - Position  du texte à partir de la gauche  - A modifier en fonction de la largeur du logo*/
+background: #F4F4F4 url(../images/logo/logo.jpg) no-repeat 0 1px; /*Couleur du fond et image  du logo*/
+}
+
+/* {*défini les infos .. *} */
+#centre_page {
+/*
+	background-color: #F7FCF3;
+	margin-left: 11.5em;
+	margin-right: 1em;
+	*/
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+/* {*défini les menus gauche *} */
+#gauche_page {
+display: none;
+}
+
+
+
+/* {*défini le pied de page *}*/
+#pied_page {
+font-size : .7em;
+display: none;
+}
+
+/* Fin pour template page_index.tpl*/
+
+/* pour template sous-page ...*/
+/* Titre à droite des sous-pages*/
+div#titre{
+	width: 82%;
+	font-size: .9em;
+	color: #000000;
+	font-weight: bold;
+	padding-bottom: .4em;
+}
+/* Aide à gauche des sous-pages*/
+div#titre_aide{
+	float: right;
+	width: 15%;
+	font-size: .7em;
+	padding-bottom: .4em;
+}
+
+/* Fin pour template sous-page ...*/
+
+div.ligne_coul {
+  border-bottom: 1px solid #C03360;
+}
+
+
+/* ZONE CONTENU */
+/*  {*défini le contenu .. *} */
+div#contenu {
+	font-size:12px;
+	color: #000066;
+	font-style: normal;
+}
+
+
+.NumPageGras{
+	color: #C03360; /*color: #000066;*/
+	font-weight: bold;
+}
+
+
+/* Texte Noir  Gras */
+.TextenoirGras{
+	color: #000066;
+	font-weight: bold;
+}
+
+
+
+/*Texte Noir Réduit en taille */
+.TextenoirR{
+	/*font-size: .8em; */
+	font-size:10px; 
+	color: #000000 
+}
+ 
+
+
+/*----- ROUGE ---------------*/
+.TexterougeGras {
+	color:#FF0000;
+	font-weight : bold
+}
+
+.Texterouge {
+	color:#FF0000;
+}
+
+.TexterougeR {
+	color:#FF0000;
+	/*font-size: .8em; */
+	font-size:10px;
+}
+
+/*----- Vert ---------------*/
+.TextevertGras {
+	color: Green;
+	font-weight : bold
+}
+/*----- / Vert ---------------*/
+
+/*----- Bleu ---------------*/
+.TextebleuGras {
+	color: Blue;
+	font-weight: bold;
+}
+/*-----  / Bleu ---------------*/
+
+/* Affichage texte EN POSITION  */
+.centre-txt{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+
+.aff_droite-txt {
+	margin-left: 30%;
+	text-align: right;
+}
+
+/* FIN Affichage texte  EN POSITION */
+
+.LigneRight {
+	font-size: 12px;
+	color: #000066;
+	text-align: right;
+} 
+
+/*Ligne gris clair TITRE de Colonne*/
+.LignegrisC {
+	/*font-size: .9em;*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+} 
+
+.LignegrisRight {
+	/*font-size: .9em;*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+	text-align: right;
+} 
+
+.LignegrisRight_Oblig {
+	/*font-size: .8em;*/
+	font-size: 12px;
+	color: Red;
+	background-color: #F4F4F4;
+	text-align: right;	
+}
+
+/* Idem mais centrée*/
+.LignegrisC_Center {
+	font-size: 12px; /*font-size: 1em;*/
+	color: #000066;
+	background-color: #F4F4F4;
+	text-align: center;
+} 
+
+/*Lingne gris clair TITRE de Colonne Mais Rouge saisie Obligatoire*/
+.LignegrisC_Oblig {
+	/*font-size: .8em;*/
+	font-size: 12px;
+	color: Red;
+	background-color: #F4F4F4;
+}
+
+
+
+
+
+.Lignegris_pad2 {
+	font-size:12px;
+	/*font-size: 1em;*/
+	color: #000066;
+	background-color: #E7E7E7;
+	padding-left: 2em;
+} 
+
+.Lignegris_pad1 {
+	font-size:12px;
+	/*font-size: 1em;*/
+	color: #000066;
+	background-color: #E7E7E7;
+	padding-left: 1em;
+} 
+
+
+/* Titre des pages */
+.AfficheTitre{
+	font-size:14px;
+	/*font-size: 1em;*/
+	font-weight : bold;
+	font-style: italic;
+	color: #000000;
+}
+
+
+.AfficheTitre14{
+font-size:14px;
+font-weight : bold;
+font-style: italic;
+color: #000000;
+}
+
+/* ----  */
+
+
+
+/* Boutons */
+input.submit_ok
+{
+display: none;
+}
+
+/** Pour  remplacer le bouton*/
+.submit_ok
+{
+display: none;
+}
+
+input.submit_ok_hover  {
+display: none;
+}
+
+input.submit_del
+{
+display: none;
+}
+
+/** Pour  remplacer le bouton*/
+.submit_del
+{
+display: none;
+}
+
+input.submit_del_hover
+{
+display: none;
+}
+
+
+
+input.submit_nul
+{
+display: none;
+}
+
+/** Pour  remplacer le bouton*/
+.submit_nul
+{
+display: none;
+}
+
+input.submit_nul_hover  {
+display: none;
+}
+   
+
+	
+/* FIN Boutons */
+
+
+/* Message d'erreur*/
+#erreur-box {
+	color: #FF0000;
+	border-color: #FFDDDD;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight : bold;
+
+}
+
+#erreur-box-vide {
+	/*color: #FF0000;*/
+	border-color: #F7FCF3; /*IDEM fond #centre_page  */
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight: bold;
+
+}
+
+/* affiche message erreur dans fomulaire*/
+.erreur-Jaunerouge {
+	background-color: Yellow;
+	color:#FF0000;
+
+}
+
+#alert-box {
+	/*color: #FF0000; */
+	border-color: #FFDDDD;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight: bold;
+}
+
+/* FIN Message d'erreur*/
+
+/*  Pour la recheche filtre */
+
+#listfilter {
+	text-align: center;
+	background-color: #E7E7E7;
+	padding: 10px;
+	border: 1px solid #C03360;
+	margin-bottom: 10px;
+}
+
+#listfilter form {
+	margin-bottom: 0px;
+}
+
+#listfilterleft {
+	background-color: #E7E7E7;
+	padding: 10px;
+	border: 1px solid #C03360;
+	margin-bottom: 10px;
+}
+
+/* FIN Pour la recherche filtre */
+
+/* FIN ZONE CONTENU */
+
+#entour_select {
+	background-color: #E7E7E7;
+	padding: 5px;
+	border: 1px solid #C03360;
+	margin: 0px  150px  10px  150px ;
+}
+
+
+
+/* les champs du formulaire*/
+/* --------------------------------*/
+/*la zone input*/
+input{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#000000;
+font-size:12px;
+border:1px;
+border-color:#39597D;
+border-style:solid;
+}
+
+/*la zone texte*/
+
+textarea{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#000000;
+font-size:12px;
+border:1px;
+border-color:#39597D;
+border-style:solid;
+}
+
+/*les coches et bouton radio selectionné*/
+input.select{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #000000;
+font-size: 12px;
+border: 1px;
+border-color: #39597D;
+border-style: solid;
+}
+
+/* + POUR IE + */
+.checkbox {
+border: 0;
+
+}
+
+/* les cases à cocher Pour version 2*/
+input.radio{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: Maroon;
+font-size: xx-small;
+border: 1px;
+border-style: solid;
+}
+
+/* FIN  les champs du formulaire*/
+/* --------------------------------*/

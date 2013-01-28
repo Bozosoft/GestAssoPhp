@@ -1,0 +1,675 @@
+/**
+ * Projet : gestassophp_sa [GestAssoPhp+Pg]
+ * ---------------------------
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Auteur original : Jean-Claude Etiemble
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * ---------------------------
+ *	
+ * @author : JC Etiemble - http://jc.etiemble.free.fr
+ * @version :  2013
+ * @copyright 2007-2013  (c) JC Etiemble
+ * @package   GestAssoPhp+Pg
+ */
+ 
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/js/
+ *   Fichier :
+ *   feuille de style POUR ECRAN
+*/
+
+
+body{
+background-color: #FFFFFF;
+font-family: Verdana,Arial, Helvetica, sans-serif;
+}
+
+/* Links */
+
+a {
+	color: #0002CA;
+	text-decoration: none;
+	background: inherit;
+}
+a:hover {
+	color: #113D8D;
+	background-color: #C8C8C8; /*#898989*/
+	text-decoration: underline;
+}
+
+/*Suprimme la bordure bleue de images*/
+a img {border: none;} 
+
+
+/* menu spé*/
+/*bande de fond */
+ul#tabnav {
+	font-weight: bold;
+	color: #fff;
+	list-style-type: none;
+	padding-bottom: 24px;
+	border-bottom: 1px solid #C03360; /*#6c6; */
+	margin: 0px; /*haut */
+
+}
+
+/* menu non actif */
+ul#tabnav li {
+	color: #fff;
+	float: left;
+	height: 21px;
+	background-color: #C8C8C8;
+	margin: 2px 2px 0 2px; /* . entre 2 . . */
+	border: 1px solid #C03360;
+	padding: 0 5px 0 5px;
+}
+
+/* */
+ul#tabnav li.active {
+   color: #fff;
+   border-bottom: 1px solid #fff;
+	background-color: #C03360;
+
+}
+
+/* menu actif de la page */
+ul#tabnav li.active a {
+    color: #fff;
+    background-color: #C03360; /*#cfc;*/
+
+}
+
+#tabnav a {
+	float: left;
+	display: block;
+	color: White;
+	text-decoration: none;
+	padding: 2px;
+}
+
+#tabnav a:hover { 
+	color: #0000ff;
+   background: #fff;
+}
+
+
+
+/* pour template page_index.tpl*/
+/*Pour la page index Menu gauche */
+
+
+.menu_page {
+	font-size: .8em;
+	width: 13em;
+	border-color: #C03360; /*#E1E1E1; */
+	border-width: 1px;
+	border-style: solid;
+	margin-bottom: 10px;
+	margin-left: .2em;
+}
+
+.menu_page h1 {
+	margin: .1em;
+	font-size: .9em;
+	color : #FFFFFF;
+	background-color: #C03360;/*#E1E1E1;*/
+	padding-left: .1em;
+}
+
+.menu_page ul {
+	list-style-type: none;
+	margin: .1em;
+	padding: 0px;
+	border: none;
+}
+
+.menu_page li {
+	background-color: #F4F4F4;
+	margin-bottom: .2em;
+	padding-left: .5em;
+}	
+
+
+/* Pour la page index Gabarit de page*/
+/*{*défini la page extérieure *} */
+#conteneur_page {
+position: absolute;
+width: 98%;
+/*width:850px;
+margin:0 auto;*/
+background-color:#FFFFFF;
+border: 1px solid #C03360;
+}
+
+/* {*défini le bandeau haut  et éventuellement du logo*}   ****ATTENTION**** MODIFIER AUSSI le fichier  /js/style_print.css   */
+#header_page {
+font-size: 1em;
+font-weight: bold;
+text-align:center;
+padding-top: .5em;
+height: 1.5em; /* 1.5em  - Hauteur  du Header  - A modifier en fonction de la hauteur du logo*/
+text-indent: 1.5em; /* 1.5em  - Position  du texte à partir de la gauche  - A modifier en fonction de la largeur du logo*/
+background: #F4F4F4 url(../images/logo/logo_asso.jpg) no-repeat 0 1px; /*Couleur du fond et image  du logo*/
+}
+
+/* {*défini les infos .. *} */
+#centre_page {
+	background-color: #F7FCF3;
+	margin-left: 11.5em;
+	margin-right: 1em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+/* {*défini les menus gauche *} */
+#gauche_page {
+
+float:left;
+width: 10em;
+background-color:#FFFFFF;
+/* IE6
+position: absolute;
+left:0;
+width: 10em;
+background-color:#FFFFFF;
+*/
+}
+
+
+
+/* {*défini le pied de page *}*/
+#pied_page {
+font-size : .7em;
+color: #000000;
+padding-top: .5em;
+text-align:center;
+clear:both;
+height: 2em;
+background-color: #F4F4F4;
+}
+
+/* Fin pour template page_index.tpl*/
+
+/* pour template sous-page ...*/
+/* Titre à droite des sous-pages*/
+div#titre{
+	width: 82%;
+	font-size: .9em;
+	color: #000000;
+	font-weight: bold;
+	padding-bottom: .4em;
+}
+/* Aide à gauche des sous-pages*/
+div#titre_aide{
+	float: right;
+	width: 15%;
+	font-size: .7em;
+	padding-bottom: .4em;
+}
+
+/* Fin pour template sous-page ...*/
+
+div.ligne_coul {
+  border-bottom: 1px solid #C03360;
+}
+
+
+/* ZONE CONTENU */
+/*  {*défini le contenu .. *} */
+div#contenu {
+	/*font-size: .8em;*/
+	font-size:12px;
+	/*color: #000000 /* Texte Noir   */
+	color: #000066;
+	font-style: normal;
+}
+
+
+.NumPageGras{
+	color: #C03360; /*color: #000066;*/
+	font-weight: bold;
+}
+
+
+/* Texte Noir  Gras */
+.TextenoirGras{
+	color: #000066;
+	font-weight: bold;
+}
+
+
+
+/*Texte Noir Réduit en taille */
+.TextenoirR{
+	/*font-size: .8em; */
+	font-size:10px; 
+	color: #000000 
+}
+ 
+
+
+/*----- ROUGE ---------------*/
+.TexterougeGras {
+	color:#FF0000;
+	font-weight : bold
+}
+
+.Texterouge {
+	color:#FF0000;
+}
+
+.TexterougeR {
+	color:#FF0000;
+	/*font-size: .8em; */
+	font-size:10px;
+}
+
+/*----- Vert ---------------*/
+.TextevertGras {
+	color: Green;
+	font-weight : bold
+}
+/*----- / Vert ---------------*/
+
+/*----- Bleu ---------------*/
+.TextebleuGras {
+	color: Blue;
+	font-weight: bold;
+}
+/*-----  / Bleu ---------------*/
+
+/* Affichage texte EN POSITION  */
+.centre-txt{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+
+.aff_droite-txt {
+	margin-left: 30%;
+	text-align: right;
+}
+
+/* FIN Affichage texte  EN POSITION */
+
+.LigneRight {
+	font-size: 12px;
+	color: #000066;
+	text-align: right;
+} 
+
+
+/*Ligne gris clair TITRE de Colonne*/
+.LignegrisC {
+	/*font-size: .9em;*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+} 
+
+.LignegrisRight {
+	/*font-size: .9em;*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+	text-align: right;
+} 
+
+.LignegrisRight_Oblig {
+	/*font-size: .8em;*/
+	font-size: 12px;
+	color: Red;
+	background-color: #F4F4F4;
+	text-align: right;	
+}
+
+/* Idem mais centrée*/
+.LignegrisC_Center {
+	font-size: 12px; /*font-size: 1em;*/
+	color: #000066;
+	background-color: #F4F4F4;
+	text-align: center;
+} 
+
+/*Lingne gris clair TITRE de Colonne Mais Rouge saisie Obligatoire*/
+.LignegrisC_Oblig {
+	/*font-size: .8em;*/
+	font-size: 12px;
+	color: Red;
+	background-color: #F4F4F4;
+}
+
+
+
+/* Couleur des lignes pour affichage des données 1 fois sur 2 dans les tableaux*/
+/*
+.Lignegris {
+	font-size:12px;
+	color: #000066;
+	background-color: #E7E7E7;
+} 
+*/
+
+.Lignegris0 {
+	/*font-size: .8em;*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #E7E7E7
+}  /* gris clair */
+
+.Lignegris1 {
+	/*font-size: .8em;*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #D4DDDD
+}  /*gris + foncé */
+
+
+.Lignegris_pad2 {
+	font-size:12px;
+	/*font-size: 1em;*/
+	color: #000066;
+	background-color: #E7E7E7;
+	padding-left: 2em;
+} 
+
+.Lignegris_pad1 {
+	font-size:12px;
+	/*font-size: 1em;*/
+	color: #000066;
+	background-color: #E7E7E7;
+	padding-left: 1em;
+} 
+
+
+/* Titre des pages */
+.AfficheTitre{
+	font-size:14px;
+	/*font-size: 1em;*/
+	font-weight : bold;
+	font-style: italic;
+	color: #000000;
+}
+
+
+.AfficheTitre14{
+font-size:14px;
+font-weight : bold;
+font-style: italic;
+color: #000000;
+}
+
+/* ----  */
+
+
+
+/* Boutons */
+input.submit_ok
+{
+	background-color: #F7F7F7;
+	/*font-size: 1em;*/
+	font-size:12px;
+	font-weight: bold;
+	color: #0002CA ; /* Teal; */
+	border: 1px solid #C03360;
+	margin: 1px;
+	padding: 0 2px 0 2px;
+	cursor: pointer;
+}
+
+/** Pour  remplacer le bouton*/
+.submit_ok
+{
+	background-color: #F7F7F7; /*font-size: 1em;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: #0002CA;
+	border: 1px solid #C03360;
+	margin: 1px;
+	cursor: pointer;
+	padding: 0 2px 0 2px;
+	text-decoration: none;
+}
+
+input.submit_ok_hover  {
+	background-color: #E2E2E2;
+	/*font-size: 1em;*/
+	font-size:12px;
+	font-weight: bold;
+	color: #29814F;
+	border: 1px solid #C03360;
+	margin: 1px;
+	cursor: pointer;
+}
+
+input.submit_del
+{
+	background-color: #F7F7F7; /*font-size: 1em;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: Red;
+	border: 1px solid #C03360;
+	margin: 1px;
+	padding: 0 2px 0 2px;
+	cursor: pointer;
+}
+
+/** Pour  remplacer le bouton*/
+.submit_del
+{
+	background-color: #F7F7F7; /*font-size: 1em;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: Red;
+	border: 1px solid #C03360;
+	/*margin: 1px;*/
+	cursor: pointer;
+	padding: 0 2px 0 2px;
+	text-decoration: none;	
+}
+
+input.submit_del_hover
+{
+	background-color: #E2E2E2; /*font-size: 1em;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: Red;
+	border: 1px solid #C03360;
+	margin: 1px;
+	cursor: pointer;
+}
+
+
+
+input.submit_nul
+{
+	background-color: #F7F7F7; /*font-size: 1em;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: Teal;
+	border: 1px solid #C03360;
+	margin: 1px;
+	padding: 0 2px 0 2px;
+	cursor: pointer;
+}
+
+/** Pour  remplacer le bouton*/
+.submit_nul
+{
+	background-color: #EDEDED; /*font-size: 1em;*/
+	font-size: 12px;
+	font-weight: bold;
+	color: #9D93D0;
+	border: 1px solid #C03360; /*margin: 1px;*/
+	cursor: pointer;
+    padding: 1px ;
+	padding: 0 2px 0 2px; 
+	text-decoration: none;
+}
+
+input.submit_nul_hover  {
+	background-color: #E2E2E2;
+	/*font-size: 1em;*/
+	font-size:12px;
+	font-weight: bold;
+	color: Black;
+	border: 1px solid #C03360;
+	margin: 1px;
+	
+	cursor: pointer;
+}
+   
+
+	
+/* FIN Boutons */
+
+
+/*Pour le login pass dans Index*/
+.login-box
+{
+	/*font-size: .9em;*/
+	font-size: 12px;
+	width: 40em;
+	/*border: 1px solid #BBBBBB;*/
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 0px 10px 10px 10px;
+}
+
+.login-box th
+{
+	text-align: right;
+}
+
+/* FIN Pour le login*/
+
+/* Message d'erreur*/
+#erreur-box {
+	color: #FF0000;
+	border-color: #FFDDDD;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight : bold;
+
+}
+
+#erreur-box-vide {
+	/*color: #FF0000;*/
+	border-color: #F7FCF3; /*IDEM fond #centre_page  */
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight: bold;
+
+}
+
+#alert-box {
+	/*color: #FF0000; */
+	border-color: #FFDDDD;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight: bold;
+}
+
+
+/* affiche message erreur dans fomulaire*/
+.erreur-Jaunerouge {
+	background-color: Yellow;
+	color:#FF0000;
+
+}
+/* FIN Message d'erreur*/
+
+/*  Pour la recheche filtre */
+
+#listfilter {
+	text-align: center;
+	background-color: #E7E7E7;
+	padding: 10px;
+	border: 1px solid #C03360;
+	margin-bottom: 10px;
+}
+
+#listfilter form {
+	margin-bottom: 0px;
+}
+
+#listfilterleft {
+	background-color: #E7E7E7;
+	padding: 10px;
+	border: 1px solid #C03360;
+	margin-bottom: 10px;
+}
+
+/* FIN Pour la recherche filtre */
+
+/* FIN ZONE CONTENU */
+
+
+#entour_select {
+	background-color: #E7E7E7;
+	padding: 5px;
+	border: 1px solid #C03360;
+	margin: 0px  150px  10px  150px ;
+}
+
+
+
+/* les champs du formulaire*/
+/* --------------------------------*/
+/*la zone input*/
+input{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#000000;
+font-size:12px;
+border:1px;
+border-color:#39597D;
+border-style:solid;
+}
+
+/*la zone texte*/
+
+textarea{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#000000;
+font-size:12px;
+border:1px;
+border-color:#39597D;
+border-style:solid;
+}
+
+/*les coches et bouton radio selectionné*/
+input.select{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: #000000;
+font-size: 12px;
+border: 1px;
+border-color: #39597D;
+border-style: solid;
+}
+
+/* + POUR IE + */
+.checkbox {
+border: 0;
+
+}
+
+/* les cases à cocher Pour version 2*/
+input.radio{
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color: Maroon;
+font-size: xx-small;
+border: 1px;
+border-style: solid;
+}
+
+/* FIN  les champs du formulaire*/
+/* --------------------------------*/
