@@ -1,0 +1,7 @@
+
+http://adodb.sourceforge.net/ 
+
+
+02/07/2012 -> adodb517.tgz du 2012-05-17 adodb-517-for-php5
+
+30/05/2010 -> adodb511.tgz du 2010-05-10
