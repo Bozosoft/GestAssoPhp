@@ -1,0 +1,180 @@
+/**
+ * Projet : gestassophp_sa [GestAssoPhp+Pg]
+ * ---------------------------
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Auteur original : Jean-Claude Etiemble
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * ---------------------------
+ *	
+ * @author : JC Etiemble - http://jc.etiemble.free.fr
+ * @version :  2013
+ * @copyright 2007-2013  (c) JC Etiemble
+ * @package   GestAssoPhp+Pg
+ */
+
+
+Conditions requises pour installer et gérer
+*******************************************
+L'ensemble de ces connaissances et savoirs-faire 
+------------------------------------------------
+hébergement WEB (nom de domaine, gestion hébergement, ....) 
+serveurs web (logs, URLs...) 
+administration à distance (FTP, chmod, ...) 
+bases de données (création, sauvegarde, restauration...)
+Eventuellement
+-------------
+contenus web (xHTML, CSS, images, ...) 
+Connaitre PHP, Smarty et adodb
+
+
+Configuration nécessaire
+************************
+Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
+ un accès FTP pour l'installation des fichiers, 
+le support de PHP 5.1.x (normalement pour Smarty PHP 5.2)  ou supérieur avec le support des sessions,
+ un accès à une base de données MySQL version 5 minimum.
+ou
+ un accès à une base de données PostgreSQL version 7 ou plus
+
+
+Vous devez connaître les données de votre connexion MySQL ou PostgreSQL : 
+- l'adresse du serveur MySQL ou PostgreSQL ->si vous êtes en local 'localhost'  
+- votre login MySQL ou PostgreSQL, 
+- votre password MySQL ou PostgreSQL, 
+- le nom de la base de données
+- un préfix est prévu lors de l'installation de la base de données (par défaut = gs_)
+
+
+NOTA installation en local sous WAMP ou EsayPhp ou ...
+Vérfier ou mofifier la configuration dans le php.ini
+; Error handling and logging ;
+; Production Value: E_ALL & ~E_DEPRECATED
+error_reporting = E_ALL & ~E_DEPRECATED
+
+[Date]
+date.timezone = Europe/Paris
+
+
+
+A - INSTALLATION NOUVELLE
+-------------------------
+1. Vous avez récupérer l'archive gestion_saxx.tar.bz2
+
+2. Créer un dossier "gestion_sa" ou donner lui le nom que vous voulez 
+
+3. Copier dans le dossier "gestion_sa" le contenu de l'archive
+Vous devez avoir :
+- un dossier \gestassophp_sa (les fichiers du système [GestAssoPhp+Pg]) (voir note 1)
+- un dossier \lib 
+	- smarty (système de template)
+	- adodb (système de bibliothèque d'abstraction destinée à communiquer avec différents systèmes de gestion de base de données)
+- un fichier fileloc_gestasso_sa.php
+- un fichier index.html avec lien vers gestassophp_sa/index.php (pour information A modier ou suppimer)
+
+
+NOTE :
+-----
+- Le nom du dossier "gestion_sa" peut être changé.
+
+Note 1 - IMPORTANT
+- Le nom du dossier "gestassophp_sa" peut être changé à condition de changer 
+   - la ligne 17 du fichier fileloc_gestasso_sa.php :   define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');
+- Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier \gestassophp_sa\config\lang.php
+
+
+POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
+- Suivant votre serveur modifiez le fichier \admin\export_bd.php
+NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à renommer en export_bd.php
+----------------------------------------------------------------------------------------------------
+
+// ATTENTION  suivant serveur les lignes suivantes doivent être commentées ou supprimées// // supprimer les lignes suivantes car ouvre plusieurs connexion chez Free.fr				
+			$link = '';	
+			$pgsql_conn = pg_connect(" dbname=".NOM_BD." host=".SERVEUR_BD." user=".NOMUTILISATEUR_BD." password=".MOTPASSE_BD." ");
+				if ($pgsql_conn) {
+					$link = pg_port($pgsql_conn); //			$link = '5432';	
+				}	
+		
+// // Fin de supprimer les lignes
+
+
+
+4. Envoyer les fichiers en FTP sur votre site.
+
+
+5. Vérifications
+---------------- 
+il est nécessaire d'accorder des permissions à certains répertoires, de manière à ce que PHP ait les droits en écriture sur :
+	\gestassophp_sa\config 		pour le répertoire de configuration - uniquement lors de l'installation
+	\gestassophp_sa\install 		pour les fichiers d'installation - uniquement lors de l'installation
+
+	\gestassophp_sa\fichiersadht 	pour les fichiers des adhérents
+	\gestassophp_sa\photos  		pour les Photos des adhérents
+ 	\gestassophp_sa\temp 		pour l'écriture des fichiers des templates 
+	\gestassophp_sa\temp\templates_c pour l'écriture des fichiers des templates
+
+
+6. Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_sa/gestassophp_sa/install) 
+	
+Etapes de l'installation
+------------------------
+Etape 1 : Vérification de la configuration PHP et des permissions des répertoires.
+Etape 2 : Information sur la base de données.
+Etape 3 : Création du fichier de configuration et la base de données
+Etape 4 : Création des informations de connexion
+Etape 5 : Fin de la configuration-installation - lien vers la gestion_sa (http://votreserveur/gestion_sa/gestassophp_sa)
+
+Supprimer ou renommer le dossier /install par mesure de sécurité
+Changez les permissions 
+		- à 755 sur le répertoire \gestassophp_sa\config 
+		- à 644 ou 444 sur le fichier \gestassophp_sa\config\connexion.cfg.php
+
+Avant votre première connexion à l'espace, supprimer ou renommer le répertoire /install
+
+
+7. Connectez-vous à GestAssoPhp+Pg (ex : http://votreserveur/gestion_sa/gestassophp_sa)
+Compléter vos informations personnelles.
+Vous pourrez modifier "Les préférences association" dans le menu Administration / Préférences,
+Une fois ces quelques informations de configuration fournies, GestAssoPhp+Pg sera totalement installé,
+et vous pourrez commencer à travailler.
+
+
+8. Vous pouvez ajuster : 
+- les couleurs et autres paramètres d'affichage, 
+- le logo Association en haut à gauche ( fichier dans le dossier \images\logo\logo_asso.jpg),
+en modifiant les feuilles de Styles style_print.css (pour impression) et style_screen.css (pour affichage à l'écran) du dossier /gestassophp_sa/js.
+
+
+Merci de faire apparaître le contrat de licence et d'afficher un lien vers http://gestassophp.xtreemhost.com/  comme prévu dans la lience.
+
+
+NOTA :
+Si vous désirez faire une mise à jour utiliser les fichiers de mise à jour de la page téléchargement : diff6xxx_6xxx_gestassophp_s.tar.bz2
+
+
+
+B - MISE A JOUR DEPUIS UNE VERSION 5.x (mini 5.3) 
+CONSULTER le fichier maj_lire.txt
+
+
+NOTA pour faire la mise à jour d'une 6.xxx
+-------------------------------------------------------------------
+pour la mise à jour pendre les précautions d'usage
+1- Faire une sauvegarde de la base de données : 
+- Sauvegarder la structure et les données des tables
+- sauvegarde des données des dossiers
+	\gestassophp_s\fichiersadht     pour les fichiers des adhérents
+	\gestassophp_s\photos          pour les Photos des adhérents
+	\config\lang.php si modification
+	\config\connexion.cfg.php
+- éventuellement vos autres données et sytles si personnalisés
+
+2- envoyer les nouveaux fichiers de l'archive version 6.x en FTP 
+3- Se loguer en mode administrateur (niveau 9)
+
+
+
+
+
+----------------------
+Mise à jour 11/10/2012
+

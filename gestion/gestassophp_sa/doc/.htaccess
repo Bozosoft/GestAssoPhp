@@ -1,0 +1,12 @@
+
+# -------------------
+<Files Changelog.txt>
+order allow,deny
+deny from all
+</Files>
+
+
+<Files lisez_moi.txt>
+order allow,deny
+deny from all
+</Files>
