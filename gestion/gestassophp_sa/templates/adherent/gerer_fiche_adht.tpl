@@ -70,9 +70,9 @@
 			{if $data_adherent.telecopie_adht} {language name=fiche_adht_fax}<br />{/if}
 			{if $data_adherent.email_adht} {language name=fiche_adht_mail} 
 				{if $priorite_adht > 4}  {* Ajout FONCTION MAIL*}
-				<a href="remplir_message_adht.php?id_adht={$id_adht}"><img src="../images/icones16/i_mail.png" width="16" height="11" alt="" title="{language name=visu_fiche_adht_mail_title}"/></a> {$resultat_mail}<br />
+				<a href="remplir_message_adht.php?id_adht={$id_adht}"><img src="../images/icones16/i_mail.png" width="16" height="11" alt="" title="{language name=visu_fiche_adht_mail_title}"/></a> {$resultat_mail}
 				{/if}
-			{/if}
+			{/if}<br />
 			{if $data_adherent.siteweb_adht} {language name=fiche_adht_web}<br />{/if} 
 			{if $data_adherent.datenaisance_adht <> ""}{language name=tpl_adht_datenais}<br />{/if}
 
