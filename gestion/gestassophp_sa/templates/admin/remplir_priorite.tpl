@@ -10,7 +10,6 @@
 	    <form method="post" name="maform" action="remplir_priorite.php">
     	<table width="100%" summary="priorité">
 		<tr> 
-            <td>&nbsp;</td>
 			<td>&nbsp;{$message}</td>
 			<td>&nbsp;</td>				
         </tr>		
@@ -28,7 +27,7 @@
 
 		
 		<tr>
-			<td align="center" colspan="3">
+			<td align="center" colspan="2">
 			<input type="submit" class="submit_ok" name="Valider" value="{language name=tpl_valid_button}"  title="{language name=tpl_valid_button_title}"/>
 			<input type="hidden" name="valid" value="validation"/>
 			</td>
