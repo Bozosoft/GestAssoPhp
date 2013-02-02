@@ -102,7 +102,7 @@
 	<div class="aff_droite-txt">{language name=tpl_pages}<span class="NumPageGras">
 					{section name=pageLoop start=1 loop=$nb_pages}
 					{if $smarty.section.pageLoop.index eq $numpage}{$smarty.section.pageLoop.index}
-					{else}<a href="remplir_item_priorite.php?numpage_affiche={$smarty.section.pageLoop.index}" title="{language name=tpl_go_pages}">{$smarty.section.pageLoop.index}</a>
+					{else}<a href="remplir_priorite.php?numpage_affiche={$smarty.section.pageLoop.index}" title="{language name=tpl_go_pages}">{$smarty.section.pageLoop.index}</a>
 					{/if}
 					{/section}</span>
 	</div>	
