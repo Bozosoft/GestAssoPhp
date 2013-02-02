@@ -1,4 +1,4 @@
-gestassophp
+GestAssoPhp
 ===========
 
 Une gestion en ligne développée en  PHP et MySq/PostrgreSql  
