@@ -472,7 +472,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=Nom Prénom 
-		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES);
+		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES, 'iso-8859-1');
     }		
 	// FINPour affichage de la liste  Nom Prénom  //   qui a enregistré la fiche 
 	
