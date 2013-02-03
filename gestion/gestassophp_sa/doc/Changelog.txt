@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
  * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
@@ -15,6 +15,7 @@
 
 6.1.02 xx/xx2013
 ---------------
+- Correction sur l'affichage des Noms-prénoms (PHP 5.4) "Fiche enregistrée par" dans remplir_infogene_adht.php
 - Modification sur affichage adresse mail (saut de ligne) gerer_fiche_adht.tpl
 - Correction tableau priorité sur remplir_priorite.tpl
 - Correction UFT8 sur adherent/remplir_fichier_adht.php + liste_cotisations_adht.php $affiche_message =' N° ' => $affiche_message =' N&deg; '
