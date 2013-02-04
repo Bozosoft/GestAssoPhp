@@ -497,13 +497,13 @@ $pas = $logpass[1];
 	}
 
 	// Requette Pour affichage de la liste  types de cotisation
-	$req_list_typecotis = "SELECT id_type_cotisation,nom_type_cotisation FROM ".TABLE_TYPE_COTISATIONS;	
+	$req_list_typecotis = "SELECT id_type_cotisation,nom_type_cotisation,montant_cotisation FROM ".TABLE_TYPE_COTISATIONS;	
 	$dbresult = $db->Execute($req_list_typecotis);	
     $tab_nomcotis = array('' => (_LANG_ARRAY_SELECTIONNEZ_TYPE));// ligne affichée si vide
 
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=nom_type_cotisation
-		$tab_nomcotis[$row['id_type_cotisation']] =	htmlentities(stripslashes($row['nom_type_cotisation']),ENT_QUOTES, 'iso-8859-1');	
+		$tab_nomcotis[$row['id_type_cotisation']] =	htmlentities(stripslashes($row['nom_type_cotisation']),ENT_QUOTES, 'iso-8859-1').' - '.$row['montant_cotisation'];	
     }
 
 //***** FIN pour Affichage des Nom-Prénoms bénévoles et types de cotisation		
