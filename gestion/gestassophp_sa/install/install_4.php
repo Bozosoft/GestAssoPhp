@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
+ * ENCODAGE UTF-8 sans BOM
 */
 
 
@@ -48,7 +49,7 @@
 	$masession = new sessions(); // -->la classe session
 		//Gestion erreur retour arrière depuis page 5
 		if ( isset($_SESSION['id_install2']) && $_SESSION['id_install2'] == '1') {
-			$texterreurretour_ar = 'Opération retour arrière INTERDITE !';
+			$texterreurretour_ar = 'Op&eacute;ration retour arri&egrave;re INTERDITE !';
 			header('location: install_5.php?id_adht=1&e_rar='.$texterreurretour_ar);
 					exit;
 		}
@@ -63,7 +64,7 @@
 				$erreur_saisie ['login'] = 'Indiquez un login';
 			} else {
 				if (is_valid_mylogin($adherent['login_adht']) ==  false) {	
-					$erreur_saisie ['login'] ='Login entre 4 et 20 caractères ou caractères invalides !';
+					$erreur_saisie ['login'] ='Login entre 4 et 20 caract&egrave;res ou caract&egrave;res invalides !';
 				} else {
 					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	 ou Majuscules+Minuscules
 				}		
@@ -82,7 +83,7 @@
 	    if ( ($adherent['pass_adht1'] !='' && $adherent['pass_adht2'] !='')  ) {
 			if ($adherent['pass_adht1'] == $adherent['pass_adht2']) { // si les 2 mots de psse sont identiques
 				if (is_valid_mypasswd($adherent['pass_adht2']) ==  false) {						
-					$erreur_saisie ['mdp'] = 'Mot de passe entre 4 et 10 caractères ou caractères invalides !';
+					$erreur_saisie ['mdp'] = 'Mot de passe entre 4 et 10 caract&egrave;res ou caract&egrave;res invalides !';
 					// verification lettre-chiffre ET  Nb caractéres ente 4 et 10 
 				} else {
 					// Modif POUR adminsalt Nouvelle installation à compter de la 5.2.0
@@ -102,7 +103,7 @@
 			}		
 		$adherent['prenom_adht']= stripslashes(get_post_variable('prenom_adht',''));
 			if ($adherent['prenom_adht'] =='') {
-				$erreur_saisie ['pnom'] = 'Indiquez le Prénom';
+				$erreur_saisie ['pnom'] = 'Indiquez le Pr&eacute;nom';
 			}			
 					
 		// TABLES définir les noms	
@@ -117,7 +118,7 @@
 				$adherent['prenom_adht']= addslashes($adherent['prenom_adht']); // ajoute \ si on a fait une erreur					
 		// Connexion à la  base données			
 			$db = ADONewConnection(TYPE_BD); //crée une connexion  Strict Standards: Only variables should be assigned by reference SUPRESSION de & devant &ADONewConnection
-				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("Sélection de la base de donnée impossible !!!");	
+				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	
 			//Pour Postgres, charset to iso-8859-1 (LATIN1)
 				if ( TYPE_BD == 'postgres' ) {		
 					$db->SetCharSet('LATIN1');
@@ -161,7 +162,7 @@
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
 	$tpl->assign('version',VERSION_I); // Version de Gestasso		
-	$tpl->assign('messagetitre','Création des information de connexion'); // titre de la  page
+	$tpl->assign('messagetitre','Cr&eacute;ation des information de connexion'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','Etape 2 - OK'); // menu	
 	$tpl->assign('Etape3','Etape 3 - OK'); // menu	

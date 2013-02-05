@@ -25,7 +25,7 @@ INSERT INTO gs_preference_asso (id_pref, design_pref, val_pref) VALUES
 (6, 'adherent_bene', 'Utilisateur'),
 (7, '_lang_fiche_adht_ant', 'Section'),
 #-- 8, réservé   
-(9, 'jma_fin_cotis','31/12/2012'); 
+(9, 'jma_fin_cotis','31/12/2013'); 
   
 #--
 #-- Contenu de la table gs_types_antennes

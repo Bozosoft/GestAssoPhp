@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp_s p2  version :  2010  copyright 2007-2010  (c) JC Etiemble *}
+ {* Installation de GestAssoPhp+Pg p2  version :  2010  copyright 2007-2010  (c) JC Etiemble *}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -16,30 +16,30 @@
 		</div>	
  {/if}	
 	<br />
-	<span class='TextenoirGras'>Créer une nouvelle base de données</span> 
-	<span class='TextenoirGras'>Vous disposez du support de base de données :<br />
+	<span class='TextenoirGras'>Cr&eacute;er une nouvelle base de donn&eacute;es</span> 
+	<span class='TextenoirGras'>Vous disposez du support de base de donn&eacute;es :<br />
 	- {$mysql_bd}<br />
     - {$pgsql_bd}  </span><br />
-	<span class='TextenoirGras'>Assurez vous que la base de données existe bien  !!!</span> <br />
-	<span class='erreur-Jaunerouge'>(Si vous réinstallez, sauvegarder les données !)</span><br />puis,
+	<span class='TextenoirGras'>Assurez vous que la base de donn&eacute;es existe bien  !!!</span> <br />
+	<span class='erreur-Jaunerouge'>(Si vous r&eacute;installez, sauvegarder les donn&eacute;es !)</span><br />puis,
 	<br />
-	compléter les champs suivants :
+	compl&eacute;ter les champs suivants :
 	<br /><br />
 	<form method="post" name="installation" action="install_2.php">	
 	<table width="98%" summary="informations générales">
 	
 		<tr>
-			<th class="LignegrisRight" width="45%">Type de base de données :</th>		
+			<th class="LignegrisRight" width="45%">Type de base de donn&eacute;es :</th>		
 			<td>
 			{html_options name="type_bd" options=$list_type_bd selected=$config_bd.type_bd title="Choix MySQL ou PostgreSQL "}	
 			</td>
 		</tr>
 		<tr>
-			<th class="LignegrisRight">Addresse du serveur de base de données :</th>		
+			<th class="LignegrisRight">Addresse du serveur de base de donn&eacute;es :</th>		
 			<td><input type="text" name="serveur_bd" id="serveur_bd" title="Exemple localhost " value="{$config_bd.serveur_bd}" size="32"  maxlength="50" tabindex="2"/></td>
 		</tr>
 		<tr>
-			<th class="LignegrisRight">Nom de la base de données :</th>		
+			<th class="LignegrisRight">Nom de la base de donn&eacute;es :</th>		
 			<td><input type="text" name="nom_bd" id="nom_bd" title="Exemple ma_bdase" value="{$config_bd.nom_bd}" size="32"  maxlength="50" tabindex="3"/></td>
 		</tr>
 		<tr>
@@ -56,7 +56,7 @@
 		</tr>		
 		
 		<tr>	
-			<th class="LignegrisRight">Attention coché <span class='erreur-Jaunerouge'>Effacement des tables</span> :</th>				
+			<th class="LignegrisRight">Attention coch&eacute; <span class='erreur-Jaunerouge'>Effacement des tables</span> :</th>				
 			<!--td><input type="checkbox" name="drop_bd" id="drop_bd" {if $config_bd.drop_bd == 'on'} checked="checked" {/if} title="Attention!" />
 			</td --> 
 				<td><input type="checkbox" name="drop_bd" id="drop_bd"  {if $config_bd.drop_bd == 'on'}  checked="$config_bd.drop_bd" {/if} title="Attention!" />

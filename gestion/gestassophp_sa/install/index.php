@@ -31,6 +31,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
+ * ENCODAGE UTF-8 sans BOM
 */
 
 
@@ -44,7 +45,7 @@
 	// Test si  fileloc existe
 	$fileloc = '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
 	if (!file_exists ($fileloc) ) {
-		echo "<span class='TexterougeGras'><br /><br /><br /><br />Vérifier votte installation.....<br /><br /> le fichier $fileloc est absent à la racine ... <span><br /><br /><br /><br />";
+		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le fichier $fileloc est absent à la racine ... <span><br /><br /><br /><br />";
 		exit;
 	}
 
@@ -54,7 +55,7 @@
 			$PHPVersion = phpversion();
 			if (phpversion() < $minPHPVersion) {
 				echo "<br /><br />Votre version PHP : $PHPVersion&nbsp;&nbsp;<span class='TexterougeGras'>- Donc Erreur : PHP $minPHPVersion minimum pour une fonctionnement normal.</span>";
-				echo "<br /><br /><br /><span class='TexterougeGras'>VERIFIER et MODIFIER Votre version PHP avant de continuer ...<br />Liser la FAQ ou contacter votre hébergeur !!</span><br /><br /></body></html>";
+				echo "<br /><br /><br /><span class='TexterougeGras'>VERIFIER et MODIFIER Votre version PHP avant de continuer ...<br />Liser la FAQ ou contacter votre h&eacute;bergeur !!</span><br /><br /></body></html>";
 				exit;
 			}
 //*******************************************************************	
@@ -62,12 +63,12 @@
 	// Test si  les libs existe
 	$libadodb = '../../lib/adodb'; // défintion du fichier pour définir  ROOT_DIR
 	if (!file_exists ($libadodb) ) {
-		echo "<span class='TexterougeGras'><br /><br /><br /><br />Vérifier votte installation.....<br /><br /> le dossier $libadodb est absent à la racine ... <span><br /><br /><br /><br />";
+		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le dossier $libadodb est absent &agrave; la racine ... <span><br /><br /><br /><br />";
 		exit;
 	}	
 	$libsmarty = '../../lib/smarty'; // défintion du fichier pour définir  ROOT_DIR
 	if (!file_exists ($libsmarty) ) {
-		echo "<span class='TexterougeGras'><br /><br /><br /><br />Vérifier votte installation.....<br /><br /> le dossier $libsmarty est absent à la racine ... <span><br /><br /><br /><br />";
+		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le dossier $libsmarty est absent &agrave; la racine ... <span><br /><br /><br /><br />";
 		exit;
 	}	
 	
@@ -83,11 +84,11 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-    <title>GestAssoPhp_s Installation : Etape 1</title>
+    <title>GestAssoPhp+Pg Installation : Etape 1</title>
     <meta http-equiv="Content-Type" content="text/HTML; charset=iso-8859-1" />		
 	<meta name="author" content="JCE" />
-	<meta name="Description" content="GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007-2010" />	
+	<meta name="Description" content="GestAssoPhp+Pg" />
+	<meta name="Copyright" content="(c)JCE 2007-2013" />	
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 </head>
 <body>
@@ -95,7 +96,7 @@
 
 <div id="conteneur_page">
 
-    <div id="header_page">Installation de GestAssoPhp_s</div>
+    <div id="header_page">Installation de GestAssoPhp+Pg</div>
 	<div id="gauche_page">
 	<div class="menu_page">&nbsp;<br />
 			<h1>Installation</h1>
@@ -113,13 +114,13 @@
 
 <div id="centre_page">
 
-    <div id="titre">&nbsp;Vérification de la configuration PHP et des permissions répertoires</div>
+    <div id="titre">&nbsp;V&eacute;rification de la configuration PHP et des permissions r&eacute;pertoires</div>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu">
 
 	<br />
 	<br />
-	<span class='TextenoirGras'>Vérification version PHP mini (PHP 5.0):</span>
+	<span class='TextenoirGras'>V&eacute;rification version PHP mini (PHP 5.0):</span>
 	<br />
 <?php		
 // Version de PHP
@@ -135,7 +136,7 @@
 ?>			
 
 	<br /><br />
-	<span class='TextenoirGras'>Vérification permissions d'écriture pour les templates :</span>
+	<span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour les templates :</span>
 	<br />
 <?php
 // Fichiers template
@@ -144,59 +145,59 @@
 				$accesstemp1 = false;				
 			} else 	{
 			$accesstemp = true;
-				echo TMP_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : Vérifier les droits sur le serveur (777).</span><br />";
+				echo TMP_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
 				$accesstemp1 = true;
 			}
 			if (is_writeable(TMP_TEMPLATES_C_LOCATION)) {
 				echo "<span class='TextenoirGras'>OK</span> (".TMP_TEMPLATES_C_LOCATION.")<br />";
 				$accesstemp2 = false;					
 			} else 	{
-				echo TMP_TEMPLATES_C_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : Vérifier les droits sur le serveur (777).</span><br />";
+				echo TMP_TEMPLATES_C_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
 				$accesstemp2 = true;
 			}
 // Fichiers Photo
-	echo "<br /><span class='TextenoirGras'>Vérification permissions d'écriture pour les Photos :<br /></span>";
+	echo "<br /><span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour les Photos :<br /></span>";
 			if (is_writeable(DIR_PHOTOS)) {
 				echo "<span class='TextenoirGras'>OK</span> (".DIR_PHOTOS.")<br />";
 				$accesstemp3 = false;	
 				} else 	{
-				echo DIR_PHOTOS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : Vérifier les droits sur le serveur  (777).</span><br />";
+				echo DIR_PHOTOS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur  (777).</span><br />";
 				$accesstemp3 = true;
 			}	
 // Fichiers Adhérents
-	echo "<br /><span class='TextenoirGras'>Vérification permissions d'écriture pour les fichiers adhérents :<br /></span>";		
+	echo "<br /><span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour les fichiers adh&eacute;rents :<br /></span>";		
 			if (is_writeable(DIR_FILES_ADHTS)) {
 				$accesstemp4 = false;	
 			echo "<span class='TextenoirGras'>OK</span> (".DIR_FILES_ADHTS.")<br />";
 			} else 	{
-				echo DIR_FILES_ADHTS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : Vérifier les droits sur le serveur (777).</span><br />";
+				echo DIR_FILES_ADHTS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
 				$accesstemp4 = true;
 			}	
 		
 // Répertoire /config pour installation
-	echo "<br /><span class='TextenoirGras'>Vérification permissions d'écriture pour le répertoire /config :<br /></span>";		
+	echo "<br /><span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour le r&eacute;pertoire /config :<br /></span>";		
 			if (is_writeable(ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR.'config/')) {
 				$accesstemp6 = false;	
 			echo "<span class='TextenoirGras'>OK</span> (".ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."config) <br />";
 			} else 	{
-				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : Vérifier les droits sur le serveur (777).</span><br />";
+				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
 				$accesstemp6 = true;
 			}		
 	
 // Fichiers sessions			
-	echo "<br /><span class='TextenoirGras'>Vérification du répertoire sessions :</span><br />";	
+	echo "<br /><span class='TextenoirGras'>V&eacute;rification du r&eacute;pertoire sessions :</span><br />";	
 			if (function_exists('session_start')) {
 				echo "<span class='TextenoirGras'>OK</span> sauvegarde des sessions<br />";
 				$accesstemp7 = false;	
 				} else 	{
-				echo $sessionpath."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : Vérifier les droits sur les sessions.</span><br />";
+				echo $sessionpath."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur les sessions.</span><br />";
 				$accesstemp7 = true;
 			}	
 
 			
 		if($miniPHPVer || $accesstemp1 || $accesstemp2|| $accesstemp3|| $accesstemp4|| $accesstemp5|| $accesstemp6 || $accesstemp7)  //erreur pas de bouton
 			{
-			echo "<br /><br /><br /><span class='TexterougeGras'>VERIFIER et MODIFIER les données avant de continuer ...</span><br /><br />";		
+			echo "<br /><br /><br /><span class='TexterougeGras'>VERIFIER et MODIFIER les donn&eacute;es avant de continuer ...</span><br /><br />";		
 ?>
 				<br /><div class="login-box"><form method="post" name="installation" action="index.php">
 				<input type="submit" class="submit_ok" name="Recommencer" value="Recommencer" title="Recommencer"/>

@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/config/
  *   Fichier :
  *   Les fichiers Include  et les chemins de repertoires  et les menus pour les templates page_index et login
+ * ENCODAGE UTF-8 sans BOM
 */
 
 /**
@@ -27,7 +28,7 @@
 * --------------------------------------------------------------------
 */
 
-	define('VERSION_I', 'Installateur_Php+Pg V 1.0.0'); // version installateur
+	define('VERSION_I', 'Installateur_Php+Pg V 1.1.0'); // version installateur 04/02/2013
 	$file_loc = 'fileloc_gestasso_sa.php';  //******************** A DEFINIR
 	include_once '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
 	

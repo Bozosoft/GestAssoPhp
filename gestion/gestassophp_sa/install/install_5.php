@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
+ * ENCODAGE UTF-8 sans BOM 
 */
 
 

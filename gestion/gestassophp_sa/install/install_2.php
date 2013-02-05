@@ -47,7 +47,7 @@
 			$masession = new sessions(); // -->la classe session 
 			//Gestion erreur retour arrière depuis page 5
 			if ( isset($_SESSION['id_install2']) && $_SESSION['id_install2'] == '1') {
-				$texterreurretour_ar = 'Opération retour arrière INTERDITE !';
+				$texterreurretour_ar = 'Op&eacute;ration retour arri&egrave;re INTERDITE !';
 				header('location: install_5.php?id_adht=1&e_rar='.$texterreurretour_ar);
 						exit;
 			}			
@@ -93,10 +93,10 @@
 
 	
 		if ($config_bd ['serveur_bd'] == '') {
-			$erreur_saisie ['serveur_bd'] = 'Addresse du serveur de base de données';
+			$erreur_saisie ['serveur_bd'] = 'Addresse du serveur de base de donn&eacute;es';
 		}	
 		if ($config_bd ['nom_bd'] == '') {
-			$erreur_saisie ['nom_bd'] = 'Nom de la base de données';
+			$erreur_saisie ['nom_bd'] = 'Nom de la base de donn&eacute;es';
 		}
 		if ($config_bd ['utilis_bd'] == '') {
 			$erreur_saisie ['utilis_bd'] = 'Nom utilisateur';
@@ -168,7 +168,7 @@
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
 	$tpl->assign('version',VERSION_I); // Version de Gestasso		
-	$tpl->assign('messagetitre','Information sur la base de données'); // titre de la  page
+	$tpl->assign('messagetitre','Information sur la base de donn&eacute;es'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','<span class="TextenoirGras">Etape 2</span>'); // menu	
 		$tpl->assign('Etape3','<span class="TextenoirR">Etape 3</span>'); // menu	

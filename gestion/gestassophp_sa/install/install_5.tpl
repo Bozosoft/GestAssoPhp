@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp_s p5 version :  2010  copyright 2007-2010  (c) JC Etiemble *}
+ {* Installation de GestAssoPhp+Pg p5 version :  2010  copyright 2007-2010  (c) JC Etiemble *}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -18,19 +18,19 @@
 	 <br /><br /><br /><br />
 	 <div class='login-box'><a href='index.php'><span class='submit_nul' title='Annuler'>Annuler</span></a></div>
 	 {else}
-		L'installation est terminée..	
+		L'installation est termin&eacute;e..	
 		<br /><br /><br /> 
 		Changez les permissions<br /> 
-		- à 755 sur le repertoire {$configuration_rep},<br />
-		- à 644 ou 444 sur le fichier {$configuration},<br /><span class='TextenoirGras'>pour des raisons de sécurité</span> <br />
+		- &agrave; 755 sur le r&eacute;pertoire {$configuration_rep},<br />
+		- &agrave; 644 ou 444 sur le fichier {$configuration},<br /><span class='TextenoirGras'>pour des raisons de s&eacute;curit&eacute;</span> <br />
 		<br /><br /> 
-		<span class='TextenoirGras'>Les préférences association : 	<br />
-		*  Préférence Association     * Détail des désignation des activités  * Détail des types de cotisations<br />
-		sont modifiables dans le menu Administration / Préférences</span><br />
-		<span class='TexterougeGras'>par sécurité, avant votre première connexion à l'espace, supprimer ou renommer le répertoire /install.</span>
+		<span class='TextenoirGras'>Les pr&eacute;f&eacute;rences association : 	<br />
+		*  Pr&eacute;f&eacute;rence Association     * D&eacute;tail des d&eacute;signation des activit&eacute;s  * D&eacute;tail des types de cotisations<br />
+		sont modifiables dans le menu Administration / Pr&eacute;f&eacute;rences</span><br />
+		<span class='TexterougeGras'>par s&eacute;curit&eacute;, avant votre premi&egrave;re connexion &agrave; l'espace, supprimer ou renommer le r&eacute;pertoire /install.</span>
 
 		<br /><br /> 
-		Vous pouvez vous connectez à <a href="../index.php" title="Connexion">GestAssoPhp</a>, et mettre votre fiche personnelle à jour (Gestion Membres / Mes informations)
+		Vous pouvez vous connectez &agrave; <a href="../index.php" title="Connexion">GestAssoPhp</a>, et mettre votre fiche personnelle &agrave; jour (Gestion Membres / Mes informations)
 	<br /><br />	 
 
 	 {/if}

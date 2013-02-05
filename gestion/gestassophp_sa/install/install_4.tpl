@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp_s p4 version :  2010  copyright 2007-2010  (c) JC Etiemble *}
+ {* Installation de GestAssoPhp+Pg p4 version :  2010  copyright 2007-2010  (c) JC Etiemble *}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -12,8 +12,8 @@
  {/if}	
  	<br />
 
-Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'administration.	<br /> Veuillez vous assurer que vous enregistrez ces données "quelque part",<br /> car il sont indispensables pour l'accès à votre système d'administration...<br />
-<span class="TextenoirR">(Vous pourrez modifier ces informations aprés votre connexion à GestAssoPhp)</span>
+Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'administration.<br />Veuillez vous assurer que vous enregistrez ces donn&eacute;es &quot;quelque part",<br /> car il sont indispensables pour l'acc&egrave;s &agrave; votre syst&egrave;me d'administration...<br />
+<span class="TextenoirR">(Vous pourrez modifier ces informations apr&eacute;s votre connexion &agrave; GestAssoPhp)</span>
 	<br /><br />
 	<form method="post" name="installation" action="install_4.php">
 	<table width="98%" summary="informations générales">
@@ -23,7 +23,7 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 			<td><input type="text" name="login_adht" id="login_adht" title="Uniquement MySQL" value="{$data_adherent.login_adht}"  size="32"  maxlength="50" tabindex="1"/>{if $erreur_saisie.login} <span class="erreur-Jaunerouge">{$erreur_saisie.login}</span>{/if}</td>
 		</tr>
 		<tr>		
-			<td colspan ="2"><span class="TexterougeR">Le Login (entre 4 et 20 caractères autorisés A à Z, 0 à 9 et _ - ) sera créé en Majuscules automatiquement')</span></td>
+			<td colspan ="2"><span class="TexterougeR">Le Login (entre 4 et 20 caract&egrave;res autoris&eacute;s A à Z, 0 à 9 et _ - ) sera cr&eacute;&eacute; en Majuscules automatiquement')</span></td>
 		</tr>
 		<tr>
 			<th class="LignegrisRight">Adresse email :</th>		
@@ -38,7 +38,7 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 			<td><input type="password" name="pass_adht2" id="pass_adht2" title="Exemple root" value="{$data_adherent.pass_adht2}" size="32"  maxlength="50" tabindex="4"/></td>
 		</tr>
 		<tr>		
-			<td colspan ="2"><span class="TexterougeR">Mot de passe entre 4 et 10 caractères autorisés a/A à z/Z, 0 à 9 et _ -</span></td>
+			<td colspan ="2"><span class="TexterougeR">Mot de passe entre 4 et 10 caract&egrave;res autoris&eacute;s a/A à z/Z, 0 à 9 et _ -</span></td>
 		</tr>		
 		<tr>		
 			<td colspan ="2">&nbsp;</td>
@@ -48,7 +48,7 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 			<td><input type="text" name="nom_adht" id="nom_adht" title="Mon Nom" value="{$data_adherent.nom_adht}" size="32"  maxlength="50" tabindex="5" /> {if $erreur_saisie.nom != ""} <span class="erreur-Jaunerouge">{$erreur_saisie.nom}</span>{/if}</td>
 		</tr>
 		<tr>
-			<th class="LignegrisRight">Prénom :</th>		
+			<th class="LignegrisRight">Pr&eacute;nom :</th>		
 			<td><input type="text" name="prenom_adht" id="prenom_adht" title="Mon Prénon" value="{$data_adherent.prenom_adht}" size="32"  maxlength="50" tabindex="6"/> {if $erreur_saisie.pnom != ""} <span class="erreur-Jaunerouge">{$erreur_saisie.pnom}</span>{/if}</td>
 		</tr>		
 		<tr>		

@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
+ * ENCODAGE UTF-8 sans BOM
 */
 
 
@@ -41,7 +42,7 @@
 	$masession = new sessions(); // -->la classe session 	
 		//Gestion erreur retour arrière depuis page 5
 		if ( isset($_SESSION['id_install2']) && $_SESSION['id_install2'] == '1') {
-			$texterreurretour_ar = 'Opération retour arrière INTERDITE !';
+			$texterreurretour_ar = 'Op&eacute;ration retour arri&egrave;re INTERDITE !';
 			header('location: install_5.php?id_adht=1&e_rar='.$texterreurretour_ar);
 					exit;
 		}
@@ -107,10 +108,10 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la bases de donné
 
 				fwrite($fd,$data);
 				fclose($fd);
-				$message_file_config = 'Fichier de configuration créé ... OK';
+				$message_file_config = 'Fichier de configuration cr&eacute;&eacute; ... OK';
 				$valid_file_config = 'oui';
 			} else {
-				$message_file_config = 'Erreur : Impossible de créer le fichier de configuration ...<br />'.CONFIG_FILE;
+				$message_file_config = 'Erreur : Impossible de cr&eacute;er le fichier de configuration ...<br />'.CONFIG_FILE;
 				$valid_file_config = 'non';
 			}	
 
@@ -132,7 +133,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la bases de donné
 
 // Insertion des DONNéES de la base de données
 
-				$message_bd['data'] =  'Insertion des données .... : <br />';
+				$message_bd['data'] =  'Insertion des donn&eacute;es .... : <br />';
 				define('FILE_SQL', join_path(ROOT_DIR_GESTASSO,'install','data.sql')); // 	
 				include 'sql_parse.php';			
 				// on lit le fichier SQL
@@ -152,7 +153,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la bases de donné
 						if (!$dbresult) {					
 							$valid_bd_sql = 'non';
 							//echo $dbresult;
-							$message_bd[$i] = 'erreurs lors de la création .... : '.($db->ErrorMsg()). '<br />';
+							$message_bd[$i] = 'erreurs lors de la cr&eacute;ation .... : '.($db->ErrorMsg()). '<br />';
 						} else {
 							$valid_bd_sql = 'oui';
 							$message_bd[$i] = 'Requette '.$i.' -> '.$req.' => Ok <br />';
@@ -163,16 +164,16 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la bases de donné
 // Contrôle final
 	
 				if (count($erreur_saisie)== 0) {
-					$message_bd_config = 'Création de la base de données et des tables ... OK';	
+					$message_bd_config = 'Cr&eacute;ation de la base de donn&eacute;es et des tables ... OK';	
 					$valid_bd_sql = 'oui';
 				}
 				if (count($erreur_saisie)>= 1) {
-					$message_bd_config = 'Erreur : Base de données et tables... ';	
+					$message_bd_config = 'Erreur : Base de donn&eacute;es et tables... ';	
 					$valid_bd_sql = 'non';
 				}
 //si config NON valide			
 			} else {
-				$message_bd_config = 'Erreur : Création de la base de données et des tables... Impossible ! ';
+				$message_bd_config = 'Erreur : Cr&eacute;ation de la base de donn&eacute;es et des tables... Impossible ! ';
 				$valid_bd_config = 'non';			
 			}
 
@@ -185,7 +186,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la bases de donné
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
 	$tpl->assign('version',VERSION_I); // Version de Gestasso		
-	$tpl->assign('messagetitre','Création du fichier de configuration et la base de données'); // titre de la  page
+	$tpl->assign('messagetitre','Cr&eacute;ation du fichier de configuration et la base de donn&eacute;es'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','Etape 2 - OK'); // menu	
 	$tpl->assign('titre','Etape 3'); // Titre de la page
