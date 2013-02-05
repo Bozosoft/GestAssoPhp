@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg p4 version :  2010  copyright 2007-2010  (c) JC Etiemble *}
+ {* Installation de GestAssoPhp+Pg p4 version :  2010  copyright 2007-2010  (c) JC Etiemble *} 
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
