@@ -13,8 +13,9 @@
  */
 
 
-6.2.0 xx/xx2013
+6.2.0 xx/xx/2013
 ---------------
+- Refonte installateur en v 1.1.0 ENCODAGE UTF-8 sans BOM et donc encodage de carratères en entités HTML
 - Ajout montant cotisation sur Type cotisation dans Fiche cotisation - (Création) [Suggestion BARRO Drissa]
 - Correction sur l'affichage des Noms-prénoms (PHP 5.4) "Fiche enregistrée par" dans remplir_infogene_adht.php
 - Modification sur affichage adresse mail (saut de ligne) gerer_fiche_adht.tpl
