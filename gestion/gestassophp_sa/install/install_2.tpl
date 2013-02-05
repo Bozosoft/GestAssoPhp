@@ -51,7 +51,7 @@
 			<td><input type="password" name="motpas_bd" id="motpas_bd" title="Exemple ******" value="{$config_bd.motpas_bd}" size="32"  maxlength="50" tabindex="5"/></td>
 		</tr>		
 		<tr>
-			<th class="LignegrisRight">Préfix des tables :</th>		
+			<th class="LignegrisRight">Pr&eacute;fix des tables :</th>		
 			<td><input type="text" name="prefix_bd" id="prefix_bd" title="Exemple g1_" value="{$config_bd.prefix_bd}" size="32"  maxlength="50" tabindex="6"/></td>
 		</tr>		
 		
