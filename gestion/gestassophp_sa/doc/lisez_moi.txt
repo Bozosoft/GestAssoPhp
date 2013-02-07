@@ -46,7 +46,7 @@ Vous devez connaître les données de votre connexion MySQL ou PostgreSQL :
 
 
 NOTA installation en local sous WAMP ou EsayPhp ou ...
-Vérfier ou mofifier la configuration dans le php.ini
+Vérfier ou modifier la configuration dans le php.ini pour être en mode production
 ; Error handling and logging ;
 ; Production Value: E_ALL & ~E_DEPRECATED
 error_reporting = E_ALL & ~E_DEPRECATED
@@ -69,7 +69,8 @@ Vous devez avoir :
 	- smarty (système de template)
 	- adodb (système de bibliothèque d'abstraction destinée à communiquer avec différents systèmes de gestion de base de données)
 - un fichier fileloc_gestasso_sa.php
-- un fichier index.html avec lien vers gestassophp_sa/index.php (pour information A modier ou suppimer)
+- un fichier index.html avec lien vers gestassophp_sa/index.php (pour information à modier ou à suppimer)
+- le dossier /images possède un fichier .htaccess, et en fonction de l'hébergement ce fichier peut être supprimé pour avoir l'afichage correct des photos des adhérents.
 
 
 NOTE :
@@ -87,7 +88,7 @@ POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
 NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à renommer en export_bd.php
 ----------------------------------------------------------------------------------------------------
 
-// ATTENTION  suivant serveur les lignes suivantes doivent être commentées ou supprimées// // supprimer les lignes suivantes car ouvre plusieurs connexion chez Free.fr				
+// ATTENTION suivant le serveur les lignes suivantes doivent être commentées ou supprimées// // supprimer les lignes suivantes car ouvre plusieurs connexion chez Free.fr				
 			$link = '';	
 			$pgsql_conn = pg_connect(" dbname=".NOM_BD." host=".SERVEUR_BD." user=".NOMUTILISATEUR_BD." password=".MOTPASSE_BD." ");
 				if ($pgsql_conn) {
@@ -103,8 +104,8 @@ NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à reno
 
 5. Vérifications
 ---------------- 
-il est nécessaire d'accorder des permissions à certains répertoires, de manière à ce que PHP ait les droits en écriture sur :
-	\gestassophp_sa\config 		pour le répertoire de configuration - uniquement lors de l'installation
+il est nécessaire d'accorder des permissions à certains dossiers, de manière à ce que PHP ait les droits en écriture sur :
+	\gestassophp_sa\config 		pour le dossier de configuration - uniquement lors de l'installation
 	\gestassophp_sa\install 		pour les fichiers d'installation - uniquement lors de l'installation
 
 	\gestassophp_sa\fichiersadht 	pour les fichiers des adhérents
@@ -117,7 +118,7 @@ il est nécessaire d'accorder des permissions à certains répertoires, de mani�
 	
 Etapes de l'installation
 ------------------------
-Etape 1 : Vérification de la configuration PHP et des permissions des répertoires.
+Etape 1 : Vérification de la configuration PHP et des permissions des dossiers.
 Etape 2 : Information sur la base de données.
 Etape 3 : Création du fichier de configuration et la base de données
 Etape 4 : Création des informations de connexion
@@ -125,10 +126,10 @@ Etape 5 : Fin de la configuration-installation - lien vers la gestion_sa (http:/
 
 Supprimer ou renommer le dossier /install par mesure de sécurité
 Changez les permissions 
-		- à 755 sur le répertoire \gestassophp_sa\config 
+		- à 755 sur le dossier \gestassophp_sa\config 
 		- à 644 ou 444 sur le fichier \gestassophp_sa\config\connexion.cfg.php
 
-Avant votre première connexion à l'espace, supprimer ou renommer le répertoire /install
+Avant votre première connexion à l'espace, supprimer ou renommer le dossier /install
 
 
 7. Connectez-vous à GestAssoPhp+Pg (ex : http://votreserveur/gestion_sa/gestassophp_sa)
@@ -148,8 +149,8 @@ Merci de faire apparaître le contrat de licence et d'afficher un lien vers http
 
 
 NOTA :
-Si vous désirez faire une mise à jour utiliser les fichiers de mise à jour de la page téléchargement : diff6xxx_6xxx_gestassophp_s.tar.bz2
-
+Il est conseillé de faire la mise à jour, pour cela utiliser les fichiers de mise à jour de la page téléchargement : diff6xxx_6xxx_gestassophp_s.tar.bz2
+Pour information les modifications entre la version n et la version n+1 sont indiquées dans le fichier Diff_6xxx_6xxx.diff
 
 
 B - MISE A JOUR DEPUIS UNE VERSION 5.x (mini 5.3) 
@@ -168,6 +169,7 @@ pour la mise à jour pendre les précautions d'usage
 	\config\connexion.cfg.php
 - éventuellement vos autres données et sytles si personnalisés
 
+
 2- envoyer les nouveaux fichiers de l'archive version 6.x en FTP 
 3- Se loguer en mode administrateur (niveau 9)
 
@@ -176,5 +178,5 @@ pour la mise à jour pendre les précautions d'usage
 
 
 ----------------------
-Mise à jour 11/10/2012
+Mise à jour 06/02/2013
 
