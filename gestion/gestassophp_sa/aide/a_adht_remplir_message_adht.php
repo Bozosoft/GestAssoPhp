@@ -39,9 +39,9 @@ include_once '../config/connexion.php';
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
     Cette page est un formulaire d'envoi d'un message par mail pour un seul destinataire <?php echo ADHERENT_BENE ;?>.
-	<br />Une copie sera envoyé automatiquement à l'emmeteur pour information.<br />
+	<br />Une copie sera envoy&eacute; automatiquement &agrave; l'emmeteur pour information.<br />
 	les champs <span class="TextenoirGras"><?php echo  _LANG_MAILTO_SUJET_ADHT ." et ". _LANG_MAILTO_MESSAGE_ADHT ;?></span> sont obligatoires.
-	<br /><br />Pour l'administrateur : Attention vérifier que la fonction mail est bien activée sur votre hébergement.
+	<br /><br />Pour l'administrateur : Attention v&eacute;rifier que la fonction mail est bien activ&eacute;e sur votre h&eacute;bergement.
 </p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
