@@ -52,7 +52,7 @@
 	<span class="TextenoirGras">Attention si vous modifiez le "<?php echo _LANG_FICHE_COTIS_ADHT_TYPE  ;?>", vous devez aussi modifier le " <?php echo _LANG_PREF_COL_MONT_COTISATION  ;?>"</span>
 	<br/><br/>
 	
-	Le bouton <span class="submit_ok" title="<?php echo _LANG_FICHE_COTIS_ADHT_VISU_BUTTON_TITLE;?>">&nbsp;<?php echo _LANG_FICHE_COTIS_ADHT_VISU_BUTTON ;?>&nbsp;</span> permet d'afficher dans une page un reçu de la cotisation pour impression. (Utiliser la fonction Imprimer du navigateur)<br/><br/>
+	Le bouton <span class="submit_ok" title="<?php echo _LANG_FICHE_COTIS_ADHT_VISU_BUTTON_TITLE;?>">&nbsp;<?php echo _LANG_FICHE_COTIS_ADHT_VISU_BUTTON ;?>&nbsp;</span> permet d'afficher dans une page un re&ccedil;u de la cotisation pour impression. (Utiliser la fonction Imprimer du navigateur)<br/><br/>
     - archiver une fiche cotisation : <span class="TextenoirGras">mode  <?php echo _LANG_MESSAGE_COTIS_ADHT_ARCHIV ;?></span><br/>
     &nbsp;&nbsp;&nbsp;&nbsp;une alerte sur la Date fin cotisation (<span class="erreur-Jaunerouge"><?php echo _LANG_MESSAGE_COTIS_ADHT_ALERT_ARCHIV;?></span>) si la date de fin de 
     cotisation est sup&eacute;rieure &agrave; la date du jour<br/>
