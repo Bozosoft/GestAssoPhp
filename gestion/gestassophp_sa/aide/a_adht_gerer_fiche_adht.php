@@ -46,14 +46,14 @@ include_once '../config/connexion.php';
     <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?></span> 
     :<br/>
     Le num&eacute;ro et date de cr&eacute;ation de la fiche, la date de modification 
-    et les informations sur la(les) cotisation(s) et qui a enregistré la Fiche<br/>
+    et les informations sur la(les) cotisation(s) et qui a enregistr&eacute; la Fiche<br/>
     <span class="TextenoirGras">- <?php echo _LANG_GESTION_FICHE_ADHT ; ?></span> 
     :<br/>
     Affiche les informations administratives.<br/>
-	<span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_ANT ; ?></span> à droite est une information sur l'activité principale définie dans les "<?php echo _LANG_GESTION_FICHE_ADHT ; ?>"<br/><br/>
+	<span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_ANT ; ?></span> &agrave; droite est une information sur l'activit&eacute; principale d&eacute;finie dans les "<?php echo _LANG_GESTION_FICHE_ADHT ; ?>"<br/><br/>
     
  <?php	if ($priorite_adht > 4 ) { // AUTORISATION si 5-7-9 ?>
-     Un formulaire d'envoi d'un mail pour le destinataire est possible en cliquant sur l'icône <img src="../images/icones16/i_mail.png" width="16" height="11" alt="" title="<?php echo _LANG_VISU_FICHE_ADHT_MAIL_TITLE ; ?>"/> de la ligne  <?php echo _LANG_FICHE_ADHT_MAIL; ?><br/>
+     Un formulaire d'envoi d'un mail pour le destinataire est possible en cliquant sur l'ic&ocirc;ne <img src="../images/icones16/i_mail.png" width="16" height="11" alt="" title="<?php echo _LANG_VISU_FICHE_ADHT_MAIL_TITLE ; ?>"/> de la ligne  <?php echo _LANG_FICHE_ADHT_MAIL; ?><br/>
     <?php	} ?>	
 	<span class="TextenoirGras">- <?php echo _LANG_TITRE_FICHIER_MISSIONS ; ?></span> :
 	<br/>
@@ -65,7 +65,7 @@ include_once '../config/connexion.php';
     donne acc&egrave;s &agrave; la page de modification de ces donn&eacute;es.<br/>
     <br />
     <?php	if ($priorite_adht > 4 ) { // AUTORISATION si 5-7-9 ?>
-    Si la Fiche a &eacute;t&eacute; <span class="Texterouge">supprimée</span>, 
+    Si la Fiche a &eacute;t&eacute; <span class="Texterouge">supprim&eacute;e</span>, 
     le bouton <span class="submit_del"><?php echo _LANG_VISU_FICHE_ADHT_REACTIV_BUTTON ; ?></span> permet 
     de r&eacute;activer cette fiche, <span class="TextenoirGras">si le niveau 
     de priorit&eacute; vous y autorise</span>. 

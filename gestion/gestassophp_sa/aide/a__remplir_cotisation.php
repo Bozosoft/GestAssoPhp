@@ -42,7 +42,7 @@
     - cr&eacute;er une fiche cotisation : <span class="TextenoirGras">mode <?php echo _LANG_MESSAGE_CREATE ;?></span> 
     (Certains champs sont <span class="Texterouge">obligatoires</span>)<br/>
 		Nota <?php echo _LANG_FICHE_COTIS_ADHT_MONTANT_COTIS  ;?>, onglet "<?php echo  _LANG_TITRE_ADMIN_PREFTAB3 ;?>".
-	<br/>Il suffit donc de sélectionner "<?php echo _LANG_FICHE_COTIS_ADHT_TYPE  ;?>" pour avoir le  " <?php echo _LANG_PREF_COL_MONT_COTISATION  ;?>"<br/>
+	<br/>Il suffit donc de s&eacute;lectionner "<?php echo _LANG_FICHE_COTIS_ADHT_TYPE  ;?>" pour avoir le  " <?php echo _LANG_PREF_COL_MONT_COTISATION  ;?>"<br/>
 	
 	<br/><br/>
 	
@@ -60,7 +60,13 @@
     de la fiche est irr&eacute;versible et affiche un message <span class="erreur-Jaunerouge"><?php echo _LANG_MESSAGE_COTIS_ADHT_RAISON_ARCHIV  ;?></span>)<br/>
     - consulter une fiche cotisation archiv&eacute;e : <span class="TextenoirGras">mode 
     <?php echo _LANG_MESSAGE_COTIS_ADHT_CONSULT_ARCHIV ;?></span> (Toutes les zones sont gris&eacute;es 
-    ) </p>
+    )<br/> 
+	Le <span class="TextenoirGras">mode  <?php echo _LANG_MESSAGE_COTIS_ADHT_ARCHIV ;?></span> de la cotisation consiste &agrave; effacer la cotisation &agrave; l'&eacute;ch&eacute;ance de la p&eacute;riode cotis&eacute;e pour :<br/>
+- avoir un historique des cotisations<br/>
+- indiquer que le membre doit, soit renouveler sa cotisation, soit doit &ecirc;tre supprim&eacute; de l'association<br/>
+Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cotisation<br/>
+	</p>
+
   <p>&nbsp;</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

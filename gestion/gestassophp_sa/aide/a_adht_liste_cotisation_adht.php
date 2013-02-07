@@ -41,24 +41,28 @@
     d&eacute;roulante &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_TEXTE_SELECT  ;?></span>&quot; 
     en haut &agrave; droite :<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[0]) ;?></span> 
-    : Les fiches des <?php echo ADHERENT_BENE ;?>s qui sont à jour de leur cotisation<br/>
+    : Les fiches des <?php echo ADHERENT_BENE ;?>s qui sont &agrave; jour de leur cotisation<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[1]) ;?></span> 
     : Toutes les fiches des <?php echo ADHERENT_BENE ;?>s<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[2]) ;?></span> 
-    : Les fiches archivées par l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> 
+    : Les fiches archiv&eacute;es par l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;</p>	
   
   <p class="Textenoir">Il est possible :<br/>
     <br/>
     - de cr&eacute;er une nouvelle fiche gr&acirc;ce au bouton <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON  ;?> ">&nbsp; <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON_TITLE  ;?>&nbsp;</span><br/>
     <br/>
-	Il est préférable de séléctionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
+	Il est pr&eacute;f&eacute;rable de s&eacute;l&eacute;ctionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne direcrement acc&egrave;s au gestionnaire des cotisations .<br/>
 	    <br/>
-    <span class="TextenoirGras">Note importante</span> : Avant de créer une 
-    nouvelle fiche cotisation, assurer vous qu'une <span class="Texterouge">fiche n'existe pas déja !!</span><br/>la cr&eacute;ation d'une 
+    <span class="TextenoirGras">Note importante</span> : Avant de cr&eacute;er une 
+    nouvelle fiche cotisation, assurer vous qu'une <span class="Texterouge">fiche n'existe pas d&eacute;j&agrave; !!</span><br/>la cr&eacute;ation d'une 
     nouvelle fiche cotisation pour un <?php echo ADHERENT_BENE ;?> ayant d&eacute;j&agrave; 
-    une fiche en cours cotisation est possible (Cotisations multiples). Vous pouvez procéder à l'archivage d'une fiche avant d'en créer une nouvelle.<br/>
+    une fiche en cours cotisation est possible (Cotisations multiples). Vous pouvez proc&eacute;der &agrave; l'archivage d'une fiche avant d'en cr&eacute;er une nouvelle.<br/>
+	Le <span class="TextenoirGras">mode  <?php echo _LANG_MESSAGE_COTIS_ADHT_ARCHIV ;?></span> de la cotisation consiste &agrave; effacer la cotisation &agrave; l'&eacute;ch&eacute;ance de la p&eacute;riode cotis&eacute;e pour :<br/>
+- avoir un historique des cotisations<br/>
+- indiquer que le membre doit, soit renouveler sa cotisation, soit doit &ecirc;tre supprim&eacute; de l'association<br/>
+Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cotisation<br/>
 	
 	<br/>
     <br/>

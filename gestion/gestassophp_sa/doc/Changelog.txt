@@ -15,6 +15,7 @@
 
 6.2.0 07/02/2013
 ---------------
+- correction de l'encodage des caractères en entités HTML sur les fichiers d'aide
 - Refonte installateur en v 1.1.0 ENCODAGE UTF-8 sans BOM et donc encodage de caractères en entités HTML
 - Ajout montant cotisation sur Type cotisation dans Fiche cotisation - (Création) [Suggestion BARRO Drissa]
 - Correction sur l'affichage des Noms-prénoms (PHP 5.4) "Fiche enregistrée par" dans remplir_infogene_adht.php

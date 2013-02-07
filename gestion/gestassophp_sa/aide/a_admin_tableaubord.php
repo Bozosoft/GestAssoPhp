@@ -42,22 +42,22 @@
     - la ligne <span class="TextenoirGras">"<?php echo ADHERENT_BENE ;?>s"</span> 
     donne le nombre d'inscrits depuis <?php echo DATE_DEBANNEE_ASSO ;?> et le 
     nombre de cotisants ainsi que le montant cotisations. En cliquant sur le nombre, 
-    une fiche donne les détails.<br />
+    une fiche donne les d&eacute;tails.<br />
     <br />
     <br />
-    <span class="TextenoirGras">Suivant la priorité, </span> qui vous a été attribuée 
+    <span class="TextenoirGras">Suivant la priorit&eacute;, </span> qui vous a &eacute;t&eacute; attribu&eacute;e 
     des menus sont accessibles ou non :<br />
 <?php
  include_once 'a_codepriorite.php';  
  ?><br /><br /><br />
 
-    - <span class="TextenoirGras">Pour télécharger un fichier</span>, apr&egrave;s 
-    avoir positionné la souris sur le nom l'icône <img src="../images/icones16/i_disquet.png" alt="Télécharger" title="Télécharger le fichier" /> 
-    de la ligne concernée, cliquer sur l'icône, ou cliquer sur le bouton droit 
+    - <span class="TextenoirGras">Pour t&eacute;l&eacute;charger un fichier</span>, apr&egrave;s 
+    avoir positionn&eacute; la souris sur le nom l'icône <img src="../images/icones16/i_disquet.png" alt="T&eacute;l&eacute;charger" title="T&eacute;l&eacute;charger le fichier" /> 
+    de la ligne concern&eacute;e, cliquer sur l'icône, ou cliquer sur le bouton droit 
     de la souris puis "Enregistrer le cible sous..." pour t&eacute;l&eacute;charger 
     le fichier vers votre ordinateur. <br />
-	Le format du fichier t&eacute;l&eacute;charg&eacute; est compatible <a href="http://fr.libreoffice.org/" target="_blank">LibreOffice Calc</a> (séparateur des colonnes tabulation).</p>
-	<p class="centre-txt">Pour importer sous LibreOffice Calc, utiliser la fonction "Ouvrir avec LibreOffice" et lors de la fenêtre "Import...", régler les paramètres suivant l'image ci dessous (cliquer sur l'image pour l'agrandir)<br />
+	Le format du fichier t&eacute;l&eacute;charg&eacute; est compatible <a href="http://fr.libreoffice.org/" target="_blank">LibreOffice Calc</a> (s&eacute;parateur des colonnes tabulation).</p>
+	<p class="centre-txt">Pour importer sous LibreOffice Calc, utiliser la fonction "Ouvrir avec LibreOffice" et lors de la fen&ecirc;tre "Import...", r&eacute;gler les paramètres suivant l'image ci dessous (cliquer sur l'image pour l'agrandir)<br />
 	<a href="import_lbo.jpg"><img src='import_lbo_r.jpg' alt="import" width="100" height="84" title="import"/></a></p>
 	
 	

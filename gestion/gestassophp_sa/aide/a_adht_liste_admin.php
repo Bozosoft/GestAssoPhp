@@ -41,13 +41,13 @@
     &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_TEXTE_SELECT ;?></span>&quot; en haut 
     &agrave; droite :<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[0]) ;?></span> 
-    : <?php echo ADHERENT_BENE ;?>s enregistrés, sauf fiches supprimées<br/>
+    : <?php echo ADHERENT_BENE ;?>s enregistr&eacute;s, sauf fiches supprim&eacute;es<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[1]) ;?></span> 
     : <?php echo ADHERENT_BENE ;?>s dont la cotisation est en cours<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[2]) ;?></span> 
-    : <?php echo ADHERENT_BENE ;?>s dont la cotisation est échue ou non réglée<br/>
+    : <?php echo ADHERENT_BENE ;?>s dont la cotisation est &eacute;chue ou non r&eacute;gl&eacute;e<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[3]) ;?></span> 
-    : <?php echo ADHERENT_BENE ;?>s retirés de la liste<br/>
+    : <?php echo ADHERENT_BENE ;?>s retir&eacute;s de la liste<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[4]) ;?></span> 
     : Tous les <?php echo ADHERENT_BENE ;?>s </p>
 	
@@ -60,7 +60,7 @@
     - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span> parmi <?php echo _LANG_LISTE_ADHT_PARMI ;?> des fiches <?php echo ADHERENT_BENE ;?>s pour rechercher <?php echo _LANG_TPL_COL_ADHT_NOM ;?> ou un <?php echo _LANG_FICHE_ADHT_PRENOM ;?> particulier.<br/>
     - d'<span class="TextenoirGras"><?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />
     - d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras">#, 
-    <?php echo _LANG_TPL_COL_NOMPRE.', '._LANG_TPL_COL_ADHT_VILLE.','._LANG_TPL_COL_ADHT_TELEPH.', '._LANG_ADMIN_LISTE_ADHT_COL_INSCRIPT.', '._LANG_ADMIN_LISTE_ADHT_COL_ECH.', '._LANG_ADMIN_LISTE_ADHT_COL_ENR.', '. _LANG_FICHE_ADHT_ANT;?></span>. <br/><?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ECH ;?> = Echéance cotisation, <?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ENR ;?> = La personne qui a enregistrée la fiche la première fois, <?php  echo _LANG_FICHE_ADHT_ANT.' = '. _LANG_PREF_LANG_FICHE_ADHT_ANT ;?></p>
+    <?php echo _LANG_TPL_COL_NOMPRE.', '._LANG_TPL_COL_ADHT_VILLE.','._LANG_TPL_COL_ADHT_TELEPH.', '._LANG_ADMIN_LISTE_ADHT_COL_INSCRIPT.', '._LANG_ADMIN_LISTE_ADHT_COL_ECH.', '._LANG_ADMIN_LISTE_ADHT_COL_ENR.', '. _LANG_FICHE_ADHT_ANT;?></span>. <br/><?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ECH ;?> = Ech&eacute;ance cotisation, <?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ENR ;?> = La personne qui a enregistr&eacute;e la fiche la première fois, <?php  echo _LANG_FICHE_ADHT_ANT.' = '. _LANG_PREF_LANG_FICHE_ADHT_ANT ;?></p>
 	
   <p class="Textenoir">- L'ic&ocirc;ne <img src="../images/icones16/i_voir.png" width="16" height="16" alt="Visu" title="<?php echo _LANG_LISTE_ADHT_VISU_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;, ou le 

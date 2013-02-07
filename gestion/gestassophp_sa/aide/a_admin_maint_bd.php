@@ -36,15 +36,15 @@
 </p>
 <div id="contenu">
 <p class="Textenoir">&nbsp;<br />
-Cette page permet la maintenance de la base de données et donc :<br />
+Cette page permet la maintenance de la base de donn&eacute;es et donc :<br />
 <br />
 - D'effectuer une optimisation de toutes les tables afin d'avoir une meilleure performance.<br />A faire une fois tous les 15 jours environ<br /><br />
 
-- De sauvegarder de la base de données en cas de problème d'hébergement.<br />
+- De sauvegarder de la base de donn&eacute;es en cas de problème d'h&eacute;bergement.<br />
 <br />
-<span class="TextenoirGras">Il existe donc 2 possibilités</span> :<br />
-<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (à faire une fois ou si des modifications sont apportées sur les tables<br />
-<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables (à faire en fonction de la fiabilité de l'hébergement )
+<span class="TextenoirGras">Il existe donc 2 possibilit&eacute;s</span> :<br />
+<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (&agrave; faire une fois ou si des modifications sont apport&eacute;es sur les tables<br />
+<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables (&agrave; faire en fonction de la fiabilit&eacute; de l'h&eacute;bergement )
 <br />
 
 </p>

@@ -43,7 +43,7 @@
     champs sont <span class="Texterouge">obligatoires</span>)
 	<br/>
 	Les fichiers avec les extensions (php*, pl, js) sont interdits.  <br/>
-	Utiliser de préférences les fichiers avec des <a href="http://fr.wikipedia.org/wiki/Format_ouvert" target="_blank">formats ouverts</a> et lisibles par tous.
+	Utiliser de pr&eacute;f&eacute;rences les fichiers avec des <a href="http://fr.wikipedia.org/wiki/Format_ouvert" target="_blank">formats ouverts</a> et lisibles par tous.
 	<br/>
     <span class="TextenoirGras">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="TexterougeGras">Note 
     importante</span> : Attention &agrave; la charte de nommage des fichiers.<br/>
@@ -54,7 +54,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;Les noms de fichiers doivent &ecirc;tre diff&eacute;rents 
     de ceux d&eacute;j&agrave; existant dans la base de donn&eacute;es (sinon 
     message d'erreur). <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="TextenoirGras">CHARTRE DE NOMMAGE DES 
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="TextenoirGras">CHARTE DE NOMMAGE DES 
     FICHIER</span> : <br/>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tous les fichiers commencent par 
     le <?php echo _LANG_TPL_COL_ADHT_NOM.' '.ADHERENT_BENE ;?><br/>

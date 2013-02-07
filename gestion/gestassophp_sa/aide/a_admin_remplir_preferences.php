@@ -38,7 +38,7 @@ include_once '../config/connexion.php';
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
-    Cette page permet une modification des informations qui sont les données pour l'affichage de l'association 
+    Cette page permet une modification des informations qui sont les donn&eacute;es pour l'affichage de l'association 
     <br/><span class="TextenoirGras">Cette page comporte 3 onglets :</span><br /><br />
 	
 	- <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB1 ;?></span> 
@@ -53,7 +53,7 @@ include_once '../config/connexion.php';
 	<br />
 				<br />
 	- <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB2 ;?></span><br />
-	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_COL_DESIGNATION_ACTIV ;?></span><br /> Exemple dans une association une activité de base (celle par défaut dans la fiche <?php echo _LANG_GESTION_FICHE_ADHT;?>) et des activés autres de reliure, danse, aide aux devoirs ...<br /><br />
+	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_COL_DESIGNATION_ACTIV ;?></span><br /> Exemple dans une association une activit&eacute; de base (celle par d&eacute;faut dans la fiche <?php echo _LANG_GESTION_FICHE_ADHT;?>) et des activ&eacute;s autres de reliure, danse, aide aux devoirs ...<br /><br />
 	- <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB3 ;?></span><br />
 	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_COL_DESIGNATION_COTIS ;?></span> et 
 	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_NEW_MONT_COTISATION ;?></span>

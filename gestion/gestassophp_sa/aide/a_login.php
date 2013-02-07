@@ -37,15 +37,15 @@
 <div id="contenu">
 <p class="Textenoir">&nbsp;<br />
 - Bienvenue dans la gestion de l'association "<?php echo NOM_ASSO_GESTASSOPHP ;?>".<br />
-Le but de cet espace est de pouvoir gérer les membres et leur cotisation.<br />
-Les administrateurs peuvent inscrire et modifier des membres, et effectuer des opérations de gestion.
-Chaque membre bénéficie de la possibilité de consulter et de modifier ses informations.<br />
- Il peut éventuellement pourvoir consulter les informations sur les autres membres, si ceux-ci ont donné leur accord sur "l'affichage de ces données".
+Le but de cet espace est de pouvoir g&eacute;rer les membres et leur cotisation.<br />
+Les administrateurs peuvent inscrire et modifier des membres, et effectuer des op&eacute;rations de gestion.
+Chaque membre b&eacute;n&eacute;ficie de la possibilit&eacute; de consulter et de modifier ses informations.<br />
+ Il peut &eacute;ventuellement pourvoir consulter les informations sur les autres membres, si ceux-ci ont donn&eacute; leur accord sur "l'affichage de ces donn&eacute;es".
 <br />
 - Pour pouvoir utiliser cet espace, vous devez vous identifier avec votre "Login" et votre "Mot de passe".<br />
 
-- Si vous avez oublié vos identifiants, cliquez sur le lien "<span class="TextebleuGras">J'ai oublié mon mot de passe !</span>" pour envoyer un mail à votre administrateur.<br />
-<span class="TextenoirGras">Suivant la priorité, </span> qui vous a été attribuée des menus sont accessibles ou non :<br />
+- Si vous avez oubli&eacute; vos identifiants, cliquez sur le lien "<span class="TextebleuGras">J'ai oubli&eacute; mon mot de passe !</span>" pour envoyer un mail &agrave; votre administrateur.<br />
+<span class="TextenoirGras">Suivant la priorit&eacute;, </span> qui vous a &eacute;t&eacute; attribu&eacute;e des menus sont accessibles ou non :<br />
 <?php
  include_once 'a_codepriorite.php';  
  ?> 

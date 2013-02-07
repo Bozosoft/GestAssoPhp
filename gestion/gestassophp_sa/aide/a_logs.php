@@ -36,16 +36,16 @@
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
-    Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>"s 
-    ainsi que les manipulations effectuées (Cr&eacute;ations, modifications, suppressions).<br />
+    Cette page permet de consulter les connexions &agrave; l'espace des "<?php echo ADHERENT_BENE ;?>"s 
+    ainsi que les manipulations effectu&eacute;es (Cr&eacute;ations, modifications, suppressions).<br />
     <br />
     Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br />
     <br />
     Il est possible :<br />
 	- d'exporter la liste des logs au format XLS, avant d'effacer<br />
-	- d'effacer TOUS les logs de la base de données en cliquant 
-    sur l'icône <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" /> 
-    <span class="TexterougeR">"<?php echo _LANG_ADMIN_LOGS_CLEAR_LOGS ;?>"</span> en haut à gauche. </p>
+	- d'effacer TOUS les logs de la base de donn&eacute;es en cliquant 
+    sur l'ic&ocirc;ne <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" /> 
+    <span class="TexterougeR">"<?php echo _LANG_ADMIN_LOGS_CLEAR_LOGS ;?>"</span> en haut &agrave; gauche. </p>
 <p>&nbsp;</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

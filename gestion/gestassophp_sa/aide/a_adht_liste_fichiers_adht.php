@@ -41,12 +41,12 @@
     d&eacute;roulante &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_TEXTE_SELECT ;?></span>&quot; 
     en haut &agrave; droite :<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_FICHIERS[0]) ;?></span> 
-    : Les fichiers valides (téléchargeables) des <?php echo ADHERENT_BENE ;?>s 
+    : Les fichiers valides (t&eacute;l&eacute;chargeables) des <?php echo ADHERENT_BENE ;?>s 
     <br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_FICHIERS[1]) ;?></span> 
     : Tous les fichiers des <?php echo ADHERENT_BENE ;?>s<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_FICHIERS[2]) ;?></span> 
-    : Les fichiers supprimés ( les fichiers restent sur le serveur et sont renomm&eacute;s) 
+    : Les fichiers supprim&eacute;s ( les fichiers restent sur le serveur et sont renomm&eacute;s) 
     par l'ic&ocirc;ne <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="<?php echo _LANG_LISTE_FICHIERS_ADHT_DEL_FILE_ICON_TITLE ;?>"/> de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;.</p>	
   
   <p class="Textenoir">Il est possible :<br/>
@@ -62,7 +62,7 @@
     Les noms de fichiers doivent &ecirc;tre diff&eacute;rents de ceux d&eacute;j&agrave; 
     existant dans la base de donn&eacute;es (sinon message d'erreur). <br/>
 	Les fichiers avec les extensions (php*, pl, js) sont interdits.  <br/>
-	Utiliser de préférences les fichiers avec des <a href="http://fr.wikipedia.org/wiki/Format_ouvert" target="_blank">formats ouverts</a> et lisibles par tous.
+	Utiliser de pr&eacute;f&eacute;rences les fichiers avec des <a href="http://fr.wikipedia.org/wiki/Format_ouvert" target="_blank">formats ouverts</a> et lisibles par tous.
     <br/> <br/>
     - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span> les fichiers par le <?php echo _LANG_TPL_COL_ADHT_NOM ;?> des <?php echo ADHERENT_BENE ;?>s.<br/>
     - d<span class="TextenoirGras">'<?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />

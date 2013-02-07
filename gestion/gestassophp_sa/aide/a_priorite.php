@@ -36,15 +36,15 @@
 </p>
 <div id="contenu">
 <p class="Textenoir">&nbsp;<br />
-    Cette page permet de gérer les accès des "<?php echo ADHERENT_BENE ;?>"s grâce 
-    à un code de priorité :<br />
+    Cette page permet de g&eacute;rer les accès des "<?php echo ADHERENT_BENE ;?>"s grâce 
+    à un code de priorit&eacute; :<br />
 <?php
  include_once 'a_codepriorite.php';  
  ?><br /><br /><br />
 
-Il faut sélectionner "<?php echo ADHERENT_BENE ;?>" puis. <br />
+Il faut s&eacute;lectionner "<?php echo ADHERENT_BENE ;?>" puis. <br />
 choisir le "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>", puis <span class="submit_ok"><?php echo _LANG_TPL_VALID_BUTTON ;?></span><br />
-L'affichage montre les adhérents qui ont un "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>" <span class="TextenoirGras">autre que 1</span>.<br /><br />
+L'affichage montre les adh&eacute;rents qui ont un "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>" <span class="TextenoirGras">autre que 1</span>.<br /><br />
 Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_NUM.', '. _LANG_TPL_COL_NOMPRE.', '. _LANG_ADMIN_PRIORITE_COL_PRIORITE ;?></span>.
 </p>
 <p>&nbsp;</p> 
