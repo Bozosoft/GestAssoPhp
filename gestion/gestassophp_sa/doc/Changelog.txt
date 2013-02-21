@@ -17,6 +17,9 @@
 6.3.0 21/02/2013 Développement en cours
 -----------
 - Correction filtrage sur l'affichage dans Bénévoles/Liste des Bénévoles Gestion Membres/Liste Bénévoles
+- Modification affichage  "Visualisation et Gestion de mes informations" 
+	si pas de cotisation existante (suppression Type cotisation Début Fin)
+	si Fiche supprimée, suppression de "Cotisation NON réglée" et du Bouton "Ajouter une cotisation"
 
 
 
