@@ -7,7 +7,7 @@
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
 {* -- RECAPITULATF -- *}	
-    	<table width="100%" summary="Bienvenue">
+    <table width="100%" summary="Bienvenue">
 		<tr> 
 			<th class="LignegrisC" colspan ="2">{language name=visu_fiche_adht_recap}  {$affiche_message}</th> 
 		</tr>
@@ -19,7 +19,8 @@
 			<td class="Lignegris_pad1" nowrap="nowrap">{if $data_adherent.promotion_adht} {language name=fiche_adht_promotion} : {$data_adherent.promotion_adht}{/if}</td>	
 			<td class="Lignegris_pad1" nowrap="nowrap">{language name=fiche_adht_fiche_enr}:&nbsp;{$pnom_creation_fiche_adht}</td>
 		</tr>	
-		<tr> {* Affiche Cotisation + + qui a enrregistré la fiche ...*}
+		<!-- Déplacer plus bas Affiche Cotisation dans table cotisation-->
+		<!-- tr> {* Affiche Cotisation + + qui a enrregistré la fiche ...*}
 			<td class="Lignegris_pad1" nowrap="nowrap">{*$affiche_cotisation*} 
 			{if $data_adherent.date_echeance_cotis == '0000-00-00' || $data_adherent.date_echeance_cotis ==''}<span class="TexterougeGras">{language name=message_fiche_cot_nonok}</span>&nbsp;{if $priorite_adht >=7}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}" title="{language name=liste_cotis_adht_liste_title}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>{/if}
 			{else}
@@ -27,22 +28,44 @@
 			{if $priorite_adht > 5}{*Uniquement si 7ou9*}<a href="../adherent/liste_cotisations_adht.php?id_adht={$id_adht}&amp;filtre_fiche=1" title="{language name=liste_cotis_adht_liste_title}">{$data_adherent.prenom_adht} {$data_adherent.nom_adht}</a>{/if}</span>
 			{/if}</td>		
 			<td>&nbsp;</td>
-		</tr>	
-		</table>
-		<table width="50%" summary="cotisation"> 
-			<tr>
-				<th class="LignegrisC" width="28%">{language name=fiche_cotis_adht_type}</th>
-				<th class="LignegrisC" width="11%">{language name=liste_cotis_adht_col_d_deb}</th>
-				<th class="LignegrisC" width="11%">{language name=liste_cotis_adht_col_d_fin}</th>
-			</tr>
+		</tr -->	
+	</table>
+	<table width="50%" summary="cotisation"> 
+		<!-- ICI déplacé Affiche Cotisation dans table cotisation-->	
+	{* si Fiche supprimée ne pas afficher la suite *}
+	{if $data_adherent.soc_adht !='999'}	
+		<tr> 
+			<td class="Lignegris_pad1" nowrap="nowrap" colspan="3">{*$affiche_cotisation *} 
+			{*$data_adherent.date_echeance_cotis soit une date '2012-09-30'  soit '0000-00-00' mais ne sera jamais ''*}
+			{if $data_adherent.date_echeance_cotis == '0000-00-00'}<span class="TexterougeGras">{language name=message_fiche_cot_nonok}</span>&nbsp;{if $priorite_adht >=7}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}" title="{language name=liste_cotis_adht_liste_title}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>{/if}
+			{else}
+			<span class="TextenoirGras">&nbsp;&nbsp;&nbsp;{language name=liste_cotis_adht_cotiss} : 
+			{if $priorite_adht > 5}{*Uniquement si 7ou9*}<a href="../adherent/liste_cotisations_adht.php?id_adht={$id_adht}&amp;filtre_fiche=1" title="{language name=liste_cotis_adht_liste_title}">{$data_adherent.prenom_adht} {$data_adherent.nom_adht}</a>{/if}</span>
+			{/if}</td>		
+		</tr>
+		<!--Fin ICI Affiche déplacé + modification affichage -->
+			{* si pas date cotis (soit '0000-00-00') ne pas afficher la suite *}
+			{if $data_adherent.date_echeance_cotis !='0000-00-00'}
+		<tr>
+			<th class="LignegrisC" width="28%">{language name=fiche_cotis_adht_type}</th>
+			<th class="LignegrisC" width="11%">{language name=liste_cotis_adht_col_d_deb}</th>
+			<th class="LignegrisC" width="11%">{language name=liste_cotis_adht_col_d_fin}</th>
+		</tr>
 	 		{foreach from=$cotis_adht item=item_cotis_adht key=ordre}
-			<tr class="Lignegris{$item_cotis_adht.coul}">
-				<td>{$item_cotis_adht.nom_type_cotisation}</td>
-				<td>{$item_cotis_adht.date_debut_cotis}</td>
-				<td>{$item_cotis_adht.date_fin_cotis}</td>
-			</tr>
-			{/foreach}	
-		</table>	
+		<tr class="Lignegris{$item_cotis_adht.coul}">
+			<td>{$item_cotis_adht.nom_type_cotisation}</td>
+			<td>{$item_cotis_adht.date_debut_cotis}</td>
+			<td>{$item_cotis_adht.date_fin_cotis}</td>
+		</tr>
+			{/foreach}
+			{/if}
+			{* Fin si pas de date cotis ne pas afficher *}
+	{else} {* si Fiche supprimée afficher ligne vide *}
+		<tr> 
+		<td >&nbsp;</td>
+		</tr> 			
+	{/if} {* Fin si Fiche supprimée *}	
+	</table>	
 	<br />
 {* -- FIN RECAPITULATF -- *}	
 {* -- INFO PERSONNELLES -- *}	
@@ -62,8 +85,8 @@
 		    <td  class="LignegrisC_Center" width="20%" rowspan="2">{language name=fiche_adht_ant}&nbsp;:&nbsp;{$data_adherent.nom_type_antenne}
 					<br /><br />{$data_adherent.tranche_age}&nbsp;<br />
 					&nbsp;<br />{if $data_adherent.age}{language name=visu_fiche_adht_age}:&nbsp;{$data_adherent.age|string_format:"%d"}&nbsp;{language name=visu_fiche_adht_an}{/if}</td>
-	  </tr>
-	  <tr> 
+		</tr>
+		<tr> 
 		    <td class="Lignegris_pad1" width="30%">
 			{if $data_adherent.telephonef_adht}{language name=tpl_col_adht_teleph}{/if}<br /> {* 25% -> 30*}
 			{if $data_adherent.telephonep_adht} {language name=tpl_col_adht_portable}<br />{/if}
@@ -84,7 +107,7 @@
 			{if $data_adherent.siteweb_adht}<a href="http://{$data_adherent.siteweb_adht}" target="_blank">http://{$data_adherent.siteweb_adht}</a><br />{/if}
 			{if $data_adherent.datenaisance_adht <> ""}{$data_adherent.datenaisance_adht}<br />{/if}		
 			</td>
-	  </tr>
+		</tr>
 	  
   
 		<tr> {* Affiche Autorisation de consulter ...*}
@@ -115,7 +138,7 @@
 			<td align="center" colspan="4">
 			{if $data_adherent.soc_adht =='999'}
 			{* si soc_adht='999' pour afficher uniquement le bouton retour *}
-			<a href="../adherent/liste_adht_admin.php?filtre_nom=&filtre_membre=3&affiche_nb_adht=20"><span class="submit_nul" title="{language name=tpl_retour_button_title}">{language name=tpl_retour_button}</span></a>
+			<a href="../adherent/liste_adht_admin.php?filtre_nom=&amp;filtre_membre=3&amp;affiche_nb_adht=20"><span class="submit_nul" title="{language name=tpl_retour_button_title}">{language name=tpl_retour_button}</span></a>
 			{/if}
 			</td>
 		</tr>		
