@@ -1,7 +1,7 @@
 GestAssoPhp
 ===========
 
-Une gestion en ligne développée en  PHP et MySq/PostrgreSql  
+Une gestion en ligne développée en  PHP et MySql/PostrgreSql  
 pour les associations comprenant la gestion des adhérents et de leurs cotisations 
 
 - Un accès pour chacun des membres par mot de passe,
