@@ -66,7 +66,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// requette principale
 	$req_lire_info_adht ="SELECT id_adht,prenom_adht,nom_adht,cp_adht,ville_adht, "
 	."telephonef_adht,telephonep_adht,antenne_adht,id_type_antenne,nom_type_antenne FROM "
-	.TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE visibl_adht='Oui' AND antenne_adht=id_type_antenne ";
+	.TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE visibl_adht='Oui' AND antenne_adht=id_type_antenne AND soc_adht <>'999' ";
 	// requette pour comptage 
 	$reqcompt_info_adht = "SELECT id_adht FROM ".TABLE_ADHERENTS." WHERE visibl_adht='Oui' ";
 	// requette pour Comptage de TOUS les adhérents inscrits		

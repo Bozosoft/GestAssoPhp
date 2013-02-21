@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
  * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
@@ -13,7 +13,14 @@
  */
 
 
-6.2.0 07/02/2013
+
+6.3.0 21/02/2013 Développement en cours
+-----------
+- Correction filtrage sur l'affichage dans Bénévoles/Liste des Bénévoles Gestion Membres/Liste Bénévoles
+
+
+
+6.2.0 07/02/2013 Finale
 ---------------
 - correction de l'encodage des caractères en entités HTML sur les fichiers d'aide
 - Refonte installateur en v 1.1.0 ENCODAGE UTF-8 sans BOM et donc encodage de caractères en entités HTML
@@ -26,7 +33,7 @@
 - Passage des fichiers en encodage UTF8 sans BOM
 
 
-6.1.0 16/01/2013
+6.1.0 16/01/2013 Finale
 ---------------
 - Mise à jour de  Smarty-3.1.13
 - correction lang.php 
