@@ -262,9 +262,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$membres[$indice]['fin_cotisation'] = switch_sqlFr_date($row['date_echeance_cotis']);
 			if (( compare_date($date_du_jour , ($row['date_echeance_cotis'])) )== FALSE) {
 				//Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 
-				if ($membres[$indice]['fin_cotisation'] == '00/00/0000') { // pas de date
+				if ($membres[$indice]['fin_cotisation'] == '00/00/0000' || $membres[$indice]['fin_cotisation'] == '') { // pas de date ou date NULL
 					$membres[$indice]['fin_cotisation'] = '<span class="Texterouge">'
-					._LANG_MESSAGE_ADMIN_LISTE_ADHT_.'</span>';
+					._LANG_MESSAGE_ADMIN_LISTE_ADHT_.'</span>'; //Cotisation "NON règlée"
 				} else {	// Si date échue				
 					$membres[$indice]['fin_cotisation'] = '<span class="Texterouge">'
 					.$membres[$indice]['fin_cotisation'].'</span>';

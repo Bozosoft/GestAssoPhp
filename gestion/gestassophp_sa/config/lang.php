@@ -220,7 +220,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_ADHT_CONFIRM', 'Confirmation');
 //NON TRADUIT  define('_LANG_FICHE_ADHT_NO_PHOTO', '[ Pas de photo ]');//[ Pas de photo ] 
 	define('_LANG_FICHE_ADHT_DEL_PHOTO', 'Supprimer la photo');
-	define('_LANG_FICHE_ADHT_CONFIRM_DEL_PHOTO', '&Ecirc;tes vous sûr de vouloir supprimer la photo ?');
+	define('_LANG_FICHE_ADHT_CONFIRM_DEL_PHOTO', '&Ecirc;tes vous s&ucirc;r de vouloir supprimer la photo ?');
 	define('_LANG_FICHE_ADHT_DEL_PHOTO_TITLE', 'Supprimer la photo');//title=
 	define('_LANG_FICHE_ADHT_UPLOAD_PHOTO', 'Possibilit&eacute; d\'envoyer une photo depuis votre ordinateur');
 	define('_LANG_FICHE_ADHT_ADD_PHOTO_TITLE', 'Cliquer ici pour ajouter une photo au format jpg ou gif');//title=
@@ -341,7 +341,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_ADMIN_LOGS_EXPORT', 'Exporter les logs ?');
 	define('_LANG_ADMIN_LOGS_TITLE_EXPORT', 'Exporter les logs ?');//title=
 	define('_LANG_ADMIN_LOGS_CLEAR_LOGS', 'Effacer les logs ?');
-	define('_LANG_ADMIN_LOGS_JS_CLEAR_LOGS', '&Ecirc;tes vous sûr(e) de vouloir supprimer les TOUS logs');//
+	define('_LANG_ADMIN_LOGS_JS_CLEAR_LOGS', '&Ecirc;tes vous s&ucirc;r(e) de vouloir supprimer les TOUS logs');//
 	define('_LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS', 'Effacer TOUS les logs ?');//title=
 	define('_LANG_ADMIN_LOGS_COL_UTILISATEUR', 'Utilisateur'); 
 
@@ -427,7 +427,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_ADMIN_LISTE_ADHT_ENR_TITLE', 'Fiche enrgistr&eacute;e par : ');//title="
 	define('_LANG_ADMIN_LISTE_ADHT_ADDFILE_TITLE', 'Joindre un fichier');
 	define('_LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE', 'G&eacute;rer les cotisations');//title=
-	define('_LANG_ADMIN_LISTE_ADHT_JS_CONFIRM_DELFICHE', '&Ecirc;tes vous sûr(e) de vouloir supprimer la fiche N&deg;');
+	define('_LANG_ADMIN_LISTE_ADHT_JS_CONFIRM_DELFICHE', '&Ecirc;tes vous s&ucirc;r(e) de vouloir supprimer la fiche N&deg;');
 	define('_LANG_ADMIN_LISTE_ADHT_DEL_FICHE_ICON_TITLE', 'Supprimer la fiche');//title="
 /**  Messages PHP   */
 	define('_LANG_MESSAGE_ADMIN_LISTE_ADHT_', 'NON r&egrave;gl&eacute;e'); 
@@ -482,7 +482,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_COTIS_ADHT_COMM_TITLE', 'Information sur la cotisation');//title=
 	define('_LANG_FICHE_COTIS_ADHT_RAISON', 'Raison de l\'archivage');
 	define('_LANG_FICHE_COTIS_ADHT_RAISON_TITLE', 'Information sur archivage');// title=
-	define('_LANG_FICHE_COTIS_ADHT_JS_CONFIRM_ARCHIV', '&Ecirc;tes vous sûr de vouloir archiver la fiche N&deg; ');
+	define('_LANG_FICHE_COTIS_ADHT_JS_CONFIRM_ARCHIV', '&Ecirc;tes vous s&ucirc;r de vouloir archiver la fiche N&deg; ');
 	define('_LANG_FICHE_COTIS_ADHT_ARCHIV_BUTTON_TITLE', 'Archiver la fiche');
 	
 	// Add pour Visulisation avant impression  Ajout le 27/01/2009
@@ -529,7 +529,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_LISTE_FICHIERS_ADHT_ADFILE_BUTTON_TITLE', 'Pour ajouter fichier');//title="
 	define('_LANG_LISTE_FICHIERS_ADHT_VISU_FILE_ICON_TITLE', 'Visualisation des informations fichier');//title=
 	define('_LANG_LISTE_FICHIERS_ADHT_DOWNLOAD_FILE_ICON_TITLE', 'T&eacute;l&eacute;charger le fichier');//title=
-	define('_LANG_LISTE_FICHIERS_ADHT_JS_CONFIRM_FILE', '&Ecirc;tes vous sûr(e) de vouloir supprimer le fichier N&deg; ');
+	define('_LANG_LISTE_FICHIERS_ADHT_JS_CONFIRM_FILE', '&Ecirc;tes vous s&ucirc;r(e) de vouloir supprimer le fichier N&deg; ');
 	define('_LANG_LISTE_FICHIERS_ADHT_DEL_FILE_ICON_TITLE', 'Supprimer le fichier');//title=
 	define('_LANG_LISTE_FICHIERS_COL_NOMFICHIER', 'Nom fichier'); //   {language name=liste_fichiers_col_nomfichier}
 /**  Messages PHP   */

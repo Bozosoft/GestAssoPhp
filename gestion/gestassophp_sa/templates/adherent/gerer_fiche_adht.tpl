@@ -19,53 +19,49 @@
 			<td class="Lignegris_pad1" nowrap="nowrap">{if $data_adherent.promotion_adht} {language name=fiche_adht_promotion} : {$data_adherent.promotion_adht}{/if}</td>	
 			<td class="Lignegris_pad1" nowrap="nowrap">{language name=fiche_adht_fiche_enr}:&nbsp;{$pnom_creation_fiche_adht}</td>
 		</tr>	
-		<!-- Déplacer plus bas Affiche Cotisation dans table cotisation-->
-		<!-- tr> {* Affiche Cotisation + + qui a enrregistré la fiche ...*}
-			<td class="Lignegris_pad1" nowrap="nowrap">{*$affiche_cotisation*} 
-			{if $data_adherent.date_echeance_cotis == '0000-00-00' || $data_adherent.date_echeance_cotis ==''}<span class="TexterougeGras">{language name=message_fiche_cot_nonok}</span>&nbsp;{if $priorite_adht >=7}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}" title="{language name=liste_cotis_adht_liste_title}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>{/if}
-			{else}
-			<span class="TextenoirGras">&nbsp;&nbsp;&nbsp;{language name=liste_cotis_adht_cotiss} : 
-			{if $priorite_adht > 5}{*Uniquement si 7ou9*}<a href="../adherent/liste_cotisations_adht.php?id_adht={$id_adht}&amp;filtre_fiche=1" title="{language name=liste_cotis_adht_liste_title}">{$data_adherent.prenom_adht} {$data_adherent.nom_adht}</a>{/if}</span>
-			{/if}</td>		
-			<td>&nbsp;</td>
-		</tr -->	
 	</table>
-	<table width="50%" summary="cotisation"> 
-		<!-- ICI déplacé Affiche Cotisation dans table cotisation-->	
-	{* si Fiche supprimée ne pas afficher la suite *}
-	{if $data_adherent.soc_adht !='999'}	
-		<tr> 
-			<td class="Lignegris_pad1" nowrap="nowrap" colspan="3">{*$affiche_cotisation *} 
-			{*$data_adherent.date_echeance_cotis soit une date '2012-09-30'  soit '0000-00-00' mais ne sera jamais ''*}
-			{if $data_adherent.date_echeance_cotis == '0000-00-00'}<span class="TexterougeGras">{language name=message_fiche_cot_nonok}</span>&nbsp;{if $priorite_adht >=7}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}" title="{language name=liste_cotis_adht_liste_title}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>{/if}
-			{else}
-			<span class="TextenoirGras">&nbsp;&nbsp;&nbsp;{language name=liste_cotis_adht_cotiss} : 
-			{if $priorite_adht > 5}{*Uniquement si 7ou9*}<a href="../adherent/liste_cotisations_adht.php?id_adht={$id_adht}&amp;filtre_fiche=1" title="{language name=liste_cotis_adht_liste_title}">{$data_adherent.prenom_adht} {$data_adherent.nom_adht}</a>{/if}</span>
-			{/if}</td>		
-		</tr>
-		<!--Fin ICI Affiche déplacé + modification affichage -->
-			{* si pas date cotis (soit '0000-00-00') ne pas afficher la suite *}
-			{if $data_adherent.date_echeance_cotis !='0000-00-00'}
+	<table style="width:50%;" summary="cotisation"> 
+		{* si Fiche supprimée ne pas afficher la suite *}
+	{if $data_adherent.soc_adht !='999'} {* Donc si fiche supprimée*}
+		{* $data_adherent.date_echeance_cotis soit une date '2012-09-30' soit '0000-00-00' soit '' (NULL) *}
+		{if $data_adherent.date_echeance_cotis == '0000-00-00' || $data_adherent.date_echeance_cotis ==''} 
+		{* Si pas de date Cotisation NON réglée + un bouton *}
 		<tr>
-			<th class="LignegrisC" width="28%">{language name=fiche_cotis_adht_type}</th>
-			<th class="LignegrisC" width="11%">{language name=liste_cotis_adht_col_d_deb}</th>
-			<th class="LignegrisC" width="11%">{language name=liste_cotis_adht_col_d_fin}</th>
+			<td class="Lignegris_pad1" style="width:75%;">{*$affiche_cotisation*} 
+			<span class="TexterougeGras">{language name=message_fiche_cot_nonok}</span>&nbsp;{if $priorite_adht >=7}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}" title="{language name=liste_cotis_adht_liste_title}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>{/if}
+			</td>	
+			<td >&nbsp;</td>
+			<td >&nbsp;</td>
+		</tr>	
+		{else} {* Si c'est une date on affiche les détails des cotisations *}
+		<tr>
+			<td class="Lignegris_pad1" style="width:50%;">
+			<span class="TextenoirGras">&nbsp;{language name=liste_cotis_adht_cotiss} : 
+			{if $priorite_adht > 5}{*Uniquement si 7ou9*}<a href="../adherent/liste_cotisations_adht.php?id_adht={$id_adht}&amp;filtre_fiche=1" title="{language name=liste_cotis_adht_liste_title}">{$data_adherent.prenom_adht} {$data_adherent.nom_adht}</a>{/if}</span>
+			</td>	
+			<td >&nbsp;</td>
+			<td >&nbsp;</td>
+		</tr>			
+		<tr>
+				<th class="LignegrisC" style="width:50%;">{language name=fiche_cotis_adht_type}</th>
+				<th class="LignegrisC" style="width:11%;">{language name=liste_cotis_adht_col_d_deb}</th>
+				<th class="LignegrisC" style="width:11%;">{language name=liste_cotis_adht_col_d_fin}</th>
 		</tr>
 	 		{foreach from=$cotis_adht item=item_cotis_adht key=ordre}
 		<tr class="Lignegris{$item_cotis_adht.coul}">
-			<td>{$item_cotis_adht.nom_type_cotisation}</td>
-			<td>{$item_cotis_adht.date_debut_cotis}</td>
-			<td>{$item_cotis_adht.date_fin_cotis}</td>
+				<td>{$item_cotis_adht.nom_type_cotisation}</td>
+				<td>{$item_cotis_adht.date_debut_cotis}</td>
+				<td>{$item_cotis_adht.date_fin_cotis}</td>
 		</tr>
-			{/foreach}
-			{/if}
-			{* Fin si pas de date cotis ne pas afficher *}
-	{else} {* si Fiche supprimée afficher ligne vide *}
+			{/foreach}	
+		{/if} {* Fin si pas date/ou date_echeance_cotis *}
+	{else} {* si Fiche supprimée Afficher ligne vide en remplacement de la cotisation*}
 		<tr> 
-		<td >&nbsp;</td>
+			<td >&nbsp;</td>
 		</tr> 			
 	{/if} {* Fin si Fiche supprimée *}	
-	</table>	
+	</table>		
+	
 	<br />
 {* -- FIN RECAPITULATF -- *}	
 {* -- INFO PERSONNELLES -- *}	
