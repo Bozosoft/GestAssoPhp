@@ -4,7 +4,7 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-    <title>GestAssoPhp+Pg Pour gérer votre association - {$version}</title>
+    <title>GestAssoPhp+Pg Pour g&eacute;rer votre association - {$version}</title>
 	<!-- ne pas modifier les métas -->	
     <meta http-equiv="Content-Type" content="text/HTML; charset={language name=charset}" />		
 	<meta name="author" content="JCE" />
