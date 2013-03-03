@@ -14,7 +14,7 @@
 
 
 
-6.3.0 23/02/2013 Développement en cours
+6.3.0 03/03/2013 Développement en cours
 -----------
 - Correction filtrage sur l'affichage dans Bénévoles/Liste des Bénévoles Gestion Membres/Liste Bénévoles
 - Modification affichage  "Visualisation et Gestion de mes informations" 

@@ -27,25 +27,25 @@
 		{if $data_adherent.date_echeance_cotis == '0000-00-00' || $data_adherent.date_echeance_cotis ==''} 
 		{* Si pas de date Cotisation NON réglée + un bouton *}
 		<tr>
-			<td class="Lignegris_pad1" style="width:75%;">{*$affiche_cotisation*} 
+			<td class="Lignegris_pad1" style="width:75%;" colspan ="3">{*$affiche_cotisation*} 
 			<span class="TexterougeGras">{language name=message_fiche_cot_nonok}</span>&nbsp;{if $priorite_adht >=7}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}" title="{language name=liste_cotis_adht_liste_title}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>{/if}
 			</td>	
-			<td >&nbsp;</td>
-			<td >&nbsp;</td>
+			<!--td >&nbsp;</td>
+			<td >&nbsp;</td-->
 		</tr>	
 		{else} {* Si c'est une date on affiche les détails des cotisations *}
 		<tr>
-			<td class="Lignegris_pad1" style="width:50%;">
+			<td class="Lignegris_pad1" style="width:75%;" colspan ="3">
 			<span class="TextenoirGras">&nbsp;{language name=liste_cotis_adht_cotiss} : 
 			{if $priorite_adht > 5}{*Uniquement si 7ou9*}<a href="../adherent/liste_cotisations_adht.php?id_adht={$id_adht}&amp;filtre_fiche=1" title="{language name=liste_cotis_adht_liste_title}">{$data_adherent.prenom_adht} {$data_adherent.nom_adht}</a>{/if}</span>
 			</td>	
-			<td >&nbsp;</td>
-			<td >&nbsp;</td>
+			<!--td >&nbsp;</td>
+			<td >&nbsp;</td-->
 		</tr>			
 		<tr>
-				<th class="LignegrisC" style="width:50%;">{language name=fiche_cotis_adht_type}</th>
-				<th class="LignegrisC" style="width:11%;">{language name=liste_cotis_adht_col_d_deb}</th>
-				<th class="LignegrisC" style="width:11%;">{language name=liste_cotis_adht_col_d_fin}</th>
+				<th class="LignegrisC" style="width:51%;">{language name=fiche_cotis_adht_type}</th>
+				<th class="LignegrisC" style="width:12%;">{language name=liste_cotis_adht_col_d_deb}</th>
+				<th class="LignegrisC" style="width:12%;">{language name=liste_cotis_adht_col_d_fin}</th>
 		</tr>
 	 		{foreach from=$cotis_adht item=item_cotis_adht key=ordre}
 		<tr class="Lignegris{$item_cotis_adht.coul}">
