@@ -16,9 +16,12 @@
 
 {if $alert_saisie|@count != 0} 		
 		<div id="erreur-box"> 
-		{foreach from=$num_id_cotis item=item_num_id_cotis key=ordre}
+		{foreach from=$num_id_cotis item=item_num_id_cotis key=ordre} 
+		{*si il y a au moins 2 cotisations existantes*}
 		{if $alert_saisie.id_adhtasso > 1}{language name=message_cotis_adht_alert_exist1}&nbsp;<a href="../adherent/remplir_cotisations_adht.php?id_cotis={$item_num_id_cotis.id_cotis}" target="_blank" title="{language name=message_cotis_adht_autre_fen}">{$item_num_id_cotis.id_cotis}</a>&nbsp;{language name=message_cotis_adht_alert_exist2}<br />
 		{else} 
+		{*si il y a 1 seule cotisation existante*}
+		{if $alert_saisie.id_adhtasso == 1}{language name=message_cotis_adht_alert_exist1}&nbsp;<a href="../adherent/remplir_cotisations_adht.php?id_cotis={$item_num_id_cotis.id_cotis}" target="_blank" title="{language name=message_cotis_adht_autre_fen}">{$item_num_id_cotis.id_cotis}</a>&nbsp;{language name=message_cotis_adht_alert_exist01}<br />{/if}
 		{/if} {/foreach} 
 		</div>
 		

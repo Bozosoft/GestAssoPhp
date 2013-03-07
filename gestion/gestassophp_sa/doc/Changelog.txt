@@ -14,8 +14,11 @@
 
 
 
-6.3.0 03/03/2013 Développement en cours
+6.3.0 07/03/2013 Développement en cours
 -----------
+- Ajout condition sur Date Dernière modification si = 00/00/0000 affiche Aucune
+- Correction typ sur install_3.php
+- Ajout alerte information si 1 seule cotisation existe : la fiche XX existe déjà - Voulez vous en créer une nouvelle
 - Correction filtrage sur l'affichage dans Bénévoles/Liste des Bénévoles Gestion Membres/Liste Bénévoles
 - Modification affichage  "Visualisation et Gestion de mes informations" 
 	si pas de cotisation existante (suppression Type cotisation Début Fin)

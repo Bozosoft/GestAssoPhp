@@ -510,6 +510,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
     define('_LANG_MESSAGE_COTIS_ADHT_ALERT_NOCREATION', 'Cr&eacute;ation IMPOSSIBLE une fiche existante d&eacute;j&agrave; - Proc&eacute;der &agrave; l&#039;archivage de cette fiche avant d&#039;en cr&eacute;er une nouvelle'); 
 	define('_LANG_MESSAGE_COTIS_ADHT_ALERT_EXIST1', 'la fiche');  //{language name=message_cotis_adht_alert_exist1}
 	define('_LANG_MESSAGE_COTIS_ADHT_ALERT_EXIST2', 'existe d&eacute;j&agrave; - Vous pouvez proc&eacute;der &agrave; l&#039;archivage de cette fiche avant d&#039;en cr&eacute;er une nouvelle');
+	define('_LANG_MESSAGE_COTIS_ADHT_ALERT_EXIST01', 'existe d&eacute;j&agrave; - Voulez vous en cr&eacute;er une nouvelle');
 	define('_LANG_MESSAGE_COTIS_ADHT_AUTRE_FEN', '!! Ouvrir la fiche dans une autre fen&ecirc;tre !!'); 
     define('_LANG_MESSAGE_COTIS_ADHT_ALERT_DEB_FIN', 'La p&eacute;riode d&#039;adh&eacute;sion chevauche la p&eacute;riode commençant le ');
     define('_LANG_MESSAGE_COTIS_ADHT_ALERT_FICHE', 'sur la fiche ');

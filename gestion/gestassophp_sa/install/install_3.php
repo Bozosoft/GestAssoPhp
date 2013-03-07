@@ -90,7 +90,7 @@ echo 'prefix_bd='.$prefix_bd.'-';
  */
 
 
-// Définition de la base de données - Paramètres de connexion	
+// Définition de la BD - Paramètres de connexion	
 			
 define(\"TYPE_BD\", \"".$type_bd."\"); //Type de la BD			
 define(\"NOMUTILISATEUR_BD\", \"".$utilis_bd."\"); //Nom d'utilisateur de la BD
@@ -98,7 +98,7 @@ define(\"MOTPASSE_BD\", \"".$motpas_bd."\"); // Mot de passe de la BD
 define(\"SERVEUR_BD\", \"".$serveur_bd."\"); // Serveur de la BD
 define(\"NOM_BD\", \"".$nom_bd."\"); // Nom de la BD
 
-define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la bases de donnée
+define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 
 ?>";
 // Fin Modèle Fichier de config	

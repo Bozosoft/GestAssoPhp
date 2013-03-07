@@ -13,7 +13,8 @@
 		</tr>
 		<tr>
 			<td class="Lignegris_pad1" nowrap="nowrap">{language name=visu_fiche_adht_enr}&nbsp;{$id_adht}&nbsp;{language name=visu_fiche_adht_enrdu}&nbsp;:&nbsp;{$data_adherent.datecreationfiche_adht}</td>
-			<td class="Lignegris_pad1" nowrap="nowrap">{language name=visu_fiche_adht_lastmod}&nbsp;:&nbsp;{$data_adherent.datemodiffiche_adht}</td>
+			<td class="Lignegris_pad1" nowrap="nowrap">{language name=visu_fiche_adht_lastmod}&nbsp;:&nbsp;
+			{if $data_adherent.datemodiffiche_adht == '00/00/0000' || $data_adherent.datemodiffiche_adht ==''} Aucune {else}{$data_adherent.datemodiffiche_adht}{/if}</td>
 		</tr>		
 
      </table>
