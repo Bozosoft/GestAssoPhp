@@ -13,7 +13,9 @@
 		</tr>
 		<tr>
 			<td class="Lignegris_pad1" nowrap="nowrap" width="50%">{language name=visu_fiche_adht_enr}&nbsp;{$id_adht}&nbsp;{language name=visu_fiche_adht_enrdu}:&nbsp;{$data_adherent.datecreationfiche_adht}</td>
-			<td class="Lignegris_pad1" nowrap="nowrap">{language name=visu_fiche_adht_lastmod}:&nbsp;{if $data_adherent.datemodiffiche_adht <> "00/00/0000"}{$data_adherent.datemodiffiche_adht}<br />{/if}</td>	
+			<td class="Lignegris_pad1" nowrap="nowrap">{language name=visu_fiche_adht_lastmod}:&nbsp;{if $data_adherent.datemodiffiche_adht == '00/00/0000' || $data_adherent.datemodiffiche_adht ==''} Aucune 
+
+{else}{$data_adherent.datemodiffiche_adht}{/if}</td>	
 		</tr>
 		<tr>
 			<td class="Lignegris_pad1" nowrap="nowrap">{if $data_adherent.promotion_adht} {language name=fiche_adht_promotion} : {$data_adherent.promotion_adht}{/if}</td>	

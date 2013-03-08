@@ -36,7 +36,7 @@
 </p>
 <div id="contenu">
 <p class="Textenoir">&nbsp;<br />
-    Cette page permet de g&eacute;rer les acc&egrave;s des "<?php echo ADHERENT_BENE ;?>"s gr&acirc;ce 
+    Cette page permet de g&eacute;rer les acc&egrave;s des "<?php echo ADHERENT_BENE ;?>s" gr&acirc;ce 
     &agrave; un code de priorit&eacute; :<br />
 <?php
  include_once 'a_codepriorite.php';  

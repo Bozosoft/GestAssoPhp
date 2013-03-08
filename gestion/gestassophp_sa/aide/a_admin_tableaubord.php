@@ -44,12 +44,16 @@
     nombre de cotisants ainsi que le montant cotisations. En cliquant sur le nombre, 
     une fiche donne les d&eacute;tails.<br />
     <br />
-    <br />
     <span class="TextenoirGras">Suivant la priorit&eacute;, </span> qui vous a &eacute;t&eacute; attribu&eacute;e 
     des menus sont accessibles ou non :<br />
 <?php
  include_once 'a_codepriorite.php';  
- ?><br /><br /><br />
+ ?><br /><br />
+  - <span class="TextenoirGras">Dans l'export du fichier des "<?php echo ADHERENT_BENE ;?>s"</span> (adherents.xls) sur chaque ligne de la colonne &quot;Societaire&quot; :<br />
+- si vide il n'y a aucune cotisation en cours ou une ou plusieurs cotisations sont &eacute;chues,<br />
+- si &quot;s&quot; une cotisation est en cours avec une date de fin cotisation non &eacute;chue,<br />
+- si &quot;xx&quot; toutes les cotisations "<?php echo ADHERENT_BENE ;?>" sont archiv&eacute;es, <br />
+- si &quot;999&quot; la fiche "<?php echo ADHERENT_BENE ;?>" a &eacute;t&eacute; supprim&eacute;e (mais la fiche est r&eacute;activable).<br /><br />
 
     - <span class="TextenoirGras">Pour t&eacute;l&eacute;charger un fichier</span>, apr&egrave;s 
     avoir positionn&eacute; la souris sur le nom l'ic&ocirc;ne <img src="../images/icones16/i_disquet.png" alt="T&eacute;l&eacute;charger" title="T&eacute;l&eacute;charger le fichier" /> 

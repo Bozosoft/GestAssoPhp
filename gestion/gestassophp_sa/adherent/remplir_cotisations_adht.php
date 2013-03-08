@@ -205,7 +205,8 @@ $pas = $logpass[1];
 			If ($nb_compt_adht_cotis == 0){		
 				// Il faut aussi supprimer le 's'  de  soc_adht  et date_echeance_cotis =0  dans la table TABLE_ADHERENTS 
 				$req_supp_cotis_adht=("UPDATE ".TABLE_ADHERENTS
-				." SET soc_adht='xx',  date_echeance_cotis='0000-00-00'"
+				//." SET soc_adht='xx',  date_echeance_cotis='0000-00-00'" // Null Remplace pour postgresql
+				." SET soc_adht='xx',  date_echeance_cotis=NULL "
 				." WHERE id_adht='$id_result'");  // Id la suppression
 				$dbresult = $db->Execute($req_supp_cotis_adht);
 			} else { 			

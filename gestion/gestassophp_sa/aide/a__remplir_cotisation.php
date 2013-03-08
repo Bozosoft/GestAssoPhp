@@ -33,7 +33,7 @@
 <body>
 
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_FICHE_COTIS ;?></span><br />
+<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?></span><br />
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
@@ -64,7 +64,8 @@
 	Le <span class="TextenoirGras">mode  <?php echo _LANG_MESSAGE_COTIS_ADHT_ARCHIV ;?></span> de la cotisation consiste &agrave; effacer la cotisation &agrave; l'&eacute;ch&eacute;ance de la p&eacute;riode cotis&eacute;e pour :<br/>
 - avoir un historique des cotisations<br/>
 - indiquer que le membre doit, soit renouveler sa cotisation, soit doit &ecirc;tre supprim&eacute; de l'association<br/>
-Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cotisation<br/>
+Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cotisation.<br/>
+(la fiche cotisation archiv&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
 	</p>
 
   <p>&nbsp;</p>

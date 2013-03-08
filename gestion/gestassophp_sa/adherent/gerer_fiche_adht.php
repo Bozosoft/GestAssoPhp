@@ -67,7 +67,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		// on remet Date_sortie à 0 , datemodiffiche_adht  et datecreationfiche_adht = date du jour  Et on modifie soc_adht=''
 		$req_ecrit_reactiv_adht=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='', "
 		." datecreationfiche_adht='$date_du_jour',"
-		." datemodiffiche_adht='$date_du_jour', date_sortie='0000-00-00'" 
+		//." datemodiffiche_adht='$date_du_jour', date_sortie='0000-00-00'" // Null Remplace pour postgresql
+		." datemodiffiche_adht='$date_du_jour', date_sortie=NULL " 
 		." WHERE id_adht='$id_adht_reactiv'"); 
 		$dbresult = $db->Execute($req_ecrit_reactiv_adht);	
 	
