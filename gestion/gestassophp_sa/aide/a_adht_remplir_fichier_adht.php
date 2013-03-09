@@ -58,7 +58,7 @@
     FICHIER</span> : <br/>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tous les fichiers commencent par 
     le <?php echo _LANG_TPL_COL_ADHT_NOM.' '.ADHERENT_BENE ;?><br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (avec l'initial du pr&eacute;nom &eacute;v&eacute;ntuellment) 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (avec l'initial du pr&eacute;nom &eacute;v&eacute;ntuellement) 
     suivi de &quot;_&quot; date au format AAmmjj<br />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exemple : blais_070502 ou moreaua_070421 
     - <?php echo _LANG_FILE_ADHT_TITLEMAX ;?><br/>

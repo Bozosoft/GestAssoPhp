@@ -52,8 +52,8 @@
     <br/>
     - de cr&eacute;er une nouvelle fiche gr&acirc;ce au bouton <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON  ;?> ">&nbsp; <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON_TITLE  ;?>&nbsp;</span><br/>
     <br/>
-	Il est pr&eacute;f&eacute;rable de s&eacute;l&eacute;ctionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
-    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne direcrement acc&egrave;s au gestionnaire des cotisations.<br/>
+	Il est pr&eacute;f&eacute;rable de s&eacute;lectionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
+    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne directement acc&egrave;s au gestionnaire des cotisations.<br/>
 	    <br/>
     <span class="TextenoirGras">Note importante</span> : Avant de cr&eacute;er une 
     nouvelle fiche cotisation, assurer vous qu'une <span class="Texterouge">fiche n'existe pas d&eacute;j&agrave; !!</span><br/>la cr&eacute;ation d'une 
@@ -85,7 +85,7 @@ Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cot
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; permet 
     d'acc&eacute;der &agrave; la fiche avant de l'archiver virtuellement (<span class="Texterouge">ATTENTION</span> 
     l'archivage de la fiche est irr&eacute;versible et r&eacute;clame &quot; <?php echo _LANG_MESSAGE_COTIS_ADHT_RAISON_ARCHIV ;?>&quot;).<br />
-	<span class="TextenoirGras">+ ASTUCE :</span> Pour archiver plusieurs fiches, trier la colonne par date de <span class="TextebleuGras"><?php echo _LANG_LISTE_COTIS_ADHT_COL_D_FIN ;?></span>, puis apr&egrave;s avoir s&eacute;lectinner l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> de la ligne correspondante, cliquer sur le bouton droit de la souris pour "Ouvrir le lien dans un nouvel onglet" et dans cet onglet  <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?> ">&nbsp; <?php echo _LANG_FICHE_COTIS_ADHT_ARCHIV_BUTTON_TITLE ;?>&nbsp;</span>. Fermer l'onglet et revenir dans la liste "<?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?>".
+	<span class="TextenoirGras">+ ASTUCE :</span> Pour archiver plusieurs fiches, trier la colonne par date de <span class="TextebleuGras"><?php echo _LANG_LISTE_COTIS_ADHT_COL_D_FIN ;?></span>, puis apr&egrave;s avoir s&eacute;lectionner l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> de la ligne correspondante, cliquer sur le bouton droit de la souris pour "Ouvrir le lien dans un nouvel onglet" et dans cet onglet  <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?> ">&nbsp; <?php echo _LANG_FICHE_COTIS_ADHT_ARCHIV_BUTTON_TITLE ;?>&nbsp;</span>. Fermer l'onglet et revenir dans la liste "<?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?>".
   </p>
   <p class="Textenoir">Si la s&eacute;lection est &quot;<span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[2]) ;?></span>&quot; 
     :<br/>

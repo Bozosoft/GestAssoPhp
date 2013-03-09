@@ -368,7 +368,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 /**
 * Localisation sur /templates/admin/remplir_preferences.tpl ET /admin/remplir_preferencesn.php
 */	 
-	define('_LANG_TITRE_ADMIN_PREFERENCES', 'Pr&eacute;f&eacute;rences adminstration - Modification des informations ...');
+	define('_LANG_TITRE_ADMIN_PREFERENCES', 'Pr&eacute;f&eacute;rences administration - Modification des informations ...');
 	define('_LANG_PREF_MESSAGETITRE', 'Nom de l\'espace');	 // Indiquez le le nom de l'espace :  Exemple  'Espace Mon association .....'   {language name=pref_messagetitre}
 	define('_LANG_PREF_MESSAGETITRE_TITLE', 'Exemple : Espace Mon association ');	 // '   {language name=pref_messagetitre_title}	
 	define('_LANG_PREF_NOM_ASSO_GESTASSOPHP', 'Nom de Association');

@@ -14,13 +14,14 @@
 
 
 
-6.3.0 08/03/2013 Développement en cours
+6.3.0 09/03/2013 Développement en cours
 -----------
 - Correction bug pour réactivation fiche adhérent (gerer_fiche_adht.php) sur PostgreSql
 - Correction bug pour remplir cotisation  (remplir_cotisations_adht.php) sur PostgreSql
 - Ajout information sur l'export du fichier adherents.xls dans l'aide Tableau de bord
 - Ajout information sur l'aide de Gestion des Bénévoles,Gestion des cotisations (+ ASTUCE), Fiche cotisation
-- Ajout condition sur Date Dernière modification si = 00/00/0000 ou NULL affiche Aucune
+- Correction typo sur les aides
+- Ajout condition sur Date Dernière modification si = 00/00/0000 ou NULL cela affichera Aucune
 - Correction typo sur install_3.php
 - Ajout alerte information si 1 seule cotisation existe : la fiche XX existe déjà - Voulez vous en créer une nouvelle
 - Correction filtrage sur l'affichage dans Bénévoles/Liste des Bénévoles Gestion Membres/Liste Bénévoles

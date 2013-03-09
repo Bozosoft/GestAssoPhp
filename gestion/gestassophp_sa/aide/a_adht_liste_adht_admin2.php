@@ -39,7 +39,7 @@
     Cette page affiche <span class="TextenoirGras">uniquement</span> la liste 
     des <?php echo ADHERENT_BENE ;?>s actifs.</p>
   <p class="Textenoir">Il est possible :<br/>
-    - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span><?php echo _LANG_LISTE_ADHT_PARMI.' des '. ADHERENT_BENE ;?>s pour rechercher un <?php echo _LANG_TPL_COL_ADHT_NOM ;?> ou un <?php echo _LANG_FICHE_ADHT_PRENOM ;?> particulier.<br/>
+    - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span> <?php echo _LANG_LISTE_ADHT_PARMI.' des '. ADHERENT_BENE ;?>s pour rechercher un <?php echo _LANG_TPL_COL_ADHT_NOM ;?> ou un <?php echo _LANG_FICHE_ADHT_PRENOM ;?> particulier.<br/>
     - d'<span class="TextenoirGras"><?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />
     - d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras">#, 
    <?php echo _LANG_TPL_COL_ADHT_NOM.', '._LANG_FICHE_ADHT_PRENOM.', '. _LANG_TPL_COL_ADHT_VILLE ;?>, <?php echo _LANG_TPL_COL_ADHT_TELEPH ;?>  ,  <?php echo _LANG_TPL_COL_ADHT_PORTABLE ;?>, <?php echo _LANG_FICHE_ADHT_ANT ;?>   </span>.</p>
