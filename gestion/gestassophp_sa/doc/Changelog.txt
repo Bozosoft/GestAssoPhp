@@ -14,8 +14,8 @@
 
 
 
-6.3.0 09/03/2013 Développement en cours
------------
+6.3.0 10/03/2013 Finale
+-----------------------
 - Correction bug pour réactivation fiche adhérent (gerer_fiche_adht.php) sur PostgreSql
 - Correction bug pour remplir cotisation  (remplir_cotisations_adht.php) sur PostgreSql
 - Ajout information sur l'export du fichier adherents.xls dans l'aide Tableau de bord
