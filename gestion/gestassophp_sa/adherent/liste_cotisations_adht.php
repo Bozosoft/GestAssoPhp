@@ -219,7 +219,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	
 	// pour afficher le Nb de ligne par page		
 	if ($affiche_nb_lines == 0) {
-		$dbresult = $db->Execute($$req_lire_info_cotis);	
+		$dbresult = $db->Execute($req_lire_info_cotis);	
 	} else {
 		$dbresult = $db->SelectLimit($req_lire_info_cotis,$affiche_nb_lines,  (($numpage_affiche-1)*$affiche_nb_lines) );	 
 	}

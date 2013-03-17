@@ -12,6 +12,9 @@
  * @package   GestAssoPhp+Pg
  */
 
+6.4.0 xx/03/2013 en cours
+-----------------------
+- Correction bug sur liste_cotisations_adht.php si Afficher par "tous"
 
 
 6.3.0 10/03/2013 Finale

@@ -21,7 +21,7 @@
 */
 
 /**** La version de GestAsssoPhp  */
-$VERSION = "GestAssoPhp+Pg V 6.3.0";
+$VERSION = "GestAssoPhp+Pg V 6.4.0";
 define('VERSION', $VERSION);
 
 

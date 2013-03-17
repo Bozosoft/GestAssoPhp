@@ -40,9 +40,9 @@
 
 	</div><br /><br /><br />
 	<div class="centre-txt">{* Logo de votre asso *}
-	<img src='images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo de votre Asso"/>
+	<img src='images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+"/>
 	<br /><br />
-	<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise à disposition sous un contrat Creative Commons"/></a><br /><br /><span class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span></div>			
+	<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise &agrave; disposition sous un contrat Creative Commons"/></a><br /><br /><span class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span></div>			
 		</div> {* / défini les menus gauche *}	
 	<div id="centre_page"> {*défini les infos .. *}
 	
@@ -77,7 +77,7 @@
 			{language name=mail_contacter}{mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} {language name=mail_mail}
 			{/if}
 			</span><br/><br/>
-			<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br/><br/>
+			<span class="TextenoirR" title="Constater l'adminstateur par mail">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br/><br/>
 		</div>
 	</div> {* / défini le contenu .. *}	
 	</div>{* / défini les infos .. *}
@@ -86,6 +86,6 @@
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="R&eacute;alisation" >{$version}</a>
     </div> {* / défini le pied de page *}
 </div>  {* / défini la page extérieure *}
-<!-- Réalisation GestAssoPhp http://gestassophp.xtreemhost.com/cms-->
+<!-- Réalisation GestAssoPhp-->
 </body>
 </html>
