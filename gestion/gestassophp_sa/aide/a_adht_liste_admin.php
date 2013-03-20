@@ -84,7 +84,7 @@
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; supprime 
     virtuellement la fiche de la liste sauf si la date de fin de cotisation est 
     sup&eacute;rieure &agrave; la date du jour (il est possible de r&eacute;activer une &quot;Fiche&quot; supprim&eacute;e. La fiche supprim&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
-	Nota : il est conseill&eacute; d'archiver la fiche cotisation avant de supprimer la fiche <?php echo ADHERENT_BENE ;?>.
+	Nota : il est <span class="TexterougeGras">obligatoire d'archiver</span> la ou les cotisations avant de supprimer la fiche <?php echo ADHERENT_BENE ;?>. Si la ou les cotisations ne sont pas archiv&eacute;es un message d'erreur est affich&eacute;.
 	</p>
   <p>Si la s&eacute;lection est &quot;<span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[3]) ;?></span>&quot; 
     :<br/>

@@ -67,29 +67,40 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$req_lire_info_adht ="SELECT date_echeance_cotis FROM ".TABLE_ADHERENTS." WHERE id_adht='$id_adht_supp' ";	
 		$dbresult = $db->Execute($req_lire_info_adht);	
 		$date_echeance_cotisation['date_echeance_cotis'] = $dbresult->fields['date_echeance_cotis'];	
-		if ($date_echeance_cotisation['date_echeance_cotis'] > $date_du_jour) {
+
+// On vérfie la date de cotisation
+		$check_fin_cotisation = switch_sqlFr_date($date_echeance_cotisation['date_echeance_cotis']);
+		if (( compare_date($date_du_jour ,$date_echeance_cotisation['date_echeance_cotis'] ) )== FALSE) {
+			//Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 
+			if ($check_fin_cotisation == '00/00/0000' || $check_fin_cotisation == '') { // pas de date ou date NULL
+				$check_fin_cotisation = '0' ;
+			} else {	// Si date échue				
+				$check_fin_cotisation  = '-1';
+			}	
+		}
+// si date de fin de cotisation est encore valable Ou si la date de fin de cotisationest echue Alerte
+		if ($date_echeance_cotisation['date_echeance_cotis'] > $date_du_jour || ($check_fin_cotisation  == '-1') ) {
 			// on ne peut pas effacer ---> message
 			$erreur_suppression_fiche =1;
 			$tpl->assign('erreur_suppression_fiche',$erreur_suppression_fiche); // Impossible supprimer fiche date fin de cotis non échue
 			$tpl->assign('erreur_suppression_date',switch_sqlFr_date($date_echeance_cotisation['date_echeance_cotis'])); // date
-			$tpl->assign('erreur_suppression_id',$id_adht_supp); // date			
+			$tpl->assign('erreur_suppression_id',$id_adht_supp); // ID adhérent			
 
-		
-		}else{ 
-	
-			// On enregistre dans la BD.  on met 999 dans le champ Soc_Adht  pour récupérer si erreur + Date_sortie  et date de mise à jour fiche = date du jour	
+		} else { 
+
+// On enregistre dans la BD. on met 999 dans le champ Soc_Adht + date de mise à jour fiche et  Date_sortie = date du jour	
 			$req_supp_adht=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='999',"
 			." datemodiffiche_adht='$date_du_jour'," 
 			." date_sortie='$date_du_jour'" 
-			." WHERE id_adht='$id_adht_supp'");
+			." WHERE id_adht='$id_adht_supp'");		
 			$dbresult = $db->Execute($req_supp_adht);
-				
+		
 			//ecrit qui a fait la manip			
 			$ecritlog = $masession->write_log('Suppression_Adht : '
 			.$id_adht_supp,$masession->get_var_session('ses_nom_adht').' '
 			.$masession->get_var_session('ses_prenom_adht'));
 			header('location: liste_adht_admin.php'); 
-			
+	
 		}
 	}
 /***** FIN Si on SUPPRIME la fiche adhérent */	

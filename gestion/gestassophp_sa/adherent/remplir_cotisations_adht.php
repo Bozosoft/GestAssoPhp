@@ -201,8 +201,17 @@ $pas = $logpass[1];
 			//$nb_compt_adht_cotis = mysql_num_rows($result_compt_adht_cotis); // on compte le Nb cotis pour $id_result
 			$nb_compt_adht_cotis = $dbresult->RecordCount() ; // on compte le Nb cotis pour $id_result
 
-			// si Nb cotis pour $id_result = 0 on fait la manip // 5.5.1
-			If ($nb_compt_adht_cotis == 0){		
+			// vérfier si la fiche _adherent ne contient pas 999 donc serait déja archivée		
+			$req_lire_soc_adht = "SELECT soc_adht"
+			." FROM ".TABLE_ADHERENTS
+			." WHERE id_adht ='$id_result' "; 			
+			$dbresult_soc_adht = $db->Execute($req_lire_soc_adht);		
+			//  - si "xx" toutes les cotisations "Bénévole" sont archivées,
+			// - si "999" la fiche "Bénévole" a été supprimée (mais la fiche est réactivable).
+			$check_soc_adht= $dbresult_soc_adht->fields['soc_adht']; // valeur de la  si fiche _adherent soit vide soit xx soit 9999
+			
+			// si Nb cotis pour $id_result = 0 ET QUE la fiche _adherent n'EST PAS déja archivée
+			If ($nb_compt_adht_cotis == 0 && $check_soc_adht <> '999'){		
 				// Il faut aussi supprimer le 's'  de  soc_adht  et date_echeance_cotis =0  dans la table TABLE_ADHERENTS 
 				$req_supp_cotis_adht=("UPDATE ".TABLE_ADHERENTS
 				//." SET soc_adht='xx',  date_echeance_cotis='0000-00-00'" // Null Remplace pour postgresql
