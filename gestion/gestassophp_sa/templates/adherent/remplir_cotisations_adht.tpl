@@ -88,8 +88,8 @@
 		
 		<tr>
 		{if $supprime_fiche == "1" || $archive_fiche == 1}	
-			<th class="LignegrisC_Oblig"> {language name=fiche_cotis_adht_raison}</th>		
-			<td><input type="text" name="info_archiv_cotis" id="info_archiv_cotis" title="{language name=fiche_cotis_adht_raison_title}" value="{$data_cotis_adh.info_archiv_cotis}" size="50"  maxlength="50" tabindex="8"  {$disabled.info_archiv_cotis} />{if $erreur_saisie.info_archiv_cotis}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.info_archiv_cotis}</span>{/if}</td>
+			<th class="LignegrisC_Oblig"  title="30 caract&egrave;res maxi"> {language name=fiche_cotis_adht_raison} </th>		
+			<td><input type="text" name="info_archiv_cotis" id="info_archiv_cotis" title="{language name=fiche_cotis_adht_raison_title} 30 caract&egrave;res maxi" value="{$data_cotis_adh.info_archiv_cotis}" size="40"  maxlength="30" tabindex="8"  {$disabled.info_archiv_cotis} />{if $erreur_saisie.info_archiv_cotis}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.info_archiv_cotis}</span>{/if}</td>
 		{else}
 			<td>&nbsp;</td>
 		{/if}
