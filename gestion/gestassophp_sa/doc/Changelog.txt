@@ -13,7 +13,7 @@
  */
 
  
-6.4.0 22/03/2013 - en cours
+6.4.0 05/04/2013 Finale
 -----------------------
 - Ajout contrôle sur suppression de la fiche adhérent si une ou des cotisations sont en cours (échues ou non) sur liste_adht_admin + remplir_cotisations_adht + a_adht_liste_admin.php
 - Ajout titre sur Raison de l'archivage 30 caractères maxi
