@@ -55,7 +55,7 @@ error_reporting = E_ALL & ~E_DEPRECATED
 date.timezone = Europe/Paris
 
 
-
+-------------------------
 A - INSTALLATION NOUVELLE
 -------------------------
 1. Vous avez récupérer l'archive gestion_saxx.tar.bz2
@@ -153,7 +153,9 @@ Il est conseillé de faire la mise à jour, pour cela utiliser les fichiers de m
 Pour information les modifications entre la version n et la version n+1 sont indiquées dans le fichier Diff_6xxx_6xxx.diff
 
 
-B - MISE A JOUR DEPUIS UNE VERSION 5.x (mini 5.3) 
+-----------------------------------------------------
+B - MISE A JOUR DEPUIS UNE VERSION 5.x (mini 5.3)
+----------------------------------------------------- 
 CONSULTER le fichier maj_lire.txt
 
 
@@ -173,10 +175,14 @@ pour la mise à jour pendre les précautions d'usage
 2- envoyer les nouveaux fichiers de l'archive version 6.x en FTP 
 3- Se loguer en mode administrateur (niveau 9)
 
+-----------------------------------------------------
+C - MISE A JOUR DEPUIS UNE VERSION 6.4.0 vers 6.5.x  
+-----------------------------------------------------
+ - Modification en base de donnée du champ CP int(8) par VARCHAR( 8 ) pour  les Codes Postaux avec 0 comme 1er chiffre
+	Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
+	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis "cliquez sur le lien en bas de page
 
-
-
-
+	
 ----------------------
-Mise à jour 06/02/2013
+Mise à jour 02/05/2013
 

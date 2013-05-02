@@ -76,8 +76,9 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 		$taboptarray = array();
 
 
+
 //*************************
-#--  1 Structure de la table `_adherent`	
+#--  1 Structure de la table `_adherent`	 // modifié le 02/05/2013 pour CP avec 0 comme 1er chiffre
 	$flds = "
 		id_adht I(4) KEY AUTO, 
 		soc_adht  C(3) NOT NULL default '',
@@ -85,7 +86,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 		prenom_adht  C(50) NOT NULL default '',
 		nom_adht  C(50) NOT NULL default '',
 		adresse_adht  C(100) default NULL,
-		cp_adht  I(8) NOT NULL default '0',
+		cp_adht  C(8) NOT NULL default '',
 		ville_adht  C(50) NOT NULL default '',
 		telephonef_adht  C(16) default NULL,
 		telephonep_adht C(16) default NULL,
