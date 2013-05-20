@@ -36,7 +36,7 @@ Configuration nécessaire
 ou
  un accès à une base de données PostgreSQL version 7 ou plus
 - Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF
- Atention 'magic_quotes_gpc' Cette fonctionnalité est devenue OBSOLETE depuis PHP 5.3.0 et a été SUPPRIMEE depuis PHP 5.4.0.
+ Attention 'magic_quotes_gpc' Cette fonctionnalité est devenue OBSOLETE depuis PHP 5.3.0 et a été SUPPRIMEE depuis PHP 5.4.0.
 
 Vous devez connaître les données de votre connexion MySQL ou PostgreSQL : 
 - l'adresse du serveur MySQL ou PostgreSQL ->si vous êtes en local 'localhost'  
