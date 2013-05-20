@@ -29,13 +29,14 @@ Connaitre PHP, Smarty et adodb
 
 Configuration nécessaire
 ************************
-Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
+- Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
  un accès FTP pour l'installation des fichiers, 
-le support de PHP 5.1.x (normalement pour Smarty PHP 5.2)  ou supérieur avec le support des sessions,
+- Le support de PHP 5.1.x (normalement pour Smarty PHP 5.2)  ou supérieur avec le support des sessions,
  un accès à une base de données MySQL version 5 minimum.
 ou
  un accès à une base de données PostgreSQL version 7 ou plus
-
+- Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF
+ Atention 'magic_quotes_gpc' Cette fonctionnalité est devenue OBSOLETE depuis PHP 5.3.0 et a été SUPPRIMEE depuis PHP 5.4.0.
 
 Vous devez connaître les données de votre connexion MySQL ou PostgreSQL : 
 - l'adresse du serveur MySQL ou PostgreSQL ->si vous êtes en local 'localhost'  
@@ -184,5 +185,5 @@ C - MISE A JOUR DEPUIS UNE VERSION 6.4.0 vers 6.5.x
 
 	
 ----------------------
-Mise à jour 02/05/2013
+Mise à jour 20/05/2013
 
