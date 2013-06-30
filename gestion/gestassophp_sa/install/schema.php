@@ -137,6 +137,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	   date_debut_cotis  D  NOT NULL ,
 	   date_fin_cotis  D  NOT NULL ,
 	   cotis  char(3) NOT NULL default '',
+	   paiement_cotis char(3) NOT NULL default '',
 	   info_archiv_cotis  C(30) NOT NULL default '',
 	   datemodiffiche_cotis  D  NOT NULL 
 	";

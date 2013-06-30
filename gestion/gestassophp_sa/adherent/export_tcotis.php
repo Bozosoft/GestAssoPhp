@@ -51,10 +51,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
      
     echo("$title\n"); // affiche la ligne de titre
 
-	//id_cotis	qui_cotis	id_adhtasso	id_type_cotis	montant_cotis	info_cotis	date_enregist_cotis	date_debut_cotis	date_fin_cotis	cotis	info_archiv_cotis	datemodiffiche_cotis
+	//id_cotis	qui_cotis	id_adhtasso	id_type_cotis	montant_cotis	info_cotis	date_enregist_cotis	date_debut_cotis	date_fin_cotis	cotis	+ paiement_cotis info_archiv_cotis	datemodiffiche_cotis export_tcotis.php
 	
 	$req_lire_table_cotis = "SELECT id_cotis,id_adhtasso,id_type_cotis,"
 	." montant_cotis,info_cotis,date_enregist_cotis,date_debut_cotis,date_fin_cotis,cotis,"
+	."paiement_cotis,"  //+ Ajout Zone PAIEMENT
 	." info_archiv_cotis,datemodiffiche_cotis,"
 	." prenom_adht,nom_adht," // TABLE_ADHERENTS
 	." nom_type_cotisation" // TABLE_TYPE_COTISATIONS
@@ -63,7 +64,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." AND ".TABLE_TYPE_COTISATIONS.".id_type_cotisation=".TABLE_COTISATIONS."
 	.id_type_cotis ORDER BY id_cotis";	
 		
-    print("Num\t Nom Prenom\t type\t montant\t information\t date_enregist\t date_debut\t date_fin\t archive\t info_archiv\t date_modif_fiche\n");
+    print("Num\t Nom Prenom\t type\t montant\t information\t date_enregist\t date_debut\t date_fin\t archive\t paiement\t info_archiv\t date_modif_fiche\n");
 	
 	$dbresult = $db->Execute($req_lire_table_cotis);	
 	
@@ -81,15 +82,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		if ($champ9 =='999') {
 			$champ9 = 'Archive';// Affichage du statut Archivée
 		}
-		$champ10 = $row['info_archiv_cotis']; // 	
-		$champ11 = switch_sqlFr_date($row['datemodiffiche_cotis']);
+		$champ10 = $row['paiement_cotis']; //+ Ajout Zone PAIEMENT 	 
+		$champ11 = $row['info_archiv_cotis']; 	
+		$champ12= switch_sqlFr_date($row['datemodiffiche_cotis']);
 		if ($champ11 == '00/00/0000'){
 			$champ11='';
 		}					
 
 		//ecriture de la ligne
 		print ("$champ0\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t"
-		." $champ8\t $champ9\t $champ10\t $champ11 \n");
+		." $champ8\t $champ9\t $champ10\t $champ11\t $champ12 \n");
 		
 	}
 

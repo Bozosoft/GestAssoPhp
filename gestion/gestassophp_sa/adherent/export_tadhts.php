@@ -58,7 +58,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." FROM  ".TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE antenne_adht=id_type_antenne ";
 	
 // 1ere ligne
-print("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE_ADHT_PRENOM."\t "._LANG_TPL_COL_ADHT_NOM."\t "._LANG_FICHE_ADHT_ADRESS."\t "._LANG_FICHE_ADHT_CP."\t "._LANG_TPL_COL_ADHT_VILLE."\t "._LANG_TPL_COL_ADHT_TELEPH."\t "._LANG_TPL_COL_ADHT_PORTABLE."\t "._LANG_FICHE_ADHT_FAX."\t "._LANG_FICHE_ADHT_MAIL."\t DateCreationFiche\t "._LANG_FICHE_ADHT_ANT."\t "._LANG_TPL_ADHT_DATENAIS."\t visible\t "._LANG_VISU_FICHE_ADHT_LASTMOD."\t  "._LANG_FICHE_ADHT_WEB."\t "._LANG_ADMIN_PRIORITE_COL_PRIORITE."\t "._LANG_FICHE_COTIS_ADHT_DATE_FIN."\t Date_Sortie\t "._LANG_FICHE_ADHT_TAGE."\t "._LANG_FICHE_ADHT_PROMOTION."\t "._LANG_FICHE_ADHT_FICHE_ENR."\t "._LANG_FICHE_ADHT_COMPL."\n");
+print("Num\t Societaire\t Civilite\t Prenom\t "._LANG_TPL_COL_ADHT_NOM."\t "._LANG_FICHE_ADHT_ADRESS."\t "._LANG_FICHE_ADHT_CP."\t "._LANG_TPL_COL_ADHT_VILLE."\t Telephone\t "._LANG_TPL_COL_ADHT_PORTABLE."\t "._LANG_FICHE_ADHT_FAX."\t "._LANG_FICHE_ADHT_MAIL."\t DateCreationFiche\t "._LANG_FICHE_ADHT_ANT."\t "._LANG_TPL_ADHT_DATENAIS."\t visible\t Derniere modif\t  "._LANG_FICHE_ADHT_WEB."\t Priorite\t "._LANG_FICHE_COTIS_ADHT_DATE_FIN."\t Date_Sortie\t Tranche age\t "._LANG_FICHE_ADHT_PROMOTION."\t Qui enregistre Fiche\t "._LANG_FICHE_ADHT_COMPL."\n");
 
 // Boucle préparation écriture de la ligne	
 	$dbresult = $db->Execute($req_lire_table_adht);

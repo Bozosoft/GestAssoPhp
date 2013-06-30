@@ -79,6 +79,17 @@
 			<td><input type="text" name="date_fin_cotis" id="date_fin_cotis" title="{language name=tpl_texte_date_title}" value="{if $data_cotis_adh.date_fin_cotis}{$data_cotis_adh.date_fin_cotis}{else}{$date_3112}{/if}" size="12" maxlength="12" tabindex="6" {$disabled.date_fin_cotis} />{if $alert_saisie.d_fin_cotis_alert}<span class="erreur-Jaunerouge">&nbsp;{language name=message_cotis_adht_alert_archiv}</span>{/if} {if $erreur_saisie.d_fin_cotis}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.d_fin_cotis}</span>{/if}</td>
 		</tr>		
 		
+<!-- Ajout Zone PAIEMENT Gestion Cotisations -->
+		<tr>
+			<th class="LignegrisC"> {language name=fiche_cotis_adht_mpaie}</th>		
+			<td>
+			{if $archive_fiche == "1" || $supprime_fiche =="1"}{html_options name="paiement_cotis" options=$list_paiement_cotis selected=$data_cotis_adh.paiement_cotis tabindex="8" disabled="disabled"}
+			{else}
+			{html_options name="paiement_cotis" options=$list_paiement_cotis selected=$data_cotis_adh.paiement_cotis tabindex="8"}
+			{/if}
+			</td>
+		</tr>		
+<!-- /Ajout Zone PAIEMENT Gestion Cotisations -->	
 		
 		<tr>
 			<th class="LignegrisC"> {language name=fiche_cotis_adht_comm}</th>		

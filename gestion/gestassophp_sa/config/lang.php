@@ -479,6 +479,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_COTIS_ADHT_DATE_DEB', 'Date d&eacute;but cotisation');
 	define('_LANG_FICHE_COTIS_ADHT_DATE_FIN', 'Date fin cotisation');
 	define('_LANG_FICHE_COTIS_ADHT_COMM', 'Commentaire');
+	define('_LANG_FICHE_COTIS_ADHT_MPAIE', 'Moyen de paiement'); //+ Ajout Zone PAIEMENT Gestion Cotisations
 	define('_LANG_FICHE_COTIS_ADHT_COMM_TITLE', 'Information sur la cotisation');//title=
 	define('_LANG_FICHE_COTIS_ADHT_RAISON', 'Raison de l\'archivage');
 	define('_LANG_FICHE_COTIS_ADHT_RAISON_TITLE', 'Information sur archivage');// title=
@@ -488,7 +489,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	// Add pour Visulisation avant impression  Ajout le 27/01/2009
 	define('_LANG_FICHE_COTIS_ADHT_VISU_BUTTON', 'Visualiser');	
 	define('_LANG_FICHE_COTIS_ADHT_VISU_BUTTON_TITLE', 'Pour impression &eacute;ventuelle');
-	define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'Reçu cotisation ');
+	define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'Re&ccedil;u cotisation ');
 	define('_LANG_FICHE_COTIS_ADHT_EURO', 'Euros');
 	define('_LANG_FICHE_COTIS_VISU_FAITLE', 'Fait le ');	
 	//+ ajout montant cotisation si cr&eacute;ation fiche
@@ -600,6 +601,9 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	$T_TRANCHE_AGE = array( ''=>'', 'Moins de 25 ans'=>'Moins de 25 ans','de 25 a 55 ans'=>'de 25 a 55 ans', 'Plus de 55 ans'=>'Plus de 55 ans');
 	$T_OUI_NON = array ('Non'=>'Non','Oui'=>'Oui',); 
 	// Attention  Only modify  the text after  =>   eg.  $T_OUI_NON = array ('Non'=>'No','Oui'=>'Yes', );
+	
+// Ajout Zone PAIEMENT Gestion Cotisations	 html_options name="paiement_cotis"  remplir_cotisations_adht
+	$T_PAIEMENT_COTIS = array('chq'=>'Ch&egrave;que','esp'=>'Esp&egrave;ces', 'c_b'=>'Carte bancaire', 'aut'=>'Autre');
 
 /** ---------------------------------------------------------------------- */	
 	

@@ -12,12 +12,18 @@
  * @package   GestAssoPhp+Pg
  */
 
- 6.5.0 20/05/2013 en cours
+ 6.5.0 30/06/2013 en cours
  -----------------------
- - Modification en base de donnée du champ CP int(8) par VARCHAR( 8 ) pour  les Codes Postaux avec 0 comme 1er chiffre
+Attention modifications de base de données
 	Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
-	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis "cliquez sur le lien en bas de page
- - Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF.
+	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis supprimer le fichier admin/upgrade640-650.php
+- Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF.	
+- Ajout d'une zone Moyen de paiement sur Gestion Cotisations : Espèces(esp) Carte bancaire(c_b) Autre(aut)
+  Donc ajout d'une colonne paiement_cotis char(3) sur table xx_cotisations
+- Modification en base de donnée sur table xx_adherent du champ CP int(8) par VARCHAR( 8 ) pour les Codes Postaux avec 0 comme 1er chiffre
+- Mise à jour de Smarty 3.1.14 Jun 28, 2013
+
+ 
  
 6.4.0 05/04/2013 Finale
 -----------------------

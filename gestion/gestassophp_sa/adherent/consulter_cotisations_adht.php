@@ -51,9 +51,10 @@ $pas = $logpass[1];
 	/***** Si ADMINISTRATEUR donc $priorite_adht >4  DROIT DE CONSUTER ET MODIFIER     (4 n'a PAS le droit)	*/
 	if ($priorite_adht > 5 ) { // AUTORISATION
 		$id_cotis_adht = get_post_variable_numeric('id_cotis', '');// l'id de la cotisation existante		
-		$affiche_message =' N° '.$id_cotis_adht;	
+		$affiche_message =' N&deg; '.$id_cotis_adht;	
 		$req_lire_info_cotis = "SELECT id_cotis,qui_cotis,id_adhtasso,"
 		."id_type_cotis,montant_cotis,info_cotis,date_enregist_cotis,"
+		."paiement_cotis,"  //+ Ajout Zone PAIEMENT
 		."date_debut_cotis,date_fin_cotis,info_archiv_cotis,datemodiffiche_cotis,"
 		." id_type_cotisation,nom_type_cotisation" // TABLE_TYPE_COTISATIONS
 		." FROM ".TABLE_COTISATIONS.", ".TABLE_TYPE_COTISATIONS 
@@ -65,7 +66,8 @@ $pas = $logpass[1];
 		// le nom de la  cotisation  = $cotis_adh[nom_type_cotisation]			
 		$cotis_adh['date_enregist_cotis'] = switch_sqlFr_date($cotis_adh['date_enregist_cotis']);
 		$cotis_adh['date_debut_cotis'] = switch_sqlFr_date($cotis_adh['date_debut_cotis']);
-		$cotis_adh['date_fin_cotis'] = switch_sqlFr_date($cotis_adh['date_fin_cotis']);			
+		$cotis_adh['date_fin_cotis'] = switch_sqlFr_date($cotis_adh['date_fin_cotis']);	
+		$cotis_adh['paiement_cotis'] = $T_PAIEMENT_COTIS[$cotis_adh['paiement_cotis']];	//+ Ajout Zone PAIEMENT	
 			
 		// les données perso
 		$req_lire_perso_adht = "SELECT civilite_adht, nom_adht, prenom_adht, adresse_adht,"

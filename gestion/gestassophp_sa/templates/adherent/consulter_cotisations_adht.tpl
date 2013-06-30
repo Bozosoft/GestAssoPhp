@@ -52,17 +52,18 @@
 		</tr>		
 		<tr>
 			<th class="LignegrisRight"> {language name=fiche_cotis_adht_date_fin} :</th>		
-			<td>{$data_cotis_adh.date_fin_cotis}</td>
+			<td>{$data_cotis_adh.date_fin_cotis} </td>
 		</tr>			
 		<tr>		
 			<td>&nbsp;</td><td>&nbsp;</td>
 		</tr>		
-		<tr>
-			<th class="LignegrisRight"> {language name=fiche_cotis_adht_comm} :</th>		
-			<td>{$data_cotis_adh.info_cotis}</td>
+		<tr><!-- Ajout Zone PAIEMENT Gestion Cotisations -->
+			<th class="LignegrisRight"> {language name=fiche_cotis_adht_mpaie} :</th>		
+			<td>{$data_cotis_adh.paiement_cotis}</td>
 		</tr>
 		<tr>		
-			<td>&nbsp;</td><td>&nbsp;</td>
+			<th class="LignegrisRight"> {language name=fiche_cotis_adht_comm} :</th>		
+			<td>{$data_cotis_adh.info_cotis}</td>
 		</tr>
 		<tr>		
 			<td>&nbsp;</td><td>&nbsp;</td>

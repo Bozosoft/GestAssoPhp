@@ -284,7 +284,7 @@ $pas = $logpass[1];
 		if ($cotis_adh['id_type_cotisation'] =='') {
 			$erreur_saisie ['type_cotisation'] = _LANG_MESSAGE_COTIS_ADHT_ALERT_TYPE;
 		}	
-//++
+
 		// si création le montant cotisation est affecté automatiquement 
 		if  (isset( $required ['creation_cotisation']) and $required ['creation_cotisation'] == 1) {
 		//if  ($required ['creation_cotisation'] == 1)  {
@@ -302,7 +302,7 @@ $pas = $logpass[1];
 			if ($id_listemontant_cotisation >=1) {
 			$cotis_adh['montant_cotis'] = $tab_montant_cotisation[$id_listemontant_cotisation];
 			}
-//++	
+
 			} else { // Montant cotisation
 			$cotis_adh['montant_cotis']=(get_post_variable('montant_cotis',''));
 			if ( ($cotis_adh['montant_cotis'] =='') || (!is_numeric($cotis_adh['montant_cotis'])) ) {
@@ -334,7 +334,9 @@ $pas = $logpass[1];
 		} else { // si date vide
 			$erreur_saisie ['d_fin_cotis'] = _LANG_MESSAGE_LISTE_COTIS_ADHT_DATE_FIN;
 		}
-		
+		// Ajout Zone PAIEMENT
+		$cotis_adh['paiement_cotis']=((get_post_variablehtml('paiement_cotis','')));
+
 		// Commentaire de cotisation
 		$cotis_adh['info_cotis']= stripslashes((get_post_variablehtml('info_cotis',''))); // elnlève \  si on a fait une erreur
 	
@@ -359,45 +361,16 @@ $pas = $logpass[1];
 				$erreur_saisie ['id_adhtasso'] = _LANG_MESSAGE_COTIS_ADHT_ALERT_NOM.' '.ADHERENT_BENE;
 			}
 			
-					
-			/***** Verifier S'il n' y pas UNE AUTRE Cotis en cours dans la BD  pour une Id_AdhtAsso  */
-/*			
-			// counter le Nb de id_cotis avec  qui_cotis=adh	id_adhtasso=  Id du Cotisant
-			$requete[1] = "SELECT id_cotis FROM "
-			.TABLE_COTISATIONS." WHERE qui_cotis ='adh' "	
-			." AND cotis='' AND	id_adhtasso='$cotis_adh[id_adhtasso]' ";
-			
-			// comptage des fiches		
-			$dbresult = $db->Execute($requete[1]); //Pour compter le NB d'enregistrements
-//test si aucune cotisation de saisie b2+
-			if ($dbresult) {
-				$nb_cotis = $dbresult->RecordCount() ; //Pour compter le NB d'enregistrements	
-			}else {
-				$nb_cotis = 0 ;
-			}			
-			if ($nb_cotis >= 1) {
-				$alert_saisie['id_adhtasso'] = $nb_cotis ;
-				// voir  les N°
-					while ($dbresult && $row = $dbresult->FetchRow()) {						
-					//affiche les variables de la ligne 
-					$num_id_cotis[$indice]['id_cotis'] = $row['id_cotis']; //Nom fichier					
-					$indice++;
-				}
-
-				$tpl->assign('num_id_cotis',$num_id_cotis); // tableau 			
-			
-	
-			}
-	*/		
-
 			// Si Aucune erreur de saisie ON Valide --> Requette enregistrement nouvelle cotisation	
 			if (count($erreur_saisie) == 0) {
 				$cotis_adh['info_cotis'] = addslashes($cotis_adh['info_cotis']); // ajoute \ si on a fait une erreur
 				$req_ecrit_nouvelle_cotis = "INSERT INTO ".TABLE_COTISATIONS
-				." (id_adhtasso, qui_cotis, id_type_cotis, montant_cotis, info_cotis," 
+				." (id_adhtasso, qui_cotis, id_type_cotis, montant_cotis, info_cotis,"  
+				." paiement_cotis," //+ Ajout Zone PAIEMENT
 				." date_enregist_cotis, date_debut_cotis, date_fin_cotis)" 					
 				." VALUES('$cotis_adh[id_adhtasso]','adh','$cotis_adh[id_type_cotisation]',"
-				."'$cotis_adh[montant_cotis]','$cotis_adh[info_cotis]',"
+				."'$cotis_adh[montant_cotis]','$cotis_adh[info_cotis]',"  
+				."'$cotis_adh[paiement_cotis]',"  //+ Ajout Zone PAIEMENT
 				." '$cotis_adh[date_enregist_cotis_sql]','$cotis_adh[date_debut_cotis_sql]',"
 				."'$cotis_adh[date_fin_cotis_sql]')";
 				$dbresult = $db->Execute($req_ecrit_nouvelle_cotis);				
@@ -430,17 +403,19 @@ $pas = $logpass[1];
 			
 			// Si Aucune erreur de saisie Udpate --> Requette enregistrement update cotisation				
 			if (count($erreur_saisie)==0) {	  
-				$cotis_adh[info_cotis] = addslashes($cotis_adh[info_cotis]); // ajoute \ si on a fait une erreur
+				$cotis_adh['info_cotis'] = addslashes($cotis_adh['info_cotis']); // ajoute \ si on a fait une erreur
 				$req_ecrit_modif_cotis =("UPDATE ".TABLE_COTISATIONS
 				." SET id_type_cotis='$cotis_adh[id_type_cotisation]',"
 				." montant_cotis= '$cotis_adh[montant_cotis]', "
-				." info_cotis='$cotis_adh[info_cotis]',"
+				." info_cotis='$cotis_adh[info_cotis]',"  
+				." paiement_cotis='$cotis_adh[paiement_cotis]'," // + Ajout Zone PAIEMENT
 				." date_debut_cotis='$cotis_adh[date_debut_cotis_sql]',"	
 				." date_fin_cotis='$cotis_adh[date_fin_cotis_sql]',"
 				." datemodiffiche_cotis='$date_du_jour'"
 				." WHERE id_cotis='$id_cotis_adht'"); 
 				$dbresult = $db->Execute($req_ecrit_modif_cotis);	
-				
+
+			
 				/***** mise A JOUR DE la table adherent  Date_Echeance_Cotis  */
 				$req_ecrit_nouvelle_cotis_adht =("UPDATE ".TABLE_ADHERENTS
 				." SET date_echeance_cotis='$cotis_adh[date_fin_cotis_sql]'"
@@ -471,7 +446,8 @@ $pas = $logpass[1];
 	// préparation des données pour affichage si une cotisation existe déja
 		if ($required ['modification_cotisation'] == 1) {
 			$req_lire_info_cotis = "SELECT id_cotis,qui_cotis,id_adhtasso,"
-			."id_type_cotis,montant_cotis,info_cotis,date_enregist_cotis,"
+			."id_type_cotis,montant_cotis,info_cotis,date_enregist_cotis,"  
+			."paiement_cotis,"  //+ Ajout Zone PAIEMENT
 			."date_debut_cotis,date_fin_cotis,info_archiv_cotis,datemodiffiche_cotis,"
 			." id_type_cotisation,nom_type_cotisation" // TABLE_TYPE_COTISATIONS
 			." FROM ".TABLE_COTISATIONS.", ".TABLE_TYPE_COTISATIONS 
@@ -487,7 +463,7 @@ $pas = $logpass[1];
 				$cotis_adh['date_fin_cotis'] = switch_sqlFr_date($cotis_adh['date_fin_cotis']);			
 				// Préparation pour Affichage partie variable en fonction des données
 				$tpl->assign('data_cotis_adh',$cotis_adh);
-				$tpl->assign('modif_fiche',$required ['modification_cotisation']);			
+				$tpl->assign('modif_fiche',$required ['modification_cotisation']);	
 			}
 		} 
 			
@@ -535,6 +511,7 @@ $pas = $logpass[1];
 	$tpl->assign('required',$required); // Variables Obligatoires
 	$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie sur champs Obligatoires
 	$tpl->assign('alert_saisie',$alert_saisie); // Message alerte	
+	$tpl->assign('list_paiement_cotis',$T_PAIEMENT_COTIS);//+  Ajout Zone PAIEMENT Gestion Cotisations	
 	
 	$tpl->assign('disabled',$disabled); // pour afficher "disabled" les zones non modifiables du formulaire
 	$tpl->assign('affiche_message',$affiche_message); // pour afficher

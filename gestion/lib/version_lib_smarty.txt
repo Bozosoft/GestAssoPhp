@@ -1,8 +1,9 @@
-http://www.smarty.net/  - http://www.smarty.net/manual/fr/
+﻿http://www.smarty.net/  - http://www.smarty.net/manual/fr/
 http://smarty-php.googlecode.com/svn/trunk/libs/
 
 
 
+28/06/2013 Smarty 3.1.14 Jun 28, 2013  (diff SVN 4694-4747)
 16/01/2013 Smarty 3.1.13 Jan 15th, 2013 (diff SVN 4659-4694)
 25/09/2012 Smarty 3.1.12 Sep 25th, 2012 (diff SVN 4633-4659)
 01/07/2012 Smarty 3.1.11 Jun 30th, 2012  (svn du 01/07 4633)
