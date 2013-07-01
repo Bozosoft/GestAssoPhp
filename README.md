@@ -14,5 +14,6 @@ pour les associations comprenant la gestion des adhérents et de leurs cotisatio
 Et une aide sur chaque page.
 L'impression se faut par le menu Fichier/Imprimer du navigateur
 
+- Changelog https://github.com/Bozosoft/GestAssoPhp/blob/master/gestion/gestassophp_sa/doc/Changelog.txt
 
 - Site web http://gestassophp.free.fr
