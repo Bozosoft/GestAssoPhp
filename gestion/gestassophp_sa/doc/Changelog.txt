@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
  * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
@@ -12,16 +12,22 @@
  * @package   GestAssoPhp+Pg
  */
 
- 6.5.0 30/06/2013 en cours
+
+ 6.5.0 03/07/2013 Finale
  -----------------------
-Attention modifications de base de données
-	Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
+Attention modifications de base de données !
+	Aprés connexion à Gestassophp, faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
 	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis supprimer le fichier admin/upgrade640-650.php
 - Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF.	
 - Ajout d'une zone Moyen de paiement sur Gestion Cotisations : Espèces(esp) Carte bancaire(c_b) Autre(aut)
-  Donc ajout d'une colonne paiement_cotis char(3) sur table xx_cotisations
+  - ajout d'une colonne paiement_cotis char(3) sur table xx_cotisations
+  - Modification fichier lang.php	  
+	+ define('_LANG_FICHE_COTIS_ADHT_MPAIE', 'Moyen de paiement'); //+ Ajout Zone PAIEMENT Gestion Cotisations
+	+ $T_PAIEMENT_COTIS = array('chq'=>'Ch&egrave;que','esp'=>'Esp&egrave;ces', 'c_b'=>'Carte bancaire', 'aut'=>'Autre')
+	Modification : define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'Re&ccedil;u cotisation ');
 - Modification en base de donnée sur table xx_adherent du champ CP int(8) par VARCHAR( 8 ) pour les Codes Postaux avec 0 comme 1er chiffre
 - Mise à jour de Smarty 3.1.14 Jun 28, 2013
+Les modifications entre Version 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_6500.diff
 
  
  
@@ -59,7 +65,7 @@ Attention modifications de base de données
 - Modification sur affichage adresse mail (saut de ligne) gerer_fiche_adht.tpl
 - Correction tableau priorité sur remplir_priorite.tpl
 - Correction UFT8 sur adherent/remplir_fichier_adht.php + liste_cotisations_adht.php $affiche_message =' N° ' => $affiche_message =' N&deg; '
-- Modification de l'asrese Web http://gestassophp.xtreemhost.com/ par http://gestassophp.free.fr/ sur templates/login.tpl et templates/page_index.tpl
+- Modification de l'adresse Web http://gestassophp.xtreemhost.com/ par http://gestassophp.free.fr/ sur templates/login.tpl et templates/page_index.tpl
 - Passage des fichiers en encodage UTF8 sans BOM
 
 
@@ -86,7 +92,7 @@ Site mirroir http://gestassophp.free.fr
 - Correction remplir_cotisations_adht : code alerte sur date fin de cotisation
 - Correction Warning sur consulter_fiche_adht.php consulter_fiche_adht_admin2.php
 - Correction problème accent sur saisie Par modification function get_post_variablehtml
-- Mise en conformtité du fichier lang pour entitées HTML
+- Mise en conformité du fichier lang pour entités HTML
 - Mise à jour de  adodb (V5.18 3 Sep 2012)
 
 

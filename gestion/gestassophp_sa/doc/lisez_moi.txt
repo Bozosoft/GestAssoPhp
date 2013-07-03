@@ -179,11 +179,11 @@ pour la mise à jour pendre les précautions d'usage
 -----------------------------------------------------
 C - MISE A JOUR DEPUIS UNE VERSION 6.4.0 vers 6.5.x  
 -----------------------------------------------------
- - Modification en base de donnée du champ CP int(8) par VARCHAR( 8 ) pour  les Codes Postaux avec 0 comme 1er chiffre
-	Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
-	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis "cliquez sur le lien en bas de page
-
+	Aprés connexion à Gestassophp, faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
+	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis supprimer le fichier admin/upgrade640-650.php
+- Ajout d'une zone Moyen de paiement sur Gestion Cotisations : Espèces(esp) Carte bancaire(c_b) Autre(aut)
+- ajout d'une colonne paiement_cotis char(3) sur table xx_cotisations
 	
 ----------------------
-Mise à jour 20/05/2013
+Mise à jour 03/07/2013
 
