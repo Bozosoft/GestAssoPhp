@@ -12,6 +12,11 @@
  * @package   GestAssoPhp+Pg
  */
 
+ 
+ 6.5.10 29/10/2013 en cours
+ ------------------
+- Mise à jour de Smarty 3.1.15 Oct 1st, 2013
+
 
  6.5.0 03/07/2013 Finale
  -----------------------
