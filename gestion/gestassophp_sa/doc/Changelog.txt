@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
  * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
