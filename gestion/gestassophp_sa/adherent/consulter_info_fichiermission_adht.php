@@ -45,13 +45,15 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$adherent_nomfiltre = $dbresult_nom->fields['nom_adht'];//." ".$dbresult_nom->fields['prenom_adht'];
 	
 	// On lit la table des fichiers relative à l'adhérent sur la Fiche en cours
-	$req_lire_info_fichier = "SELECT id_file_adht, nom_file_adht From ".TABLE_FICHIER_ADHERENTS
+	$req_lire_info_fichier = "SELECT id_file_adht, nom_file_adht, design_file_adht From ".TABLE_FICHIER_ADHERENTS
 	." WHERE id_adht_file='$id_adht' AND file_adht =''";
 	$dbresult = $db->Execute($req_lire_info_fichier);	
 	
 	while ($dbresult && $row = $dbresult->FetchRow()) {	
 		//affiche les variables de la ligne 
 		$fichier[$indice]['nom_file_adht'] = $row['nom_file_adht']; //Nom fichier	
+		$fichier[$indice]['id_file_adht'] = $row['id_file_adht']; //++ ajout pour téléchargement
+		$fichier[$indice]['design_file_adht'] = $row['design_file_adht']; //++ ajout pour téléchargement + designation fichier
 		$indice++;
 	}
 
