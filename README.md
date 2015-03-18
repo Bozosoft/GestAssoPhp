@@ -1,7 +1,7 @@
-GestAssoPhp
-===========
+GestAssoPhp  http://gestassophp.free.fr
+=======================================
 
-Une gestion en ligne développée en  PHP et MySql/PostrgreSql  
+Une gestion en ligne développée en  PHP et MySq/PostrgreSql  
 pour les associations comprenant la gestion des adhérents et de leurs cotisations 
 
 - Un accès pour chacun des membres par mot de passe,
@@ -14,6 +14,15 @@ pour les associations comprenant la gestion des adhérents et de leurs cotisatio
 Et une aide sur chaque page.
 L'impression se faut par le menu Fichier/Imprimer du navigateur
 
-- Changelog https://github.com/Bozosoft/GestAssoPhp/blob/master/gestion/gestassophp_sa/doc/Changelog.txt
+Attention GestAssoPhp ne fait pas :
+- la gestion des comptes de l'association.
+- l'envoi de mailling (un hébergement n'est pas fait pour envoyer des messages en nombre)
 
-- Site web http://gestassophp.free.fr
+Configuration nécessaire pour l'installation
+Vous devez au minimum disposer d’un espace sur un serveur Web avec : 
+ un accès FTP ou autre pour l’installation des fichiers,
+ le support de PHP 5.1.x  minimum avec le support des sessions, 
+ un accès à une base de données MySQL version 5 minimum ou PostgreSQL version 7 minimum.
+Et bien sur une maitrise de la gestion de votre hébergement !
+
+
