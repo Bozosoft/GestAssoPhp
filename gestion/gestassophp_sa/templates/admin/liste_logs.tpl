@@ -1,15 +1,15 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
 {* Affiche les logs des adhérents *}
 {* Affichage du CONTENU avec AIDE *}
-	<div id="titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_logs.php','popup','height=250,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></div> 
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_logs.php','popup','height=250,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <div id="titre">&nbsp;{language name=titre_admin_logs}</div>
+    <header class="header_titre">&nbsp;{language name=titre_admin_logs}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
  	
 {* =Affichage - NB pages *}		
 	<form action="liste_logs.php" method="get" name="filtre">	
-		<table width="100%" summary="Affiche pages">
+		<table  style="width:100%;">
 			<tr>
 				<td><span class="TextenoirR">{$nb_lines} {if $nb_lines != 1}{language name=admin_logs_enr_s} {else}{language name=admin_logs_enr} {/if}&nbsp;&nbsp;<a href="../admin/export_tlogs.php?export_ok=1" title="{language name=admin_logs_title_export}">{language name=admin_logs_export}</a></span>&nbsp;<br /><img src="../images/icones/exclam.png" alt="clear" width="16" height="16" /><span class="TexterougeR">{language name=admin_logs_clear_logs}<a href="liste_logs.php?reset=1" onclick="return confirm('{language name=admin_logs_js_clear_logs}')"> <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="{language name=admin_logs_title_clear_logs}" /></a></span></td>
 				<td class="centre-txt">{language name=tpl_select_affichepar}
@@ -30,9 +30,9 @@
 	</form>
 	
 {* FIN Affichage - NB pages *}								
-		<table width="100%" summary="Affiche"> 
+		<table style="width:100%;"> 
 			<tr>
-				<th class="LignegrisC" width="6%">
+				<th class="LignegrisTC" style="width:6%;">
 					<a href="liste_logs.php?tri=0&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name=tpl_title_clictri}">#</a>
 					{if $smarty.session.tri eq 0}
 					{if $smarty.session.tri_sens eq 1}
@@ -44,7 +44,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>				
-				<th class="LignegrisC" width="28%">
+				<th class="LignegrisTC" style="width:22%;">
 					<a href="liste_logs.php?tri=1&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name=tpl_title_clictri}">{language name=tpl_col_date}</a>
 					{if $smarty.session.tri eq 1}
 					{if $smarty.session.tri_sens eq 1}
@@ -56,7 +56,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>
-				<th class="LignegrisC" width="50">
+				<th class="LignegrisTC" style="width:15%;">
 					<a href="liste_logs.php?tri=2&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name=tpl_title_clictri}">"IP"</a>
 					{if $smarty.session.tri eq 2}
 					{if $smarty.session.tri_sens eq 1}
@@ -68,7 +68,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>
-				<th class="LignegrisC" width="28%">
+				<th class="LignegrisTC" style="width:22%;">
 					<a href="liste_logs.php?tri=3&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name=tpl_title_clictri}">{language name=admin_logs_col_utilisateur}</a>
 					{if $smarty.session.tri eq 3}
 					{if $smarty.session.tri_sens eq 1}
@@ -80,7 +80,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>
-				<th class="LignegrisC" width="37%">
+				<th class="LignegrisTC" style="width:35%;">
 					<a href="liste_logs.php?tri=4&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name=tpl_title_clictri}">{language name=tpl_col_description}</a>
 					{if $smarty.session.tri eq 4}
 					{if $smarty.session.tri_sens eq 1}
@@ -97,9 +97,9 @@
 {foreach from=$logs item=log key=ordre}
 			<tr class="Lignegris{$log.coul}">
 				<td>{$log.id}</td>				
-				<td nowrap="nowrap">{$log.date}</td>
-				<td nowrap="nowrap">{$log.ip}</td>
-				<td nowrap="nowrap">{$log.adh}</td>
+				<td>{$log.date}</td>
+				<td>{$log.ip}</td>
+				<td>{$log.adh}</td>
 				<td>{$log.action}</td>
 			</tr>
 {foreachelse}

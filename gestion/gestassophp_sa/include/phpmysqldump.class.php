@@ -136,6 +136,7 @@
 * 29/12/2009 remplace var par  private ou public PHP5
 * 16/01/2013 merci à Olivier Humez ajoutligne : if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";};
 *  Correction OHV0.0 pour empêcher la sauvegarde de "" en NULL
+*  21/09/2014 - ajout sécurité sur "SHOW TABLES."  
 *
 * modifié par JCE - GestAssoPhp
  * @package   GestAssoPhp+Pg
@@ -201,7 +202,8 @@ class phpmysqldump
 //**** fin du constructeur **************************************
 	// dirige la sortie du dump navigateur client ou fichier			// write backup to file or to browser	
 	function ecrire($val){
-		if($this->fly){echo $val;}else{fwrite($this->fp, $val);}
+		//if($this->fly){echo $val;}else{fwrite($this->fp, $val);} // la sauveagrde se fait en ISO-8859-1
+		if($this->fly){echo utf8_encode($val);}else{fwrite($this->fp, utf8_encode($val));} // la sauveagrde se fait en UTF-8 
 	}
 
 //***************************************************************
@@ -247,21 +249,12 @@ class phpmysqldump
 	function backup_suite($fichier="") 		// construction du backup  // build backup	
 	{		
 			$this->backup_comment("debut");
-			/* // supprimé -> //!!!!  Function mysql_list_tables() is deprecated  27/10/2009
-			// liste des tables  // tables list    
-			$ltable = mysql_list_tables($this->base,$this->link);   // Function mysql_list_tables() is deprecated
-			$nb_row = mysql_num_rows($ltable);
-			*/
-			//!!!!  Function mysql_list_tables() is deprecated  On remplace par  exemple sur  http://fr.php.net/manual/fr/function.mysql-list-tables.php 
 			$sql = "SHOW TABLES FROM ".($this->base);
 			$result = mysql_query($sql);			
-				
-			/* // supprimé -> //!!!!  Function mysql_list_tables() is deprecated  27/10/2009
-			$i = 0;
-			while ($i < $nb_row)
-			{ 	$tablename = mysql_tablename($ltable, $i);
-			*/
-			//!!!!  Function mysql_list_tables() is deprecated  On remplace par  exemple sur  http://fr.php.net/manual/fr/function.mysql-list-tables.php 
+			// Check $result //  ++ 21/09
+				if (!$result) {
+					{$this->errr=$this->message("err_mysql_table"); return false;}
+				}					
 			while ($row = mysql_fetch_row($result)) 
 			{ $tablename = $row[0] ;	
 
@@ -429,9 +422,11 @@ class phpmysqldump
 		$message['err_base']['fr']='base mysql inexistante';
 		$message['err_base']['en']='mysql database not exist';
 
-		$message['err_mysql'][fr]='Erreur d\'ouverture de mysql';
-		$message['err_mysql'][en]='mysql server not found';
-
+		$message['err_mysql']['fr']='Erreur d\'ouverture de mysql';
+		$message['err_mysql']['en']='mysql server not found';
+		
+		$message['err_mysql_table']['fr']='Erreur mysql SHOW TABLES'; // ++ 21/09
+		$message['err_mysql_table']['en']='mysql server error SHOW TABLES';	 // ++ 21/09
 		
 		return $message[$numero][$lang];
 	}

@@ -18,14 +18,17 @@ Attention cette version 6.xx donne la possibilité d'avoir
 ou
  un accès à une base de données PostgreSQL version 7 ou plus
 
+
+
+Conditions requises pour la mise à jour en version 7.x depuis une version 6.5
+*****************************************************************************
+
 !! BIEN LIRE TOUT LE TEXTE AVANT DE DEMARRER !!
 
 
-*****************************************************************************
-Conditions requises pour la mise à jour en version 6.4 depuis une version 5.x
-*****************************************************************************
-
-Si vous voulez faire une mise à jour depuis une version antérieure à 5.5.7, faire les mises à jour pour être en 5.5.7 avant toute mise à jour vers une version 6.x
+Si vous voulez faire une mise à jour depuis une version antérieure à 5.5.7, faire les mises à jour pour être en 5.5.7 avant toute mise à jour vers une version 6.x 
+VOIR le fichier majV5-V6_lire.txt
+Avant d'effectuer cette mise à jour en version 7, vous devez IMPERATIVEMENT être en version 6.5.0 !
 
 Attention :
 pour la mise à jour pendre les précautions d'usage
@@ -46,25 +49,6 @@ NOTE A :
 - Le fichier index.html du dossier "gestion_x" peut être changé à la ligne 
 <h2 align="center"><a href="gestassophp_sa/index.php"> 
 Par gestassophp_s pour un dossier "gestassophp_s"
-
-
- 	+ IMPORTANT +
-- Le nom du dossier "gestassophp_s" peut être changé à condition de changer des lignes dans des fichier *.php
-	la ligne du fichier\gestassophp_sa\config\connexion.php	
-	$file_loc = 'fileloc_gestasso_sXX.php';  //*** A DEFINIR en _s ou _sa ou autre
-		
-	la ligne du fichier\gestassophp_sa\install\include_install.php
-	$file_loc = 'fileloc_gestasso_sXX.php';   //*** A DEFINIR en _s ou _sa ou autre
-	la ligne du fichier\gestassophp_sa\install\	index.php
-	$file_loc = 'fileloc_gestasso_sXX.php';   //*** A DEFINIR en _s ou _sa ou autre
-
-
-Si vous avez par exemple un dossier "gestassophp_s" venant d'une version ancienne 5.x 
-- dans ce cas pour être compatible avec les versions 6.x :
-	Renommer le  fichier fileloc_gestasso_s.php en fichier fileloc_gestasso_sa.php
-	Vérifier la ligne du fichier fileloc_gestasso_sa.php 
-	define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_s'); // c'est votre dossier "gestassophp_s" de l’hébergement
-
 
 Note B
 ------
@@ -91,11 +75,9 @@ NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à reno
 
 	Si vous avez fait des modifications sur certains fichiers -vérfier que vous avez bien sauvegarder au point 1-
 
+	
 Envoyer les fichiers en FTP sur votre hébergement.
 ------------------------------------------
-
-	En version 6.x dans le dossier /lib/ un nouveau dossier adodb est ajouté pour la gestion des bases de données
-
 
 3 - envoyer la sauvegarde de :
 	\config\lang.php si modification
@@ -106,30 +88,27 @@ Envoyer les fichiers en FTP sur votre hébergement.
 	define("TYPE_BD", "mysql"); //Type de la BD   // ligne à ajouter
 
 
-5 - Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade5-sa.php) 
+5 - Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade700.php) 
 une page s'affiche ...
 "MODIFICATION BASE DE DONNEES "
 vérifier si tous les messages sont OK
 puis "cliquez sur le lien en bas de page
 vous devez vous connectez, et vérifier le fonctionnement dans Administration
 
-6 - VERIFIER Le fonctionnement, pour information vous devez voir en bas de page  GestAssoPhp+Pg V 6.x.x et le logo GestAssoPhp+
+6 - VERIFIER Le fonctionnement, pour information vous devez voir en bas de page  GestAssoPhp+Pg V 7.x.x et le logo GestAssoPhp+
 
-7 - SUPPRIMER le fichier /admin/upgrade5-sa.php
+7 - SUPPRIMER le fichier /admin/upgrade700.php
 
 8 - Si vous avez copier le dossier /install en vue de réinstallation
 n'oublier pas de le renommer pour éviter une installation accidentelle
 
+9 - si vous constez des problèmes d'accents (problème encodage) dans les textes, il faut 
+Utiliser Notepad++, ouvrir un fichier vide , Puis menu Encodage / Encoder en UTF8 
+Coller les données de votre fichier SQL de votre base de données
+Puis Puis menu Encodage / Encoder en AINSI 
 
-*****************************************************************************
-IMPORTANT - MISE A JOUR DEPUIS UNE VERSION 6.4.0 vers 6.5.x  
-*****************************************************************************
-	Aprés connexion à Gestassophp, faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
-	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis supprimer le fichier admin/upgrade640-650.php
-- Ajout d'une zone Moyen de paiement sur Gestion Cotisations : Espèces(esp) Carte bancaire(c_b) Autre(aut)
-- ajout d'une colonne paiement_cotis char(3) sur table xx_cotisations
 
 
 ----------------------
-Mise à jour 19/08/2013
+Mise à jour 15/12/2013
 

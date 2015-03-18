@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -66,18 +66,7 @@
 	$db->debug =  false;//true; // false; // Mode débug ou Non
 	if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	
 
-//Jeux de caractères et collations de connexion http://dev.mysql.com/doc/refman/5.0/fr/charset-connection.html	
-//iso-8859-1 correspond effectivement à latin1
-//le SET NAMES indique avec quel jeu de caractères on envoie les données à MySQL, quel que soit le jeu utilisé dans la colonne cible.   "SET NAMES utf8",  "SET NAMES latin1"	
-		//Pour Postgres, charset to iso-8859-1 (LATIN1)
-        if ( TYPE_BD_AODB == 'postgres' ) {		
-			$db->SetCharSet('LATIN1');
-		 }
-        // Pour mysql,  jeu de caractères iso-8859-1 correspond effectivement à latin1
-        if ( TYPE_BD_AODB == 'mysql' ) {
-            $db->Execute("SET NAMES 'latin1'");
-        }
-		
+	
 	// On lit la table preference_asso   (`id_pref`, `design_pref`, `val_pref`)  //  adodb		
 	$result = $db->Execute("SELECT * FROM  ".TABLE_PREFERENCES);
 	while (!$result->EOF)
@@ -136,6 +125,7 @@
 
 // Affichage en template 
 	$tpl->assign('adherent_bene',ADHERENT_BENE); // adhérent ou  Bénévole au singulier
+	$tpl->assign('nomlienpage', basename($_SERVER['SCRIPT_NAME']));
 // FIN  Affichage en template
 	
 ?>

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -172,6 +172,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$adherent['email_adht'] = strtolower(trim(get_post_variable ('email_adht','')));// enléve les parasites		
 		$adherent['siteweb_adht'] = get_post_variablehtml('siteweb_adht',''); // ****
 		$adherent['disponib_adht']= stripslashes(get_post_variablehtml('disponib_adht','')); // enlève \ si on a fait une erreur
+
+		$adherent['profession_adht']= stripslashes(get_post_variablehtml('profession_adht',''));		// ajout V 7
+		$adherent['autres_info_adht']= stripslashes(get_post_variablehtml('autres_info_adht',''));		// ajout V 7
 		
 		// Suivant  $priorite_adht  Modifiable ou NON
 		$adherent['nom_adht']= strtoupper(stripslashes(get_post_variablehtml('nom_adht','')));	// - stripslashes
@@ -296,7 +299,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$adherent['ville_adht']= addslashes($adherent['ville_adht']); // ajoute \ si on a fait une erreur
 				$adherent['nom_adht']= addslashes($adherent['nom_adht']); // ajoute \ si on a fait une erreur
 				$adherent['prenom_adht']= addslashes($adherent['prenom_adht']); // ajoute \ si on a fait une erreur ++
-				$adherent['disponib_adht']= addslashes($adherent['disponib_adht']); // ajoute \ si on a fait une erreur ++		
+				$adherent['disponib_adht']= addslashes($adherent['disponib_adht']); // ajoute \ si on a fait une erreur ++	
+				$adherent['profession_adht']= addslashes($adherent['profession_adht']); // ajout V 7
+				$adherent['autres_info_adht']= addslashes($adherent['autres_info_adht']); // ajout V 7
 				$adherent['promotion_adht']= addslashes($adherent['promotion_adht']);	// Ajouté N° adhésion/Licence	
 				//requete				
 				$req_ecrit_nouvel_adht= "INSERT INTO ".TABLE_ADHERENTS." (civilite_adht,"
@@ -306,8 +311,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				." telephonef_adht,telephonep_adht,"
 				." telecopie_adht,email_adht,siteweb_adht,"
 				." datecreationfiche_adht,antenne_adht,tranche_age,visibl_adht,"
-				." disponib_adht," //  add 20/11/2009 champ suppl note
-				." promotion_adht,"// Ajouté N° adhésion/Licence
+				." disponib_adht," 
+				." promotion_adht,"
+				." profession_adht, autres_info_adht," // ajout V 7
 				." login_adht,password_adht,qui_enrg_adht)" // +  qui a enregistré la fiche  qui_enrg_adht ' lors du 1er enregistrement  		
 		
 				." VALUES('$adherent[civilite_adht]',"
@@ -324,8 +330,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				." '$adherent[telecopie_adht]','$adherent[email_adht]','$adherent[siteweb_adht]',"
 				." '$adherent[date_inscription_adht_sql]','$adherent[id_type_antenne]',"
 				." '$adherent[tranche_age]','$adherent[visible_adht]',"
-				." '$adherent[disponib_adht]',"		//  add 20/11/2009 champ suppl note		
-				." '$adherent[promotion_adht]',"	// Ajouté N° adhésion/Licence
+				." '$adherent[disponib_adht]',"	
+				." '$adherent[promotion_adht]',"
+				." '$adherent[profession_adht]','$adherent[autres_info_adht]'," // ajout V 7
 				." '$adherent[login_adht]','$pass_adht','$sessionadherent')"; //   qui a enregistré = '$sessionadherent' lors du 1er enregistrement	
 				$dbresult = $db->Execute($req_ecrit_nouvel_adht);					
 //echo 'rq='.$req_ecrit_nouvel_adht;					
@@ -346,7 +353,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$adherent['ville_adht']= addslashes($adherent['ville_adht']); // ajoute \ si on a fait une erreur
 				$adherent['nom_adht']= addslashes($adherent['nom_adht']); // ajoute \ si on a fait une erreur
 				$adherent['disponib_adht']= addslashes($adherent['disponib_adht']); // ajoute \ si on a fait une erreur ++	
-			
+				$adherent['profession_adht']= addslashes($adherent['profession_adht']); // ajout V 7
+				$adherent['autres_info_adht']= addslashes($adherent['autres_info_adht']); // ajout V 7
+				
 				$req_ecrit_modif_adht="UPDATE ".TABLE_ADHERENTS
 				." SET civilite_adht='$adherent[civilite_adht]',"
 				." adresse_adht='$adherent[adresse_adht]', cp_adht='$adherent[cp_adht]',"
@@ -356,6 +365,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				."siteweb_adht='$adherent[siteweb_adht]',"
 				." visibl_adht='$adherent[visible_adht]',"
 				." disponib_adht='$adherent[disponib_adht]',"
+				." profession_adht='$adherent[profession_adht]', autres_info_adht='$adherent[autres_info_adht]', " // ajout V 7
 				." datemodiffiche_adht='$date_du_jour'";
 				//NULL values pour dates vide = NUL					
 				if 	($adherent['datenaisance_adht'] =='') { 
@@ -408,9 +418,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$req_lire_infogene_adht = "SELECT civilite_adht,nom_adht, prenom_adht, adresse_adht, cp_adht, ville_adht,"
 				." telephonef_adht, telephonep_adht, telecopie_adht, email_adht, datecreationfiche_adht,"
 				." antenne_adht, datenaisance_adht, visibl_adht, siteweb_adht,"
-				." disponib_adht, " //  add 20/11/2009 champ suppl note
-				." login_adht,priorite_adht, tranche_age, " // priorite_adht pour contrôle modif mot de passe
-				." qui_enrg_adht, id_type_antenne, nom_type_antenne, promotion_adht" // +  qui a enregistré la fiche+	nom_type_antenne + Ajouter Chp
+				." disponib_adht, " 
+				." login_adht,priorite_adht, tranche_age, " 
+				." profession_adht, autres_info_adht," // ajout V 7
+				." qui_enrg_adht, id_type_antenne, nom_type_antenne, promotion_adht" 
 				." FROM  ".TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE " // + TABLE_ANTENNE
 				." id_adht='$id_adht' AND antenne_adht=id_type_antenne "; //  ++ AND antenne_adht=id_type_antenne
 		//	    $result_req_lire_infogene_adht = mysql_query($req_lire_infogene_adht );
@@ -454,7 +465,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 					} else {
 						$imagedata = array("66","");
 					}
-					$photo_adht ="<img src=\"".$image_adht."?nocache".time()."\" border=\"1\" alt=\""
+					$photo_adht ="<img src=\"".$image_adht."?nocache".time()."\" alt=\""
 					.("Photo")."\" width=\"".$imagedata[0]."\" height=\"".$imagedata[1]."\" />";                         
 				} else {
 					$photo_adht = _LANG_MESSAGE_REMPLIR_NOPHOTO;
@@ -472,7 +483,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=Nom Prénom 
-		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES, 'iso-8859-1');
+		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES,'UTF-8');
     }		
 	// FINPour affichage de la liste  Nom Prénom  //   qui a enregistré la fiche 
 	
@@ -481,8 +492,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$dbresult = $db->Execute($req_list_antenne);		
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=nom_type_antenne
-		$tab_antenne[$row['id_type_antenne']] =	htmlentities(stripslashes($row['nom_type_antenne']),ENT_NOQUOTES, 'iso-8859-1');
-		//ajout htmlentities pour accents Smaty 3.1.11 + Il est dit dans la doc PHP que de l'encodage utilisé par php pour htmlentities est ISO-8859-1 pour les versions anterieur à PHP 5.4.0 et UTF-8 a partir de PHP 5.4.0
+		$tab_antenne[$row['id_type_antenne']] =	htmlentities(stripslashes($row['nom_type_antenne']),ENT_NOQUOTES,'UTF-8');
     }		
  
 /***** FIN Sinon on affiche la fiche la première fois avant modifications */		

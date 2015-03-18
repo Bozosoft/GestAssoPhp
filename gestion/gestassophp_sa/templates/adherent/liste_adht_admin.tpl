@@ -1,13 +1,19 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE  Liste des adhérents *}
-	<div id="titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_admin.php','popup','height=550,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></div> 
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_admin.php','popup','height=650,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <div id="titre">&nbsp; {language name=titre_admin_liste_adht}</div>
+    <header class="header_titre">&nbsp; {language name=titre_admin_liste_adht}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
  {if $erreur_suppression_fiche == 1}
-		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur_suppression_id} !! - {language name=admin_liste_adht_date_f_cotis}{$erreur_suppression_date} <br /> {language name=liste_cotis_adht_archiv_icon_title}
-		</div>	
+		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur_suppression_id} !! - {language name=admin_liste_adht_date_f_cotis}{$erreur_suppression_date} <br /> {language name=liste_cotis_adht_archiv_alert}
+	</div>
+{/if}	
+ {*	ajout alerte si supression fiche avec niveau priorité >=0 *}	
+ {if $erreur1_suppression_fiche == 1}
+		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur1_suppression_id} !! <br /> - {language name=admin_liste_adht_alert_priorite}{$erreur1_suppression_priorite} <br />
+		<a href="../admin/remplir_priorite.php" title="{language name=titre_admin_gerer_priorite_adherents}">{language name=admin_liste_adht_alert_priorite_0} </a>
+		</div>
 {/if}	
 {* Affichage  Recherche *}	
 	<form action="liste_adht_admin.php" method="get" name="filtre">
@@ -25,7 +31,7 @@
 		</div>
 		
 {* Affichage NB adherents -  - NB pages *}	
-		<table width="100%" summary="Affiche pages">
+		<table style="width:100%;">
 			<tr>
 				<td>{$nb_lines} {if $nb_lines > 1}{$adherent_bene}s {else}{$adherent_bene} {/if}&nbsp;&nbsp;<a href="../adherent/remplir_infogene_adht.php"><span class="submit_ok" title="{language name=admin_liste_adht_addadht_button_title}">&nbsp;{language name=admin_liste_adht_addadht_button_title}&nbsp;</span></a></td>
 				<td class="centre-txt">{language name=tpl_select_affichepar}
@@ -48,9 +54,9 @@
 		
 {* Affichage de la Table des adhérents *}	
 
-		<table width="100%" summary="Affiche membres"> 
+		<table style="width:100%;"> 
 			<tr>
-				<th class="LignegrisC" width="4%">
+				<th class="LignegrisTC" style="width:4%;">
 					<!-- a href="liste_adht_admin.php?tri=0&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">#</a -->
 					<a href="liste_adht_admin.php?tri=0&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">#</a>
 					{if $smarty.session.tri eq 0}
@@ -63,7 +69,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>				
-				<th class="LignegrisC" width="23%">
+				<th class="LignegrisTC" style="width:20%;">
 					<a href="liste_adht_admin.php?tri=1&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=tpl_col_nompre}</a>
 					{if $smarty.session.tri eq 1}
 					{if $smarty.session.tri_sens eq 0}
@@ -77,7 +83,7 @@
 				</th>
 				
 
-				<th class="LignegrisC" width="23%">
+				<th class="LignegrisTC" style="width:20%;">
 					<a href="liste_adht_admin.php?tri=2&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=tpl_col_adht_ville}</a>
 					{if $smarty.session.tri eq 2}
 					{if $smarty.session.tri_sens eq 0}
@@ -90,7 +96,7 @@
 					{/if}
 				</th>		
 				
-				<th class="LignegrisC" width="12%">
+				<th class="LignegrisTC" style="width:12%;">
 					<a href="liste_adht_admin.php?tri=3&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=admin_liste_adht_col_inscript}</a>
 					{if $smarty.session.tri eq 3}
 					{if $smarty.session.tri_sens eq 0}
@@ -102,7 +108,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>
-				<th class="LignegrisC" width="11%">
+				<th class="LignegrisTC" style="width:11%;">
 					<a href="liste_adht_admin.php?tri=4&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=admin_liste_adht_col_ech}</a>
 					{if $smarty.session.tri eq 4}
 					{if $smarty.session.tri_sens eq 0}
@@ -115,7 +121,7 @@
 					{/if}
 				</th> 
 				{* + qui a enrregistré la fiche *}
-				<th class="LignegrisC" width="5%">
+				<th class="LignegrisTC" style="width:5%;">
 					<a href="liste_adht_admin.php?tri=5&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=admin_liste_adht_col_enr}</a>
 					{if $smarty.session.tri eq 5}
 					{if $smarty.session.tri_sens eq 0}
@@ -128,7 +134,7 @@
 					{/if}
 				</th>
 				{* + Section critères "sections ou secteurs d'activité" propre à l'association *}
-				<th class="LignegrisC" width="10%">
+				<th class="LignegrisTC" style="width:16%;">
 					<a href="liste_adht_admin.php?tri=6&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=fiche_adht_ant}</a>
 					{if $smarty.session.tri eq 6}
 					{if $smarty.session.tri_sens eq 0}
@@ -141,23 +147,23 @@
 					{/if}
 				</th>
 				
-				<th class="LignegrisC" width="12%">{language name=tpl_col_actions}
+				<th class="LignegrisTC" style="width:12%;">{language name=tpl_col_actions}
 				</th>
 				
 			</tr>
 {foreach from=$membres item=item_membres key=ordre}
 			<tr class="Lignegris{$item_membres.coul}">
 				<td>{$item_membres.id_adht}</td>
-				<td nowrap="nowrap">{if $filtremembre_adht !='3'}<a href="../adherent/gerer_fiche_adht.php?id_adht={$item_membres.id_adht}" title="{language name=liste_adht_visu_icon_title}">{$item_membres.nom_adht} {$item_membres.prenom_adht}</a>{if $item_membres.soc_adht == '999'} <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="{language name=admin_liste_adht_fiche_del_icon_title}"/>{/if}{else}<span class="Texterouge">{$item_membres.nom_adht} {$item_membres.prenom_adht}{if $item_membres.soc_adht == '999'} <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="{language name=admin_liste_adht_fiche_del_icon_title}"/>{/if}</span>{/if}</td>
+				<td>{if $filtremembre_adht !='3'}<a href="../adherent/gerer_fiche_adht.php?id_adht={$item_membres.id_adht}" title="{language name=liste_adht_visu_icon_title}">{$item_membres.nom_adht} {$item_membres.prenom_adht}</a>{if $item_membres.soc_adht == '999'} <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="{language name=admin_liste_adht_fiche_del_icon_title}"/>{/if}{else}<span class="Texterouge">{$item_membres.nom_adht} {$item_membres.prenom_adht}{if $item_membres.soc_adht == '999'} <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="{language name=admin_liste_adht_fiche_del_icon_title}"/>{/if}</span>{/if}</td>
 				<td>{$item_membres.ville_adht}</td>
-				<td nowrap="nowrap">{$item_membres.date_adht}</td>
-				<td nowrap="nowrap">&nbsp;{$item_membres.fin_cotisation}</td>
+				<td>{$item_membres.date_adht}</td>
+				<td>&nbsp;{$item_membres.fin_cotisation}</td>
 		
 				<td>{if $item_membres.qui_enrg_adht != 0}&nbsp;<a href="../adherent/consulter_fiche_adht.php?id_adht={$item_membres.qui_enrg_adht}" title="{language name=admin_liste_adht_enr_title} {$item_membres.pnom_creation_fiche_adht}">{$item_membres.qui_enrg_adht}</a>{/if}</td>{* + qui a enrregistré la fiche *}
 
-				<td nowrap="nowrap">&nbsp;{$item_membres.nom_type_antenne}</td>{* + "sections ou secteurs d'activité" propre à l'association *}
+				<td>&nbsp;{$item_membres.nom_type_antenne}</td>{* + "sections ou secteurs d'activité" propre à l'association *}
 				
-				<td align="center">
+				<td class="centre-txt">
 				{if $item_membres.soc_adht <> '999'}
 				{if $priorite_adht>=7}
 				<a href="../adherent/gerer_fiche_adht.php?id_adht={$item_membres.id_adht}"><img src="../images/icones16/i_voir.png" width="16" height="16" alt="" title="{language name=liste_adht_visu_icon_title}"/></a>&nbsp;

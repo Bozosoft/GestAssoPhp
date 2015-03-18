@@ -1,8 +1,8 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE Liste des cotisations adhérents*}
-	<div id="titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_cotisation_adht.php','popup','height=550,toolbar=no,location=no,directories=no,status=yes,width=680,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></div> 
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_cotisation_adht.php','popup','height=630,toolbar=no,location=no,directories=no,status=yes,width=680,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <div id="titre">&nbsp;{language name=titre_admin_liste_cotis_adht}</div>
+    <header class="header_titre">&nbsp;{language name=titre_admin_liste_cotis_adht}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
 	
@@ -19,9 +19,9 @@
  
 		<div id="listfilter">
 		<input type="submit" class="submit_ok" value="{language name=tpl_filter_button}" title="{language name=tpl_filter_button_title} des dates"/>
-			<label for="filtre_datedeb" id="filtre_datedeb">&nbsp;{language name=liste_cotis_adht_text_lescotis}</label>&nbsp;
+			<label for="select_datedeb">&nbsp;{language name=liste_cotis_adht_text_lescotis}</label>&nbsp;
 			<input type="text" name="select_datedeb" id="select_datedeb" maxlength="10" size="11" value="{$filtre_datedeb}" title="{language name=liste_cotis_adht_select_date_d}"/>
-			<label for="filtre_datefin" id="filtre_datefin">&nbsp;{language name=liste_cotis_adht_text_au}</label>&nbsp;
+			<label for="select_datefin">&nbsp;{language name=liste_cotis_adht_text_au}</label>&nbsp;
 			<input type="text" name="select_datefin" id="select_datefin" maxlength="10" size="11" value="{$filtre_datefin}" title="{language name=liste_cotis_adht_select_date_f}"/>
 			&nbsp; 
 		 	{language name=tpl_texte_select}&nbsp;
@@ -33,7 +33,7 @@
 		</div>
 		
 {* Affichage NB cotisations -  - NB pages *}	
-		<table width="100%" summary="Affiche pages">
+		<table style="width:100%;">
 			<tr>
 				<td>{$nb_lines} {if $nb_lines > 1}{language name=liste_cotis_adht_cotiss} {else}{language name=liste_cotis_adht_cotis} {/if}&nbsp;&nbsp;{if $id_adht}<a href="../adherent/remplir_cotisations_adht.php?id_adht_cotis={$id_adht}"><span class="submit_ok" title="{language name=liste_cotis_adht_addcotis_button_title}">&nbsp;{language name=liste_cotis_adht_addcotis_button}&nbsp;</span></a>
 				{else}
@@ -60,9 +60,9 @@
 		
 {* Affichage de la Table des cotisations *}	
 
-		<table width="100%" summary="Affiche cotisation"> 
+		<table style="width:100%;"> 
 			<tr>
-				<th class="LignegrisC" width="4%">
+				<th class="LignegrisTC" style="width:4%;">
 					<a href="liste_cotisations_adht.php?tri=0&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}">#</a>
 					{if $smarty.session.tri eq 0}
 					{if $smarty.session.tri_sens eq 0}
@@ -75,7 +75,7 @@
 					{/if}
 				</th>
 				
-				<th class="LignegrisC" width="11%">
+				<th class="LignegrisTC" style="width:11%;">
 					<a href="liste_cotisations_adht.php?tri=1&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}"> {language name=liste_cotis_adht_col_d_enr}</a>
 					{if $smarty.session.tri eq 1}
 					{if $smarty.session.tri_sens eq 0}
@@ -88,7 +88,7 @@
 					{/if}
 				</th>
 				
-				<th class="LignegrisC" width="11%"> {language name=liste_cotis_adht_col_d_deb}
+				<th class="LignegrisTC" style="width:11%;"> {language name=liste_cotis_adht_col_d_deb}
 					<!-- a href="liste_cotisations_adht.php?tri=2" title="{language name=tpl_title_clictri}">Début</a>
 					{if $smarty.session.tri eq 2}
 					{if $smarty.session.tri_sens eq 0}
@@ -101,7 +101,7 @@
 					{/if} -->
 				</th>
 				
-				<th class="LignegrisC" width="11%">
+				<th class="LignegrisTC" style="width:11%;">
 					<a href="liste_cotisations_adht.php?tri=3&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}"> {language name=liste_cotis_adht_col_d_fin}</a>
 					{if $smarty.session.tri eq 3}
 					{if $smarty.session.tri_sens eq 0}
@@ -115,7 +115,7 @@
 				</th>		
 				
 				
-				<th class="LignegrisC" width="24%">
+				<th class="LignegrisTC" style="width:24%;">
 					<a href="liste_cotisations_adht.php?tri=4&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}">{language name=tpl_col_nompre}</a>
 					{if $smarty.session.tri eq 4}
 					{if $smarty.session.tri_sens eq 0}
@@ -128,7 +128,7 @@
 					{/if}
 				</th>				
 
-				<th class="LignegrisC" width="16%">
+				<th class="LignegrisTC" style="width:16%;">
 					<a href="liste_cotisations_adht.php?tri=5&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}"> {language name=liste_cotis_adht_col_type}</a>
 					{if $smarty.session.tri eq 5}
 					{if $smarty.session.tri_sens eq 0}
@@ -141,7 +141,7 @@
 					{/if}
 				</th>
 				
-				<th class="LignegrisC" width="10%">
+				<th class="LignegrisTC" style="width:10%;">
 					<a href="liste_cotisations_adht.php?tri=6&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}"> {language name=liste_cotis_adht_col_montant}</a>
 					{if $smarty.session.tri eq 6}
 					{if $smarty.session.tri_sens eq 0}
@@ -154,7 +154,7 @@
 					{/if}
 				</th>
 				
-				<th class="LignegrisC" width="8%">
+				<th class="LignegrisTC" style="width:8%;">
 					<a href="liste_cotisations_adht.php?tri=7&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_fiche={$filtre_fiche}&amp;select_datedeb={$filtre_datedeb}&amp;select_datefin={$filtre_datefin}&amp;id_adht={$id_adht}" title="{language name=tpl_title_clictri}"> {language name=liste_cotis_adht_col_statut}</a>
 					{if $smarty.session.tri eq 7}
 					{if $smarty.session.tri_sens eq 0}
@@ -166,7 +166,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>				
-				<th class="LignegrisC" width="5%">{language name=tpl_col_actions}
+				<th class="LignegrisTC" style="width:5%;">{language name=tpl_col_actions}
 				</th>
 				
 			</tr>
@@ -187,9 +187,9 @@
 				</td>
 				<td>{$item_cotis_adht.nom_type_cotisation}</td>
 				<td>{$item_cotis_adht.montant_cotis}</td>
-				<td align="center">{$item_cotis_adht.cotis_txt}&nbsp;<span class="TextenoirR">
+				<td class="centre-txt">{$item_cotis_adht.cotis_txt}&nbsp;<span class="TextenoirR">
 				{$item_cotis_adht.datemodiffiche_cotis}</span></td>
-				<td align="center">
+				<td class="centre-txt">
 				{if $item_cotis_adht.cotis !="999"}<a href="../adherent/remplir_cotisations_adht.php?id_cotis={$item_cotis_adht.id_cotis}"><img src="../images/icones16/i_modif.png" width="16" height="16" alt="" title="{language name=liste_cotis_adht_modif_icon_title}"/></a>
 				&nbsp;<a href="../adherent/remplir_cotisations_adht.php?id_cotis={$item_cotis_adht.id_cotis}&amp;supp_fiche_cotis=1"><img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="{language name=liste_cotis_adht_archiv_icon_title}"/></a>
 				{else}<a href="../adherent/remplir_cotisations_adht.php?id_cotis={$item_cotis_adht.id_cotis}&amp;archive_fiche=1"><img src="../images/icones16/i_ficharch.png" width="16" height="16" alt="" title="{language name=liste_cotis_adht_consult_icon_title}"/></a>

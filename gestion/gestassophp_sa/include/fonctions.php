@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -193,11 +193,9 @@ function get_post_variablehtml($nom_var, $par_defaut)
 {
 	$valeur = $par_defaut;
 	if (isset($_GET[$nom_var])) {
-		//$valeur= htmlentities($_GET[$nom_var], ENT_QUOTES);
-		$valeur= htmlspecialchars($_GET[$nom_var], ENT_QUOTES, 'iso-8859-1');
+		$valeur= htmlspecialchars($_GET[$nom_var], ENT_QUOTES, 'UTF-8');
 	} elseif (isset($_POST[$nom_var])) {
-		//$valeur= htmlentities($_POST[$nom_var], ENT_QUOTES);	E&EACUTE;
-		$valeur= htmlspecialchars($_POST[$nom_var], ENT_QUOTES, 'iso-8859-1');		
+		$valeur= htmlspecialchars($_POST[$nom_var], ENT_QUOTES, 'UTF-8');		
 	}	
 	return $valeur;
 }

@@ -1,5 +1,5 @@
-﻿/**
- * Projet : gestassophp_sa [GestAssoPhp+Pg]
+/**
+ * Projet : gestassophp_sa [GestAssoPhp+Pg] + HTML5
  * ---------------------------
  * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
  * Auteur original : Jean-Claude Etiemble
@@ -7,24 +7,92 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
- 
- 6.5.20 14/05/2014
-------------------
- - Ajout de la possibilité de télécharger un fichier contenu dans sa fiche personnelle, pour un utilisateur de niveau 1   
+  Version 7.0.0  10/10/2014 Finale
+  -----------------------
+- Idem version 7.0.0-RC6 avec
+- Ajout sur Aide/Informations personnelles : la longueur login et mot de passe  
+  
+  
+  Version 7.0.0-RC6  23/09/2014 - En développement- Branche v7_html5 - Utliser en production avec précaution
+  -----------------------
+- Ajout sécurité sur "SHOW TABLES"  et utf8_encode sur sortie fichier SQL dans phpmysqldump.class.php
+- Modification de 2013 en 2014 sur tous les fichiers : @version :  2014 et @copyright 2007-2014  (c) JC Etiemble
+
+
+  Version 7.0.0-RC5  19/07/2014 - En développement- Branche v7_html5 - ne pas utliser en production
+  ----------------------- 
+- Ajout d'un contrôle sur la suppression des fiches utilisateurs si la priorité n'et pas mise à 0
+- Ajout des chaînes sur la suppression des fiches utilisateurs dans lang.php 
+// ajout messages si suppression
+define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT', 'Impossible d\'archiver la fiche cotisation');
+define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE', 'Niveau de priorité : ');
+define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', 'Impossible d\'archiver la fiche il faut changer le niveau de priorité à 0');
+- Typo sur lang.php
+- Typo sur icône : Les fiches supprimées dans l'aide a_adht_liste_admin.php
+- Ajout "il est obligatoire d'archiver la ou les cotisations avant de supprimer la fiche Utilisateur." dans a_adht_liste_cotisation_adht.php
+- Mise à jour de Smarty 3.1.19 Jun 30th, 2014 19/07
+
+
+ Version 7.0.0-RC4  28/06/2014 - En développement- Branche v7_html5 - ne pas utliser en production
+ -----------------------
+ - Ajout de la possibilité de télécharger un fichier contenu dans sa fiche personnelle, pour un utilisateur de niveau 1 ou 4
  - Mise à jour de Smarty 3.1.18 Apr 7th, 2014 
  
  
- 6.5.10 29/10/2013 en cours
- ------------------
+Version 7.0.0-RC3  13/03/2014 - En développement- Branche v7_html5 - ne pas utliser en production
+ -----------------------
+ - Correction des .htaccess sur dossiers /fichiersadht /photos /photos
+ - Mise à jour de Smarty 3.1.17 Mar 12th, 2014 
+  
+  
+Version 7.0.0-RC2  17/02/2014 - En développement- Branche v7_html5 - ne pas utliser en production
+ -----------------------
+- Mise à jour de Smarty 3.1.16 Dec 17th, 2013
+- Ajout d'un onglet "Information version" dans Préférences pour visualiser le Changelog
+- Modification de la page d'aide Préférences
+
+Version 7.0.0-RC1  15/08/2013 - En développement- Branche v7_html5
+ -----------------------
+- Mise en conformité pour HTML5 avec message placeholder
+- Attention modifications de base de données !
+  Aprèsconnexion à Gestassophp, faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade700.php)
+une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis supprimer le fichier admin/upgrade700.php
+- Ajout de de 2 champs : profession_adht et autres_info_adht dans table  xxx_adherent pour "Informations personnelles"
+- Correction installateur (Dossier /install)
+- Modification des fichiers export adhérents et cotisations
+- Remplacement du champ FAX par Tél professionnel pour "Informations personnelles"
+- Modification fichier lang.php     
+Modification :
+define('_LANG_FICHE_ADHT_FAX' = Professionnel')
+define('_LANG_FICHE_ADHT_FAX_TITLE 'Indiquer téléphone professionnel - Entrez les chiffres sans espace ni point')
+define('_LANG_TPL_COL_ADHT_PORTABLE', 'Tel Portable'); // texte Portable est remplacé en V7 par Tel Portable
+Ajout : (pour "Informations personnelles")
+define('_LANG_FICHE_ADHT_PROFESSION', 'Profession');
+define('_LANG_FICHE_ADHT_PROFESSION_TITLE', 'Indiquer la profession');
+define('_LANG_FICHE_ADHT_PROFESSION_TITLE_PLACEHOLDER', '');
+define('_LANG_FICHE_ADHT_AUTRES_INFO', 'Autres informations');
+define('_LANG_FICHE_ADHT_AUTRES_INFO_TITLE', 'Indiquer les autres informations ');
+define('_LANG_FICHE_ADHT_AUTRES_INFO_TITLE_PLACEHOLDER', 'informations complémentaires');
+define('_LANG_ADMIN_PRIORITE_CODE_PRIORITE_TITLE'
+define('_LANG_...._PLACEHOLDER' pour les messages HTML5 avec message placeholder
+- Ajout description champ dans les tpl (label  -> title=... + placeholder
+- Suppression de iso-8859-1 de ENT_NOQUOTES et remplacement par UTF-8. (Note PHP 5.4 et 5.5 est UTF-8 mais PHP 5.3.x iso-8859-1)
+- Refonte des CSS screen et print
+- Ajout de la visualisation de la page active dans le menu
+- Refonte des tableaux et suppression tables pour remplir_fichier_adht + remplir_cotisations_adht + remplir_infogene_adht
+- Ajout icône i_stop.png pour déconnexion
+- Modification icônes connexion, aide, mail
+- Déplacement des champs dans remplir_infogene_adht et ajout "NC" si Tranche âge est non défini
+- Corrections et modifications en conformité de la version 6.5.0
+- Corrections et modifications en conformité de la version 6.3.0 et de la 6.4.0
 - Mise à jour de Smarty 3.1.15 Oct 1st, 2013
 
-
- 6.5.0 03/07/2013 Finale
+ Version 6.5.0 03/07/2013 Finale
  -----------------------
 Attention modifications de base de données !
 	Aprés connexion à Gestassophp, faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
@@ -38,11 +106,10 @@ Attention modifications de base de données !
 	Modification : define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'Re&ccedil;u cotisation ');
 - Modification en base de donnée sur table xx_adherent du champ CP int(8) par VARCHAR( 8 ) pour les Codes Postaux avec 0 comme 1er chiffre
 - Mise à jour de Smarty 3.1.14 Jun 28, 2013
-Les modifications entre Version 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_6500.diff
+Les modifications entre V 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_6500.diff
 
- 
- 
-6.4.0 05/04/2013 Finale
+
+6.4.0 22/03/2013 - en cours
 -----------------------
 - Ajout contrôle sur suppression de la fiche adhérent si une ou des cotisations sont en cours (échues ou non) sur liste_adht_admin + remplir_cotisations_adht + a_adht_liste_admin.php
 - Ajout titre sur Raison de l'archivage 30 caractères maxi
@@ -68,7 +135,7 @@ Les modifications entre Version 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_64
 
 
 6.2.0 07/02/2013 Finale
----------------
+----------------------
 - correction de l'encodage des caractères en entités HTML sur les fichiers d'aide
 - Refonte installateur en v 1.1.0 ENCODAGE UTF-8 sans BOM et donc encodage de caractères en entités HTML
 - Ajout montant cotisation sur Type cotisation dans Fiche cotisation - (Création) [Suggestion BARRO Drissa]
@@ -76,12 +143,12 @@ Les modifications entre Version 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_64
 - Modification sur affichage adresse mail (saut de ligne) gerer_fiche_adht.tpl
 - Correction tableau priorité sur remplir_priorite.tpl
 - Correction UFT8 sur adherent/remplir_fichier_adht.php + liste_cotisations_adht.php $affiche_message =' N° ' => $affiche_message =' N&deg; '
-- Modification de l'adresse Web http://gestassophp.xtreemhost.com/ par http://gestassophp.free.fr/ sur templates/login.tpl et templates/page_index.tpl
+- Modification de l'asrese Web http://gestassophp.xtreemhost.com/ par http://gestassophp.free.fr/ sur templates/login.tpl et templates/page_index.tpl
 - Passage des fichiers en encodage UTF8 sans BOM
 
 
 6.1.0 16/01/2013 Finale
----------------
+----------------------
 - Mise à jour de  Smarty-3.1.13
 - correction lang.php 
 	'_LANG_TABLEAUBORD_TCOTIS_ICON_TITLE   Adhérents => '.ADHERENT_BENE.'s
@@ -103,7 +170,7 @@ Site mirroir http://gestassophp.free.fr
 - Correction remplir_cotisations_adht : code alerte sur date fin de cotisation
 - Correction Warning sur consulter_fiche_adht.php consulter_fiche_adht_admin2.php
 - Correction problème accent sur saisie Par modification function get_post_variablehtml
-- Mise en conformité du fichier lang pour entités HTML
+- Mise en conformtité du fichier lang pour entitées HTML
 - Mise à jour de  adodb (V5.18 3 Sep 2012)
 
 
@@ -231,7 +298,7 @@ Maintenant les bases de données MySql et PostreSql sont gérées.
 
 
 -----------------------------------------------------------
-(c) JC Etiemble  2007-2010 jc_point_etiemble_At_Free_point_fr
+(c) JC Etiemble  2007-2014 jc_point_etiemble_At_Free_point_fr
 
 
 

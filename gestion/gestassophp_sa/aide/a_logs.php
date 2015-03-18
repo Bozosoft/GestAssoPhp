@@ -8,26 +8,23 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_LOGS ;?></title>
-     <meta http-equiv="Content-Type" content="text/HTML; charset=<?php echo _LANG_CHARSET ;?>" />	
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_LOGS ;?></title>
 </head>
 <body>
 
@@ -36,16 +33,16 @@
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
-    Cette page permet de consulter les connexions &agrave; l'espace des "<?php echo ADHERENT_BENE ;?>"s 
-    ainsi que les manipulations effectu&eacute;es (Cr&eacute;ations, modifications, suppressions).<br />
+    Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>"s 
+    ainsi que les manipulations effectuées (Cr&eacute;ations, modifications, suppressions).<br />
     <br />
     Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br />
     <br />
     Il est possible :<br />
 	- d'exporter la liste des logs au format XLS, avant d'effacer<br />
-	- d'effacer TOUS les logs de la base de donn&eacute;es en cliquant 
-    sur l'ic&ocirc;ne <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" /> 
-    <span class="TexterougeR">"<?php echo _LANG_ADMIN_LOGS_CLEAR_LOGS ;?>"</span> en haut &agrave; gauche. </p>
+	- d'effacer TOUS les logs de la base de données en cliquant 
+    sur l'icône <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" /> 
+    <span class="TexterougeR">"<?php echo _LANG_ADMIN_LOGS_CLEAR_LOGS ;?>"</span> en haut à gauche. </p>
 <p>&nbsp;</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

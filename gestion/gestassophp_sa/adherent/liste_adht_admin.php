@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -78,29 +78,45 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$check_fin_cotisation  = '-1';
 			}	
 		}
-// si date de fin de cotisation est encore valable Ou si la date de fin de cotisationest echue Alerte
-		if ($date_echeance_cotisation['date_echeance_cotis'] > $date_du_jour || ($check_fin_cotisation  == '-1') ) {
-			// on ne peut pas effacer ---> message
-			$erreur_suppression_fiche =1;
-			$tpl->assign('erreur_suppression_fiche',$erreur_suppression_fiche); // Impossible supprimer fiche date fin de cotis non échue
-			$tpl->assign('erreur_suppression_date',switch_sqlFr_date($date_echeance_cotisation['date_echeance_cotis'])); // date
-			$tpl->assign('erreur_suppression_id',$id_adht_supp); // ID adhérent			
-
-		} else { 
-
-// On enregistre dans la BD. on met 999 dans le champ Soc_Adht + date de mise à jour fiche et  Date_sortie = date du jour	
-			$req_supp_adht=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='999',"
-			." datemodiffiche_adht='$date_du_jour'," 
-			." date_sortie='$date_du_jour'" 
-			." WHERE id_adht='$id_adht_supp'");		
-			$dbresult = $db->Execute($req_supp_adht);
 		
-			//ecrit qui a fait la manip			
-			$ecritlog = $masession->write_log('Suppression_Adht : '
-			.$id_adht_supp,$masession->get_var_session('ses_nom_adht').' '
-			.$masession->get_var_session('ses_prenom_adht'));
-			header('location: liste_adht_admin.php'); 
+// Verifier niveau priorité si niveau priorité <> 0  alors message		 		
+		$req_lire_info_adht ="SELECT priorite_adht, nom_adht,prenom_adht FROM ".TABLE_ADHERENTS." WHERE id_adht='$id_adht_supp' ";	
+		$dbresult = $db->Execute($req_lire_info_adht);	
+		$priorite_adht_del['priorite_adht'] = $dbresult->fields['priorite_adht'];
+		$nom_adht_adht_del = $dbresult->fields['nom_adht'];
+		$prenom_adht_adht_del = $dbresult->fields['prenom_adht'];		
+		if ($priorite_adht_del['priorite_adht']  <> 0)  {
+			// on ne peut pas effacer ---> message
+			$erreur1_suppression_fiche = 1;
+			$tpl->assign('erreur1_suppression_fiche',$erreur1_suppression_fiche); // Impossible supprimer fiche date fin de cotis non échue
+			$tpl->assign('erreur1_suppression_priorite',$priorite_adht_del['priorite_adht']); // niveau priorité
+			$tpl->assign('erreur1_suppression_id',$id_adht_supp." = ".$nom_adht_adht_del." ".$prenom_adht_adht_del); // ID adhérent + Nom prénom	
+		}
+		
+// si date de fin de cotisation est encore valable Ou si la date de fin de cotisationest echue Alerte
+		if ($erreur1_suppression_fiche != 1)  { // si niveau priorité = 0
+			if ($date_echeance_cotisation['date_echeance_cotis'] > $date_du_jour || ($check_fin_cotisation  == '-1') ) {
+				// on ne peut pas effacer ---> message
+				$erreur_suppression_fiche =1;
+				$tpl->assign('erreur_suppression_fiche',$erreur_suppression_fiche); // Impossible supprimer fiche date fin de cotis non échue
+				$tpl->assign('erreur_suppression_date',switch_sqlFr_date($date_echeance_cotisation['date_echeance_cotis'])); // date
+				$tpl->assign('erreur_suppression_id',$id_adht_supp); // ID adhérent			
+			
+			} else { 
 	
+// On enregistre dans la BD.  on met 999 dans le champ Soc_Adht  pour récupérer si erreur + Date_sortie  et date de mise à jour fiche = date du jour	
+				$req_supp_adht=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='999',"
+				." datemodiffiche_adht='$date_du_jour'," 
+				." date_sortie='$date_du_jour'" 
+				." WHERE id_adht='$id_adht_supp'");
+				$dbresult = $db->Execute($req_supp_adht);
+				
+				//ecrit qui a fait la manip			
+				$ecritlog = $masession->write_log('Suppression_Adht : '
+				.$id_adht_supp,$masession->get_var_session('ses_nom_adht').' '
+				.$masession->get_var_session('ses_prenom_adht'));
+				header('location: liste_adht_admin.php'); 			
+			}
 		}
 	}
 /***** FIN Si on SUPPRIME la fiche adhérent */	

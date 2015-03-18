@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 //include_once '../../fileloc_gestasso_s.php';  //----------Pour TEMPLATE et localise rep 
@@ -18,21 +18,19 @@ include_once '../config/connexion.php';
  $priorite_adht = $_SESSION['ses_priorite_adht'];
 
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_CONSULT_FICHE_ADHT ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />	
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_VISU_FICHE_ADHT ;?></title>
 </head>
+<body>
 <body>
 
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
@@ -43,7 +41,7 @@ include_once '../config/connexion.php';
     Cette page montre un r&eacute;capitulatif des informations <?php echo ADHERENT_BENE ; ?><br/>
     <br />
     Plusieurs zones d&eacute;finisse cette page :<br/>
-    <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?></span> 
+    <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?> </span> 
     :<br/>
     Le num&eacute;ro et date de cr&eacute;ation de la fiche, la date de modification 
     et les informations sur la cotisation<br/>

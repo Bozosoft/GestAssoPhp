@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -284,7 +284,7 @@ $pas = $logpass[1];
 		if ($cotis_adh['id_type_cotisation'] =='') {
 			$erreur_saisie ['type_cotisation'] = _LANG_MESSAGE_COTIS_ADHT_ALERT_TYPE;
 		}	
-
+//++
 		// si création le montant cotisation est affecté automatiquement 
 		if  (isset( $required ['creation_cotisation']) and $required ['creation_cotisation'] == 1) {
 		//if  ($required ['creation_cotisation'] == 1)  {
@@ -302,7 +302,7 @@ $pas = $logpass[1];
 			if ($id_listemontant_cotisation >=1) {
 			$cotis_adh['montant_cotis'] = $tab_montant_cotisation[$id_listemontant_cotisation];
 			}
-
+//++	
 			} else { // Montant cotisation
 			$cotis_adh['montant_cotis']=(get_post_variable('montant_cotis',''));
 			if ( ($cotis_adh['montant_cotis'] =='') || (!is_numeric($cotis_adh['montant_cotis'])) ) {
@@ -336,7 +336,7 @@ $pas = $logpass[1];
 		}
 		// Ajout Zone PAIEMENT
 		$cotis_adh['paiement_cotis']=((get_post_variablehtml('paiement_cotis','')));
-
+		
 		// Commentaire de cotisation
 		$cotis_adh['info_cotis']= stripslashes((get_post_variablehtml('info_cotis',''))); // elnlève \  si on a fait une erreur
 	
@@ -360,16 +360,16 @@ $pas = $logpass[1];
 			if ($cotis_adh['id_adhtasso'] =='') {
 				$erreur_saisie ['id_adhtasso'] = _LANG_MESSAGE_COTIS_ADHT_ALERT_NOM.' '.ADHERENT_BENE;
 			}
-			
+	
 			// Si Aucune erreur de saisie ON Valide --> Requette enregistrement nouvelle cotisation	
 			if (count($erreur_saisie) == 0) {
 				$cotis_adh['info_cotis'] = addslashes($cotis_adh['info_cotis']); // ajoute \ si on a fait une erreur
 				$req_ecrit_nouvelle_cotis = "INSERT INTO ".TABLE_COTISATIONS
-				." (id_adhtasso, qui_cotis, id_type_cotis, montant_cotis, info_cotis,"  
+				." (id_adhtasso, qui_cotis, id_type_cotis, montant_cotis, info_cotis," 
 				." paiement_cotis," //+ Ajout Zone PAIEMENT
 				." date_enregist_cotis, date_debut_cotis, date_fin_cotis)" 					
 				." VALUES('$cotis_adh[id_adhtasso]','adh','$cotis_adh[id_type_cotisation]',"
-				."'$cotis_adh[montant_cotis]','$cotis_adh[info_cotis]',"  
+				."'$cotis_adh[montant_cotis]','$cotis_adh[info_cotis]',"
 				."'$cotis_adh[paiement_cotis]',"  //+ Ajout Zone PAIEMENT
 				." '$cotis_adh[date_enregist_cotis_sql]','$cotis_adh[date_debut_cotis_sql]',"
 				."'$cotis_adh[date_fin_cotis_sql]')";
@@ -403,19 +403,18 @@ $pas = $logpass[1];
 			
 			// Si Aucune erreur de saisie Udpate --> Requette enregistrement update cotisation				
 			if (count($erreur_saisie)==0) {	  
-				$cotis_adh['info_cotis'] = addslashes($cotis_adh['info_cotis']); // ajoute \ si on a fait une erreur
+				$cotis_adh[info_cotis] = addslashes($cotis_adh[info_cotis]); // ajoute \ si on a fait une erreur
 				$req_ecrit_modif_cotis =("UPDATE ".TABLE_COTISATIONS
 				." SET id_type_cotis='$cotis_adh[id_type_cotisation]',"
 				." montant_cotis= '$cotis_adh[montant_cotis]', "
-				." info_cotis='$cotis_adh[info_cotis]',"  
+				." info_cotis='$cotis_adh[info_cotis]',"
 				." paiement_cotis='$cotis_adh[paiement_cotis]'," // + Ajout Zone PAIEMENT
 				." date_debut_cotis='$cotis_adh[date_debut_cotis_sql]',"	
 				." date_fin_cotis='$cotis_adh[date_fin_cotis_sql]',"
 				." datemodiffiche_cotis='$date_du_jour'"
 				." WHERE id_cotis='$id_cotis_adht'"); 
 				$dbresult = $db->Execute($req_ecrit_modif_cotis);	
-
-			
+				
 				/***** mise A JOUR DE la table adherent  Date_Echeance_Cotis  */
 				$req_ecrit_nouvelle_cotis_adht =("UPDATE ".TABLE_ADHERENTS
 				." SET date_echeance_cotis='$cotis_adh[date_fin_cotis_sql]'"
@@ -446,7 +445,7 @@ $pas = $logpass[1];
 	// préparation des données pour affichage si une cotisation existe déja
 		if ($required ['modification_cotisation'] == 1) {
 			$req_lire_info_cotis = "SELECT id_cotis,qui_cotis,id_adhtasso,"
-			."id_type_cotis,montant_cotis,info_cotis,date_enregist_cotis,"  
+			."id_type_cotis,montant_cotis,info_cotis,date_enregist_cotis,"
 			."paiement_cotis,"  //+ Ajout Zone PAIEMENT
 			."date_debut_cotis,date_fin_cotis,info_archiv_cotis,datemodiffiche_cotis,"
 			." id_type_cotisation,nom_type_cotisation" // TABLE_TYPE_COTISATIONS
@@ -463,7 +462,7 @@ $pas = $logpass[1];
 				$cotis_adh['date_fin_cotis'] = switch_sqlFr_date($cotis_adh['date_fin_cotis']);			
 				// Préparation pour Affichage partie variable en fonction des données
 				$tpl->assign('data_cotis_adh',$cotis_adh);
-				$tpl->assign('modif_fiche',$required ['modification_cotisation']);	
+				$tpl->assign('modif_fiche',$required ['modification_cotisation']);			
 			}
 		} 
 			
@@ -479,7 +478,7 @@ $pas = $logpass[1];
 	
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=Nom Prénom 
-		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES,'iso-8859-1');	
+		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES,'UTF-8');	
 	}
 
 	// Requette Pour affichage de la liste  types de cotisation
@@ -489,7 +488,7 @@ $pas = $logpass[1];
 
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=nom_type_cotisation
-		$tab_nomcotis[$row['id_type_cotisation']] =	htmlentities(stripslashes($row['nom_type_cotisation']),ENT_QUOTES, 'iso-8859-1').' - '.$row['montant_cotisation'];	
+		$tab_nomcotis[$row['id_type_cotisation']] =	htmlentities(stripslashes($row['nom_type_cotisation']),ENT_QUOTES, 'UTF-8').' - '.$row['montant_cotisation'];	
     }
 
 //***** FIN pour Affichage des Nom-Prénoms bénévoles et types de cotisation		

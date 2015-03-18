@@ -8,26 +8,23 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_MENU_ADMIN_GESTION.'/'._LANG_TITRE_ADMIN_LISTE_ADHT2 ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />		
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007-2013" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp Aide - <?php echo _LANG_MENU_ADMIN_GESTION.'/'._LANG_TITRE_ADMIN_LISTE_ADHT2 ;?></title>
 </head>
 <body>
 

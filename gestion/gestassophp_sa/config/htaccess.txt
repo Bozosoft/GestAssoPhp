@@ -1,0 +1,13 @@
+# Ce fichier htaccess.txt est a renommer en .htaccess APRES l'installation
+
+# Empecher de lire ou accéder au fichier .htaccess
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+# Empecher de lire ou accéder au fichier config.php
+<Files connexion.cfg.php>
+order allow,deny
+deny from all
+</Files>

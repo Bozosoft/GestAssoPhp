@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -54,11 +54,12 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." telephonef_adht, telephonep_adht, telecopie_adht, email_adht, promotion_adht, datecreationfiche_adht,"
 	." antenne_adht, datenaisance_adht, visibl_adht, datemodiffiche_adht, siteweb_adht,"
 	." priorite_adht,date_echeance_cotis,date_sortie,tranche_age,"
+	." profession_adht, autres_info_adht," // ajout V 7
 	." qui_enrg_adht,disponib_adht,nom_type_antenne" //+ antenne
 	." FROM  ".TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE antenne_adht=id_type_antenne ";
 	
 // 1ere ligne
-print("Num\t Societaire\t Civilite\t Prenom\t "._LANG_TPL_COL_ADHT_NOM."\t "._LANG_FICHE_ADHT_ADRESS."\t "._LANG_FICHE_ADHT_CP."\t "._LANG_TPL_COL_ADHT_VILLE."\t Telephone\t "._LANG_TPL_COL_ADHT_PORTABLE."\t "._LANG_FICHE_ADHT_FAX."\t "._LANG_FICHE_ADHT_MAIL."\t DateCreationFiche\t "._LANG_FICHE_ADHT_ANT."\t "._LANG_TPL_ADHT_DATENAIS."\t visible\t Derniere modif\t  "._LANG_FICHE_ADHT_WEB."\t Priorite\t "._LANG_FICHE_COTIS_ADHT_DATE_FIN."\t Date_Sortie\t Tranche age\t "._LANG_FICHE_ADHT_PROMOTION."\t Qui enregistre Fiche\t "._LANG_FICHE_ADHT_COMPL."\n");
+print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE_ADHT_PRENOM."\t "._LANG_TPL_COL_ADHT_NOM."\t "._LANG_FICHE_ADHT_ADRESS."\t "._LANG_FICHE_ADHT_CP."\t "._LANG_TPL_COL_ADHT_VILLE."\t "._LANG_TPL_COL_ADHT_TELEPH."\t "._LANG_TPL_COL_ADHT_PORTABLE."\t "._LANG_FICHE_ADHT_FAX."\t "._LANG_FICHE_ADHT_MAIL."\t DateCreationFiche\t "._LANG_FICHE_ADHT_ANT."\t "._LANG_TPL_ADHT_DATENAIS."\t visible\t "._LANG_VISU_FICHE_ADHT_LASTMOD."\t  "._LANG_FICHE_ADHT_WEB."\t "._LANG_ADMIN_PRIORITE_COL_PRIORITE."\t "._LANG_FICHE_COTIS_ADHT_DATE_FIN."\t Date_Sortie\t "._LANG_FICHE_ADHT_TAGE."\t "._LANG_FICHE_ADHT_PROMOTION."\t "._LANG_FICHE_ADHT_FICHE_ENR."\t "._LANG_FICHE_ADHT_PROFESSION."\t "._LANG_FICHE_ADHT_AUTRES_INFO."\t "._LANG_FICHE_ADHT_COMPL."\n");
 
 // Boucle préparation écriture de la ligne	
 	$dbresult = $db->Execute($req_lire_table_adht);
@@ -67,13 +68,12 @@ print("Num\t Societaire\t Civilite\t Prenom\t "._LANG_TPL_COL_ADHT_NOM."\t "._LA
 		$champ0 = $row['id_adht'];
 		$champ1 = $row['soc_adht'];
 		$champ2 = $row['civilite_adht'];
-		$champ3 = $row['prenom_adht'];
+		$champ3 = utf8_decode($row['prenom_adht']);
 		$champ4 = $row['nom_adht'];
-		$champ5 = htmlspecialchars_decode(($row['adresse_adht']), ENT_QUOTES);
-		//$champ5 = htmlspecialchars_decode(($champ5), ENT_QUOTES); Convertira les guillemets et les apostrophes
+		$champ5 = html_entity_decode(utf8_decode($row['adresse_adht']),ENT_QUOTES);
 		$champ6 = $row['cp_adht'];
 		$champ7 = $row['ville_adht'];
-		$champ7 = htmlspecialchars_decode(($champ7), ENT_QUOTES); // Convertira les guillemets et les apostrophes
+		$champ7 = html_entity_decode(utf8_decode($champ7),ENT_QUOTES); // Convertira les guillemets et les apostrophes + utf8_decode accents
 		$champ8 = $row['telephonef_adht'];
 		$champ9 = $row['telephonep_adht'];
 		$champ10 = $row['telecopie_adht'];
@@ -81,7 +81,7 @@ print("Num\t Societaire\t Civilite\t Prenom\t "._LANG_TPL_COL_ADHT_NOM."\t "._LA
 		$champ13 = switch_sqlFr_date($row['datecreationfiche_adht']);
 		
 		$champ14 = $row['nom_type_antenne']; // + antenne
-		$champ14 = htmlspecialchars_decode(($champ14), ENT_QUOTES); // Convertira les guillemets et les apostrophes
+		$champ14 = utf8_decode(($champ14)); // Convertira les guillemets et les apostrophes
 		
 		$champ15 = switch_sqlFr_date($row['datenaisance_adht']);
 			if ($champ15 == '00/00/0000'){
@@ -105,7 +105,7 @@ print("Num\t Societaire\t Civilite\t Prenom\t "._LANG_TPL_COL_ADHT_NOM."\t "._LA
 		$champ22 = $row['tranche_age'];
 
 		$champ23 = $row['promotion_adht']; //N° adhésion 
-		$champ23 = htmlspecialchars_decode(($champ23), ENT_QUOTES); // Convertira les guillemets et les apostrophes
+		$champ23 = utf8_decode(($champ23)); // Convertira les guillemets et les apostrophes
 		/*		
 		$champ24 = $row['situation_socialv;
 		$champ25 = $row['profession'];
@@ -124,17 +124,20 @@ print("Num\t Societaire\t Civilite\t Prenom\t "._LANG_TPL_COL_ADHT_NOM."\t "._LA
 		$req_lire_nom_enregistrant = "SELECT prenom_adht,nom_adht"
 		." From ".TABLE_ADHERENTS." WHERE id_adht='$champ32'";	
 		$dbresult_nom = $db->Execute($req_lire_nom_enregistrant);			
-		$champ32 = $dbresult_nom->fields['nom_adht']." ".$dbresult_nom->fields['prenom_adht']; 		
+		$champ32 = utf8_decode($dbresult_nom->fields['nom_adht']." ".$dbresult_nom->fields['prenom_adht']); 		
 		// fin   qui a enregistré		
 			}
 		//$champ33 = $row['cotis_adht'];
 		$champ34 =$row['disponib_adht'];
 		if ($champ34 != ''){
 			$champ34 = substr($row['disponib_adht'],0,510)."...";
-			$champ34 = htmlspecialchars_decode(($champ34), ENT_QUOTES);
+			$champ34 = html_entity_decode(utf8_decode($champ34),ENT_QUOTES);
 		}
+		$champ35 = html_entity_decode(utf8_decode($row['profession_adht']),ENT_QUOTES); // ajout V 7
+		$champ36 = html_entity_decode(utf8_decode($row['autres_info_adht']),ENT_QUOTES); // ajout V 7
+		
 		//ecriture de la ligne
-        print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t $champ8\t $champ9\t $champ10\t $champ11\t  $champ13\t $champ14\t $champ15\t $champ16\t $champ17\t $champ18\t $champ19\t  $champ20\t $champ21\t $champ22\t $champ23\t $champ32\t $champ34 \n");
+        print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t $champ8\t $champ9\t $champ10\t $champ11\t  $champ13\t $champ14\t $champ15\t $champ16\t $champ17\t $champ18\t $champ19\t  $champ20\t $champ21\t $champ22\t $champ23\t $champ32\t $champ35\t $champ36\t $champ34\n");
 		
 	}
 	

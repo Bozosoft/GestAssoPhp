@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -28,6 +28,8 @@
 	$valid_bd_config = '';
 	$sql_query = '';
 	$effacetables = 0;
+	$valid_bd_sql = '';
+	
 	
 	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
@@ -84,13 +86,13 @@ echo 'prefix_bd='.$prefix_bd.'-';
  *  Fichier : config.cfg.php
  *  Page connexion - configuation   
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 
-// Définition de la BD - Paramètres de connexion	
+// Definition de la BD - Parametres de connexion	
 			
 define(\"TYPE_BD\", \"".$type_bd."\"); //Type de la BD			
 define(\"NOMUTILISATEUR_BD\", \"".$utilis_bd."\"); //Nom d'utilisateur de la BD

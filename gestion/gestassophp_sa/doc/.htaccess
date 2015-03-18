@@ -1,12 +1,18 @@
 
-# -------------------
-<Files Changelog.txt>
-order allow,deny
-deny from all
+#Interdit affichage de tout~es mes extensions  Files
+<Files ~ "\.(txt|diff|php|php3|php4|php5|phtml|pl|cgi)$">                                                                              
+  order deny,allow
+  deny from all                                                                                                               
+</Files>  
+
+# Autorise affichage index.html
+<Files index.html>
+order deny,allow  
+#deny from all
 </Files>
 
-
-<Files lisez_moi.txt>
-order allow,deny
-deny from all
+# Autorise affichage CCBY-SA-France.htm
+<Files CCBY-SA-France.htm>
+order deny,allow  
+#deny from all
 </Files>

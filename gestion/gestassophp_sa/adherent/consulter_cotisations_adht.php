@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -67,7 +67,7 @@ $pas = $logpass[1];
 		$cotis_adh['date_enregist_cotis'] = switch_sqlFr_date($cotis_adh['date_enregist_cotis']);
 		$cotis_adh['date_debut_cotis'] = switch_sqlFr_date($cotis_adh['date_debut_cotis']);
 		$cotis_adh['date_fin_cotis'] = switch_sqlFr_date($cotis_adh['date_fin_cotis']);	
-		$cotis_adh['paiement_cotis'] = $T_PAIEMENT_COTIS[$cotis_adh['paiement_cotis']];	//+ Ajout Zone PAIEMENT	
+		$cotis_adh['paiement_cotis'] = $T_PAIEMENT_COTIS[$cotis_adh['paiement_cotis']];	//+ Ajout Zone PAIEMENT		
 			
 		// les données perso
 		$req_lire_perso_adht = "SELECT civilite_adht, nom_adht, prenom_adht, adresse_adht,"

@@ -8,26 +8,23 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />	
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2008" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></title>
 </head>
 <body>
 
@@ -36,15 +33,15 @@
 </p>
 <div id="contenu">
 <p class="Textenoir">&nbsp;<br />
-Cette page permet la maintenance de la base de donn&eacute;es et donc :<br />
+Cette page permet la maintenance de la base de données et donc :<br />
 <br />
 - D'effectuer une optimisation de toutes les tables afin d'avoir une meilleure performance.<br />A faire une fois tous les 15 jours environ<br /><br />
 
-- De sauvegarder de la base de donn&eacute;es en cas de probl&egrave;me d'h&eacute;bergement.<br />
+- De sauvegarder de la base de données en cas de problème d'hébergement.<br />
 <br />
-<span class="TextenoirGras">Il existe donc 2 possibilit&eacute;s</span> :<br />
-<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (&agrave; faire une fois ou si des modifications sont apport&eacute;es sur les tables<br />
-<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables (&agrave; faire en fonction de la fiabilit&eacute; de l'h&eacute;bergement )
+<span class="TextenoirGras">Il existe donc 2 possibilités</span> :<br />
+<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (à faire une fois ou si des modifications sont apportées sur les tables<br />
+<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables (à faire en fonction de la fiabilité de l'hébergement )
 <br />
 
 </p>

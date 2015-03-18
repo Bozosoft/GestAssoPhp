@@ -9,7 +9,7 @@
  * @author : JC Etiemble - http://jc.etiemble.free.fr
  * @version :  2013
  * @copyright 2007-2013  (c) JC Etiemble
- * @package   GestAssoPhp+Pg
+ * @package   GestAssoPhp+Pg HTML5
  */
  
 /**
@@ -18,38 +18,189 @@
  *   feuille de style POUR ECRAN
 */
 
+/*
+Couleurs employées
+------------------
+#000000  noir
+#000066  Bleu foncé Textenoir
+#006400  vert foncé 
+#007F72  vert moyen
+#008016  vert foncé menus
+#39597D  bleu foncé
+#3BA44D  vert moyen navigation
+#800900  marron foncé
+#A4423B  marron
+#AAB6C1  gris bleu foncé
+#BFEAC4  vert clair
+#C8C8C8  gris
+#d9f2c3  vert leger
+#E2E2E2  gris bleu
+#eaeff0  bleu clair
+#EDEDED  gris bleu leger
+#eff5f7  vert trés leger
+#F4F4F4  blanc
+#F7F7F7  blanc
+#F7FCF3  blanc
+#FF0000  Rouge Texterouge
+#FFDDDD  rose
+#FFFFFF  blanc
+Blue
+Green
+Maroon
+Red
+White
+Yellow
+
+*/
+
 
 body{
-background-color: #FFFFFF;
-font-family: Verdana,Arial, Helvetica, sans-serif;
+	background-color: #FFFFFF;
+	font-family: Verdana,Arial, Helvetica, sans-serif;
 }
 
 /* Links */
-
 a {
-	color: #0002CA;
+	color: #A4423B;
 	text-decoration: none;
 	background: inherit;
 }
+
 a:hover {
-	color: #113D8D;
-	background-color: #C8C8C8; /*#898989*/
-	text-decoration: underline;
+	color: #800900;
+	background-color: #BFEAC4;
+	/*text-decoration: underline;*/
+	font-weight: bold;
 }
 
-/*Suprimme la bordure bleue de images*/
-a img {border: none;} 
+/*Suprimme la bordure bleue des images */
+a img {
+	border: none;
+} 
 
 
-/* menu spé*/
-/*bande de fond */
+/* Gabarit des pages*/
+#conteneur_page {
+	position: absolute;
+	width: 98%;
+	background-color:#FFFFFF;
+	border: 2px solid #008016;
+}
+
+/* {*Header défini le bandeau haut  et éventuellement du logo*}   ****ATTENTION**** MODIFIER AUSSI le fichier  /js/style_print.css   */
+.header_page {
+	font-size: 1em;
+	font-weight: bold;
+	text-align:center;
+	padding-top: .5em;
+	height: 1.5em; /* 1.5em  - Hauteur  du Header  - A modifier en fonction de la hauteur du logo*/
+	text-indent: 1.5em; /* 1.5em  - Position  du texte à partir de la gauche  - A modifier en fonction de la largeur du logo*/
+	background: #F4F4F4 url(../images/logo/logo_asso.jpg) no-repeat 0 1px; /*Couleur du fond et image  du logo*/
+}
+
+/* {* Section défini les infos du centre de la page .. *} */
+.section_centre_page {
+	background-color: #F7FCF3;
+	margin-left: 12.5em;
+	margin-right: 1em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+/* {*défini la zone gauche *} */
+.gauche_page {
+	float:left;
+	width: 11.5em;
+	background-color:#FFFFFF;
+}
+
+
+/*Navigation - Les Menus gauche */
+nav{
+	font-size: .8em;
+	width: 14em;
+	border-color: #008016; /*vert*/
+	border-width: 1px;
+	border-style: solid;
+	margin-bottom: 10px;
+	margin-left: .2em;
+}
+
+nav h1 {
+	margin: .3em;
+	font-size: .9em;
+	color : #FFFFFF;
+	background-color: #3BA44D;
+	padding-left: .3em;
+	border-color: black; 
+		border-width: 1px;
+	border-style: solid;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: .1em;
+	padding: 0px;
+	border: none;
+}
+
+nav li {
+	background-color: #F4F4F4;
+	margin-bottom: .2em;
+	padding-left: .5em;
+}	
+	
+/* meu actif de la page sélectionnée*/	
+.menu_page_active a{
+	color: #006400;
+	background-color: inherit;
+	font-style: italic;
+}	
+
+
+/* {*Footer défini le Footer de pied de page *}*/
+.footer_pied_page {
+	font-size : .7em;
+	color: #000000;
+	padding-top: .5em;
+	text-align:center;
+	clear:both;
+	height: 2em;
+	background-color: #F4F4F4;
+}
+
+/* -------------------------- */
+
+/* pour template sous-page ...*/
+/* Header Titre à droite des sous-pages*/
+.header_titre {
+	width: 82%;
+	font-size: .9em;
+	color: #007F72;
+	font-weight: bold;
+	padding-bottom: .4em;
+}
+
+/* Header Aide à gauche des sous-pages*/
+.header_titre_aide {
+	float: right;
+	width: 15%;
+	font-size: .7em;
+	padding-bottom: .4em;
+}
+
+/* Fin pour template sous-page ...*/
+
+
+/* menu spécial navigation Préférences*/
+/* bande de fond */
 ul#tabnav {
 	font-weight: bold;
 	color: #fff;
 	list-style-type: none;
 	padding-bottom: 24px;
-	border-bottom: 1px solid #C03360; /*#6c6; */
-	margin: 0px; /*haut */
+	border-bottom: 1px solid #008016;
+	margin: 0px; /* en haut */
 
 }
 
@@ -59,23 +210,23 @@ ul#tabnav li {
 	float: left;
 	height: 21px;
 	background-color: #C8C8C8;
-	margin: 2px 2px 0 2px; /* . entre 2 . . */
-	border: 1px solid #C03360;
+	margin: 2px 2px 0 2px;
+	border: 1px solid #008016;
 	padding: 0 5px 0 5px;
 }
 
-/* */
+/* si actif */
 ul#tabnav li.active {
    color: #fff;
    border-bottom: 1px solid #fff;
-	background-color: #C03360;
+	background-color: #3BA44D;
 
 }
 
 /* menu actif de la page */
 ul#tabnav li.active a {
     color: #fff;
-    background-color: #C03360; /*#cfc;*/
+    background-color: #3BA44D;
 
 }
 
@@ -91,163 +242,34 @@ ul#tabnav li.active a {
 	color: #0000ff;
    background: #fff;
 }
-
-
-
-/* pour template page_index.tpl*/
-/*Pour la page index Menu gauche */
-
-
-.menu_page {
-	font-size: .8em;
-	width: 13em;
-	border-color: #C03360; /*#E1E1E1; */
-	border-width: 1px;
-	border-style: solid;
-	margin-bottom: 10px;
-	margin-left: .2em;
-}
-
-.menu_page h1 {
-	margin: .1em;
-	font-size: .9em;
-	color : #FFFFFF;
-	background-color: #C03360;/*#E1E1E1;*/
-	padding-left: .1em;
-}
-
-.menu_page ul {
-	list-style-type: none;
-	margin: .1em;
-	padding: 0px;
-	border: none;
-}
-
-.menu_page li {
-	background-color: #F4F4F4;
-	margin-bottom: .2em;
-	padding-left: .5em;
-}	
-
-
-/* Pour la page index Gabarit de page*/
-/*{*défini la page extérieure *} */
-#conteneur_page {
-position: absolute;
-width: 98%;
-/*width:850px;
-margin:0 auto;*/
-background-color:#FFFFFF;
-border: 1px solid #C03360;
-}
-
-/* {*défini le bandeau haut  et éventuellement du logo*}   ****ATTENTION**** MODIFIER AUSSI le fichier  /js/style_print.css   */
-#header_page {
-font-size: 1em;
-font-weight: bold;
-text-align:center;
-padding-top: .5em;
-height: 1.5em; /* 1.5em  - Hauteur  du Header  - A modifier en fonction de la hauteur du logo*/
-text-indent: 1.5em; /* 1.5em  - Position  du texte à partir de la gauche  - A modifier en fonction de la largeur du logo*/
-background: #F4F4F4 url(../images/logo/logo_asso.jpg) no-repeat 0 1px; /*Couleur du fond et image  du logo*/
-}
-
-/* {*défini les infos .. *} */
-#centre_page {
-	background-color: #F7FCF3;
-	margin-left: 11.5em;
-	margin-right: 1em;
-	margin-top: .5em;
-	margin-bottom: .5em;
-}
-
-/* {*défini les menus gauche *} */
-#gauche_page {
-
-float:left;
-width: 10em;
-background-color:#FFFFFF;
-/* IE6
-position: absolute;
-left:0;
-width: 10em;
-background-color:#FFFFFF;
-*/
-}
-
-
-
-/* {*défini le pied de page *}*/
-#pied_page {
-font-size : .7em;
-color: #000000;
-padding-top: .5em;
-text-align:center;
-clear:both;
-height: 2em;
-background-color: #F4F4F4;
-}
-
-/* Fin pour template page_index.tpl*/
-
-/* pour template sous-page ...*/
-/* Titre à droite des sous-pages*/
-div#titre{
-	width: 82%;
-	font-size: .9em;
-	color: #000000;
-	font-weight: bold;
-	padding-bottom: .4em;
-}
-/* Aide à gauche des sous-pages*/
-div#titre_aide{
-	float: right;
-	width: 15%;
-	font-size: .7em;
-	padding-bottom: .4em;
-}
-
-/* Fin pour template sous-page ...*/
-
-div.ligne_coul {
-  border-bottom: 1px solid #C03360;
-}
+/* -------------------------- */
 
 
 /* ZONE CONTENU */
-/*  {*défini le contenu .. *} */
 div#contenu {
-	/*font-size: .8em;*/
 	font-size:12px;
-	/*color: #000000 /* Texte Noir   */
 	color: #000066;
 	font-style: normal;
 }
 
-
-.NumPageGras{
-	color: #C03360; /*color: #000066;*/
+/* N° des pages  */
+.NumPageGras {
+	color: #3BA44D; 
 	font-weight: bold;
 }
 
-
 /* Texte Noir  Gras */
-.TextenoirGras{
+.TextenoirGras {
 	color: #000066;
 	font-weight: bold;
 }
 
-
-
 /*Texte Noir Réduit en taille */
 .TextenoirR{
-	/*font-size: .8em; */
 	font-size:10px; 
 	color: #000000 
 }
  
-
-
 /*----- ROUGE ---------------*/
 .TexterougeGras {
 	color:#FF0000;
@@ -260,7 +282,6 @@ div#contenu {
 
 .TexterougeR {
 	color:#FF0000;
-	/*font-size: .8em; */
 	font-size:10px;
 }
 
@@ -269,29 +290,26 @@ div#contenu {
 	color: Green;
 	font-weight : bold
 }
-/*----- / Vert ---------------*/
 
 /*----- Bleu ---------------*/
 .TextebleuGras {
 	color: Blue;
 	font-weight: bold;
 }
-/*-----  / Bleu ---------------*/
+
 
 /* Affichage texte EN POSITION  */
-.centre-txt{
+.centre-txt {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 }
-
 
 .aff_droite-txt {
 	margin-left: 30%;
 	text-align: right;
 }
 
-/* FIN Affichage texte  EN POSITION */
 
 .LigneRight {
 	font-size: 12px;
@@ -299,17 +317,29 @@ div#contenu {
 	text-align: right;
 } 
 
+.contourligne {
+	border: 1px solid #008016;
+}
 
-/*Ligne gris clair TITRE de Colonne*/
+.Ligne_top{
+	border-top: 1px solid #007F72;
+}
+
+/*Ligne clair TITRE de Colonne*/
+.LignegrisTC {  /* Uniquement titre de colonne souligné*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+	border-bottom: 1px solid #008016;
+} 
+
 .LignegrisC {
-	/*font-size: .9em;*/
 	font-size: 12px;
 	color: #000066;
 	background-color: #F4F4F4;
 } 
 
 .LignegrisRight {
-	/*font-size: .9em;*/
 	font-size: 12px;
 	color: #000066;
 	background-color: #F4F4F4;
@@ -317,7 +347,6 @@ div#contenu {
 } 
 
 .LignegrisRight_Oblig {
-	/*font-size: .8em;*/
 	font-size: 12px;
 	color: Red;
 	background-color: #F4F4F4;
@@ -326,7 +355,7 @@ div#contenu {
 
 /* Idem mais centrée*/
 .LignegrisC_Center {
-	font-size: 12px; /*font-size: 1em;*/
+	font-size: 12px;
 	color: #000066;
 	background-color: #F4F4F4;
 	text-align: center;
@@ -334,52 +363,53 @@ div#contenu {
 
 /*Lingne gris clair TITRE de Colonne Mais Rouge saisie Obligatoire*/
 .LignegrisC_Oblig {
-	/*font-size: .8em;*/
 	font-size: 12px;
 	color: Red;
 	background-color: #F4F4F4;
 }
 
 
-
 /* Couleur des lignes pour affichage des données 1 fois sur 2 dans les tableaux*/
-/*
-.Lignegris {
-	font-size:12px;
-	color: #000066;
-	background-color: #E7E7E7;
-} 
-*/
-
+/*  clair */
 .Lignegris0 {
-	/*font-size: .8em;*/
 	font-size: 12px;
 	color: #000066;
-	background-color: #E7E7E7
-}  /* gris clair */
+	background-color: #d9f2c3;
+}  
 
+ /* + foncé */
 .Lignegris1 {
-	/*font-size: .8em;*/
 	font-size: 12px;
 	color: #000066;
-	background-color: #D4DDDD
-}  /*gris + foncé */
+	background-color: #eff5f7;
+	
+} 
 
-
+/* lignbe avec padding déporté de la gauche à 2em */
 .Lignegris_pad2 {
 	font-size:12px;
-	/*font-size: 1em;*/
 	color: #000066;
-	background-color: #E7E7E7;
+	background-color: #eaeff0;
 	padding-left: 2em;
 } 
 
+/* lignbe avec padding déporté de la gauche à 1em */
 .Lignegris_pad1 {
 	font-size:12px;
 	/*font-size: 1em;*/
 	color: #000066;
-	background-color: #E7E7E7;
+	background-color: #eaeff0;
 	padding-left: 1em;
+} 
+
+/* Ligne + foncée Centrée et Gras pour titre intermédiaire  genre  Maintenance BD*/
+.Lignegris_pad2_Center_Gras {
+	font-size:12px;
+	font-weight : bold;
+	text-align: center;
+	color: #000066;
+	background-color: #eaeff0;
+	padding: 1em 0 1em 0;	/* top right bottom left padding */ 
 } 
 
 
@@ -392,40 +422,37 @@ div#contenu {
 	color: #000000;
 }
 
-
-.AfficheTitre14{
-font-size:14px;
-font-weight : bold;
-font-style: italic;
-color: #000000;
+.AfficheTitre14 {
+	font-size:14px;
+	font-weight : bold;
+	font-style: italic;
+	color: #000000;
 }
-
 /* ----  */
-
 
 
 /* Boutons */
 input.submit_ok
 {
-	background-color: #F7F7F7;
+	background-color: #F7F7F7; 
 	/*font-size: 1em;*/
 	font-size:12px;
 	font-weight: bold;
-	color: #0002CA ; /* Teal; */
-	border: 1px solid #C03360;
+	color: #800900 ;
+	border: 2px solid #008016;
 	margin: 1px;
 	padding: 0 2px 0 2px;
 	cursor: pointer;
 }
 
-/** Pour  remplacer le bouton*/
+/* Pour  remplacer le bouton */
 .submit_ok
 {
-	background-color: #F7F7F7; /*font-size: 1em;*/
+	background-color: #F7F7F7;
 	font-size: 12px;
 	font-weight: bold;
-	color: #0002CA;
-	border: 1px solid #C03360;
+	color: #800900;
+	border: 2px solid #008016;
 	margin: 1px;
 	cursor: pointer;
 	padding: 0 2px 0 2px;
@@ -438,32 +465,31 @@ input.submit_ok_hover  {
 	font-size:12px;
 	font-weight: bold;
 	color: #29814F;
-	border: 1px solid #C03360;
+	border: 2px solid #008016;
 	margin: 1px;
 	cursor: pointer;
 }
 
 input.submit_del
 {
-	background-color: #F7F7F7; /*font-size: 1em;*/
+	background-color: #F7F7F7;
 	font-size: 12px;
 	font-weight: bold;
 	color: Red;
-	border: 1px solid #C03360;
+	border: 2px solid Red;
 	margin: 1px;
 	padding: 0 2px 0 2px;
 	cursor: pointer;
 }
 
-/** Pour  remplacer le bouton*/
+/* Pour  remplacer le bouton*/
 .submit_del
 {
-	background-color: #F7F7F7; /*font-size: 1em;*/
+	background-color: #F7F7F7;
 	font-size: 12px;
 	font-weight: bold;
 	color: Red;
-	border: 1px solid #C03360;
-	/*margin: 1px;*/
+	border: 2px solid #008016;
 	cursor: pointer;
 	padding: 0 2px 0 2px;
 	text-decoration: none;	
@@ -471,37 +497,34 @@ input.submit_del
 
 input.submit_del_hover
 {
-	background-color: #E2E2E2; /*font-size: 1em;*/
+	background-color: #E2E2E2;
 	font-size: 12px;
 	font-weight: bold;
 	color: Red;
-	border: 1px solid #C03360;
+	border: 2px solid #008016;
 	margin: 1px;
 	cursor: pointer;
 }
 
-
-
 input.submit_nul
 {
-	background-color: #F7F7F7; /*font-size: 1em;*/
+	background-color: #F7F7F7;
 	font-size: 12px;
 	font-weight: bold;
 	color: Teal;
-	border: 1px solid #C03360;
+	border: 1px solid #008016;
 	margin: 1px;
 	padding: 0 2px 0 2px;
 	cursor: pointer;
 }
 
-/** Pour  remplacer le bouton*/
-.submit_nul
-{
-	background-color: #EDEDED; /*font-size: 1em;*/
+/* Pour  remplacer le bouton */
+.submit_nul {
+	background-color: #EDEDED;
 	font-size: 12px;
 	font-weight: bold;
-	color: #9D93D0;
-	border: 1px solid #C03360; /*margin: 1px;*/
+	color: #007F72;
+	border: 1px solid #008016;
 	cursor: pointer;
     padding: 1px ;
 	padding: 0 2px 0 2px; 
@@ -510,43 +533,67 @@ input.submit_nul
 
 input.submit_nul_hover  {
 	background-color: #E2E2E2;
-	/*font-size: 1em;*/
 	font-size:12px;
 	font-weight: bold;
 	color: Black;
-	border: 1px solid #C03360;
+	border: 1px solid #008016;
 	margin: 1px;
 	
 	cursor: pointer;
 }
-   
+ /* FIN Boutons */
 
-	
-/* FIN Boutons */
-
-
-/*Pour le login pass dans Index*/
-.login-box
-{
-	/*font-size: .9em;*/
+ 
+ /* Position pour sélection des Priorité Accès + Préférences */ 
+.login-box_pripref {
 	font-size: 12px;
-	width: 40em;
-	/*border: 1px solid #BBBBBB;*/
+	width: 45em;
 	margin-top: 2em;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 	padding: 0px 10px 10px 10px;
+	border: 1px solid #AAB6C1;
 }
 
-.login-box th
-{
+ /* label pour sélection des Priorité Accès */ 
+.label_pripref {
+	width: 15em; 
+	display: block; 
+	float: left; 
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #eaeff0;
+}
+
+/* alignement input pour sélection des Priorité Accès */
+.align_pripref {
+	float: left; 
+}
+/* --- */	
+	
+/* Pour le login pass dans Index */
+.login-box {
+	font-size: 12px;
+	width: 35em;
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 0px 10px 10px 10px;
+	border: 1px solid #AAB6C1;
+}
+
+.label_login {
+	width: 8em;
+	float: left;
 	text-align: right;
 }
+/* --- */
 
-/* FIN Pour le login*/
 
-/* Message d'erreur*/
+/* Message d'erreur */
 #erreur-box {
 	color: #FF0000;
 	border-color: #FFDDDD;
@@ -559,18 +606,15 @@ input.submit_nul_hover  {
 }
 
 #erreur-box-vide {
-	/*color: #FF0000;*/
-	border-color: #F7FCF3; /*IDEM fond #centre_page  */
+	border-color: #F7FCF3;
 	border-width: 1px;
 	border-style: solid;
 	margin: 0 1em 1em 1em;
 	padding: 0 2em;
 	font-weight: bold;
-
 }
 
 #alert-box {
-	/*color: #FF0000; */
 	border-color: #FFDDDD;
 	border-width: 1px;
 	border-style: solid;
@@ -580,7 +624,7 @@ input.submit_nul_hover  {
 }
 
 
-/* affiche message erreur dans fomulaire*/
+/* affiche message erreur dans fomulaire */
 .erreur-Jaunerouge {
 	background-color: Yellow;
 	color:#FF0000;
@@ -588,13 +632,13 @@ input.submit_nul_hover  {
 }
 /* FIN Message d'erreur*/
 
-/*  Pour la recheche filtre */
 
+/*  Pour la recheche filtre */
 #listfilter {
 	text-align: center;
-	background-color: #E7E7E7;
+	background-color: #eaeff0;
 	padding: 10px;
-	border: 1px solid #C03360;
+	border: 1px solid #008016;
 	margin-bottom: 10px;
 }
 
@@ -603,73 +647,131 @@ input.submit_nul_hover  {
 }
 
 #listfilterleft {
-	background-color: #E7E7E7;
+	background-color: #eaeff0;
 	padding: 10px;
-	border: 1px solid #C03360;
+	border: 1px solid #008016;
 	margin-bottom: 10px;
 }
 
-/* FIN Pour la recherche filtre */
-
-/* FIN ZONE CONTENU */
-
-
 #entour_select {
-	background-color: #E7E7E7;
+	background-color: #eaeff0;
 	padding: 5px;
-	border: 1px solid #C03360;
+	border: 1px solid #008016;
 	margin: 0px  150px  10px  150px ;
 }
 
 
-
 /* les champs du formulaire*/
-/* --------------------------------*/
+
+ /* label pour sélection des préféreces */ 
+.label_pref {
+	width: 20em; 
+	display: block; 
+	float: left; 
+	text-align: right;
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #eaeff0;
+}
+
+
+ /* label pour sélection des Fichiers */ 
+.label_fc {
+	width: 16em; 
+	display: block; 
+	float: left; 
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #eaeff0;
+}
+ /* label donnée Obligatoire pour sélection des Fichiers */ 
+.label_fc_Oblig  {
+	width: 16em; 
+	display: block; 
+	float: left; 
+	color: Red;
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #F4F4F4;
+}
+
+
 /*la zone input*/
-input{
-font-family: Verdana, Arial, Helvetica, sans-serif;
-color:#000000;
-font-size:12px;
-border:1px;
-border-color:#39597D;
-border-style:solid;
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size:12px;
+	border:1px;
+	border-color:#39597D;
+	border-style:solid;
+	margin-bottom: 7px;
 }
 
 /*la zone texte*/
-
-textarea{
-font-family: Verdana, Arial, Helvetica, sans-serif;
-color:#000000;
-font-size:12px;
-border:1px;
-border-color:#39597D;
-border-style:solid;
+textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size:12px;
+	border:1px;
+	border-color:#39597D;
+	border-style:solid;
 }
 
-/*les coches et bouton radio selectionné*/
-input.select{
-font-family: Verdana, Arial, Helvetica, sans-serif;
-color: #000000;
-font-size: 12px;
-border: 1px;
-border-color: #39597D;
-border-style: solid;
+/* les coches et bouton radio selectionné */
+input.select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 12px;
+	border: 1px;
+	border-color: #39597D;
+	border-style: solid;
 }
 
 /* + POUR IE + */
 .checkbox {
-border: 0;
-
+	border: 0;
 }
 
 /* les cases à cocher Pour version 2*/
-input.radio{
-font-family: Verdana, Arial, Helvetica, sans-serif;
-color: Maroon;
-font-size: xx-small;
-border: 1px;
-border-style: solid;
+input.radio {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: Maroon;
+	font-size: xx-small;
+	border: 1px;
+	border-style: solid;
+}
+
+/* Entourage des formulaires */
+fieldset {
+	border: 1px solid #AAB6C1;
+	margin-right: 8em;
+}
+
+legend {
+	font-size: 12px;
+	color: #000066;
+	background-color: #eaeff0;
+	font-weight : bold;
+	padding: 0.5em 2em  0.5em 2em ;
 }
 
 /* FIN  les champs du formulaire*/
-/* --------------------------------*/
+
+
+/* Changelog, page Information Version*/
+.version { 
+	background: #eaeff0;
+	border: 1px solid #AAB6C1;
+	margin: 15px  0;
+	padding: 20px;
+	line-height: 1.5
+}
+.version h4 {
+	text-transform: uppercase;
+	color: #000000;
+	margin: 0;
+	padding: 0;	
+

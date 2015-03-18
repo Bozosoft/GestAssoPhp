@@ -22,8 +22,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -80,25 +80,24 @@
 ?>
 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp+Pg Installation : Etape 1</title>
-    <meta http-equiv="Content-Type" content="text/HTML; charset=iso-8859-1" />		
+    <meta charset="UTF-8">
 	<meta name="author" content="JCE" />
-	<meta name="Description" content="GestAssoPhp+Pg" />
-	<meta name="Copyright" content="(c)JCE 2007-2013" />	
+	<meta name="Description" content="{$version}">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">	
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
+	<title>GestAssoPhp+Pg - Installation</title>
 </head>
 <body>
 
 
 <div id="conteneur_page">
-
-    <div id="header_page">Installation de GestAssoPhp+Pg</div>
-	<div id="gauche_page">
-	<div class="menu_page">&nbsp;<br />
+    <header class="header_page">Installation de GestAssoPhp+Pg</header>	
+	<div class="gauche_page">
+	<nav>&nbsp;<br />
 			<h1>Installation</h1>
 			<ul>
 			<li>Etape 1</li>
@@ -107,17 +106,17 @@
 			<li>&nbsp;...</li>
 			<li>&nbsp;...</li>			
 			</ul>
-	</div>
+	</nav>
 	<br /><br /><br />
 	<div class="centre-txt"><img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp"/><br /><br /><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='../images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise à disposition sous un contrat Creative Commons"/></a><br /><br /><span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span><br /><br /></div>		
 		</div> <!-- gauche_page -->
 
-<div id="centre_page">
+<section class="section_centre_page"> 
 
     <div id="titre">&nbsp;V&eacute;rification de la configuration PHP et des permissions r&eacute;pertoires</div>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu">
-
+	
 	<br />
 	<br />
 	<span class='TextenoirGras'>V&eacute;rification version PHP mini (PHP 5.0):</span>
@@ -199,17 +198,17 @@
 			{
 			echo "<br /><br /><br /><span class='TexterougeGras'>VERIFIER et MODIFIER les donn&eacute;es avant de continuer ...</span><br /><br />";		
 ?>
-				<br /><div class="login-box"><form method="post" name="installation" action="index.php">
+				<br /><div class="centre-txt"><br /><form method="post" name="installation" action="index.php">
 				<input type="submit" class="submit_ok" name="Recommencer" value="Recommencer" title="Recommencer"/>
 				<!--input type="hidden" name="valid1" value="valid1"/ -->
-				</form></div>
+				</form><br /></div>
 <?php		
 			} else {// si Ok on continue
 ?>
-				<br /><div class="login-box"><form method="post" name="installation" action="install_2.php">
+				<br /><div class="centre-txt"><br /><form method="post" name="installation" action="install_2.php">
 				<input type="submit" class="submit_ok" name="Continuer" value="Continuer" title="Continuer"/>
 				<input type="hidden" name="valid1" value="valid1"/>
-				</form></div>
+				</form><br /></div>
 <?php
 			}
 ?>	
@@ -217,10 +216,10 @@
 
 </div>	<!--  / contenu  -->
 
-</div>	<!-- / centre_page -->
-	<div id="pied_page">
+</section>	<!-- / centre_page -->
+	<footer class="footer_pied_page"> 
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://jc.etiemble.free.fr/abc/" target="_blank" title="R&eacute;alisation">Version : <?php echo VERSION_I ?></a>
-    </div>
+    </footer>
 	
 </div> <!-- / conteneur_page  -->
 

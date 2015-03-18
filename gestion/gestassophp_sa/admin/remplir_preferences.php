@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -50,7 +50,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$erreur_saisie = array(); //Erreur si  Champs Obligatoires à saisir
 	$required = array();
 	// initialisation
-	//$date_du_jour=date('Y-m-d');// la date du jour 
+	$date_du_jour=date('Y-m-d');// la date du jour 
 
 	
 	/***** Si ADMINISTRATEUR donc $priorite_adht  > ou = 4  DROIT DE CONSUTER ET MODIFIER   (4 a le droit)  */
@@ -253,6 +253,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 		/*****  FIN Si on cliqué sur modifier le Nom  pour  onglet 2 - # types_antennes  */			
 		}
+				
 		
 /***** Si on validé le Formulaire  par le bouton Valider  pour  onglet 3 - # type_cotisation  */	
 		if (isset($_POST['valid_tab3']) ) {
@@ -366,7 +367,29 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 	
 	/***** FIN Si  onglet 3 - # type_cotisation  */	
 	}
+
+/***** Si  onglet 4 - # affichage Changelog  */	
+	if ($tab == 4 ) {  
 	
+		$ch_filename =  join_path(ROOT_DIR_GESTASSO, 'doc', 'Changelog.txt');
+		$changelog = file($ch_filename);
+
+		for ($i = 0; $i < count($changelog); $i++) {
+		  if (strstr($changelog[$i], 'Version')) {
+			  if ($i == 0) {
+				  $changelog[$i] = "<div class=\"version\"><h4>" . $changelog[$i] . "</h4>";
+			  } else {
+				  $changelog[$i] = "</div><div class=\"version\"><h4>" . $changelog[$i] . "</h4>";
+			  }
+			  
+		  }
+		}
+		$changelog = implode("<br />", $changelog);
+		$tpl->assign("changelog", $changelog);
+		$tpl->assign("changelogfilename", $ch_filename);
+
+	/***** FIN Si  onglet 4 -# affichage Changelog */	
+	}
 	
 /********* On recupere les informations déja enregistrées  */
 	// On lit la table preference_asso   id_pref design_pref  val_pref

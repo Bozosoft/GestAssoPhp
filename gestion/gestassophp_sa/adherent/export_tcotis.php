@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -51,7 +51,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
      
     echo("$title\n"); // affiche la ligne de titre
 
-	//id_cotis	qui_cotis	id_adhtasso	id_type_cotis	montant_cotis	info_cotis	date_enregist_cotis	date_debut_cotis	date_fin_cotis	cotis	+ paiement_cotis info_archiv_cotis	datemodiffiche_cotis export_tcotis.php
+	//id_cotis	qui_cotis	id_adhtasso	id_type_cotis	montant_cotis	info_cotis	date_enregist_cotis	date_debut_cotis	date_fin_cotis	cotis	info_archiv_cotis	datemodiffiche_cotis
 	
 	$req_lire_table_cotis = "SELECT id_cotis,id_adhtasso,id_type_cotis,"
 	." montant_cotis,info_cotis,date_enregist_cotis,date_debut_cotis,date_fin_cotis,cotis,"
@@ -71,10 +71,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		$champ0 = $row['id_cotis'];
 		//$champ1 = $row['id_adhtasso'];	
-		$champ2 = $row['nom_adht']." ".$row['prenom_adht'];				
+		$champ2 = html_entity_decode(utf8_decode($row['nom_adht']." ".$row['prenom_adht']),ENT_QUOTES);				
 		$champ3 = $row['nom_type_cotisation']; // 
 		$champ4 = $row['montant_cotis']; // 
-		$champ5	= $row['info_cotis']; // 		
+		$champ5	= html_entity_decode(utf8_decode($row['info_cotis']),ENT_QUOTES); // Convertira les guillemets et les apostrophes + utf8_decode accents		
 		$champ6 = switch_sqlFr_date($row['date_enregist_cotis']);
 		$champ7 = switch_sqlFr_date($row['date_debut_cotis']);
 		$champ8 = switch_sqlFr_date($row['date_fin_cotis']);	
@@ -82,16 +82,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		if ($champ9 =='999') {
 			$champ9 = 'Archive';// Affichage du statut Archivée
 		}
-		$champ10 = $row['paiement_cotis']; //+ Ajout Zone PAIEMENT 	 
-		$champ11 = $row['info_archiv_cotis']; 	
-		$champ12= switch_sqlFr_date($row['datemodiffiche_cotis']);
-		if ($champ11 == '00/00/0000'){
-			$champ11='';
+		$champ10 = $row['paiement_cotis']; //+ Ajout Zone PAIEMENT 	
+		$champ11 = $row['info_archiv_cotis']; // 	
+		$champ12 = switch_sqlFr_date($row['datemodiffiche_cotis']);
+		if ($champ12 == '00/00/0000'){
+			$champ12='';
 		}					
 
 		//ecriture de la ligne
 		print ("$champ0\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t"
-		." $champ8\t $champ9\t $champ10\t $champ11\t $champ12 \n");
+		." $champ8\t $champ9\t $champ10\t  $champ11\t $champ12 \n");
 		
 	}
 

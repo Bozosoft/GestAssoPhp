@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  
  * ENCODAGE UTF-8 sans BOM
@@ -59,26 +59,17 @@
 	
 // si installation	
 $erreur_saisie = array() ;
-//Jeux de caractères et collations de connexion http://dev.mysql.com/doc/refman/5.0/fr/charset-connection.html	
-//le jeu de caractères et la collation sont disponibles dans les variables character_set_server et collation_server.
-//SET NAMES indique ce qui est dans la commande SQL que le client envoie
-//SET CHARACTER SET est similaire, mais spécifie le jeu de caractères et la collation par défaut des bases pour la connexion
-//mysql_query("SET NAMES 'latin1'"); 
-//mysql_query("SET CHARACTER SET 'latin1'");
-/*
-l'ISO-8859-1 (parfois appelé latin1), qui permet d'enregistrer presque tous les caractères du français ;
-l'ISO-8859-15 (parfois appelé latin9), une variation de l'ISO-8859-1, qui rajoute le symbole « euro » et le « l'o dans l'e» ;
-l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au japonais en passant par l'arabe.
-*/
-	$dbdict = NewDataDictionary($db);	
-	//	$taboptarray = array('mysql' => 'ENGINE MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci'); // TEST  utf8   Type= MyISAM , Interclassement = utf8_general_ci
-	// si vide Type= MyISAM , Interclassement = latin1_swedish_ci
-		$taboptarray = array();
-
+	// Choix de mysql ou mysqli
+	$type_bd = $_SESSION['type_bd']; // récupération du choix mysql ou mysqli
+	if ($type_bd == 'mysql' || $type_bd == 'mysqli')
+		@$db->Execute("ALTER DATABASE `" . $db->database . "` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
+	// force utf8
+	$dbdict = NewDataDictionary($db);
+	$taboptarray = array('mysql' => 'ENGINE MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci', 'mysqli' => 'ENGINE MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci');		
 
 
 //*************************
-#--  1 Structure de la table `_adherent`	 // modifié le 02/05/2013 pour CP avec 0 comme 1er chiffre
+#--  1 Structure de la table `_adherent`	
 	$flds = "
 		id_adht I(4) KEY AUTO, 
 		soc_adht  C(3) NOT NULL default '',
@@ -86,7 +77,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 		prenom_adht  C(50) NOT NULL default '',
 		nom_adht  C(50) NOT NULL default '',
 		adresse_adht  C(100) default NULL,
-		cp_adht  C(8) NOT NULL default '',
+		cp_adht  C(8) NOT NULL default '0',
 		ville_adht  C(50) NOT NULL default '',
 		telephonef_adht  C(16) default NULL,
 		telephonep_adht C(16) default NULL,
@@ -108,7 +99,9 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 		tranche_age  C(20) NOT NULL default '',
 		qui_enrg_adht  I(4) NOT NULL,
 		cotis_adht  C(3) NOT NULL default 'Non',
-		disponib_adht  C(250) NOT NULL
+		disponib_adht  C(250) NOT NULL,
+		profession_adht C(50) NOT NULL default '',
+		autres_info_adht C(100) NOT NULL default ''
 	";
 	
 
@@ -125,7 +118,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 		}	
 		
 //-----------------------------	
-#-- 2 Structure de la table `_types_cotisations`
+#-- 2 Structure de la table `_cotisations`
 	$flds = "
 	   id_cotis  I(4) KEY AUTO, 
 	   qui_cotis  C(3) NOT NULL default '',

@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg p2  version :  2010  copyright 2007-2010  (c) JC Etiemble *}
+ {* Installation de GestAssoPhp+Pg page 2 copyright 2007-2014  (c) JC Etiemble HTML5*}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -26,12 +26,12 @@
 	compl&eacute;ter les champs suivants :
 	<br /><br />
 	<form method="post" name="installation" action="install_2.php">	
-	<table width="98%" summary="informations générales">
+	<table style="width:98%;">
 	
 		<tr>
-			<th class="LignegrisRight" width="45%">Type de base de donn&eacute;es :</th>		
+			<th class="LignegrisRight" style="width:45%;">Type de base de donn&eacute;es :</th>		
 			<td>
-			{html_options name="type_bd" options=$list_type_bd selected=$config_bd.type_bd title="Choix MySQL ou PostgreSQL "}	
+			{html_options name="type_bd" options=$list_type_bd selected=$config_bd.type_bd title="Choix MySQL, MySQLi, ou PostgreSQL "}	
 			</td>
 		</tr>
 		<tr>
@@ -63,7 +63,7 @@
 			</td>		
 		</tr>		
 		<tr>		
-			<td>&nbsp;</td>
+			<td colspan="2">&nbsp;</td>
 		</tr>
 		<tr>
 			<th colspan="2">

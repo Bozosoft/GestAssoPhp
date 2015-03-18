@@ -1,12 +1,5 @@
-
-# -------------------
-<Files Changelog.txt>
-order allow,deny
-deny from all
-</Files>
-
-
-<Files lisez_moi.txt>
-order allow,deny
-deny from all
-</Files>
+# To deny PHPs + js
+<Files ~ "\.(php|php3|php4|php5|phtml|pl|cgi|js)$">                                                                              
+  order deny,allow                                                                                                            
+  deny from all                                                                                                               
+</Files> 

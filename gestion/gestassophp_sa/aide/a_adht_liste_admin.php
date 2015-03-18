@@ -8,26 +8,23 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_LISTE_ADHT ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />	
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_LISTE_ADHT ;?></title>
 </head>
 <body>
 
@@ -41,13 +38,13 @@
     &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_TEXTE_SELECT ;?></span>&quot; en haut 
     &agrave; droite :<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[0]) ;?></span> 
-    : <?php echo ADHERENT_BENE ;?>s enregistr&eacute;s, sauf fiches supprim&eacute;es<br/>
+    : <?php echo ADHERENT_BENE ;?>s enregistrés, sauf fiches supprimées<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[1]) ;?></span> 
     : <?php echo ADHERENT_BENE ;?>s dont la cotisation est en cours<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[2]) ;?></span> 
-    : <?php echo ADHERENT_BENE ;?>s dont la cotisation est &eacute;chue ou non r&eacute;gl&eacute;e<br/>
+    : <?php echo ADHERENT_BENE ;?>s dont la cotisation est échue ou non réglée<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[3]) ;?></span> 
-    : <?php echo ADHERENT_BENE ;?>s retir&eacute;s de la liste<br/>
+    : <?php echo ADHERENT_BENE ;?>s retirés de la liste<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[4]) ;?></span> 
     : Tous les <?php echo ADHERENT_BENE ;?>s </p>
 	
@@ -60,7 +57,7 @@
     - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span> parmi <?php echo _LANG_LISTE_ADHT_PARMI ;?> des fiches <?php echo ADHERENT_BENE ;?>s pour rechercher <?php echo _LANG_TPL_COL_ADHT_NOM ;?> ou un <?php echo _LANG_FICHE_ADHT_PRENOM ;?> particulier.<br/>
     - d'<span class="TextenoirGras"><?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />
     - d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras">#, 
-    <?php echo _LANG_TPL_COL_NOMPRE.', '._LANG_TPL_COL_ADHT_VILLE.','._LANG_TPL_COL_ADHT_TELEPH.', '._LANG_ADMIN_LISTE_ADHT_COL_INSCRIPT.', '._LANG_ADMIN_LISTE_ADHT_COL_ECH.', '._LANG_ADMIN_LISTE_ADHT_COL_ENR.', '. _LANG_FICHE_ADHT_ANT;?></span>. <br/><?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ECH ;?> = Ech&eacute;ance cotisation, <?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ENR ;?> = La personne qui a enregistr&eacute;e la fiche la premi&egrave;re fois, <?php  echo _LANG_FICHE_ADHT_ANT.' = '. _LANG_PREF_LANG_FICHE_ADHT_ANT ;?></p>
+    <?php echo _LANG_TPL_COL_NOMPRE.', '._LANG_TPL_COL_ADHT_VILLE.','._LANG_TPL_COL_ADHT_TELEPH.', '._LANG_ADMIN_LISTE_ADHT_COL_INSCRIPT.', '._LANG_ADMIN_LISTE_ADHT_COL_ECH.', '._LANG_ADMIN_LISTE_ADHT_COL_ENR.', '. _LANG_FICHE_ADHT_ANT;?></span>. <br/><?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ECH ;?> = Echéance cotisation, <?php  echo _LANG_ADMIN_LISTE_ADHT_COL_ENR ;?> = La personne qui a enregistrée la fiche la première fois, <?php  echo _LANG_FICHE_ADHT_ANT.' = '. _LANG_PREF_LANG_FICHE_ADHT_ANT ;?></p>
 	
   <p class="Textenoir">- L'ic&ocirc;ne <img src="../images/icones16/i_voir.png" width="16" height="16" alt="Visu" title="<?php echo _LANG_LISTE_ADHT_VISU_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;, ou le 
@@ -83,16 +80,18 @@
     - l'ic&ocirc;ne <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_DEL_FICHE_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; supprime 
     virtuellement la fiche de la liste sauf si la date de fin de cotisation est 
-    sup&eacute;rieure &agrave; la date du jour (il est possible de r&eacute;activer une &quot;Fiche&quot; supprim&eacute;e. La fiche supprim&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
-	Nota : il est <span class="TexterougeGras">obligatoire d'archiver</span> la ou les cotisations avant de supprimer la fiche <?php echo ADHERENT_BENE ;?>. Si la ou les cotisations ne sont pas archiv&eacute;es un message d'erreur est affich&eacute;.
+    sup&eacute;rieure &agrave; la date du jour (il est possible de r&eacute;activer 
+    une &quot;Fiche&quot; supprim&eacute;e. La fiche supprim&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
+	Nota 1 : il est <span class="TexterougeGras">obligatoire d'archiver</span> la ou les cotisations avant de supprimer la fiche <?php echo ADHERENT_BENE ;?>. Si la ou les cotisations ne sont pas archivées un message d'erreur est affiché.<br/>
+	Nota 2 : il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.
 	</p>
   <p>Si la s&eacute;lection est &quot;<span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[3]) ;?></span>&quot; 
     :<br/>
-    - l'ic&ocirc;ne <img src="../images/icones16/i_voir.png" width="16" height="16" alt="" title="<?php echo _LANG_LISTE_ADHT_VISU_ICON_TITLE ;?>"/> 
+    - l'ic&ocirc;ne <img src="../images/icones16/i_ficharch.png" width="16" height="16" alt="" title="<?php echo _LANG_LISTE_ADHT_VISU_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; permet 
     de consulter la fiche supprim&eacute;e pour cette ligne (Eventuellement de 
     r&eacute;activer cette fiche <span class="TextenoirGras">si le niveau de priorit&eacute; 
-    vous y autorise</span>).</p>
+    vous y autorise (9)</span>).</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>

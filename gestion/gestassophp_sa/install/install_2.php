@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -26,7 +26,7 @@
 	$erreur_saisie = array();// tableau
 	$config_bd = '';
 	$config_bd ['drop_bd']= ''; // Vide non coché pour Effacement des tables
-	$T_type_bd = array( 'mysql'=>'MySQL' , 'postgres'=>'PostgreSQL');
+	$T_type_bd = array( 'mysql'=>'MySQL' , 'mysqli'=>'MySQLi' ,'postgres'=>'PostgreSQL');
 	
 	
 // On modifie le repertoire de Smarty pour .....	

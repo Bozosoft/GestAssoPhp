@@ -8,26 +8,23 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_FILE_ADHT ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />	
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_FILE_ADHT ;?></title>
 </head>
 <body>
 
@@ -43,7 +40,7 @@
     champs sont <span class="Texterouge">obligatoires</span>)
 	<br/>
 	Les fichiers avec les extensions (php*, pl, js) sont interdits.  <br/>
-	Utiliser de pr&eacute;f&eacute;rences les fichiers avec des <a href="http://fr.wikipedia.org/wiki/Format_ouvert" target="_blank">formats ouverts</a> et lisibles par tous.
+	Utiliser de préférences les fichiers avec des <a href="http://fr.wikipedia.org/wiki/Format_ouvert" target="_blank">formats ouverts</a> et lisibles par tous.
 	<br/>
     <span class="TextenoirGras">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="TexterougeGras">Note 
     importante</span> : Attention &agrave; la charte de nommage des fichiers.<br/>
@@ -54,7 +51,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;Les noms de fichiers doivent &ecirc;tre diff&eacute;rents 
     de ceux d&eacute;j&agrave; existant dans la base de donn&eacute;es (sinon 
     message d'erreur). <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;<span class="TextenoirGras">CHARTE DE NOMMAGE DES 
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="TextenoirGras">CHARTRE DE NOMMAGE DES 
     FICHIER</span> : <br/>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tous les fichiers commencent par 
     le <?php echo _LANG_TPL_COL_ADHT_NOM.' '.ADHERENT_BENE ;?><br/>

@@ -8,26 +8,23 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />		
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?></title>
 </head>
 <body>
 
@@ -41,30 +38,31 @@
     d&eacute;roulante &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_TEXTE_SELECT  ;?></span>&quot; 
     en haut &agrave; droite :<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[0]) ;?></span> 
-    : Les fiches des <?php echo ADHERENT_BENE ;?>s qui sont &agrave; jour de leur cotisation<br/>
+    : Les fiches des <?php echo ADHERENT_BENE ;?>s qui sont à jour de leur cotisation<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[1]) ;?></span> 
     : Toutes les fiches des <?php echo ADHERENT_BENE ;?>s<br/>
     - <span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[2]) ;?></span> 
-    : Les fiches archiv&eacute;es par l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> 
+    : Les fiches archivées par l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;</p>	
   
   <p class="Textenoir">Il est possible :<br/>
     <br/>
     - de cr&eacute;er une nouvelle fiche gr&acirc;ce au bouton <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON  ;?> ">&nbsp; <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON_TITLE  ;?>&nbsp;</span><br/>
     <br/>
-	Il est pr&eacute;f&eacute;rable de s&eacute;lectionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
-    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne directement acc&egrave;s au gestionnaire des cotisations.<br/>
+	Il est préférable de séléctionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
+    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne direcrement acc&egrave;s au gestionnaire des cotisations.<br/>
 	    <br/>
-    <span class="TextenoirGras">Note importante</span> : Avant de cr&eacute;er une 
-    nouvelle fiche cotisation, assurer vous qu'une <span class="Texterouge">fiche n'existe pas d&eacute;j&agrave; !!</span><br/>la cr&eacute;ation d'une 
+    <span class="TextenoirGras">Note importante</span> : Avant de créer une 
+    nouvelle fiche cotisation, assurer vous qu'une <span class="Texterouge">fiche n'existe pas déja !!</span><br/>la cr&eacute;ation d'une 
     nouvelle fiche cotisation pour un <?php echo ADHERENT_BENE ;?> ayant d&eacute;j&agrave; 
-    une fiche en cours cotisation est possible (Cotisations multiples). Vous pouvez proc&eacute;der &agrave; l'archivage d'une fiche avant d'en cr&eacute;er une nouvelle.<br/>
+    une fiche en cours cotisation est possible (Cotisations multiples). Vous pouvez procéder à l'archivage d'une fiche avant d'en créer une nouvelle.<br/>
 	Le <span class="TextenoirGras">mode  <?php echo _LANG_MESSAGE_COTIS_ADHT_ARCHIV ;?></span> de la cotisation consiste &agrave; effacer la cotisation &agrave; l'&eacute;ch&eacute;ance de la p&eacute;riode cotis&eacute;e pour :<br/>
-- avoir un historique des cotisations<br/>
-- indiquer que le membre doit, soit renouveler sa cotisation, soit doit &ecirc;tre supprim&eacute; de l'association<br/>
-Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cotisation.<br/>
-(la fiche cotisation archiv&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
-	
+	- avoir un historique des cotisations<br/>
+	- indiquer que le membre doit, soit renouveler sa cotisation, soit doit &ecirc;tre supprim&eacute; de l'association<br/>
+	Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cotisation.<br/>
+	(la fiche cotisation archiv&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
+	<br/>
+	<span class="TextenoirGras">Nota :</span> il est <span class="TexterougeGras">obligatoire d'archiver</span> la ou les cotisations avant de supprimer la fiche <?php echo ADHERENT_BENE ;?>. Si la ou les cotisations ne sont pas archivées un message d'erreur est affiché.
 	<br/>
     <br/>
     - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON  ;?></span> les cotisations des <?php echo ADHERENT_BENE ;?>s 

@@ -8,28 +8,25 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 include_once '../config/connexion.php';
  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_PREFERENCES ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />			
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2007-2013" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_PREFERENCES ;?></title>
 </head>
 <body>
 
@@ -38,10 +35,10 @@ include_once '../config/connexion.php';
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
-    Cette page permet une modification des informations qui sont les donn&eacute;es pour l'affichage de l'association 
-    <br/><span class="TextenoirGras">Cette page comporte 3 onglets :</span><br /><br />
+    Cette page permet une modification des informations qui sont les données pour l'affichage de l'association et une information sur l'évolution de la version
+    <br/><span class="TextenoirGras">Cette page comporte 4 onglets :</span><br /><br />
 	
-	- <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB1 ;?></span> 
+	-1 <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB1 ;?></span> 
 	<br/>
 	&nbsp;&nbsp;<span class="TextenoirGras">les informations de base : </span><?php echo _LANG_PREF_MESSAGETITRE.', '._LANG_PREF_NOM_ASSO_GESTASSOPHP.', '._LANG_PREF_DATE_DEBANNEE_ASSO_TITLE ;?><br/>
 	&nbsp;&nbsp;<span class="TextenoirGras">les informations de fonctionnement : </span><?php echo _LANG_PREF_NB_LIGNES_PAGE.', '._LANG_PREF_EMAIL_ADRESSE ;?>
@@ -52,9 +49,14 @@ include_once '../config/connexion.php';
 	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_FICHE_COTIS_ADHT_DATE_FIN.'</span> : '._LANG_PREF_LANG_JMA_FIN_COTIS_INFO ;?>
 	<br />
 				<br />
-	- <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB2 ;?></span><br />
-	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_COL_DESIGNATION_ACTIV ;?></span><br /> Exemple dans une association une activit&eacute; de base (celle par d&eacute;faut dans la fiche <?php echo _LANG_GESTION_FICHE_ADHT;?>) et des activ&eacute;s autres de reliure, danse, aide aux devoirs ...<br /><br />
-	- <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB3 ;?></span><br />
+	-2 <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB2 ;?></span><br />
+	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_COL_DESIGNATION_ACTIV ;?></span><br /> Exemple dans une association une activité de base (celle par défaut dans la fiche <?php echo _LANG_GESTION_FICHE_ADHT;?>) et des activés autres de reliure, danse, aide aux devoirs ...<br />
+	- L'ic&ocirc;ne <img src="../images/icones16/i_modif.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_MODIF_ICON_TITLE ;?>"/> 
+    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;, permet 
+    de modifier &eacute;ventuellement ces 
+    informations.<br/><br />
+	
+	-3 <span class="TextenoirGras"><?php echo _LANG_TITRE_ADMIN_PREFTAB3 ;?></span><br />
 	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_COL_DESIGNATION_COTIS ;?></span> et 
 	&nbsp;&nbsp;<span class="TextenoirGras"><?php echo _LANG_PREF_NEW_MONT_COTISATION ;?></span>
       <br/>
@@ -62,6 +64,13 @@ include_once '../config/connexion.php';
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot;, permet 
     de modifier &eacute;ventuellement ces 
     informations.<br/><br />
+	-4 <span class="TextenoirGras">Information de la version</span> 
+	<br/>
+	&nbsp;&nbsp;<span class="TextenoirGras">le num&eacute;ro de la version en cours : </span><?php echo VERSION ;?><br/>
+	&nbsp;&nbsp;<span class="TextenoirGras">les informations d'évolution du système : </span>le fichier Changelog.txt
+	
+	<br/>
+	
 </p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

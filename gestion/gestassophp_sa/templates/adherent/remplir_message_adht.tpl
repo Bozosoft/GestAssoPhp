@@ -1,8 +1,8 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE Rempir information générale *}
-	<div id="titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_remplir_message_adht.php','popup','height=200,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></div> 
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_remplir_message_adht.php','popup','height=200,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <div id="titre">&nbsp;{language name=titre_mailto_adht}</div>
+    <header class="header_titre">&nbsp;{language name=titre_mailto_adht}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
  	<br />
@@ -13,7 +13,7 @@
 {/if}		
 {* Form .. *}
 	    <form method="post" name="maform" action="remplir_message_adht.php">
-    	<table width="98%" summary="informations message">
+    	<table style="width:98%;">
 		<tr>		
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
@@ -31,7 +31,7 @@
 			<td><input type="text" name="email_sujet" id="email_sujet" title="{language name=message_remplir_err_sujet_mail}" value="{$email_sujet}" size="65"  maxlength="50" tabindex="3" />{if $erreur_saisie.email_sujet} <span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.email_sujet}</span> {/if}</td>
 		</tr>
 			<tr> 
-			<th class="LignegrisRight_Oblig">{language name=mailto_message_adht}</th>  
+			<th class="LignegrisRight_Oblig">{language name=mailto_message_adht} &nbsp;&nbsp;</th>  
 		<td><textarea cols="80" rows="10" name="email_message" id="email_message" title="{language name=message_remplir_err_message_mail}"  tabindex="4">{$email_message}</textarea>{if $erreur_saisie.email_message}<br /> <span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.email_message}</span> {/if}</td>
 		</tr>	
 		<tr>		

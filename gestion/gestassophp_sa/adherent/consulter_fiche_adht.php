@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -96,7 +96,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$imagedata = array("66","");
 			}
 	        $photo_adht ="<a href=\"".$image_adht_full."\" target=\"_blank\"><img src=\""
-			.$image_adht."?nocache".time()."\" border=\"1\" alt=\"".("Photo")
+			.$image_adht."?nocache".time()."\" alt=\"".("Photo")
 			."\" title=\""._LANG_MESSAGE_FICHE_AGRANDIR_PHOTO."\" width=\""
 			.$imagedata[0]."\" height=\"".$imagedata[1]."\" /></a>"; //on  peut  agrandir                       
 		

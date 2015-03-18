@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -118,15 +118,8 @@
 				$adherent['prenom_adht']= addslashes($adherent['prenom_adht']); // ajoute \ si on a fait une erreur					
 		// Connexion à la  base données			
 			$db = ADONewConnection(TYPE_BD); //crée une connexion  Strict Standards: Only variables should be assigned by reference SUPRESSION de & devant &ADONewConnection
-				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	
-			//Pour Postgres, charset to iso-8859-1 (LATIN1)
-				if ( TYPE_BD == 'postgres' ) {		
-					$db->SetCharSet('LATIN1');
-				}
-			// Pour mysql,  jeu de caractères iso-8859-1 correspond effectivement à latin1
-				if ( TYPE_BD_AODB == 'mysql' ) {
-					$db->Execute("SET NAMES 'latin1'");
-				}	
+				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");				
+
 
 			//Modif POUR adminsalt Nouvelle installation à compter de la 5.2.0
 			$req_ecrit_salt= "INSERT INTO ".TABLE_PREFERENCES." (id_pref, design_pref, val_pref)"

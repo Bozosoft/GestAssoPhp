@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg p4 version :  2010  copyright 2007-2010  (c) JC Etiemble *} 
+ {* Installation de GestAssoPhp+Pg page 4 copyright 2007-2014  (c) JC Etiemble HTML5*}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -16,10 +16,10 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 <span class="TextenoirR">(Vous pourrez modifier ces informations apr&eacute;s votre connexion &agrave; GestAssoPhp)</span>
 	<br /><br />
 	<form method="post" name="installation" action="install_4.php">
-	<table width="98%" summary="informations générales">
+	<table  style="width:98%;">
 
 		<tr>
-			<th class="LignegrisRight" width="25%">Login :</th>		
+			<th class="LignegrisRight"  style="width:25%;">Login :</th>		
 			<td><input type="text" name="login_adht" id="login_adht" title="Uniquement MySQL" value="{$data_adherent.login_adht}"  size="32"  maxlength="50" tabindex="1"/>{if $erreur_saisie.login} <span class="erreur-Jaunerouge">{$erreur_saisie.login}</span>{/if}</td>
 		</tr>
 		<tr>		
@@ -52,7 +52,7 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 			<td><input type="text" name="prenom_adht" id="prenom_adht" title="Mon Prénon" value="{$data_adherent.prenom_adht}" size="32"  maxlength="50" tabindex="6"/> {if $erreur_saisie.pnom != ""} <span class="erreur-Jaunerouge">{$erreur_saisie.pnom}</span>{/if}</td>
 		</tr>		
 		<tr>		
-			<td>&nbsp;</td>
+			<td colspan="2">&nbsp;</td>
 		</tr>
 	
 		<tr>

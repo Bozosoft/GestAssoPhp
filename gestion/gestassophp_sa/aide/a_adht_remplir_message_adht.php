@@ -8,28 +8,25 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 include_once '../config/connexion.php';
  
 ?>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
- "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-
+<!doctype html>
+<html lang='fr' dir='ltr'>
 <head>
-    <title>GestAssoPhp Aide - <?php echo _LANG_TITRE_MAILTO_ADHT ;?></title>
-    <meta http-equiv="Content-Type" content="text/HTML; <?php echo _LANG_CHARSET ;?>" />	
-	<meta name="author" content="JCE" />
-	<meta name="Description" content="Aide GestAssoPhp" />
-	<meta name="Copyright" content="(c)JCE 2010" />	
-	<meta name="Expires" content="never" />
-	<meta name="ROBOTS" content="noindex, nofollow" />
+	<meta charset="UTF-8">
+	<meta name="author" content="JCE">
+	<meta name="Description" content="GestAssoPhp+Pg">
+	<meta name="ROBOTS" content="noindex, nofollow">
+	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_MAILTO_ADHT ;?></title>
 </head>
 <body>
 
@@ -39,9 +36,9 @@ include_once '../config/connexion.php';
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
     Cette page est un formulaire d'envoi d'un message par mail pour un seul destinataire <?php echo ADHERENT_BENE ;?>.
-	<br />Une copie sera envoy&eacute; automatiquement &agrave; l'&eacute;metteur pour information.<br />
+	<br />Une copie sera envoyé automatiquement à l'émetteur pour information.<br />
 	les champs <span class="TextenoirGras"><?php echo  _LANG_MAILTO_SUJET_ADHT ." et ". _LANG_MAILTO_MESSAGE_ADHT ;?></span> sont obligatoires.
-	<br /><br />Pour l'administrateur : Attention v&eacute;rifier que la fonction mail est bien activ&eacute;e sur votre h&eacute;bergement.
+	<br /><br />Pour l'administrateur : Attention vérifier que la fonction mail est bien activée sur votre hébergement.
 </p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -68,7 +68,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$req_ecrit_reactiv_adht=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='', "
 		." datecreationfiche_adht='$date_du_jour',"
 		//." datemodiffiche_adht='$date_du_jour', date_sortie='0000-00-00'" // Null Remplace pour postgresql
-		." datemodiffiche_adht='$date_du_jour', date_sortie=NULL " 
+		." datemodiffiche_adht='$date_du_jour', date_sortie=NULL "
 		." WHERE id_adht='$id_adht_reactiv'"); 
 		$dbresult = $db->Execute($req_ecrit_reactiv_adht);	
 	
@@ -89,24 +89,24 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 //	." (TO_DAYS(NOW())-TO_DAYS(datenaisance_adht))/365 AS age,
 	." visibl_adht, datemodiffiche_adht," 
 	." datemodiffiche_adht,"
-	." disponib_adht, " //  add 20/11/2009 champ suppl note
+	." disponib_adht, " 
+	." profession_adht, autres_info_adht," // ajout V 7
 	." siteweb_adht, password_adht, login_adht, date_echeance_cotis, date_sortie, "
-	." tranche_age, qui_enrg_adht, nom_type_antenne, promotion_adht " // +qui a enregistré la fiche +nom_type_antenne+Ajouter Chp+
-	." FROM  ".TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE " // + TABLE_ANTENNE
-	." id_adht='$id_adht' AND antenne_adht=id_type_antenne "; //  ++ AND antenne_adht=id_type_antenne
+	." tranche_age, qui_enrg_adht, nom_type_antenne, promotion_adht " 
+	." FROM  ".TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE " 
+	." id_adht='$id_adht' AND antenne_adht=id_type_antenne "; 
 	$dbresult = $db->Execute($req_lire_perso_adht);		
 	
 
 	while (($adherent = $dbresult->FetchRow())) {
 		// on crée le tableau $adherent['champ de la table']
-		$qui_enrg_adht = $adherent['qui_enrg_adht']; // Id de qui_enrg_adht //+  qui a enregistré la fiche		
+		$qui_enrg_adht = $adherent['qui_enrg_adht']; 		
 		// modification affichage dates
 		$adherent['datecreationfiche_adht'] = switch_sqlFr_date($adherent['datecreationfiche_adht']); 			
 		$adherent['datemodiffiche_adht'] = switch_sqlFr_date($adherent['datemodiffiche_adht']); 
 		$adherent['age']= age($adherent['datenaisance_adht']); // pour calcul age
 		$adherent['datenaisance_adht'] = switch_sqlFr_date($adherent['datenaisance_adht']); 
 //		$adherent['nom_type_antenne'] = stripslashes($adherent['nom_type_antenne']); ////SI magic_quotes_gpc	est à On
-
 
 // vérification  de la date de cotisationenregistrée dans la table  ADHERENTS	(la date de la derniere Cotis modifiée)
 // Il faut afficher TOUTES les cotis en cours vérifier date de fin .... id_adhtasso, cotis
@@ -116,7 +116,6 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." FROM ".TABLE_COTISATIONS.", ".TABLE_TYPE_COTISATIONS 
 	." WHERE id_adhtasso ='$id_adht' AND ".TABLE_COTISATIONS.".cotis= '' "
 	." AND ".TABLE_TYPE_COTISATIONS.".id_type_cotisation=".TABLE_COTISATIONS.".id_type_cotis";		
-//echo $req_lire_info_cotis ;
 	$dbresult_cotis = $db->Execute($req_lire_info_cotis);	
 	
 		while ($dbresult && $row = $dbresult_cotis->FetchRow()) {		
@@ -140,7 +139,6 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$affiche_message ='-&nbsp;<span class="TexterougeGras">('._LANG_MESSAGE_FICHE_SUPP.' '.switch_sqlFr_date($adherent['date_sortie']).')</span>';
 		}					
 				
-
 			/***** AFFICHAGE PHOTO  */
 			$image_adht = '';
 			if (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".jpg")) {
@@ -160,7 +158,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$imagedata = array("66","");
 			}
 	        $photo_adht ="<a href=\"".$image_adht_full."\" target=\"_blank\"><img src=\""
-			.$image_adht."?nocache".time()."\" border=\"1\" alt=\"".("Photo")
+			.$image_adht."?nocache".time()."\"  alt=\"".("Photo")
 			."\" title=\""._LANG_MESSAGE_FICHE_AGRANDIR_PHOTO."\" width=\""
 			.$imagedata[0]."\" height=\"".$imagedata[1]."\" /></a>"; //on  peut  agrandir                       	
 		} else {
@@ -189,7 +187,6 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}else {
 			$tpl->assign('resultat_mail',''); //vide		
 		}
-	
 	
 	/***** FIN Pour affichage de la fiche Mon Récapitulatif et  Informations personnelles */	
 

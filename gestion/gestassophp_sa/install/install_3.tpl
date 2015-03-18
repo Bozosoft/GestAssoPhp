@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg p3 version :  2010  copyright 2007-2010  (c) JC Etiemble *}
+ {* Installation de GestAssoPhp+Pg page 3 copyright 2007-2014  (c) JC Etiemble HTML5*}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -30,7 +30,7 @@
 		{$item_message_bd}
 		{/foreach}
 	<br /><br /><br />	
-	<div class='login-box'><a href='index.php'><span class='submit_nul' title='Annuler'>Annuler</span></a></div>			
+	<div class="centre-txt"><br /><a href='index.php'><span class='submit_nul' title='Annuler'>Annuler</span></a><br /><br /></div>			
 	{/if}	
    {* Fin message erreur création BD STOP *}	
 
@@ -44,10 +44,10 @@
 	{/if}	
 	
   	{if $valid_file_config == "oui" && $valid_bd_sql =='oui'}
-		<br /><div class="login-box"><form method="post" name="installation" action="install_4.php">{* passe à la page 4 direct *}
+		<br /><div class="centre-txt"><br /><form method="post" name="installation" action="install_4.php">{* passe à la page 4 direct *}
 		<input type="submit" class="submit_ok" name="Continuer" value="Continuer" title="Continuer"/>
 			<input type='hidden' name='valid3' value='valid3'/>	
-		</form></div> 
+		</form><br /></div> 
 	{/if}	 
 
 </div>{* Fin défini le contenu .. *}

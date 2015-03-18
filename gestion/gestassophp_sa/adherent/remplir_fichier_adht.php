@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2013
- * @copyright 2007-2013  (c) JC Etiemble
+ * @version :  2014
+ * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -235,7 +235,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$dbresult = $db->Execute($req_list_benevol);	
     $tab_benevol = array('' => ( _LANG_ARRAY_SELECTIONNEZ_NOM));// ligne affichée si vide
 	while ($dbresult && $row = $dbresult->FetchRow()) {
-		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES, 'iso-8859-1');
+		$tab_benevol[$row['id_adht']] =	htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_QUOTES, 'UTF-8');
     }	
 	// FINPour affichage de la liste  Nom Prénom
 				
