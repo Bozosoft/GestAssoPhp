@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2015
+ * @copyright 2007-2015  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -72,7 +72,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$champ0 = $row['id_cotis'];
 		//$champ1 = $row['id_adhtasso'];	
 		$champ2 = html_entity_decode(utf8_decode($row['nom_adht']." ".$row['prenom_adht']),ENT_QUOTES);				
-		$champ3 = $row['nom_type_cotisation']; // 
+		$champ3 = utf8_decode($row['nom_type_cotisation']);  //modif pour éviter les Annuelle rÃ©duite
 		$champ4 = $row['montant_cotis']; // 
 		$champ5	= html_entity_decode(utf8_decode($row['info_cotis']),ENT_QUOTES); // Convertira les guillemets et les apostrophes + utf8_decode accents		
 		$champ6 = switch_sqlFr_date($row['date_enregist_cotis']);
@@ -83,7 +83,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$champ9 = 'Archive';// Affichage du statut Archivée
 		}
 		$champ10 = $row['paiement_cotis']; //+ Ajout Zone PAIEMENT 	
-		$champ11 = $row['info_archiv_cotis']; // 	
+		$champ11 =  utf8_decode($row['info_archiv_cotis']);  //modif pour éviter les   annÃ©e Ã©coulÃ©e	
 		$champ12 = switch_sqlFr_date($row['datemodiffiche_cotis']);
 		if ($champ12 == '00/00/0000'){
 			$champ12='';

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2015
+ * @copyright 2007-2015  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -92,7 +92,7 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 			if ($champ17 == '00/00/0000'){
 				$champ17='';
 			}	
-		$champ18 = $row['siteweb_adht'];
+		$champ18 = utf8_decode($row['siteweb_adht']); //modif pour éviter les   RÃ©fÃ©rent, recrutement
 		$champ19 = $row['priorite_adht'];
 		$champ20 = switch_sqlFr_date($row['date_echeance_cotis']);
 			if ($champ20 == '00/00/0000'){

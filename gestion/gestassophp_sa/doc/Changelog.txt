@@ -11,6 +11,10 @@
  * @copyright 2007-2014  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
+ 
+Version 7.1.0  08/05/2015 - En développement
+  -----------------------
+- Correction sur export_tadhts.php (champ18) et export_tcotis.php (champ3 et 11)
 
   Version 7.0.0  10/10/2014 Finale
   -----------------------
