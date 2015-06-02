@@ -1,6 +1,10 @@
-http://www.smarty.net/  - http://www.smarty.net/manual/fr/
-http://smarty-php.googlecode.com/svn/trunk/libs/
+﻿http://www.smarty.net/  - http://www.smarty.net/manual/fr/
+https://github.com/smarty-php/smarty
 
+
+
+
+01/06/2015 Smarty 3.1.24 (23.05.2015) https://github.com/smarty-php/smarty/releases/tag/v3.1.24
 
 10/05/2014 Smarty 3.1.18 Apr 7th, 2014 (diff SVN 4819-4833)
 12/03/2014 Smarty 3.1.17 Mar 12th, 2014 (diff SVN 4804-4818)
@@ -41,7 +45,7 @@ Smarty 3.1.0  Sep 16th, 2011
 
 
 
---------------------------------
+--------------------------------3.1.24-----------------
 \lib\
 	\lib\smarty\
 		Smarty.class.php
@@ -49,15 +53,19 @@ Smarty 3.1.0  Sep 16th, 2011
 		change_log.txt
 		COPYING.lib
 		README
+		+README.md
+		+NEW_FEATURES.txt
 		SMARTY_2_BC_NOTES
 		+ index.html
 SmartyBC.class.php **
 SMARTY_3.1_NOTES.txt **
 SMARTY_3.0_BC_NOTES.txt **
++Autoloader.php
++INHERITANCE_RELEASE_NOTES.txt
 
 
 	\lib\smarty\sysplugins --->Tous les fichiers
-		63 fichiers->70
+		88 fichiers
 		+index.html
 
 	\lib\smarty\plugins -->UNIQUEMENT les fichiers suivants (9+1)
@@ -67,9 +75,9 @@ SMARTY_3.0_BC_NOTES.txt **
 		function.mailto.php
 		modifier.debug_print_var.php
 		modifier.escape.php 
-		modifier.string_format.php (+)
 		modifier.truncate.php
 		shared.escape_special_chars.php
+		+ modifier.string_format.php
 		+ function.language.php -->
 			//define('_LANG_VIDE', 'texte vide de texte');    
 			sur template {language name=vide}  affiche => texte vide de texte (22/08/2008)

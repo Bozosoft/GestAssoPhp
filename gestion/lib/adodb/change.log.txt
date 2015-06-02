@@ -1,6 +1,50 @@
 Change Log  http://phplens.com/adodb/change.log.html
 ---------- 
 
+http://sourceforge.net/projects/adodb/files/adodb-php5-only/adodb-519-for-php5/
+5.19 - 23-Apr-2014 - adodb-519-for-php5
+-----------
+
+* adodb: GetRowAssoc will return null as required. See http://phplens.com/lens/lensforum/msgs.php?id=19289
+* adodb: Fix GetRowAssoc bug introduced in 5.17, causing function to return data from previous fetch for NULL fields. See http://phplens.com/lens/lensforum/msgs.php?id=17539
+* adodb: GetAssoc will return a zero-based array when 2nd column is null. See https://sourceforge.net/p/adodb/bugs/130/
+* adodb: Execute no longer ignores single parameters evaluating to false. See https://sourceforge.net/p/adodb/patches/32/
+* adodb: Fix LIMIT 1 clause in subquery gets stripped off. See http://phplens.com/lens/lensforum/msgs.php?id=17813
+* adodb-lib: Fix columns quoting bug. See https://sourceforge.net/p/adodb/bugs/127/
+* Added new ADODB_ASSOC_CASE_* constants. Thx to Damien Regad.
+* sessions: changed lob handling to detect all variations of oci8 driver.
+* ads: clear fields before fetching. See http://phplens.com/lens/lensforum/msgs.php?id=17539
+* mssqlnative: fixed many FetchField compat issues. See http://phplens.com/lens/lensforum/msgs.php?id=18464. Also date format changed to remove timezone.
+* mssqlnative: Numerous fixes and improvements by Mark Newnham
+    * Driver supports SQL Server 2005, 2008 and 2012
+    * Bigint data types mapped to I8 instead of I
+    * Reintroduced MetaColumns function
+    * On SQL Server 2012, makes use of new CREATE SEQUENCE statement
+    * FetchField caches metadata at initialization to improve performance
+    * etc.
+* mssqlnative: Fix Insert ID on prepared statement, thanks to Mike Parks. See http://phplens.com/lens/lensforum/msgs.php?id=19079
+* mssql: timestamp format changed to 'Y-m-d\TH:i:s' (ISO 8601) to make them independent from DATEFORMAT setting, as recommended on
+  [Microsoft TechNet](http://technet.microsoft.com/en-us/library/ms180878%28v=sql.105%29.aspx#StringLiteralDateandTimeFormats)
+* mysql/mysqli: Fix ability for MetaTables to filter by table name, broken since 5.15. See http://phplens.com/lens/lensforum/msgs.php?id=19359
+* odbc: Fixed MetaTables and MetaPrimaryKeys definitions in odbc driver to match adoconnection class.
+* odbc: clear fields before fetching. See http://phplens.com/lens/lensforum/msgs.php?id=17539
+* oci8: GetRowAssoc now works in ADODB_FETCH_ASSOC fetch mode
+* oci8: MetaType and MetaForeignKeys argument count are now strict-standards compliant
+* oci8: Added trailing ';' on trigger creation for sequence fields, prevents occurence of ORA-24344
+* oci8quercus: new oci8 driver with support for quercus jdbc data types.
+* pdo: Fixed concat recursion bug in 5.3. See http://phplens.com/lens/lensforum/msgs.php?id=19285
+* pgsql: Default driver (postgres/pgsql) is now postgres8
+* pgsql: Fix output of BLOB (bytea) columns with PostgreSQL >= 9.0
+* pgsql: Fix handling of DEFAULT NULL columns in AlterColumnSQL
+* pgsql: Fix mapping of error message to ADOdb error codes
+* pgsql: Reset parameter number in Param() method when $name == false
+* postgres8: New class/type with correct behavior for _insertid(). See Github #8
+* postgres9: Fixed assoc problem. See http://phplens.com/lens/lensforum/msgs.php?id=19296
+* sybase: Removed redundant sybase_connect() call in _connect(). See Github #3
+* sybase: Allow connection on custom port. See Github #9
+* sybase: Fix null values returned with ASSOC fetch mode. See Github #10
+* Added Composer support. See Github #7
+
 
 5.18 3 Sep 2012 	adodb518a.tgz adodb-518-for-php5 2012-09-06 
 --------------

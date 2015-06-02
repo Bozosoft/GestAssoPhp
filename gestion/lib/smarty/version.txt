@@ -1,4 +1,7 @@
+https://github.com/smarty-php/smarty
 
+
+01/06/2015 Smarty 3.1.24 (23.05.2015)
 
 10/05/2014 Smarty 3.1.18 Apr 7th, 2014
 12/03/2014 Smarty 3.1.17 Mar 12th, 2014
