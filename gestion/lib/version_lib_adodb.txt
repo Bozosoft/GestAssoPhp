@@ -39,6 +39,7 @@ Fichier poutr GestAssophp
 
 	\lib\adodb\drivers  -> pour mysql + postgres
 		\drivers\adodb-mysql.inc.php
+		+\drivers\adodb-mysqli.inc.php
 		\drivers\adodb-postgres.inc.php (vide)
 		adodb-postgres9.inc.php
 		\drivers\adodb-postgres8.inc.php 
