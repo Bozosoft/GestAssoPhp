@@ -12,11 +12,19 @@
  * @package   GestAssoPhp+Pg
  */
  
-Version 7.1.0 01/06/2015  - En développement
+Version 7.1.2 03/12/2015  - Finale 
   -----------------------
+- Compatiblité PHP 7.0   
+- Mise à jour de adodb en V5.20 dev (PHP 7)
+- Mise à jour de Smarty 3.1.27 (datée du 19/06/2015)
+- Installation :  par défaut MySQLi en remplacement de MySQL
+- Installation : jma_fin_cotis = 31/12/2016 dans data.sql
+  
+Version 7.1.0 01/06/2015 - En développement
 - Mise à jour de Smarty 3.1.24 (23/05/2015) https://github.com/smarty-php/smarty 
 - Mise à jour de adodb en V5.19 23-Apr-2014  https://github.com/ADOdb/ADOdb
 - Correction sur export_tadhts.php (champ18) et export_tcotis.php (champ3 et 11) 08/05/2015
+
 
   Version 7.0.0  10/10/2014 Finale
   -----------------------

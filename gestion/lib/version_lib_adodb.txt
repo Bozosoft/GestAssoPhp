@@ -1,7 +1,9 @@
 http://adodb.sourceforge.net/   http://sourceforge.net/projects/adodb/files/adodb-php5-only/
 
 
-01/06/2015 -> V5.19 23-Apr-2014  adodb-519-for-php5 https://github.com/ADOdb/ADOdb
+
+02/12/2015 ENCOURS 5.21 - ??-???-2015
+22/11/2015 ENCOURS version to 5.20dev VOIR changelog.md
 
 18/10/2012 -> V5.18 3 Sep 2012  adodb518a.tgz adodb-518-for-php5 2012-09-06 
 
@@ -39,7 +41,6 @@ Fichier poutr GestAssophp
 
 	\lib\adodb\drivers  -> pour mysql + postgres
 		\drivers\adodb-mysql.inc.php
-		+\drivers\adodb-mysqli.inc.php
 		\drivers\adodb-postgres.inc.php (vide)
 		adodb-postgres9.inc.php
 		\drivers\adodb-postgres8.inc.php 

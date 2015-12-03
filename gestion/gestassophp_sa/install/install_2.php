@@ -26,7 +26,7 @@
 	$erreur_saisie = array();// tableau
 	$config_bd = '';
 	$config_bd ['drop_bd']= ''; // Vide non coché pour Effacement des tables
-	$T_type_bd = array( 'mysql'=>'MySQL' , 'mysqli'=>'MySQLi' ,'postgres'=>'PostgreSQL');
+	$T_type_bd = array('mysqli'=>'MySQLi' , 'mysql'=>'MySQL' , 'postgres'=>'PostgreSQL');
 	
 	
 // On modifie le repertoire de Smarty pour .....	

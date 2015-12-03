@@ -1,7 +1,45 @@
-﻿ ===== trunk =====
+﻿ ===== 3.1.27===== (18.06.2015)
+18.06.2015
+ - bugfix another update on file path normalization failed on path containing something like "/.foo/" https://github.com/smarty-php/smarty/issues/56
 
+ ===== 3.1.26===== (18.06.2015)
+18.06.2015
+ - bugfix file path normalization failed on path containing something like "/.foo/" https://github.com/smarty-php/smarty/issues/56
 
-===== 3.1.24===== (23.05.2015)
+17.06.2015
+ - bugfix calling a plugin with nocache option but no other attributes like {foo nocache} caused call to undefined function https://github.com/smarty-php/smarty/issues/55
+
+ ===== 3.1.25===== (15.06.2015)
+ 15.06.2015
+  - optimization of smarty_cachereource_keyvaluestore.php code
+
+ 14.06.2015
+  - bugfix a relative sub template path could fail if template_dir path did contain /../ https://github.com/smarty-php/smarty/issues/50
+  - optimization rework of path normalization
+  - bugfix an output tag with variable, modifier followed by an operator like {$foo|modifier+1} did fail https://github.com/smarty-php/smarty/issues/53
+
+ 13.06.2015
+  - bugfix a custom cache resource using smarty_cachereource_keyvaluestore.php did fail if php.ini mbstring.func_overload = 2 (forum topic 25568)
+
+ 11.06.2015
+  - bugfix the lexer could hang on very large quoted strings (forum topic 25570)
+
+ 08.06.2015
+  - bugfix using {$foo} as array index like $bar.{$foo} or in double quoted string like "some {$foo} thing" failed https://github.com/smarty-php/smarty/issues/49
+
+ 04.06.2015
+  - bugfix possible error message on unset() while compiling {block} tags https://github.com/smarty-php/smarty/issues/46
+
+ 01.06.2015
+  - bugfix <?xml ... ?> including template variables broken  since 3.1.22 https://github.com/smarty-php/smarty/issues/47
+  
+ 27.05.2015
+  - bugfix {include} with variable file name must not create by default individual cache file (since 3.1.22) https://github.com/smarty-php/smarty/issues/43
+  
+ 24.05.2015
+  - bugfix if condition string 'neq' broken due to a typo https://github.com/smarty-php/smarty/issues/42
+
+ ===== 3.1.24===== (23.05.2015)
  23.05.2015
   - improvement on php_handling to allow very large PHP sections, better error handling
   - improvement allow extreme large comment sections (forum 25538)
@@ -196,11 +234,9 @@
  - bugfix E_NOTICE message was created during compilation when ASP tags '<%' or '%>' are in template source text
  - bugfix merge_compiled_includes option failed when caching  enables and same subtemplate was included cached and not cached
  
-
-===== 3.1.21 ===== (18.10.2014) (19/10/2014)
+ ===== 3.1.21 ===== (18.10.2014)
  18.10.2014
- - composer moved to github
- - add COMPOSER_RELEASE_NOTES
+  - composer moved to github
 
  17.10.2014
  - bugfix on $php_handling security and optimization of smarty_internal_parsetree (Thue Kristensen)
@@ -221,7 +257,6 @@
  - bugfix change of 08.10.2014 could create E_NOTICE meassage when using "<?php" tags
  - bugfix "<script language=php>" with $php_handling PHP_PASSTHRU was executed in {nocache} sections
 
-
  ===== 3.1.20 ===== (09.10.2014)
  08.10.2014
  - bugfix security mode of "<script language=php>" must be controlled by $php_handling property (Thue Kristensen)
@@ -241,10 +276,10 @@
  
  04.07.2014
  - bugfix the bufix of 02.06.2014 broke correct handling of child templates with same name but different template folders in extends resource (issue 194 and topic 25099)
-
-===== 3.1.19 ===== (06.30.2014)
+ 
+ ===== 3.1.19 ===== (30.06.2014)
  20.06.2014
- - bugfix template variables could not be passed as paramter in {include} when the include was in a {nocache} section (topic 25131)
+ - bugfix template variables could not be passed as parameter in {include} when the include was in a {nocache} section (topic 25131)
  
  17.06.2014
  - bugfix large template text of some charsets could cause parsing errors (topic 24630)
@@ -269,15 +304,13 @@
  18.04.2014
  - revert bugfix of 5.4.2014 because %-e date format is not supported on all operating systems
 
-
-===== 3.1.18 ===== (07.04.2014)
+ ===== 3.1.18 ===== (07.04.2014)
  06.04.2014 
  - bugfix template inheritance fail when using custom resource after patch of 8.3.2014 (Issue 187)
  - bugfix update of composer file (Issue 168 and 184)
 
-
  05.04.2014
- - bugfix default date format leads to extra spaces when displaying dates with single digit days (Issue 182)
+ - bugfix default date format leads to extra spaces when displaying dates with single digit days (Issue 165)
  
  26.03.2014
  - bugfix Smart_Resource_Custom should not lowercase the resource name (Issue 183)
@@ -300,7 +333,6 @@
  13.03.2014
  - bugfix clearXxx() change of 27.1.2014 did not work when specifing cache_id or compile_id  (forum topic 24868 and 24867)
  
-
  ===== 3.1.17 =====
  08.03.2014
  - bugfix relative file path {include} within {block} of child templates did throw exception on first call (Issue 177)
@@ -934,7 +966,7 @@
 
 15/07/2011
 - bugfix individual cache_lifetime of {include} did not work correctly inside {block} tags
-- added caches for Smarty_Template_Source and Smarty_Template_Compiled to reduce I/O for multiple cache_id rendering
+- added caches for Smarty_Internal_TemplateSource and Smarty_Internal_TemplateCompiled to reduce I/O for multiple cache_id rendering
 
 14/07/2011
 - made Smarty::loadPlugin() respect the include_path if required
