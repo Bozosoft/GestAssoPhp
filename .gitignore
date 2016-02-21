@@ -1,0 +1,14 @@
+# ignorer config
+gestion/gestassophp_sa/config/connexion.cfg.php
+# ignorer
+# gestion/gestassophp_sa/fichiersadht/*.doc
+# gestion/gestassophp_sa/fichiersadht/*.jpg
+gestion/gestassophp_sa/fichiersadht/
+# ignorer les photos
+gestion/gestassophp_sa/photos/*.jpg
+gestion/gestassophp_sa/photos/*.gif
+# ignorer tables_desciption.ods
+gestion/gestassophp_sa/doc/*.ods
+# ignorer fichier temporaire de smarty
+gestion/gestassophp_sa/temp/templates_c/
+
