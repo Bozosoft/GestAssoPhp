@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -638,8 +638,8 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	$T_OUI_NON = array ('Non'=>'Non','Oui'=>'Oui',); 
 	// Attention  Only modify  the text after  =>   eg.  $T_OUI_NON = array ('Non'=>'No','Oui'=>'Yes', );
 
-// Ajout Zone PAIEMENT Gestion Cotisations	 html_options name="paiement_cotis"  remplir_cotisations_adht
-	$T_PAIEMENT_COTIS = array('chq'=>'Chèque','esp'=>'Espèces', 'c_b'=>'Carte bancaire', 'aut'=>'Autre');	
+// Ajout Zone PAIEMENT Gestion Cotisations	 html_options name="paiement_cotis"  remplir_cotisations_adht //+21/02/2016 Paypal
+	$T_PAIEMENT_COTIS = array('chq'=>'Chèque','esp'=>'Espèces', 'c_b'=>'Carte bancaire', 'pay'=>'Paypal','aut'=>'Autre');	
 
 /** ---------------------------------------------------------------------- */	
 	

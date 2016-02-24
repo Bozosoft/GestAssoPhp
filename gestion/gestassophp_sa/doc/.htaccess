@@ -1,18 +1,17 @@
 
-#Interdit affichage de tout~es mes extensions  Files
-<Files ~ "\.(txt|diff|php|php3|php4|php5|phtml|pl|cgi)$">                                                                              
-  order deny,allow
-  deny from all                                                                                                               
-</Files>  
+#Interdit affichage de toutes mes extensions
+# To deny PHPs
+# Dans la version Apache 2.4 mod_authz_host 
+# Dans la version Apache 2.2 mod_access_compat
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|cgi)$">
+	# Apache 2.4
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+	# Apache 2.2
+<IfModule !mod_authz_core.c>
+    Order Allow,Deny
+    Deny from all
+</IfModule>
+</FilesMatch>
 
-# Autorise affichage index.html
-<Files index.html>
-order deny,allow  
-#deny from all
-</Files>
-
-# Autorise affichage CCBY-SA-France.htm
-<Files CCBY-SA-France.htm>
-order deny,allow  
-#deny from all
-</Files>

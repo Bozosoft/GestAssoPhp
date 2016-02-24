@@ -19,7 +19,7 @@ INSERT INTO gs_types_cotisations (nom_type_cotisation, montant_cotisation) VALUE
 INSERT INTO gs_preference_asso (id_pref, design_pref, val_pref) VALUES
 (1, 'messagetitre', '- SITE DE TEST POUR DEMONSTRATION -'),
 (2, 'nom_asso_gestassophp', 'Mon Asso simple sur le WEB'),
-(3, 'date_debannee_asso', '2013'),
+(3, 'date_debannee_asso', '2016'),
 (4, 'nb_lignes_page', '20'),
 (5, 'email_adresse', 'jc.e@moi.com'),
 (6, 'adherent_bene', 'Utilisateur'),

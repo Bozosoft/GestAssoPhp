@@ -1,9 +1,12 @@
-http://adodb.sourceforge.net/   http://sourceforge.net/projects/adodb/files/adodb-php5-only/
+http://adodb.sourceforge.net/   
+http://adodb.org/dokuwiki/doku.php
+https://github.com/ADOdb/ADOdb
 
 
 
-02/12/2015 ENCOURS 5.21 - ??-???-2015
-22/11/2015 ENCOURS version to 5.20dev VOIR changelog.md
+
+22/02/2016 - ADOdb  5.20.3 datée du 01/01/2016 v5.20.3 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.3
+03/12/2015 - 22/11/2015 ENCOURS version to 5.20dev VOIR changelog.md
 
 18/10/2012 -> V5.18 3 Sep 2012  adodb518a.tgz adodb-518-for-php5 2012-09-06 
 
@@ -19,35 +22,39 @@ version 5.09a
 Fichier poutr GestAssophp
 -------
 
-	\lib\adodb (12+1)
+	\lib\adodb (13+1)
 		adodb.inc.php 
 		adodb-csvlib.inc.php (if you use cached recordsets - CacheExecute(), etc)  Optional
 		adodb-datadict.inc.php 
 		adodb-error.inc.php
 		adodb-errorhandler.inc.php
-		adodb-exceptions.inc.php and adodb-errorhandler.inc.php (if you use adodb error handler or php5 exceptions). Optional
+		adodb-exceptions.inc.php  [adodb-errorhandler.inc.php (if you use adodb error handler or php5 exceptions). Optional]
 		adodb-iterator.inc.php (php5 functionality) 
 		adodb-lib.inc.php 
 		adodb-time.inc.php 
-		license.txt (for legal reasons)  
-		readme.txt
+		changelog.md (vient de /docs)  change.log.txt supprimé
+		LICENSE.md (for legal reasons)  remplace license.txt supprimé  
+		README.md remplace readme.txt supprimé
 		toexport.inc.php (Voir si besoin)
 		+index.html
 
-	\lib\adodb\datadict
+
+	\lib\adodb\datadict (2+1)
 		\datadict\datadict-mysql.inc.php
 		\datadict\datadict-postgres.inc.php
 		+index.html
 
-	\lib\adodb\drivers  -> pour mysql + postgres
+	\lib\adodb\drivers (7+1) -> pour mysql + postgres
 		\drivers\adodb-mysql.inc.php
+		\drivers\adodb-mysqli.inc.php
 		\drivers\adodb-postgres.inc.php (vide)
-		adodb-postgres9.inc.php
-		\drivers\adodb-postgres8.inc.php 
 		\drivers\adodb-postgres7.inc.php 
+		\drivers\adodb-postgres8.inc.php 
+		\drivers\adodb-postgres9.inc.php
 		\drivers\adodb-postgres64.inc.php 
 		+index.html
 	\lib\lang
+		lang\adodb-en.inc.php
 		\lang\adodb-fr.inc.php
 	+index.html
 

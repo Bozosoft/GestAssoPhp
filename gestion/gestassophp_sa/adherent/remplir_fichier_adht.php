@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -120,7 +120,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$id_adht_file = get_post_variable_numeric('id_adht_file', '');// l'id de l'adhérent initial qui avait le fichier
 
 		    if (($modification_fichier == 1) && $id_adht_modif ) {
-				$descript_fichier = get_post_variable('descript_fichier', '');//
+				$descript_fichier = addslashes(get_post_variable('descript_fichier', ''));//ajout addslashes 22/02/2016
 		        $req_ecrit_modif_fichier = ("UPDATE ".TABLE_FICHIER_ADHERENTS
 				." SET id_adht_file='$id_adht_modif',"
 				." design_file_adht='$descript_fichier',datemodif_file_adht ='$date_du_jour' "

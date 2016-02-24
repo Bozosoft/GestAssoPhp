@@ -7,20 +7,34 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2015
- * @copyright 2007-2015  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
-Version 7.1.2 03/12/2015  - Finale 
+ 
+  Version 7.2.0 24/02/2016  - En cours
+  -----------------------
+- Modification des fichiers .htaccess en conformité Apache 2.2 ou 2.4 avec la sélection par IfModule ....
+- Correction sur la saisie du champ "Description du fichier" dans la page "Adhérents-Gestion fichier"  
+- Correction sur date "date_debannee_asso" dans install/data.sql
+- Ajout du moyen de paiement par PayPal dans /config/lang.php dans tableau $T_PAIEMENT_COTIS 'pay'=>'Paypal',
+- Mise à jour de Smarty à la version 3.1.29 datée du 21/12/2015 
+- Mise à jour de ADOdb à la version 5.20.3 datée du 01/01/2016
+- Possibilité de choix des CSS de couleur marron (fichiers m_style_screen.css et m_style_print.css) à renommer en style_screen.css et style_print.css dans le dossier /js
+- Correction du fichier de description des tables /doc/tables_description.rtf  
+ 
+ 
+ Version 7.1.2 03/12/2015  - Finale 
   -----------------------
 - Compatiblité PHP 7.0   
 - Mise à jour de adodb en V5.20 dev (PHP 7)
 - Mise à jour de Smarty 3.1.27 (datée du 19/06/2015)
 - Installation :  par défaut MySQLi en remplacement de MySQL
 - Installation : jma_fin_cotis = 31/12/2016 dans data.sql
+
   
-Version 7.1.0 01/06/2015 - En développement
+Version 7.1.0 01/06/2015 - 
 - Mise à jour de Smarty 3.1.24 (23/05/2015) https://github.com/smarty-php/smarty 
 - Mise à jour de adodb en V5.19 23-Apr-2014  https://github.com/ADOdb/ADOdb
 - Correction sur export_tadhts.php (champ18) et export_tcotis.php (champ3 et 11) 08/05/2015

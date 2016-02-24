@@ -1,6 +1,28 @@
-<ifDefine Free>
- PHP 1
-</ifDefine>
 
 # pour éviter les rep vides
 Options -Indexes
+
+# Dans la version Apache 2.4 mod_authz_host 
+# Dans la version Apache 2.2 mod_access_compat
+<Files ~ "\.htaccess">
+	# Apache 2.4
+<IfModule mod_authz_core.c>
+  Require all granted
+</IfModule>
+	# Apache 2.2
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>
+</Files>
+
+#
+RedirectMatch 403 ^/.*\.htaccess$
+RedirectMatch 403 ^.*/config/.*\.php$
+RedirectMatch 403 ^.*/doc/.*\.php$
+RedirectMatch 403 ^.*/fichiersadht/.*\.php$
+RedirectMatch 403 ^.*/images/.*\.php$
+RedirectMatch 403 ^.*/include/.*\.php$
+RedirectMatch 403 ^.*/photos/.*\.php$
+RedirectMatch 403 ^.*/tmp/.*\.php$
+RedirectMatch 403 ^.*/templates/.*\.php$
