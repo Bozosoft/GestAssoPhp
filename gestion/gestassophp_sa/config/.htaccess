@@ -1,0 +1,18 @@
+# Ce fichier htaccess.txt est a renommer en .htaccess APRES l'installation
+
+# Empêcher de lire ou accéder au fichier .htaccess
+# Voir le fichier .htaccess à la racine
+
+# Dans la version Apache 2.4 mod_authz_host 
+# Dans la version Apache 2.2 mod_access_compat
+<Files ~ "connexion.cfg.php">
+	# Apache 2.4
+<IfModule mod_authz_core.c>
+  Require all granted
+</IfModule>
+	# Apache 2.2
+<IfModule !mod_authz_core.c>
+  Order allow,deny
+  Deny from all
+</IfModule>
+</Files>

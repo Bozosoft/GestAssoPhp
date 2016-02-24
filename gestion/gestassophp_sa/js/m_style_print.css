@@ -1,0 +1,609 @@
+/**
+ * Projet : gestassophp_sa [GestAssoPhp+Pg]
+ * ---------------------------
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Auteur original : Jean-Claude Etiemble
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * ---------------------------
+ *	
+ * @author : JC Etiemble - http://jc.etiemble.free.fr
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
+ * @package   GestAssoPhp+Pg HTML5
+ */
+ 
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/js/
+ *   Fichier :
+ *   feuille de style POUR IMPRESSION
+ Couleurs employées -> modification OToBus
+*/
+
+
+body{
+	background-color: #FFFFFF;
+	font-family: Verdana,Arial, Helvetica, sans-serif;
+}
+
+/* Links */
+a {
+	color: #A4423B;
+	text-decoration: none;
+	background: inherit;
+}
+a:hover {
+	color: #800900;
+	background-color: #C8C8C8;
+	font-weight: bold
+}
+
+/*Suprimme la bordure bleue des images et Suprimme  les images*/
+a img {
+	border: none; /*Suprimme la bordure images*/
+	display: none; /*Suprimme  les image */
+} 
+
+
+/* Gabarit des pages*/
+#conteneur_page {
+	position: absolute;
+	width: 98%;
+	background-color:#FFFFFF;
+	border: 2px solid #C03360;
+}
+
+/* {*Header défini le bandeau haut  et éventuellement du logo*}   ****ATTENTION**** MODIFIER AUSSI le fichier  /js/style_print.css   */
+.header_page {
+	font-size: 1em;
+	font-weight: bold;
+	text-align:center;
+	padding-top: .5em;
+	height: 1.5em; /* 1.5em  - Hauteur  du Header  - A modifier en fonction de la hauteur du logo*/
+	text-indent: 1.5em; /* 1.5em  - Position  du texte à partir de la gauche  - A modifier en fonction de la largeur du logo*/
+	background: #F4F4F4 url(../images/logo/logo_asso.jpg) no-repeat 0 1px; /*Couleur du fond et image  du logo*/
+}
+
+/* {* Section défini les infos du centre de la page .. *} */
+.section_centre_page {
+	margin-right: 1em;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+/* {*défini la zone gauche *} */
+.gauche_page {
+	display: none;
+}
+
+
+/* {*Footer défini le Footer de pied de page *}*/
+.footer_pied_page {
+	font-size : .7em;
+	display: none;
+}
+
+/* -------------------------- */
+
+/* pour template sous-page ...*/
+/* Header Titre à droite des sous-pages*/
+.header_titre {
+	width: 82%;
+	font-size: .9em;
+	color: #c43360;
+	font-weight: bold;
+	padding-bottom: .4em;
+}
+
+/* Header Aide à gauche des sous-pages*/
+
+.header_titre_aide {
+	display: none;
+	float: right;
+	width: 15%;
+	font-size: .1em;
+	padding-bottom: .4em;
+} 
+
+/* Fin pour template sous-page ...*/
+
+
+/* menu spécial navigation Préférences*/
+/* bande de fond */
+ul#tabnav {
+	font-weight: bold;
+	color: #fff;
+	list-style-type: none;
+	padding-bottom: 24px;
+	border-bottom: 1px solid #C03360;
+	margin: 0px; /* en haut */
+
+}
+
+/* menu non actif */
+ul#tabnav li {
+	color: #fff;
+	float: left;
+	height: 21px;
+	background-color: #C8C8C8;
+	margin: 2px 2px 0 2px;
+	border: 1px solid #C03360;
+	padding: 0 5px 0 5px;
+}
+
+/* si actif */
+ul#tabnav li.active {
+   color: #fff;
+   border-bottom: 1px solid #fff;
+	background-color: #d04f6d;
+
+}
+
+/* menu actif de la page */
+ul#tabnav li.active a {
+    color: #fff;
+    background-color: #d04f6d;
+
+}
+
+#tabnav a {
+	float: left;
+	display: block;
+	color: White;
+	text-decoration: none;
+	padding: 2px;
+}
+
+#tabnav a:hover { 
+	color: #0000ff;
+   background: #fff;
+}
+/* -------------------------- */
+
+
+/* ZONE CONTENU */
+div#contenu {
+	font-size:12px;
+	color: #000066;
+	font-style: normal;
+}
+
+/* N° des pages  */
+.NumPageGras {
+	color: #d04f6d; 
+	font-weight: bold;
+}
+
+/* Texte Noir  Gras */
+.TextenoirGras {
+	color: #000066;
+	font-weight: bold;
+}
+
+/*Texte Noir Réduit en taille */
+.TextenoirR{
+	font-size:10px; 
+	color: #000000 
+}
+ 
+/*----- ROUGE ---------------*/
+.TexterougeGras {
+	color:#FF0000;
+	font-weight : bold
+}
+
+.Texterouge {
+	color:#FF0000;
+}
+
+.TexterougeR {
+	color:#FF0000;
+	font-size:10px;
+}
+
+/*----- Vert ---------------*/
+.TextevertGras {
+	color: Green;
+	font-weight : bold
+}
+
+/*----- Bleu ---------------*/
+.TextebleuGras {
+	color: Blue;
+	font-weight: bold;
+}
+
+
+/* Affichage texte EN POSITION  */
+.centre-txt {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.aff_droite-txt {
+	margin-left: 30%;
+	text-align: right;
+}
+
+
+.LigneRight {
+	font-size: 12px;
+	color: #000066;
+	text-align: right;
+} 
+
+.contourligne {
+	border: 1px solid #C03360;
+}
+
+.Ligne_top{
+	border-top: 1px solid #c43360;
+}
+
+/*Ligne clair TITRE de Colonne*/
+.LignegrisTC {  /* Uniquement titre de colonne souligné*/
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+	border-bottom: 1px solid #C03360;
+} 
+
+.LignegrisC {
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+} 
+
+.LignegrisRight {
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+	text-align: right;
+} 
+
+.LignegrisRight_Oblig {
+	font-size: 12px;
+	color: Red;
+	background-color: #F4F4F4;
+	text-align: right;	
+}
+
+/* Idem mais centrée*/
+.LignegrisC_Center {
+	font-size: 12px;
+	color: #000066;
+	background-color: #F4F4F4;
+	text-align: center;
+} 
+
+/*Lingne gris clair TITRE de Colonne Mais Rouge saisie Obligatoire*/
+.LignegrisC_Oblig {
+	font-size: 12px;
+	color: Red;
+	background-color: #F4F4F4;
+}
+
+
+/* Couleur des lignes pour affichage des données 1 fois sur 2 dans les tableaux*/
+/*  clair */
+.Lignegris0 {
+	font-size: 12px;
+	color: #000066;
+	background-color: #E7E7E7;
+}  
+
+ /* + foncé */
+.Lignegris1 {
+	font-size: 12px;
+	color: #000066;
+	background-color: #D4DDDD;
+	
+} 
+
+/* lignbe avec padding déporté de la gauche à 2em */
+.Lignegris_pad2 {
+	font-size:12px;
+	color: #000066;
+	background-color: #eaeff0;
+	padding-left: 2em;
+} 
+
+/* lignbe avec padding déporté de la gauche à 1em */
+.Lignegris_pad1 {
+	font-size:12px;
+	/*font-size: 1em;*/
+	color: #000066;
+	background-color: #eaeff0;
+	padding-left: 1em;
+} 
+
+/* Ligne + foncée Centrée et Gras pour titre intermédiaire  genre  Maintenance BD*/
+.Lignegris_pad2_Center_Gras {
+	font-size:12px;
+	font-weight : bold;
+	text-align: center;
+	color: #000066;
+	background-color: #eaeff0;
+	padding: 1em 0 1em 0;	/* top right bottom left padding */ 
+} 
+
+
+/* Titre des pages */
+.AfficheTitre{
+	font-size:14px;
+	/*font-size: 1em;*/
+	font-weight : bold;
+	font-style: italic;
+	color: #000000;
+}
+
+.AfficheTitre14 {
+	font-size:14px;
+	font-weight : bold;
+	font-style: italic;
+	color: #000000;
+}
+/* ----  */
+
+
+/* Boutons */
+input.submit_ok
+{
+	display: none;
+}
+
+/* Pour  remplacer le bouton */
+.submit_ok
+{
+	display: none;
+}
+
+input.submit_ok_hover  {
+	display: none;;
+}
+
+input.submit_del
+{
+	display: none;
+}
+
+/* Pour  remplacer le bouton*/
+.submit_del
+{
+	display: none;	
+}
+
+input.submit_del_hover
+{
+	display: none;;
+}
+
+input.submit_nul
+{
+	display: none;;
+}
+
+/* Pour  remplacer le bouton */
+.submit_nul {
+	display: none;
+}
+
+input.submit_nul_hover  {
+	display: none;
+}
+ /* FIN Boutons */
+
+ 
+ /* Position pour sélection des Priorité Accès + Préférences */ 
+.login-box_pripref {
+	font-size: 12px;
+	width: 45em;
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 0px 10px 10px 10px;
+	border: none;
+}
+
+ /* label pour sélection des Priorité Accès */ 
+.label_pripref {
+	width: 15em; 
+	display: block; 
+	float: left; 
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #eaeff0;
+}
+
+/* alignement input pour sélection des Priorité Accès */
+.align_pripref {
+	float: left; 
+}
+/* --- */	
+	
+/* Pour le login pass dans Index */
+.login-box {
+	font-size: 12px;
+	width: 35em;
+	margin-top: 2em;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	padding: 0px 10px 10px 10px;
+	border: 1px solid #AAB6C1;
+}
+
+.label_login {
+	width: 8em;
+	float: left;
+	text-align: right;
+}
+/* --- */
+
+
+/* Message d'erreur */
+#erreur-box {
+	color: #FF0000;
+	border-color: #FFDDDD;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight : bold;
+
+}
+
+#erreur-box-vide {
+	border-color: #F7FCF3;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight: bold;
+}
+
+#alert-box {
+	border-color: #FFDDDD;
+	border-width: 1px;
+	border-style: solid;
+	margin: 0 1em 1em 1em;
+	padding: 0 2em;
+	font-weight: bold;
+}
+
+
+/* affiche message erreur dans fomulaire */
+.erreur-Jaunerouge {
+	background-color: Yellow;
+	color:#FF0000;
+
+}
+/* FIN Message d'erreur*/
+
+
+/*  Pour la recheche filtre */
+#listfilter {
+	text-align: center;
+	background-color: #eaeff0;
+	padding: 10px;
+	border: none;
+	margin-bottom: 10px;
+}
+
+#listfilter form {
+	margin-bottom: 0px;
+}
+
+#listfilterleft {
+	background-color: #eaeff0;
+	padding: 10px;
+	border: none;
+	margin-bottom: 10px;
+}
+
+#entour_select {
+	background-color: #eaeff0;
+	padding: 5px;
+	border: none;
+	margin: 0px  150px  10px  150px ;
+}
+
+
+/* les champs du formulaire*/
+
+ /* label pour sélection des préféreces */ 
+.label_pref {
+	width: 20em; 
+	display: block; 
+	float: left; 
+	text-align: right;
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #eaeff0;
+}
+
+
+ /* label pour sélection des Fichiers */ 
+.label_fc {
+	width: 16em; 
+	display: block; 
+	float: left; 
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #eaeff0;
+}
+ /* label donnée Obligatoire pour sélection des Fichiers */ 
+.label_fc_Oblig  {
+	width: 16em; 
+	display: block; 
+	float: left; 
+	color: Red;
+	font-size: 12px;
+	font-weight : bold;
+	padding-right: 1em;
+	background-color: #F4F4F4;
+}
+
+
+/*la zone input*/
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size:12px;
+	border: none;
+	margin-bottom: 7px;
+}
+
+/*la zone texte*/
+textarea {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color:#000000;
+	font-size:12px;
+	border: none;
+}
+
+/* les coches et bouton radio selectionné */
+input.select {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 12px;
+	border: none;
+}
+
+/* + POUR IE + */
+.checkbox {
+	/*border: 0;*/
+	border: none;
+}
+
+/* les cases à cocher Pour version 2*/
+input.radio {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: Maroon;
+	font-size: xx-small;
+	border: none;
+}
+
+/* Entourage des formulaires */
+fieldset {
+	/*border: 1px solid #AAB6C1;*/
+	border: none;
+	margin-right: 8em;
+}
+
+legend {
+	font-size: 12px;
+	color: #000066;
+	background-color: #eaeff0;
+	font-weight : bold;
+	padding: 0.5em 2em  0.5em 2em ;
+}
+
+/* FIN  les champs du formulaire*/
+
+
+
