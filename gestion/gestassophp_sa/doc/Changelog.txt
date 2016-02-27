@@ -13,7 +13,7 @@
  */
  
  
-  Version 7.2.0 24/02/2016  - En cours
+  Version 7.2.0 27/02/2016  - En cours
   -----------------------
 - Modification des fichiers .htaccess en conformité Apache 2.2 ou 2.4 avec la sélection par IfModule ....
 - Correction sur la saisie du champ "Description du fichier" dans la page "Adhérents-Gestion fichier"  
@@ -23,6 +23,8 @@
 - Mise à jour de ADOdb à la version 5.20.3 datée du 01/01/2016
 - Possibilité de choix des CSS de couleur marron (fichiers m_style_screen.css et m_style_print.css) à renommer en style_screen.css et style_print.css dans le dossier /js
 - Correction du fichier de description des tables /doc/tables_description.rtf  
+- modification du fichier /doc/lisez_moi.txt
+- modification du fichier /aide/a_admin_remplir_preferences.php
  
  
  Version 7.1.2 03/12/2015  - Finale 

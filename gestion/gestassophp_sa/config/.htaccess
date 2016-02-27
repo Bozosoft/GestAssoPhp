@@ -1,7 +1,7 @@
 # Ce fichier htaccess.txt est a renommer en .htaccess APRES l'installation
 
-# Empêcher de lire ou accéder au fichier .htaccess
-# Voir le fichier .htaccess à la racine
+# EmpÃªcher de lire ou accÃ©der au fichier .htaccess
+# Voir le fichier .htaccess Ã  la racine
 
 # Dans la version Apache 2.4 mod_authz_host 
 # Dans la version Apache 2.2 mod_access_compat

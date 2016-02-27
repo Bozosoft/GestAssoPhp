@@ -1,8 +1,6 @@
 # ignorer config
 gestion/gestassophp_sa/config/connexion.cfg.php
-# ignorer
-# gestion/gestassophp_sa/fichiersadht/*.doc
-# gestion/gestassophp_sa/fichiersadht/*.jpg
+# ignorer fichiersadht
 gestion/gestassophp_sa/fichiersadht/
 # ignorer les photos
 gestion/gestassophp_sa/photos/*.jpg

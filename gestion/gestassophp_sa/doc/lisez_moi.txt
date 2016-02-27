@@ -7,8 +7,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -143,7 +143,8 @@ et vous pourrez commencer à travailler.
 - les couleurs et autres paramètres d'affichage, 
 - le logo Association en haut à gauche ( fichier dans le dossier \images\logo\logo_asso.jpg),
 en modifiant les feuilles de Styles style_print.css (pour impression) et style_screen.css (pour affichage à l'écran) du dossier /gestassophp_sa/js.
-
+Par défaut le style est de couleur verte. Dans le dossier /js/ deux fichiers m_style_print.css et m_style_screen.css sont configurés pour une couleur marron. pour utiliser cette couleur marron, vous devez donc renommer ces fichier en style_screen.css et style_print.css.
+D'autre part vous pouvez modifier le fichier lang.php contenu dans le dossier /config/ pour adapter vos textes. Nota ce fichier doit impérativement être sauvegardé en utf-8.
 
 Merci de faire apparaître le contrat de licence et d'afficher un lien vers http://gestassophp.free.fr/  comme prévu dans la lience.
 
@@ -156,10 +157,10 @@ B - MISE A JOUR DEPUIS UNE VERSION 6.xxx
 ----------------------------------------
 pour la mise à jour lire ATTENTIVEMENT le fichier majV6-V7.txt
 
-C - MISE A JOUR DEPUIS UNE VERSION 5.xxx
-----------------------------------------
-pour la mise à jour lire ATTENTIVEMENT le fichier majV5-V6.txt
+
+- Pour information les fichiers de la version de développement sont disponible sur 
+https://git.framasoft.org/Bozosoft/GestAssoPhp/tree/master
 
 ----------------------
-Mise à jour 10/10/2014
+Mise à jour de cette page : 27/02/2016
 

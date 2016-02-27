@@ -68,8 +68,8 @@ include_once '../config/connexion.php';
 	<br/>
 	&nbsp;&nbsp;<span class="TextenoirGras">le num&eacute;ro de la version en cours : </span><?php echo VERSION ;?><br/>
 	&nbsp;&nbsp;<span class="TextenoirGras">les informations d'évolution du système : </span>le fichier Changelog.txt
-	
-	<br/>
+	<br/><br/>
+	NOTE : vous pouvez modifier le fichier lang.php contenu dans le dossier /config/ pour adapter vos textes. Nota ce fichier doit impérativement être sauvegardé en utf-8.
 	
 </p>
 
