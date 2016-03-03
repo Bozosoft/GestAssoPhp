@@ -105,14 +105,14 @@ NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à reno
 5. Vérifications
 ---------------- 
 il est nécessaire d'accorder des permissions à certains répertoires, de manière à ce que PHP ait les droits en écriture sur :
-	\gestassophp_sa\config 		pour le répertoire de configuration - uniquement lors de l'installation
-	\gestassophp_sa\install 		pour les fichiers d'installation - uniquement lors de l'installation
+	\gestassophp_sa\config 				pour le répertoire de configuration - uniquement lors de l'installation
+	\gestassophp_sa\install 			pour les fichiers d'installation - uniquement lors de l'installation
 
-	\gestassophp_sa\fichiersadht 	pour les fichiers des adhérents
-	\gestassophp_sa\photos  		pour les Photos des adhérents
- 	\gestassophp_sa\temp 		pour l'écriture des fichiers des templates 
-	\gestassophp_sa\temp\templates_c pour l'écriture des fichiers des templates
-
+	\gestassophp_sa\fichiersadht 		pour les fichiers des adhérents
+	\gestassophp_sa\photos  			pour les Photos des adhérents
+ 	\gestassophp_sa\temp 				pour l'écriture des fichiers des templates 
+	\gestassophp_sa\temp\templates_c 	pour l'écriture des fichiers des templates
+	- VERIFIER les fichiers .htaccess en fonction de votre hébergement
 
 6. Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_sa/gestassophp_sa/install) 
 	
@@ -128,6 +128,7 @@ Supprimer ou renommer le dossier /install par mesure de sécurité
 Changez les permissions 
 		- à 755 sur le répertoire \gestassophp_sa\config 
 		- à 644 ou 444 sur le fichier \gestassophp_sa\config\connexion.cfg.php
+		- VERIFIER les fichiers .htaccess en fonction de votre hébergement
 
 Avant votre première connexion à l'espace, supprimer ou renommer le répertoire /install
 

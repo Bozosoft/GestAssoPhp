@@ -2,6 +2,16 @@
 # pour éviter les rep vides
 Options -Indexes
 
+<ifDefine Free>
+# Pour Free.fr
+<Files ~ "\.htaccess">
+  Order allow,deny
+  Deny from all
+</Files>
+</ifDefine>
+
+<IfDefine !Free>
+#Pour autres hébergeurs
 # Dans la version Apache 2.4 mod_authz_host 
 # Dans la version Apache 2.2 mod_access_compat
 <Files ~ "\.htaccess">
@@ -15,6 +25,7 @@ Options -Indexes
   Deny from all
 </IfModule>
 </Files>
+</IfDefine>
 
 #
 RedirectMatch 403 ^/.*\.htaccess$
