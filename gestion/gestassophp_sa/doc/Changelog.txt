@@ -13,7 +13,7 @@
  */
  
  
-  Version 7.2.0 03/03/2016  - En cours
+  Version 7.2.0 03/03/2016  - Finale
   -----------------------
 - Modification des fichiers .htaccess en conformité Apache 2.2 ou 2.4 avec la sélection par IfModule .... plus modification dans le cas de l'hébergement pages-perso free.fr avec ifDefine Free
 - Correction sur la saisie du champ "Description du fichier" dans la page "Adhérents-Gestion fichier"  
