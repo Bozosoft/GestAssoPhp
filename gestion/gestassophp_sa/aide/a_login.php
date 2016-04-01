@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
@@ -37,7 +37,7 @@
 Le but de cet espace est de pouvoir gérer les membres et leur cotisation.<br />
 Les administrateurs peuvent inscrire et modifier des membres, et effectuer des opérations de gestion.
 Chaque membre bénéficie de la possibilité de consulter et de modifier ses informations.<br />
- Il peut éventuellement pourvoir consulter les informations sur les autres membres, si ceux-ci ont donné leur accord sur "l'affichage de ces données".
+ Il peut éventuellement consulter certaines informations sur les autres membres, si ceux-ci ont donné leur accord sur "l'affichage de ces données" par la consultation du menu <?php echo _LANG_MENU_ADHT_MEMBRES ;?>/<?php echo _LANG_MENU_ADHT_LISTE ;?>.
 <br />
 - Pour pouvoir utiliser cet espace, vous devez vous identifier avec votre "Login" et votre "Mot de passe".<br />
 

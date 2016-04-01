@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -208,7 +208,7 @@ $pas = $logpass[1];
 			$dbresult_soc_adht = $db->Execute($req_lire_soc_adht);		
 			//  - si "xx" toutes les cotisations "Bénévole" sont archivées,
 			// - si "999" la fiche "Bénévole" a été supprimée (mais la fiche est réactivable).
-			$check_soc_adht= $dbresult_soc_adht->fields['soc_adht']; // valeur de la  si fiche _adherent soit vide soit xx soit 9999
+			$check_soc_adht= $dbresult_soc_adht->fields['soc_adht']; // valeur de la  si fiche _adherent soit vide soit xx soit 999
 			
 			// si Nb cotis pour $id_result = 0 ET QUE la fiche _adherent n'EST PAS déja archivée
 			If ($nb_compt_adht_cotis == 0 && $check_soc_adht <> '999'){		

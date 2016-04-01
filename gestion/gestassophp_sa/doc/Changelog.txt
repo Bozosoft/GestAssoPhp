@@ -12,7 +12,33 @@
  * @package   GestAssoPhp+Pg
  */
  
- 
+  Version 7.3.0-béta 29/03/2016  - En-cours
+  -----------------------
+- Ajout des fichiers pour archiver en série les fiches cotisations à une date donnée. Action réservée au priorité 7 (Trésorier) et 9 (Admin) :
+	adherent/archiverenserie_cotisations_adht.php 
+	templates/adherent/archiverenserie_cotisations_adht.tpl 
+	aide/a_archiverenserie_cotisations_adht.php 
+	! Attention : ne prend en compte que les fiches dont la date de fin de cotisation est antérieure à la date Date fin cotisation du menu "Préférences/Préférence Association"
+- Modification du fichier aide/a_adht_liste_cotisation_adht.php	
+- Modification des fichiers adherent/liste_cotisations_adht.tpl/php par ajout d'un lien vers "Archiver en série les cotisations". La colonne "Statut" affichera "Archivée-série" (si la fiche est archivé en série)
+- Correction du fichier adherent/liste_adht_admin.php modification du contrôle de la date si suppression de la fiche
+- Ajout des chaînes dans le fichier lang.php
+	define('_LANG_TITRE_ADMIN_LISTEARCHIV_COTIS_ADHT', 'Archiver en série des cotisations'); 
+	define('_LANG_LISTE_LISTEARCHIV_ADHT_COTIS', 'avant le'); 
+	define('_LANG_MESSAGE_LISTEARCHIV_ADHT_ARCHIV', 'Archivée-Série');
+- Correction typo ou ajout de compléments sur
+	adherent/remplir_cotisations_adht.php
+	adherent/liste_cotisations_adht.php 
+	doc/tables_description.ods 
+	doc/tables_description.rtf
+	aide/a_login.php
+	aide/a_adht_gerer_fiche_adht.php
+- Ajout des titres sur les liens des menus (au survol de la souris) dans page_index.tpl
+- Correction sur l'ID de "Fiche enregistrée par" qui renvoi maintenant sur Administration - Liste des Adhérents
+  Fichiers adherent/liste_adht_admin.tpl, adherent/consulter_fiche_adht.tpl adherent/consulter_fiche_adht_admin2.php, adherent/consulter_fiche_adht.php
+- Ajout message d'erreur lors de la consultation du menu Liste Adhérents 
+	
+  
   Version 7.2.0 03/03/2016  - Finale
   -----------------------
 - Modification des fichiers .htaccess en conformité Apache 2.2 ou 2.4 avec la sélection par IfModule .... plus modification dans le cas de l'hébergement pages-perso free.fr avec ifDefine Free

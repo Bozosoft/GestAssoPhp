@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 //include_once '../../fileloc_gestasso_s.php';  //----------Pour TEMPLATE et localise rep 
@@ -47,7 +47,9 @@ include_once '../config/connexion.php';
     <span class="TextenoirGras">- <?php echo _LANG_GESTION_FICHE_ADHT ; ?></span> 
     :<br/>
     Affiche les informations administratives.<br/>
-	<span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_ANT ; ?></span> à droite est une information sur l'activité principale définie dans les "<?php echo _LANG_GESTION_FICHE_ADHT ; ?>"<br/><br/>
+   - La zone "Oui/Non... afficher mes coordonnées consultables par les ..." permet de donner ou non la possibilité aux autres membres de consulter certaines informations personnelles par la consultation du menu <?php echo _LANG_MENU_ADHT_MEMBRES ;?>/<?php echo _LANG_MENU_ADHT_LISTE ;?><br/>
+
+	-La zone <span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_ANT ; ?></span> à droite est une information sur l'activité principale définie dans les "<?php echo _LANG_GESTION_FICHE_ADHT ; ?>"<br/><br/>
     
  <?php	if ($priorite_adht > 4 ) { // AUTORISATION si 5-7-9 ?>
      Un formulaire d'envoi d'un mail pour le destinataire est possible en cliquant sur l'icône <img src="../images/icones16/i_mail.png" width="16" height="11" alt="" title="<?php echo _LANG_VISU_FICHE_ADHT_MAIL_TITLE ; ?>"/> de la ligne  <?php echo _LANG_FICHE_ADHT_MAIL; ?><br/>

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -85,7 +85,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$priorite_adht_del['priorite_adht'] = $dbresult->fields['priorite_adht'];
 		$nom_adht_adht_del = $dbresult->fields['nom_adht'];
 		$prenom_adht_adht_del = $dbresult->fields['prenom_adht'];		
-		if ($priorite_adht_del['priorite_adht']  <> 0)  {
+		if ($priorite_adht_del['priorite_adht']  <> 0)  {		
 			// on ne peut pas effacer ---> message
 			$erreur1_suppression_fiche = 1;
 			$tpl->assign('erreur1_suppression_fiche',$erreur1_suppression_fiche); // Impossible supprimer fiche date fin de cotis non échue
@@ -94,7 +94,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}
 		
 // si date de fin de cotisation est encore valable Ou si la date de fin de cotisationest echue Alerte
-		if ($erreur1_suppression_fiche != 1)  { // si niveau priorité = 0
+		if ($priorite_adht_del['priorite_adht'] == 0)  { // si niveau priorité = 0  modif V 7.3 ->OLD if ($erreur1_suppression_fiche != 1)
 			if ($date_echeance_cotisation['date_echeance_cotis'] > $date_du_jour || ($check_fin_cotisation  == '-1') ) {
 				// on ne peut pas effacer ---> message
 				$erreur_suppression_fiche =1;

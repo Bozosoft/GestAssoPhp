@@ -1,11 +1,18 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2016 (c) JC Etiemble HTML5*}
 {* Affiche la fiche de l'adhérent Consulter fiche adhérent depuis consulter_fiche_adht.php ET consulter_fiche_adht_admin2.php*}
 {* Affichage du CONTENU avec AIDE *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_consulter_fiche_adht.php','popup','height=250,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <header class="header_titre">&nbsp;{language name=titre_consult_fiche_adht}</header>
+    <header class="header_titre">{$vientde}&nbsp;{language name=titre_consult_fiche_adht}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
+{* -- si erreur -- *}	
+	{if $erreur_saisie|@count != 0} 
+		<div id="erreur-box">{language name=tpl_texte_err_saisie}
+			{if $erreur_saisie.id_adht}<br /><span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.id_adht}</span>{/if}
+		</div>
+	{/if}
+	
 {* -- RECAPITULATF -- *}	
     	<table style="width:100%;">
 		<tr> 

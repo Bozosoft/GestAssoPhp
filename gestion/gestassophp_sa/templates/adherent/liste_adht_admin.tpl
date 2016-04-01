@@ -1,8 +1,8 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2016 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE  Liste des adhérents *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_admin.php','popup','height=650,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <header class="header_titre">&nbsp; {language name=titre_admin_liste_adht}</header>
+    <header class="header_titre">{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_adht}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
  {if $erreur_suppression_fiche == 1}
@@ -159,7 +159,7 @@
 				<td>{$item_membres.date_adht}</td>
 				<td>&nbsp;{$item_membres.fin_cotisation}</td>
 		
-				<td>{if $item_membres.qui_enrg_adht != 0}&nbsp;<a href="../adherent/consulter_fiche_adht.php?id_adht={$item_membres.qui_enrg_adht}" title="{language name=admin_liste_adht_enr_title} {$item_membres.pnom_creation_fiche_adht}">{$item_membres.qui_enrg_adht}</a>{/if}</td>{* + qui a enrregistré la fiche *}
+				<td>{if $item_membres.qui_enrg_adht != 0}&nbsp;<a href="../adherent/consulter_fiche_adht_admin2.php?id_adht={$item_membres.qui_enrg_adht}" title="{language name=admin_liste_adht_enr_title} {$item_membres.pnom_creation_fiche_adht}">{$item_membres.qui_enrg_adht}</a>{/if}</td>{* + qui a enrregistré la fiche *}
 
 				<td>&nbsp;{$item_membres.nom_type_antenne}</td>{* + "sections ou secteurs d'activité" propre à l'association *}
 				

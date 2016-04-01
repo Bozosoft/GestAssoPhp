@@ -1,4 +1,4 @@
-{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2016 (c) JC Etiemble HTML5*}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -34,8 +34,8 @@
 			<li><a href="../index.php">{language name=login_user}</a></li>
 {/if}				
 {if $priorite_adht > 0} 				
-				<li{if $nomlienpage == "gerer_fiche_adht.php"||$nomlienpage == "remplir_infogene_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/gerer_fiche_adht.php">{language name=menu_adht_information}</a></li>
-				<li{if $nomlienpage == "liste_adht.php"||$nomlienpage == "consulter_fiche_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_adht.php">{language name=menu_adht_liste}</a></li>	
+				<li{if $nomlienpage == "gerer_fiche_adht.php"||$nomlienpage == "remplir_infogene_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/gerer_fiche_adht.php" title="{language name=titre_visu_fiche_adht}">{language name=menu_adht_information}</a></li>
+				<li{if $nomlienpage == "liste_adht.php"||$nomlienpage == "consulter_fiche_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_adht.php" title="{language name=titre_liste_adht}">{language name=menu_adht_liste}</a></li>	
 {/if}				
 			</ul>			
 	
@@ -43,7 +43,7 @@
 		
 			<h1>{language name=menu_admin_gestion}</h1>
 			<ul>			
-				<li{if $nomlienpage == "tableau_bord.php"} class="menu_page_active"{/if}><a href="../admin/tableau_bord.php">{language name=menu_admin_gestion_tb}</a></li>			
+				<li{if $nomlienpage == "tableau_bord.php"} class="menu_page_active"{/if}><a href="../admin/tableau_bord.php" title="{language name=titre_admin_tableaubord}">{language name=menu_admin_gestion_tb}</a></li>			
 			</ul>			
 			
 {/if}
@@ -51,21 +51,21 @@
 		
 			<h1>{language name=menu_admin_gestion}</h1>
 			<ul>			
-				<li{if $nomlienpage == "tableau_bord.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/tableau_bord.php">{language name=menu_admin_gestion_tb}</a></li>
+				<li{if $nomlienpage == "tableau_bord.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/tableau_bord.php" title="{language name=titre_admin_tableaubord}">{language name=menu_admin_gestion_tb}</a></li>
 {if $priorite_adht == 9}					
-				<li{if $nomlienpage == "remplir_priorite.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/remplir_priorite.php">{language name=menu_admin_gestion_pa}</a></li>
-				<li{if $nomlienpage == "liste_logs.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/liste_logs.php">{language name=menu_admin_gestion_log}</a></li>
-				<li{if $nomlienpage == "remplir_preferences.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/remplir_preferences.php">{language name=menu_admin_gestion_pref}</a></li>{*Préférences*}				
-				<li{if $nomlienpage == "maint_bd.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/maint_bd.php">{language name=menu_admin_gestion_maint_bd}</a></li>		
+				<li{if $nomlienpage == "remplir_priorite.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/remplir_priorite.php" title="{language name=titre_admin_gerer_priorite_adherents}">{language name=menu_admin_gestion_pa}</a></li>
+				<li{if $nomlienpage == "liste_logs.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/liste_logs.php" title="{language name=titre_admin_logs}">{language name=menu_admin_gestion_log}</a></li>
+				<li{if $nomlienpage == "remplir_preferences.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/remplir_preferences.php" title="{language name=titre_admin_preferences}">{language name=menu_admin_gestion_pref}</a></li>{*Préférences*}				
+				<li{if $nomlienpage == "maint_bd.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../admin/maint_bd.php" title="{language name=titre_admin_maint_bd}">{language name=menu_admin_gestion_maint_bd}</a></li>		
 {/if}				
 				<li><h1>{language name=menu_adherent_bene}</h1></li>
-				<li{if $nomlienpage == "liste_adht_admin.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_adht_admin.php">{language name=menu_adherent_gestion}</a></li>	
+				<li{if $nomlienpage == "liste_adht_admin.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_adht_admin.php" title="{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_adht}">{language name=menu_adherent_gestion}</a></li>	
 				
-				<li{if $nomlienpage == "liste_adht_admin2.php"||$nomlienpage == "consulter_fiche_adht_admin2.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_adht_admin2.php">{language name=titre_admin_liste_adht2}</a></li>
+				<li{if $nomlienpage == "liste_adht_admin2.php"||$nomlienpage == "consulter_fiche_adht_admin2.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_adht_admin2.php"  title="{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_adht2}">{language name=titre_admin_liste_adht2}</a></li>
 {if $priorite_adht > 6}				
-				<li{if $nomlienpage == "liste_cotisations_adht.php"||$nomlienpage == "remplir_cotisations_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_cotisations_adht.php">{language name=menu__gestion_cotis}</a></li>
+				<li{if $nomlienpage == "liste_cotisations_adht.php"||$nomlienpage == "remplir_cotisations_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_cotisations_adht.php"  title="{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_cotis_adht}">{language name=menu__gestion_cotis}</a></li>
 {/if}
-				<li{if $nomlienpage == "liste_fichiers_adht.php"||$nomlienpage == "remplir_fichier_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_fichiers_adht.php">{language name=menu__gestione_file}</a></li>			
+				<li{if $nomlienpage == "liste_fichiers_adht.php"||$nomlienpage == "remplir_fichier_adht.php"} class="menu_page_active"{/if}>&nbsp;&nbsp;<a href="../adherent/liste_fichiers_adht.php"  title="{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_fichiers_adht}">{language name=menu__gestione_file}</a></li>			
 			</ul>			
 		
 {/if}

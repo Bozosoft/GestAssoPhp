@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -50,7 +50,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$cotis_adht = array(); // Tableau $cotis_adht[champ de la table]  passage des data vers TPL
 	$erreur_saisie = array(); //Erreur si  Champs Obligatoires à saisir
 	// initialisation
-	$date_du_jour=date("Y-m-d");//Pour définir la différence entre 2  dates
+	$date_du_jour=date("Y-m-d");//Pour définir la différence entre 2 dates
+	$archiceserie =''; //+ V 7.3
 		
 		
 	/***** Si ADMINISTRATEUR donc $priorite_adht >4  DROIT DE CONSUTER ET MODIFIER     (4 et 5 n'a PAS le droit) */
@@ -98,12 +99,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}		
 			
 		
-	// filtre d'affichage  les cotisation  adhérents  0 => 'Les fiches actives', 1 => 'Les fiches achivées', 2 => 'Toutes les fiches'
+	// filtre d'affichage  les cotisation  adhérents 0 => 'Les fiches actives', 1 => 'Toutes les fiches', 2 => 'Les fiches archivées'
 	$filtre_fiche = get_post_variable_numeric('filtre_fiche', '0'); '0'; // affiche par défaut que les fiches actives
 	
 	// requette principale    TABLE_COTISATIONS +
 	$req_lire_info_cotis = "SELECT id_cotis,id_adhtasso,id_type_cotis,"
-	."montant_cotis,date_enregist_cotis,date_debut_cotis,date_fin_cotis,cotis,datemodiffiche_cotis,"
+	."montant_cotis,date_enregist_cotis,date_debut_cotis,date_fin_cotis,cotis,info_archiv_cotis,datemodiffiche_cotis," 
+	//+ info_archiv_cotis V 7.3
 	." prenom_adht,nom_adht," // TABLE_ADHERENTS
 	." nom_type_cotisation" // TABLE_TYPE_COTISATIONS
 	." FROM ".TABLE_COTISATIONS.", ".TABLE_ADHERENTS.", ".TABLE_TYPE_COTISATIONS 
@@ -176,7 +178,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$req_lire_info_cotis .= "date_enregist_cotis ".$tri_sens_txt.',';
 	// tri par colonne Date  début
 	//	} elseif ($_SESSION['tri'] == '2') {
-	//		$req_lire_info_cotis .= "date_debut_cotis ".$tri_sens_txt.',';	
+	//	$req_lire_info_cotis .= "date_debut_cotis ".$tri_sens_txt.',';	
 	// tri par colonne Date fin
 	} elseif ($_SESSION['tri'] == '3') {
 		$req_lire_info_cotis .= "date_fin_cotis ".$tri_sens_txt.',';		
@@ -191,7 +193,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$req_lire_info_cotis .= "montant_cotis ".$tri_sens_txt.',';
 			// tri par colonne Statut = Archivé ou normal
 	} elseif ($_SESSION['tri'] == '7') {
-		$req_lire_info_cotis .= "cotis ".$tri_sens_txt.',';
+		if ($filtre_fiche == '2') {
+			$req_lire_info_cotis .= "datemodiffiche_cotis ".$tri_sens_txt.',';	// Si Les fiches sont achivées Tri par date V 7.3
+		} else {
+			$req_lire_info_cotis .= "cotis ".$tri_sens_txt.',';
+		}
 	}				
 		
 	// tri par #=N°  = Id adhérents 
@@ -243,7 +249,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$cotis_adht[$indice]['montant_cotis'] =  $row['montant_cotis'];// 			
 			if ( $row['cotis'] =='999') {
 				$cotis_adht[$indice]['cotis'] =  $row['cotis']; // 999
+				$cotis_adht[$indice]['info_archiv_cotis'] =  $row['info_archiv_cotis'];//+ V 7.3  texte=Arch+ par id=XX 27/03/2016
+				$archiceserie = substr( $cotis_adht[$indice]['info_archiv_cotis'], 0, 5); //+ V 7.3
+				if ($archiceserie == 'Arch+') { //+ V 7.3
+				$cotis_adht[$indice]['cotis_txt'] = _LANG_MESSAGE_LISTEARCHIV_ADHT_ARCHIV;// Archivée-Série  V 7.3
+				} else { //+ V 7.3
 				$cotis_adht[$indice]['cotis_txt'] = _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV;// Affichage du statut Archivée
+				} //+ V 7.3
 				$cotis_adht[$indice]['datemodiffiche_cotis'] = switch_sqlFr_date($row['datemodiffiche_cotis']);
 			}
 		$cotis_adht[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
@@ -257,10 +269,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		// Requette Pour affichage du Nom Prénom en fonction de l'Id adhérent = id_adht_cotis
 	    $req_lire_benevol = "SELECT nom_adht,prenom_adht FROM "
 		.TABLE_ADHERENTS."  WHERE id_adht= '$id_adht_cotis'";	
-		//$result_req_lire_benevol = mysql_query($req_lire_benevol);
-		//($row_req_lire_benevol = mysql_fetch_object($result_req_lire_benevol));
 		$dbresult = $db->Execute($req_lire_benevol);	
-		//$tpl->assign('nom_prenom',($row_req_lire_benevol ->nom_adht." ".$row_req_lire_benevol ->prenom_adht));
 		$tpl->assign('nom_prenom',($dbresult->fields['nom_adht']." ".$dbresult->fields['prenom_adht']));
 	}
 		

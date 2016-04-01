@@ -496,7 +496,21 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_MESSAGE_LISTE_COTIS_ADHT_DATE_DEB', 'Date de début Non valide - Format jj/mm/aaaa');
 	define('_LANG_MESSAGE_LISTE_COTIS_ADHT_DATE_FIN', 'Date de fin Non valide - Format jj/mm/aaaa'); 
 	
-/** ---------------------------------------------------------------------- */		
+/** ---------------------------------------------------------------------- */	
+
+/**
+* Depuis  V 7.3
+* Localisation sur /templates/adherent/archiverenserie_cotisations_adht.tpl ET/adherent/archiverenserie_cotisations_adht.php 
+*/	
+	define('_LANG_TITRE_ADMIN_LISTEARCHIV_COTIS_ADHT', 'Archiver en série des cotisations'); 
+	define('_LANG_LISTE_LISTEARCHIV_ADHT_COTIS', 'avant le');
+	define('_LANG_MESSAGE_LISTEARCHIV_ADHT_ARCHIV', 'Archivée-Série'); //Archivée--Série
+	
+
+/**  Messages PHP   */	
+	define('_LANG_MESSAGE_LISTEARCHIV_ADHT_ERREUR', 'ERREUR sur cotisation N&deg;');
+
+/** ---------------------------------------------------------------------- */	
 	
 	
 /**
@@ -518,7 +532,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_COTIS_ADHT_RAISON', 'Raison de l\'archivage');
 	define('_LANG_FICHE_COTIS_ADHT_RAISON_TITLE', 'Information sur archivage');// title=
 	define('_LANG_FICHE_COTIS_ADHT_RAISON_PLACEHOLDER', 'Ici entrer votre Information OBLIGATOIRE');
-	define('_LANG_FICHE_COTIS_ADHT_JS_CONFIRM_ARCHIV', 'Êtes vous sûr de vouloir archiver la fiche N° ');
+	define('_LANG_FICHE_COTIS_ADHT_JS_CONFIRM_ARCHIV', 'Êtes vous sûr(e) de vouloir archiver la fiche N° '); // +(e)
 	define('_LANG_FICHE_COTIS_ADHT_ARCHIV_BUTTON_TITLE', 'Archiver la fiche');
 	
 	// Add pour Visulisation avant impression  Ajout le 27/01/2009

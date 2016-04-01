@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -42,6 +42,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 
 	$adherent=array(); //On passe par un Tableau pour affichage adherent
+	$erreur_saisie = array(); //Erreur  V 7.3
 	
 /**** Tout le monde a le  DROIT DE CONSUTER   */
 	$id_adht = get_post_variable_numeric('id_adht', '');// l'id de la personne de la fiche infogénérales
@@ -52,8 +53,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$oui_fiche_adht = $dbresult->fields['visibl_adht'];
 
 		if (($oui_fiche_adht == 'Non') )  { // si visibl_adht=NON
-			$id_adht = $sessionadherent; // on visualise SA propre fiche	
-		}
+			$id_adht = $sessionadherent; // on visualise SA propre fiche
+			$erreur_saisie ['id_adht'] = ' Affichage : '._LANG_VISU_FICHE_ADHT_RECAP .' '._LANG_GESTION_FICHE_ADHT;	 //Erreur  V 7.3
+			$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie //Erreur  V 7.3
+		} 
 		
 	
 	// On lit la table adherent
@@ -121,6 +124,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE				
 	$tpl->assign('id_adht',$id_adht);	
+	$tpl->assign('vientde',_LANG_MENU_ADHT_MEMBRES.' -'); // V 7.3
 	//POUR  AFFICHAGE VERS TEMPLATE				
 	$content = $tpl->fetch('adherent/consulter_fiche_adht.tpl'); // On affiche la fiche GESTION adhérent	
 	$tpl->assign('content',$content);

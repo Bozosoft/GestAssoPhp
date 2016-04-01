@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
@@ -24,12 +24,12 @@
 	<meta name="keywords" lang="fr" content="GestAssoPhp">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
-	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?></title>
+	<title>GestAssoPhp Aide - <?php echo _LANG_LISTE_COTIS_ADHT_LISTE_TITLE ;?></title> 
 </head>
 <body>
 
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?></span><br />
+<span class="AfficheTitre14"><?php echo _LANG_LISTE_COTIS_ADHT_LISTE_TITLE ;?> et <?php echo _LANG_TITRE_ADMIN_LISTE_COTIS_ADHT ;?></span><br />
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
@@ -49,8 +49,8 @@
     <br/>
     - de cr&eacute;er une nouvelle fiche gr&acirc;ce au bouton <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON  ;?> ">&nbsp; <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON_TITLE  ;?>&nbsp;</span><br/>
     <br/>
-	Il est préférable de séléctionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
-    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne direcrement acc&egrave;s au gestionnaire des cotisations.<br/>
+	Il est préférable de sélectionner un <?php echo ADHERENT_BENE ;?> par l'ic&ocirc;ne <img src="../images/icones16/i_euro.png" width="16" height="16" alt="" title="<?php echo _LANG_ADMIN_LISTE_ADHT_COTIS_ICON_TITLE ;?>"/> 
+    de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS .'/'. _LANG_TITRE_ADMIN_LISTE_ADHT;?></span>&quot; qui donne directement acc&egrave;s au gestionnaire des cotisations.<br/>
 	    <br/>
     <span class="TextenoirGras">Note importante</span> : Avant de créer une 
     nouvelle fiche cotisation, assurer vous qu'une <span class="Texterouge">fiche n'existe pas déja !!</span><br/>la cr&eacute;ation d'une 
@@ -70,7 +70,7 @@
     - d<span class="TextenoirGras">'<?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />
     - d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras">#, 
     <?php echo _LANG_LISTE_COTIS_ADHT_COL_D_ENR.', '._LANG_LISTE_COTIS_ADHT_COL_D_FIN.', '. _LANG_TPL_COL_NOMPRE.', '._LANG_LISTE_COTIS_ADHT_COL_TYPE .', '._LANG_LISTE_COTIS_ADHT_COL_MONTANT .', '._LANG_LISTE_COTIS_ADHT_COL_STATUT ;?></span>.<br/>
-	la colonne <span class="TextebleuGras"><?php  echo _LANG_LISTE_COTIS_ADHT_COL_STATUT.'</span> indique que la fiche est <span class="TextenoirGras">'. _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV.'</span> avec une <span class="TextenoirGras">'._LANG_TPL_COL_DATE ;?></span>
+	la colonne <span class="TextebleuGras"><?php  echo _LANG_LISTE_COTIS_ADHT_COL_STATUT.'</span> indique que la fiche est <span class="TextenoirGras">'. _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV.'</span> ou <span class="TextenoirGras">'. _LANG_MESSAGE_LISTEARCHIV_ADHT_ARCHIV.'</span> (si archivée en série) avec une <span class="TextenoirGras">'._LANG_TPL_COL_DATE ;?></span>
 	</p>
   <p class="Textenoir">- Le lien sur le &quot;<a href="#"><?php echo _LANG_TPL_COL_NOMPRE ;?></a>&quot; 
     permet de visualiser les cotisations de cette fiche <?php echo ADHERENT_BENE ;?> 
@@ -82,15 +82,17 @@
     - l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; permet 
     d'acc&eacute;der &agrave; la fiche avant de l'archiver virtuellement (<span class="Texterouge">ATTENTION</span> 
-    l'archivage de la fiche est irr&eacute;versible et r&eacute;clame &quot; <?php echo _LANG_MESSAGE_COTIS_ADHT_RAISON_ARCHIV ;?>&quot;).<br />
-	<span class="TextenoirGras">+ ASTUCE :</span> Pour archiver plusieurs fiches, trier la colonne par date de <span class="TextebleuGras"><?php echo _LANG_LISTE_COTIS_ADHT_COL_D_FIN ;?></span>, puis apr&egrave;s avoir s&eacute;lectionner l'ic&ocirc;ne <img src="../images/icones16/i_archive.png" width="16" height="16" alt="" title="<?php echo  _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?>"/> de la ligne correspondante, cliquer sur le bouton droit de la souris pour "Ouvrir le lien dans un nouvel onglet" et dans cet onglet  <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ARCHIV_ICON_TITLE ;?> ">&nbsp; <?php echo _LANG_FICHE_COTIS_ADHT_ARCHIV_BUTTON_TITLE ;?>&nbsp;</span>. Fermer l'onglet et revenir dans la liste "<?php echo _LANG_TITRE_ADMIN_FICHE_COTIS_ADHT ;?>".
-  </p>
+    l'archivage de la fiche est irr&eacute;versible et r&eacute;clame &quot; <?php echo _LANG_MESSAGE_COTIS_ADHT_RAISON_ARCHIV ;?>&quot;).</p> 
+    
   <p class="Textenoir">Si la s&eacute;lection est &quot;<span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_COTISATIONS[2]) ;?></span>&quot; 
     :<br/>
     - l'ic&ocirc;ne <img src="../images/icones16/i_ficharch.png" width="16" height="16" alt="" title=" <?php echo  _LANG_LISTE_COTIS_ADHT_CONSULT_ICON_TITLE ;?>"/> 
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; permet 
-    de consulter la fiche cotisation &quot;<?php echo _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV ;?>&quot; pour cette ligne.</p>
-	<p>&nbsp;</p> 
+    de consulter la fiche cotisation &quot;<?php echo _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV ;?>&quot; pour cette ligne.
+    <br /> <br />
+    <span class="TextenoirGras">A partir de la version 7.3 de GestAssoPhp<br />
+	ASTUCE :</span> Pour archiver plusieurs fiches, utiliser le lien <span class="TextebleuGras"><?php echo _LANG_TITRE_ADMIN_LISTEARCHIV_COTIS_ADHT ;?></span> à coté du bouton <span class="submit_ok" title=" <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON  ;?> ">&nbsp; <?php echo _LANG_LISTE_COTIS_ADHT_ADDCOTIS_BUTTON_TITLE  ;?>&nbsp;</span> pour ouvrir une nouvelle page <span class="header_titre"><?php echo _LANG_TITRE_ADMIN_LISTEARCHIV_COTIS_ADHT ;?></span>.
+	 </p>
   <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>
 </div>

@@ -1,8 +1,8 @@
-{* Affichage du CONTENU avec AIDE  Liste des adhérents affichage Admin uniquement 18/12/11 copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Affichage du CONTENU avec AIDE  Liste des adhérents affichage Admin uniquement 18/12/11 copyright 2007-2016 (c) JC Etiemble HTML5*}
 {*Auteur original : Jean-Claude Etiemble - Licence Creative Commons Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0) France*}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_adht_admin2.php','popup','height=280,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
-    <header class="header_titre">&nbsp;{language name=titre_admin_liste_adht2}</header>
+    <header class="header_titre">{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_adht2}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
 	

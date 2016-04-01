@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2016
+ * @copyright 2007-2016  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -120,6 +120,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE				
 	$tpl->assign('id_adht',$id_adht);	
+	$tpl->assign('vientde',_LANG_MENU_ADMIN_GESTION.' -'); // V 7.3
 	//POUR  AFFICHAGE VERS TEMPLATE				
 	$content = $tpl->fetch('adherent/consulter_fiche_adht.tpl'); // On affiche la fiche GESTION adhérent	
 	$tpl->assign('content',$content);
