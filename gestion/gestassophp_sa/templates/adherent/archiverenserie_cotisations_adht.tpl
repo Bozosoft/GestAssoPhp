@@ -31,7 +31,7 @@
 {* Affichage NB cotisations -  - NB pages *}	
 		<table style="width:100%;">
 			<tr>
-				<td>{$nb_lines}&nbsp;{if $nb_lines > 1}{language name=liste_cotis_adht_cotiss}{else}{language name=liste_cotis_adht_cotis}{/if}&nbsp;&nbsp;{language name=liste_listearchiv_adht_cotis}&nbsp;{$date_3112}{*Avant le "Date fin cotisation"*}
+				<td>{$nb_lines}&nbsp;{if $nb_lines > 1}{language name=liste_cotis_adht_cotiss}{else}{language name=liste_cotis_adht_cotis}{/if}&nbsp;&nbsp;<a href="../admin/remplir_preferences.php" title="{language name=admin_liste_adht_date_f_cotis} {language name=titre_admin_preferences}">{language name=liste_listearchiv_adht_cotis}&nbsp;{$date_3112}</a>{*Avant le "Date fin cotisation"*}
 				</td>
 				{if $affiche_liste_complete =="1"}
 				<td class="centre-txt">{language name=tpl_select_affichepar}
