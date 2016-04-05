@@ -12,7 +12,8 @@
  * @package   GestAssoPhp+Pg
  */
  
-  Version 7.3.0-béta 29/03/2016  - En-cours
+ 
+  Version 7.3.0 05/04/2016  - Finale
   -----------------------
 - Ajout des fichiers pour archiver en série les fiches cotisations à une date donnée. Action réservée au priorité 7 (Trésorier) et 9 (Admin) :
 	adherent/archiverenserie_cotisations_adht.php 
