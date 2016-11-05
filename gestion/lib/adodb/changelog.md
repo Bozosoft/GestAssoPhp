@@ -5,6 +5,34 @@ Older changelogs:
 [v3.x](changelog_v3.x.md),
 [v2.x](changelog_v2.x.md).
 
+## 5.20.7 - 20-Sep-2016
+
+- security: Fix SQL injection in PDO drivers qstr() method (CVE-2016-7405). #226
+- oci8po: prevent segfault on PHP 7. #259
+- pdo/mysql: Fix MetaTables() method. #275
+
+## 5.20.6 - 31-Aug-2016
+
+- security: Fix XSS vulnerability in old test script (CVE-2016-4855). #274
+- adodb: Exit with error/exception when the ADOdb Extension is loaded. #269
+- adodb: Fix truncated exception messages. #273
+
+## 5.20.5 - 10-Aug-2016
+
+- adodb: Fix fatal error when connecting with missing extension. #254
+- adodb: Fix _adodb_getcount(). #236
+- mssql: Destructor fails if recordset already closed. #268
+- mssql: Use SQL server native data types if available. #234
+- mysqli: Fix PHP notice in _close() method. #240
+- pdo: Let driver handle SelectDB() and SQLDate() calls. #242
+- xml: Fix PHP strict warning. #260
+- xml: remove calls to 'unset($this)' (PHP 7.1 compatibility). #257
+
+## 5.20.4 - 30-Mar-2016
+
+- adodb: Fix BulkBind() param count validation. #199
+- mysqli: fix PHP warning in recordset destructor. #217
+- mysqli: cast port number to int when connecting (PHP7 compatibility). #218
 
 ## 5.20.3 - 01-Jan-2016
 

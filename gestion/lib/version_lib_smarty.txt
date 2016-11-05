@@ -2,7 +2,8 @@
 https://github.com/smarty-php/smarty/
 
 
-22/02/2016 Smarty 3.1.29 Released Dec 21, 2015
+05/11/2016 Smarty 3.1.30 (07.08.2016)
+22/02/2016 Smarty 3.1.29 (21.12.2015)
 02/12/2015 Smarty 3.1.27 jun 19, 2015
 19/07/2014 Smarty 3.1.19 Jun 30th, 2014 (complet rev 4852)
 10/05/2014 Smarty 3.1.18 Apr 7th, 2014 (diff SVN 4819-4833)
@@ -66,7 +67,7 @@ Smarty 3.1.0  Sep 16th, 2011
 
 
 	\lib\smarty\sysplugins --->Tous les fichiers
-		145 fichiers
+		146 fichiers
 		+index.html
 
 	\lib\smarty\plugins -->UNIQUEMENT les fichiers suivants (9+1)

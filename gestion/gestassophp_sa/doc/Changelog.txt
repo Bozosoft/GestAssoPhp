@@ -12,6 +12,14 @@
  * @package   GestAssoPhp+Pg
  */
  
+
+
+  Version 7.4.0 05/11/2016  - Finale
+  -----------------------
+- Correction sur tables_description contenu _preference_asso en 9 voir dossier /doc
+- Mise à jour de adodb à la version 5.20.7 du 20/09/2016
+- Mise à jour de Smarty à la version 3.1.30 du 07/08/2016
+
  
   Version 7.3.0 05/04/2016  - Finale
   -----------------------
