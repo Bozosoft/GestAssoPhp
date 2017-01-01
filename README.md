@@ -9,7 +9,7 @@ pour les associations comprenant la gestion des adhérents et de leurs cotisatio
 - Une gestion multi-administrateurs par priorité pour les accès.
 - Un tableau de bord,
 - Une liste des adhérents avec la création, modification de leurs informations,
-- Une liste des cotisants avec la création, modification des cotisation (gestion multicotisations),
+- Une liste des cotisants avec la création, modification des cotisations (gestion multicotisations),
 - Une liste des fichiers des adhérents.
 Et une aide sur chaque page.
 L'impression se faut par le menu Fichier/Imprimer du navigateur
