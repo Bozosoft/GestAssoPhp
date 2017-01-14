@@ -27,8 +27,9 @@ Eventuellement
 contenus web (xHTML, CSS, images, ...) 
 Connaitre PHP, Smarty et adodb
 
-Pour information
+Pour information lire :
 http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html
+http://gestassophp.free.fr/cms/index.php/home/questions-installation.html
 
 
 Configuration nécessaire
@@ -62,7 +63,7 @@ date.timezone = Europe/Paris
 
 A - INSTALLATION NOUVELLE
 -------------------------
-1. Vous avez récupérer l'archive gestion_saxx.tar.bz2
+1. Vous avez récupéré l'archive gestion_saxx.tar.bz2
 
 2. Créer un dossier "gestion_sa" ou donner lui le nom que vous voulez 
 
@@ -91,7 +92,7 @@ POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
 NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à renommer en export_bd.php
 ----------------------------------------------------------------------------------------------------
 
-// ATTENTION  suivant serveur les lignes suivantes doivent être commentées ou supprimées// // supprimer les lignes suivantes car ouvre plusieurs connexion chez Free.fr				
+// ATTENTION  suivant serveur les lignes suivantes doivent être commentées ou supprimées// // supprimer les lignes suivantes car ouvre plusieurs connexions chez Free.fr				
 			$link = '';	
 			$pgsql_conn = pg_connect(" dbname=".NOM_BD." host=".SERVEUR_BD." user=".NOMUTILISATEUR_BD." password=".MOTPASSE_BD." ");
 				if ($pgsql_conn) {
@@ -145,9 +146,9 @@ et vous pourrez commencer à travailler.
 
 8. Vous pouvez ajuster : 
 - les couleurs et autres paramètres d'affichage, 
-- le logo Association en haut à gauche ( fichier dans le dossier \images\logo\logo_asso.jpg),
+- le logo Association en haut à gauche (fichier dans le dossier \images\logo\logo_asso.jpg),
 en modifiant les feuilles de Styles style_print.css (pour impression) et style_screen.css (pour affichage à l'écran) du dossier /gestassophp_sa/js.
-Par défaut le style est de couleur verte. Dans le dossier /js/ deux fichiers m_style_print.css et m_style_screen.css sont configurés pour une couleur marron. pour utiliser cette couleur marron, vous devez donc renommer ces fichier en style_screen.css et style_print.css.
+Par défaut le style est de couleur verte. Dans le dossier /js/ deux fichiers m_style_print.css et m_style_screen.css sont configurés pour une couleur marron. Pour utiliser cette couleur marron, vous devez donc renommer ces fichiers en style_screen.css et style_print.css.
 D'autre part vous pouvez modifier le fichier lang.php contenu dans le dossier /config/ pour adapter vos textes. Nota ce fichier doit impérativement être sauvegardé en utf-8.
 
 Merci de faire apparaître le contrat de licence et d'afficher un lien vers http://gestassophp.free.fr/  comme prévu dans la lience.

@@ -17,17 +17,19 @@
   -----------------------
 - Correction pour PHP 7.1 (Notice on-numeric value encountered) sur les fichiers
 /install/install_2.php, /admin/remplir_preferences.php,
-/admin/remplir_preferences.php,/adherent/consulter_info_fichiermission_adht.php, /adherent/gerer_fiche_adht.php, /include/fonctions.php
+/admin/remplir_preferences.php, /adherent/consulter_info_fichiermission_adht.php, /adherent/gerer_fiche_adht.php, /include/fonctions.php
 - Modification des dates en 2017 pour date_debannee_asso et jma_fin_cotis sur le fichier data.sql pour une nouvelle installation
-- Modification /install/install_2.php pour pour le choix de mysqli ou postgres si PHP 7.x
+- Modification /install/install_2.php pour le choix de mysqli ou postgres si PHP 7.x
 - Message alerte test si PHP >= 7 et mysql sur connexion.php
 - Modification et correction pour "Maintenance de la Base de données"
 l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont au moins en PHP 5.6.x - Et mysql est supprimée de PHP 7.x
   Optimisation possible si mysqli (et éventuellement mysql pour le moment)
   Le type de sauvegarde de la base de données n'est plus possible que si la base est type mysqli ou postgres
   - Modification du fichier maint_bd.tpl ajout de la balise $typebdmysql==mysqli || $typebdmysql==postgres
+  - Modification du fichier phpmysqldump.class.php pour mysqli
   Attention bien vérifier que pour PHP 7.x dans le fichier connexion.cfg.php
   * la ligne est : define("TYPE_BD", "mysqli"); // ou postgres
+- Nota Hébergement sur les pages perso Free.fr : le fichier /include/phpmysqldump.class.php.free.php est à renommer en phpmysqldump.class.php
 
 
   Version 7.4.0 05/11/2016  - Finale
