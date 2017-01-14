@@ -23,7 +23,7 @@ __Configuration nécessaire pour l'installation__
 
 - Vous devez au minimum disposer d’un espace sur un serveur Web avec : 
   - un accès FTP ou autre pour l’installation des fichiers,
-  - le support de PHP 5.1.x  minimum avec le support des sessions, 
+  - le support de PHP 5.6.x minimum avec le support des sessions, 
   - un accès à une base de données MySQL version 5 minimum ou PostgreSQL version 7 minimum.
 - Et bien sur une maîtrise de la gestion de votre hébergement !
 
