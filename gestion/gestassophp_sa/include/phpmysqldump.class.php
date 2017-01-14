@@ -137,6 +137,8 @@
 * 16/01/2013 merci à Olivier Humez ajoutligne : if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";};
 *  Correction OHV0.0 pour empêcher la sauvegarde de "" en NULL
 *  21/09/2014 - ajout sécurité sur "SHOW TABLES."  
+* 
+* 12/01/2017 MODIFICATION remplace mysql par mysqli pour export PHP 5.6, 7.x
 *
 * modifié par JCE - GestAssoPhp
  * @package   GestAssoPhp+Pg
@@ -191,11 +193,13 @@ class phpmysqldump
 		if($link){ 			// si un lien ouvert vers la base est fourni 	// if a MySQL link is provided
 			$this->link = $link;
 		}else{				// sinon login password ...						// else host, login, password ...			
-			$this->link = @mysql_connect($host, $user, $password);
+			//$this->link = @mysql_connect($host, $user, $password);
+			$this->link = @mysqli_connect($host, $user, $password); //+ 12/01/2017
 			if(!$this->link ){$this->errr=$this->message("err_mysql"); return false;}
 		}
 		
-		if(!mysql_select_db($base)){$this->errr=$this->message("err_base"); return false;}
+		//if(!mysql_select_db($base)){$this->errr=$this->message("err_base"); return false;}
+		if(!mysqli_select_db($this->link, $base)){$this->errr=$this->message("err_base"); return false;} //+ 12/01/2017
 		$this->base=$base;
 		$this->host=$host;
 	}
@@ -250,12 +254,14 @@ class phpmysqldump
 	{		
 			$this->backup_comment("debut");
 			$sql = "SHOW TABLES FROM ".($this->base);
-			$result = mysql_query($sql);			
+//			$result = mysql_query($sql);	
+			$result = mysqli_query($this->link,$sql); //+ 12/01/2017		
 			// Check $result //  ++ 21/09
 				if (!$result) {
 					{$this->errr=$this->message("err_mysql_table"); return false;}
 				}					
-			while ($row = mysql_fetch_row($result)) 
+//			while ($row = mysql_fetch_row($result)) 
+			while ($row = mysqli_fetch_row($result)) //+ 12/01/2017 
 			{ $tablename = $row[0] ;	
 
   
@@ -267,8 +273,10 @@ class phpmysqldump
 				  
 					// creation des tables									// table creation
 					$query = "SHOW CREATE TABLE $tablename";
-					$tbcreate = mysql_query($query);
-					$row = mysql_fetch_array($tbcreate);
+//					$tbcreate = mysql_query($query);
+					$tbcreate = mysqli_query($this->link, $query); //+ 12/01/2017
+//					$row = mysql_fetch_array($tbcreate);
+					$row = mysqli_fetch_array($tbcreate); //+ 12/01/2017
 					$create = $row[1].";";
 					$this->ecrire("$create\n\n");
 				}
@@ -278,8 +286,10 @@ class phpmysqldump
 				if($this->data_yes==1){
 					
 					$query = "SELECT * FROM $tablename";
-					$datacreate = mysql_query($query);
-					if (mysql_num_rows($datacreate) > 0) 	// *** si la table n'est pas vide // table not empty
+//					$datacreate = mysql_query($query);
+					$datacreate = mysqli_query($this->link, $query); //+ 12/01/2017
+//					if (mysql_num_rows($datacreate) > 0) 	// *** si la table n'est pas vide // table not empty
+					if (mysqli_num_rows($datacreate) > 0) 	// *** si la table n'est pas vide // table not empty //+ 12/01/2017
 					{
 						$this->backup_comment("debut_dump", $tablename);
 						// sauvegarde des donnees
@@ -287,7 +297,8 @@ class phpmysqldump
 						$qinsert .= "LOCK TABLES $tablename WRITE; \n";
 						$qinsert .= "INSERT INTO `$tablename` values \n  ";
 						
-						while($row12 = mysql_fetch_assoc($datacreate))
+//						while($row12 = mysql_fetch_assoc($datacreate))
+						while($row12 = mysqli_fetch_assoc($datacreate)) //+ 12/01/2017
 						{   	
 							   if($this->no_time_limit){set_time_limit(30);}  	
 							   $row12 = array_map(array($this, 'separe'), $row12);	// mise en forme des data dans le tableau
@@ -325,7 +336,8 @@ class phpmysqldump
 			$this->ecrire("--\n");
 			$this->ecrire("-- Date : ".date("r")."    \n");
 			$this->ecrire("-- ---------------------------------------------\n");
-			$server_info=mysql_get_server_info($this->link);
+//			$server_info=mysql_get_server_info($this->link);
+			$server_info=mysqli_get_server_info($this->link); //+ 12/01/2017
 			$this->ecrire("-- Server version            $server_info \n");
 			$this->ecrire("\n");
 		}
@@ -363,7 +375,8 @@ class phpmysqldump
 	{
 		if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";};	// Correction OHV0.0 15/01/2013 pour empêcher la sauvegarde de "" en NULL
 		//$tbl=mysql_escape_string($tbl); 	// prepare les data pour etre injectées dans mysql  // change string not compatible with MySQL
-		$tbl=mysql_real_escape_string($tbl); // mysql_escape_string remplacer par  mysql_real_escape_string function is deprecated PHP 5. 
+		$tbl=mysqli_real_escape_string($this->link, $tbl); //+ 12/01/2017
+//		$tbl=mysql_real_escape_string($tbl); // mysql_escape_string remplacer par  mysql_real_escape_string function is deprecated PHP 5. 
 		if(is_numeric($tbl)){ return $tbl;}	// si chiffre , c'est bon							// numeric
 		if(!$tbl){return "NULL";}			// si c'est null on le dit							// NULL
 		return "'".$tbl."'";				// pour le reste entre gillements simples			// others
@@ -419,14 +432,14 @@ class phpmysqldump
 		$message['err_fichier']['fr']='Erreur d\'ouverture de fichier';
 		$message['err_fichier']['en']='Error when open file';
 	
-		$message['err_base']['fr']='base mysql inexistante';
-		$message['err_base']['en']='mysql database not exist';
+		$message['err_base']['fr']='base mysqli inexistante'; //+i //+ 12/01/2017
+		$message['err_base']['en']='mysqli database not exist'; //+i //+ 12/01/2017
 
-		$message['err_mysql']['fr']='Erreur d\'ouverture de mysql';
-		$message['err_mysql']['en']='mysql server not found';
+		$message['err_mysql']['fr']='Erreur d\'ouverture de mysqli';//+i //+ 12/01/2017
+		$message['err_mysql']['en']='mysqli server not found'; //+i //+ 12/01/2017
 		
-		$message['err_mysql_table']['fr']='Erreur mysql SHOW TABLES'; // ++ 21/09
-		$message['err_mysql_table']['en']='mysql server error SHOW TABLES';	 // ++ 21/09
+		$message['err_mysql_table']['fr']='Erreur mysqli SHOW TABLES'; // ++ 21/09 //+i //+ 12/01/2017
+		$message['err_mysql_table']['en']='mysqli server error SHOW TABLES';	 // ++ 21/09 //+i //+ 12/01/2017
 		
 		return $message[$numero][$lang];
 	}

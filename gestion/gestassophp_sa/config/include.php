@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -61,7 +61,7 @@
 	define('AODB_DIR', join_path(ROOT_LIB ,'adodb'). DIRECTORY_SEPARATOR );
 	include (AODB_DIR.'adodb.inc.php');  //charge le code deADOdb  
 	// include (AODB_DIR.'toexport.inc.php'); //  Voir
-	// Creé une connexion sur la Base de donnée   TYPE_BD_AODB=  postgres ou  mysql
+	// Creé une connexion sur la Base de donnée   TYPE_BD_AODB = postgres ou mysql ou mysqli
 	$db = ADONewConnection(TYPE_BD_AODB); //crée une connexion  Strict Standards: Only variables should be assigned by reference SUPRESSION de &  deavant &ADONewConnection
 	$db->debug =  false;//true; // false; // Mode débug ou Non
 	if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	

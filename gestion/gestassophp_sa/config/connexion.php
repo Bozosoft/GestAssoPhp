@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -28,9 +28,14 @@
 
 //information sur la Base de donnée
 	@eval("include 'connexion.cfg.php';");
-	// Utilisation de adodb   TYPE_BD_AODB =  postgres ou  mysql
-	define("TYPE_BD_AODB", strtolower(TYPE_BD) ); // pour compibilté version antérieure si  TYPE_BD = MySql
-	
+	// Utilisation de adodb   TYPE_BD_AODB =  postgres ou  mysqli
+	define("TYPE_BD_AODB", strtolower(TYPE_BD) ); // pour compibilté version antérieure si  TYPE_BD = MySql MySqli
+//	echo TYPE_BD ." ++ ". strtolower(TYPE_BD) ." PHP = ". phpversion(); // test si PHP >= 7 et mysql
+	if (phpversion() > 6 && TYPE_BD_AODB == 'mysql') {
+	echo "Attention utlisation de mysql avec PHP ". phpversion();
+	exit;
+	}
+			
 		
 // Inclu le fichier qui dispatch les autres 
 	if (!defined('INDEX0')) {

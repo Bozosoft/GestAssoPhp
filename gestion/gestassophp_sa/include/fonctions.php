@@ -8,15 +8,15 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/include/
  *   Fichier :
- *   Les FONCTIONS  pour PHP 5.x
+ *   Les FONCTIONS  pour PHP > 5.x
 */
 
 
@@ -418,7 +418,7 @@ function is_valid_mypasswd($my_variable)
 function age($date) 
 { 
 	if ($date) {
-		$age = date('Y') - $date;  //  idem $age = date('Y') - date('Y', strtotime($date));
+		$age = date('Y') - date('Y', strtotime($date)); // 12/01/17 // correction non well formed numeric value
 			if (date('md') < date('md', strtotime($date))) { 
 				return $age - 1; 
 			} 

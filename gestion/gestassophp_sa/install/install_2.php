@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -24,11 +24,16 @@
 	
 	// Raz de variables
 	$erreur_saisie = array();// tableau
-	$config_bd = '';
-	$config_bd ['drop_bd']= ''; // Vide non coché pour Effacement des tables
-	$T_type_bd = array('mysqli'=>'MySQLi' , 'mysql'=>'MySQL' , 'postgres'=>'PostgreSQL');
+	$config_bd = array(); //  12/01/17 // Illegal string offset 'drop_bd'
+	$config_bd = array('drop_bd' => ''); //12/01/17 Illegal string offset 'drop_bd' // Vide non coché pour Effacement des tables
+	// Test si PHP 7 - Pour choix de mysqli ou postgres si PHP 7.x
+	if  (phpversion() > 6 ) { 
+		$T_type_bd = array('mysqli'=>'MySQLi', 'postgres'=>'PostgreSQL');
+	}else{
+		$T_type_bd = array('mysqli'=>'MySQLi' , 'mysql'=>'MySQL' , 'postgres'=>'PostgreSQL');
+	}
 	
-	
+
 // On modifie le repertoire de Smarty pour .....	
 	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
@@ -53,7 +58,7 @@
 			}			
 			
 /*****  on affiche la fiche la première fois  */	
-			$config_bd ='';
+			//$config_bd =''; // 12/01/17 // Cannot assign an empty string to a string offset
 			$config_bd ['type_bd'] = ''; //Type de base de données 	 	//$T_type_bd	
 			$config_bd ['serveur_bd'] = 'localhost'; //Addresse du serveur de base de données 				
 			$config_bd ['nom_bd'] = 'gestassosimpl'; //Nom de la base de données

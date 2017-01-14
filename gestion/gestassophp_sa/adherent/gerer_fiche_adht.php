@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -130,7 +130,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 					$cotis_adht[$indice]['nom_type_cotisation'] = '<span class="Texterouge" title="Cotisation échue">'
 					.$cotis_adht[$indice]['nom_type_cotisation'].'</span>';				
 			}			
-			$cotis_adht[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
+			$cotis_adht[$indice]['coul'] =  abs($indice) % 2; //12/01/17 // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
 			$tpl->assign('cotis_adht',$cotis_adht); // tableau $cotis_adht[$indice]['xx_adht']	
 		$indice++;		
 		}

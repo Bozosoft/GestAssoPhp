@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -54,7 +54,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$fichier[$indice]['nom_file_adht'] = $row['nom_file_adht']; //Nom fichier
 		$fichier[$indice]['id_file_adht'] = $row['id_file_adht']; //++ ajout pour téléchargement
 		$fichier[$indice]['design_file_adht'] = $row['design_file_adht']; //++ ajout désignation pour téléchargement
-		$fichier[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1	
+		$fichier[$indice]['coul'] =  abs($indice) % 2; //12/01/17 // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1	
 		$indice++;
 	}
 

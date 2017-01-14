@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -78,7 +78,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			} // si  postgres OPTIMIZE fin
 
 // si  mysql OPTIMIZE		
-			if ( TYPE_BD_AODB == 'mysql' ) {
+			if ( TYPE_BD_AODB == 'mysql' ||  TYPE_BD_AODB == 'mysqli') { //12/01/2017
 				//on prépare la requête 
 				$sql = "OPTIMIZE TABLE";  //////////////////////
 				//on recherche toutes les données des tables   		
@@ -121,7 +121,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('list_structbd_on',$T_OUI_NON);
 	$tpl->assign('list_structbd_o','Oui'); // modif 12 Un seul choix posible Oui
 	$tpl->assign('sav_struct_bd',$sav_struct_bd);	
-	$tpl->assign('sav_data_bd',$sav_data_bd);		
+	$tpl->assign('sav_data_bd',$sav_data_bd);
+	$tpl->assign('typebdmysql',TYPE_BD); //12/01/2017 // Pour afficher ou non l'export BD réservé à mysqli uniquement		
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	// On n'affiche rien juste le download du fichier .....
 

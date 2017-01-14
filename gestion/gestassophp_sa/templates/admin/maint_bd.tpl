@@ -13,7 +13,7 @@
 		
 	<br/>
 	<br/><br/>
-	
+	{if $typebdmysql==mysqli || $typebdmysql==postgres} {* si la BD est de type mysqli ou postgres *}	
 		<form action="export_bd.php" method="post" name="maint_form">		
 			<div class="Lignegris_pad2_Center_Gras">{language name=admin_maint_bd_typebd}</div> 
 			<div>{html_options name="struct" options=$list_structbd_on selected='Non'}	
@@ -26,6 +26,6 @@
 			<input type="hidden" name="valid_sav" value="savbdok"/>			
 			</div>
 		</form>	
-				
+	{/if}				
 	<br /><br /> 
 	</div> {* / défini le contenu .. *} 

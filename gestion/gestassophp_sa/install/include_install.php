@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -28,7 +28,7 @@
 * --------------------------------------------------------------------
 */
 
-	define('VERSION_I', 'Installateur_Php+Pg V 1.1.0'); // version installateur 04/02/2013
+	define('VERSION_I', 'Installateur_Php+Pg V 1.2.0'); // version installateur 04/02/2013 - 13/01/2017 1.2
 	$file_loc = 'fileloc_gestasso_sa.php';  //******************** A DEFINIR
 	include_once '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
 	

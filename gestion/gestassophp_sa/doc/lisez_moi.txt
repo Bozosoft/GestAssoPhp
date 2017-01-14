@@ -7,8 +7,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2016
- * @copyright 2007-2016  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -27,13 +27,16 @@ Eventuellement
 contenus web (xHTML, CSS, images, ...) 
 Connaitre PHP, Smarty et adodb
 
+Pour information
+http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html
+
 
 Configuration nécessaire
 ************************
 Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
  un accès FTP pour l'installation des fichiers, 
-le support de PHP 5.1.x (normalement pour Smarty PHP 5.2)  ou supérieur avec le support des sessions,
- un accès à une base de données MySQL version 5 minimum.
+le support de PHP 5.6.x ou supérieur avec le support des sessions,
+ un accès à une base de données MySQL version 5 minimum (utiliser l'extension mysqli).
 ou
  un accès à une base de données PostgreSQL version 7 ou plus
 
@@ -44,7 +47,7 @@ Vous devez connaître les données de votre connexion MySQL ou PostgreSQL :
 - votre password MySQL ou PostgreSQL, 
 - le nom de la base de données
 - un préfix est prévu lors de l'installation de la base de données (par défaut = gs_)
-
+Si vous utilisez Mysql attention en fonction des versions PHP il faut sélectionner en étape 2 Mysqli. Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL
 
 NOTA installation en local sous WAMP ou EsayPhp ou ...
 Vérfier ou mofifier la configuration dans le php.ini
@@ -163,5 +166,5 @@ pour la mise à jour lire ATTENTIVEMENT le fichier majV6-V7.txt
 https://git.framasoft.org/Bozosoft/GestAssoPhp/tree/master
 
 ----------------------
-Mise à jour de cette page : 27/02/2016
+Mise à jour de cette page : 14/01/2017
 

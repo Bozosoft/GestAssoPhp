@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -43,7 +43,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$indice ='';
 	//Tableau xpour affichage
 	$preference_asso = array();
-	$new_antenne = array();
+	$antenne = array(); // 12/01/17
 	$new_antenne = array();
 	$type_cotisation = array();
 	$new_type_cotisation = array();	
@@ -224,7 +224,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$antenne[$indice]['id_type_antenne'] = $row['id_type_antenne'];	
 			$antenne[$indice]['nom_type_antenne'] = $row['nom_type_antenne'];
 //			$antenne[$indice]['nom_type_antenne'] = stripslashes($row['nom_type_antenne']); //SI magic_quotes_gpc	est à On
-			$antenne[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1		
+			$antenne[$indice]['coul'] =  abs($indice) % 2; //12/01/17 // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1		
 			$indice++;	
 		}
 		/***** FIN de On prépare l'affichage des informations */
@@ -358,7 +358,7 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 			$type_cotisation[$indice]['id_type_cotisation'] =  $row['id_type_cotisation'];		
 			$type_cotisation[$indice]['nom_type_cotisation'] =  $row['nom_type_cotisation'];
 			$type_cotisation[$indice]['montant_cotisation'] = $row['montant_cotisation']; //+ new_montant_cotisation 
-			$type_cotisation[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1		
+			$type_cotisation[$indice]['coul'] =  abs($indice) % 2; //12/01/17 // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1		
 			$indice++;	
 		}
 		

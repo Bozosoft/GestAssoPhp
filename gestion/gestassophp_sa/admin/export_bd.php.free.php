@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -88,7 +88,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}
 		
 // si  mysql export		
-		if ( TYPE_BD_AODB == 'mysql' ) {	
+		if ( TYPE_BD_AODB == 'mysql' ||  TYPE_BD_AODB == 'mysqli') { //12/01/2017
 			include_once '../include/phpmysqldump.class.php' ;	 		
 			$sav = new phpmysqldump( SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD, CURRENTLANGUAGE, $link='');
 			
