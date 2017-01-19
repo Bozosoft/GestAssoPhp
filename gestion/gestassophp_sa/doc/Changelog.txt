@@ -13,7 +13,7 @@
  */
  
 
-  Version 7.5.0 14/01/2017  - En cours
+  Version 7.5.0 19/01/2017 - Finale
   -----------------------
 - Correction pour PHP 7.1 (Notice on-numeric value encountered) sur les fichiers
 /install/install_2.php, /admin/remplir_preferences.php,
@@ -30,6 +30,7 @@ l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont
   Attention bien vérifier que pour PHP 7.x dans le fichier connexion.cfg.php
   * la ligne est : define("TYPE_BD", "mysqli"); // ou postgres
 - Nota Hébergement sur les pages perso Free.fr : le fichier /include/phpmysqldump.class.php.free.php est à renommer en phpmysqldump.class.php
+- Mise à jour de Smarty à la version 3.1.31 du 14.12.2016
 
 
   Version 7.4.0 05/11/2016  - Finale
