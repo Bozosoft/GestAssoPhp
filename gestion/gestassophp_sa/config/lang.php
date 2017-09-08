@@ -232,7 +232,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_ADHT_LOGIN_UPPER', 'Le Login (entre 4 et 20 caractères autorisés A à Z, 0 à 9 et _ - ) sera créé en Majuscules automatiquement');
 	define('_LANG_FICHE_ADHT_LOGIN_PLACEHOLDER', '4 à 20 caractères');
 	define('_LANG_FICHE_ADHT_PASSWD410', 'Mot de passe entre 4 et 10 caractères autorisés a/A à z/Z, 0 à 9 et _ -');
-	define('_LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER', '4 à 20 caractères');	
+	define('_LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER', '4 à 10 caractères');	
 	define('_LANG_FICHE_ADHT_PASSWD_TITLE', 'Mot de passe');//title=   {language name=fiche_adht_}
 	define('_LANG_FICHE_ADHT_PASSWD_CONFIRM_TITLE', 'Confirmation du mot de passe');//title=
 	define('_LANG_FICHE_ADHT_FICHE_ENR', 'Fiche enregistrée par ');

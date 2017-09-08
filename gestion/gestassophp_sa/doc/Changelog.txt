@@ -12,6 +12,11 @@
  * @package   GestAssoPhp+Pg
  */
  
+ 
+  Version 7.6.0 08/09/2017 - En cours
+  -----------------------
+- correction typo sur /config/lang.php _LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER (4 à 20 = 4 à 10)
+
 
   Version 7.5.0 19/01/2017 - Finale
   -----------------------
