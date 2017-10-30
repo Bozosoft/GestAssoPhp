@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2016 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2017 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE Liste des cotisations adhérents Modif V 7.3*}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_liste_cotisation_adht.php','popup','height=700,toolbar=no,location=no,directories=no,status=yes,width=680,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
@@ -7,13 +7,14 @@
 	<div id="contenu"> {*défini le contenu .. *}
 	
 {* Affichage  Recherche *}	
-		
-{if $erreur_saisie|@count != 0} 
+{if !empty($erreur_saisie)}		
+	{if $erreur_saisie|@count != 0} 
 		<div id="erreur-box">{language name=tpl_texte_err_saisie}
 			{if $erreur_saisie.d_datedeb}<br /><span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.d_datedeb}</span>{/if}
 			{if $erreur_saisie.d_datefin}<br /><span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.d_datefin}</span>{/if}
 		</div>
-{/if}
+	{/if}
+{/if}	
 {* Form .. *}
 	<form action="liste_cotisations_adht.php" method="get" name="filtre">
 

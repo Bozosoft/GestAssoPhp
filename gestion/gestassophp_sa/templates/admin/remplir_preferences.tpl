@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2017 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE remplir Préférences et Antennes(sections)  *}
 {*Auteur original : Jean-Claude Etiemble - Licence Creative Commons Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0) France*}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_admin_remplir_preferences.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=700,resizable=no,scrollbars=yes,top=10,left=10')"  title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
@@ -19,10 +19,12 @@
 	</ul>	
 	<div id="tab1_table">
 		<br />
-{if $erreur_saisie.champ|@count != 0}
+{if !empty($erreur_saisie.champ)}		
+	{if $erreur_saisie.champ|@count != 0}
 		<div id="erreur-box">{language name=tpl_texte_err_saisie} ...<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.champ}</span>
 		</div>	
-{/if}
+	{/if}
+{/if}	
 <form action="remplir_preferences.php" method="post" name="ma_form_tab2">		
 
 	<label class="label_pref">{language name=pref_messagetitre}</label>

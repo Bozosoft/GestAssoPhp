@@ -13,9 +13,11 @@
  */
  
  
-  Version 7.6.0 08/09/2017 - En cours
+  Version 7.6.0 30/10/2017 - En cours
   -----------------------
-- correction typo sur /config/lang.php _LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER (4 à 20 = 4 à 10)
+- Correction Warning: count() sur PHP 7.2 RC5  
+- Correction typo sur lang.php _LANG_MESSAGE_REMPLIR_ERR_SUJET_MAIL
+- Correction typo sur /config/lang.php _LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER (4 à 20 = 4 à 10)
 
 
   Version 7.5.0 19/01/2017 - Finale

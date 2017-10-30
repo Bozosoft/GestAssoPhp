@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2016
- * @copyright 2007-2016 (c) JC Etiemble
+ * @version :  2017
+ * @copyright 2007-2017 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -314,7 +314,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_TPL_ENOYERMAIL_BUTTON_TITLE', 'Envoyer le message'); //title="Annuler"    {language name=tpl_enoyermail_button_title}	
 	
 /**  Messages PHP   */
-	define('_LANG_MESSAGE_REMPLIR_ERR_SUJET_MAIL', 'Merci de d\'indiquer un sujet');
+	define('_LANG_MESSAGE_REMPLIR_ERR_SUJET_MAIL', 'Merci d\'indiquer un sujet');
 	define('_LANG_MESSAGE_REMPLIR_ERR_MESSAGE_MAIL', 'Merci de compléter le message');	
 	
 /** --- FIN Gestion Membres ----------------------------------------------------------- */	

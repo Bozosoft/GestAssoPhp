@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2017 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE Rempir information générale *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_remplir_infogene_adht.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 <script type="text/javascript" src="../js/comptemots.js"></script>
@@ -6,11 +6,12 @@
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
  	<br />
-
- {if $erreur_saisie|@count != 0}
+{if !empty($erreur_saisie)}
+	{if $erreur_saisie|@count != 0}
 		<div id="erreur-box"> {language name=tpl_texte_err_saisie}
 		</div>	
-{/if}		
+	{/if}
+{/if}			
 {* Form .. *}
 	<form method="post" name="maform" action="remplir_infogene_adht.php" enctype="multipart/form-data">
     
