@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -66,7 +66,7 @@
 				if (is_valid_mylogin($adherent['login_adht']) ==  false) {	
 					$erreur_saisie ['login'] ='Login entre 4 et 20 caract&egrave;res ou caract&egrave;res invalides !';
 				} else {
-					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	 ou Majuscules+Minuscules
+					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	ou Majuscules+Minuscules
 				}		
 			}				
 			
@@ -83,8 +83,8 @@
 	    if ( ($adherent['pass_adht1'] !='' && $adherent['pass_adht2'] !='')  ) {
 			if ($adherent['pass_adht1'] == $adherent['pass_adht2']) { // si les 2 mots de psse sont identiques
 				if (is_valid_mypasswd($adherent['pass_adht2']) ==  false) {						
-					$erreur_saisie ['mdp'] = 'Mot de passe entre 4 et 10 caract&egrave;res ou caract&egrave;res invalides !';
-					// verification lettre-chiffre ET  Nb caractéres ente 4 et 10 
+					$erreur_saisie ['mdp'] = 'Mot de passe entre 4 et 16 caract&egrave;res ou caract&egrave;res invalides !';
+					// vérification lettre-chiffre ET  Nb caractéres ente 4 et 10->16 
 				} else {
 					// Modif POUR adminsalt Nouvelle installation à compter de la 5.2.0
 					$salt = substr(str_shuffle("23456789ABCDEFGHJKMNPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*"),0,16);// + 5.2.0		
@@ -121,7 +121,7 @@
 				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");				
 
 
-			//Modif POUR adminsalt Nouvelle installation à compter de la 5.2.0
+			//Modif POUR admin salt Nouvelle installation à compter de la 5.2.0
 			$req_ecrit_salt= "INSERT INTO ".TABLE_PREFERENCES." (id_pref, design_pref, val_pref)"
 			." VALUES('8','sitemask','$salt')";
 			$dbresult = $db->Execute($req_ecrit_salt);

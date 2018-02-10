@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2017 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2018 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE Rempir information générale *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_adht_remplir_infogene_adht.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 <script type="text/javascript" src="../js/comptemots.js"></script>
@@ -112,9 +112,9 @@
 		<br /><br />		
 		 {*Mot de passe*}
 			<label class="label_fc_Oblig">&nbsp;&nbsp;{language name=login_my_passwd}&nbsp; </label>
-				<input type="password" name="pass_adht1" id="pass_adht1" title="{language name=fiche_adht_passwd_title}" value="{$data_adherent.pass_adht1}" size="16"  maxlength="12" tabindex="22" placeholder="{language name=fiche_adht_passwd410_placeholder}" {$disabled.pass_adht1} />
+				<input type="password" name="pass_adht1" id="pass_adht1" title="{language name=fiche_adht_passwd_title}" value="{$data_adherent.pass_adht1}" size="16"  maxlength="18" tabindex="22" placeholder="{language name=fiche_adht_passwd410_placeholder}" {$disabled.pass_adht1} />
 			<span class="TexterougeGras ">&nbsp;&nbsp;{language name=fiche_adht_confirm}&nbsp;</span> 
-				<input type="password" name="pass_adht2" id="pass_adht2" title="{language name=fiche_adht_passwd_confirm_title}" value="{$data_adherent.pass_adht2}" size="16"  maxlength="12" tabindex="23" placeholder="{language name=fiche_adht_passwd410_placeholder}" {$disabled.pass_adht2} />{if $erreur_saisie.mdp} <span class="erreur-Jaunerouge">{$erreur_saisie.mdp}</span>{/if}<span class="TextenoirR"></span>
+				<input type="password" name="pass_adht2" id="pass_adht2" title="{language name=fiche_adht_passwd_confirm_title}" value="{$data_adherent.pass_adht2}" size="16"  maxlength="18" tabindex="23" placeholder="{language name=fiche_adht_passwd410_placeholder}" {$disabled.pass_adht2} />{if $erreur_saisie.mdp} <span class="erreur-Jaunerouge">{$erreur_saisie.mdp}</span>{/if}<span class="TextenoirR"></span>
 		</fieldset> 
 		
 	{else} {* Si modification de la fiche *}
@@ -145,9 +145,9 @@
 			{* Possible de modifier Mot de passe SI Admin=9 Ou si id_adht=$sessionadherent *}
 			<p class="TexterougeR">{language name=fiche_adht_modif_passwd}&nbsp;&nbsp;({language name=fiche_adht_passwd410})</p>	
 			<span class="TextenoirGras">{language name=fiche_adht_modif_passwd}&nbsp;</span> 
-				<input type="password" name="pass_adht1" id="pass_adht1" title="{language name=fiche_adht_newpasswd_title}" value="{$data_adherent.pass_adht1}" size="16"  maxlength="12" tabindex="20" {$disabled.pass_adht1} />
+				<input type="password" name="pass_adht1" id="pass_adht1" title="{language name=fiche_adht_newpasswd_title}" value="{$data_adherent.pass_adht1}" size="16"  maxlength="18" tabindex="20" {$disabled.pass_adht1} />
 			<span class="TextenoirGras">&nbsp;&nbsp;{language name=fiche_adht_confirm}&nbsp;</span> 
-				<input type="password" name="pass_adht2" id="pass_adht2" title="{language name=fiche_adht_passwd_confirm_title}" value="{$data_adherent.pass_adht2}" size="16"  maxlength="12" tabindex="21" {$disabled.pass_adht2} />{if $erreur_saisie.mdp}<span class="erreur-Jaunerouge">{$erreur_saisie.mdp}</span>{/if}
+				<input type="password" name="pass_adht2" id="pass_adht2" title="{language name=fiche_adht_passwd_confirm_title}" value="{$data_adherent.pass_adht2}" size="16"  maxlength="18" tabindex="21" {$disabled.pass_adht2} />{if $erreur_saisie.mdp}<span class="erreur-Jaunerouge">{$erreur_saisie.mdp}</span>{/if}
 		{/if}
 		</fieldset>
 	{/if} {*  Fin Affichage si Création ou modification de la fiche*}

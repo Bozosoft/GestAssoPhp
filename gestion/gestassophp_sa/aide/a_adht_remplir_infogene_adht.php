@@ -44,7 +44,7 @@ include_once '../config/connexion.php';
     <?php echo _LANG_MESSAGE_CREATE ;?></span> (Certains champs sont <span class="Texterouge">obligatoires</span>)<br/>
 	&nbsp;&nbsp; Pour information :<br/>
 	&nbsp;&nbsp; <?php echo _LANG_FICHE_ADHT_LOGIN_UPPER;?><br/>
-	 &nbsp;&nbsp; le <?php echo _LANG_FICHE_ADHT_PASSWD410 ?><br/><br/>
+	 &nbsp;&nbsp; le <?php echo _LANG_FICHE_ADHT_PASSWD410 ?><br/>De préférence 16 caractères en combinant des minuscules, majuscules avec les caractères _ -<br/><br/>
     - Consulter ou de modifier une fiche <?php echo _LANG_GESTION_FICHE_ADHT ;?> 
     : <span class="TextenoirGras">mode <?php echo _LANG_MESSAGE_MODIF ;?></span> (Les zones non modifiables 
     sont gris&eacute;es )<br/>

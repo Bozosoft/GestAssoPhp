@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg page 4 copyright 2007-2014  (c) JC Etiemble HTML5*}
+ {* Installation de GestAssoPhp+Pg page 4 copyright 2007-2018  (c) JC Etiemble HTML5*}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -38,7 +38,7 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 			<td><input type="password" name="pass_adht2" id="pass_adht2" title="Exemple root" value="{$data_adherent.pass_adht2}" size="32"  maxlength="50" tabindex="4"/></td>
 		</tr>
 		<tr>		
-			<td colspan ="2"><span class="TexterougeR">Mot de passe entre 4 et 10 caract&egrave;res autoris&eacute;s a/A &agrave; z/Z, 0 &agrave; 9 et _ -</span></td>
+			<td colspan ="2"><span class="TexterougeR">Mot de passe entre 4 et 16 caract&egrave;res autoris&eacute;s a/A &agrave; z/Z, 0 &agrave; 9 et _ -</span></td>
 		</tr>		
 		<tr>		
 			<td colspan ="2">&nbsp;</td>

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
- * @copyright 2007-2017 (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -231,8 +231,8 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_ADHT_LOGIN', 'Login '.ADHERENT_BENE);//title="
 	define('_LANG_FICHE_ADHT_LOGIN_UPPER', 'Le Login (entre 4 et 20 caractères autorisés A à Z, 0 à 9 et _ - ) sera créé en Majuscules automatiquement');
 	define('_LANG_FICHE_ADHT_LOGIN_PLACEHOLDER', '4 à 20 caractères');
-	define('_LANG_FICHE_ADHT_PASSWD410', 'Mot de passe entre 4 et 10 caractères autorisés a/A à z/Z, 0 à 9 et _ -');
-	define('_LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER', '4 à 10 caractères');	
+	define('_LANG_FICHE_ADHT_PASSWD410', 'Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ -');
+	define('_LANG_FICHE_ADHT_PASSWD410_PLACEHOLDER', '4 à 16 caractères');	
 	define('_LANG_FICHE_ADHT_PASSWD_TITLE', 'Mot de passe');//title=   {language name=fiche_adht_}
 	define('_LANG_FICHE_ADHT_PASSWD_CONFIRM_TITLE', 'Confirmation du mot de passe');//title=
 	define('_LANG_FICHE_ADHT_FICHE_ENR', 'Fiche enregistrée par ');
@@ -263,7 +263,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_MESSAGE_REMPLIR_ERR_MAIL', 'Attention adresse email Non valide'); 
 	define('_LANG_MESSAGE_REMPLIR_LOGIN', 'Indiquez un login');
 	define('_LANG_MESSAGE_REMPLIR_ERR_LOGIN', 'Login entre 4 et 20 caractères ou caractères invalides ! ');
-	define('_LANG_MESSAGE_REMPLIR_ERR_PASSW', 'Mot de passe entre 4 et 10 caractères ou caractères invalides !');  
+	define('_LANG_MESSAGE_REMPLIR_ERR_PASSW', 'Mot de passe entre 4 et 16 caractères ou caractères invalides !');  
 	define('_LANG_MESSAGE_REMPLIR_ERR_2PASSW', 'Les 2 mots de passe ne sont pas identiques');  
 	define('_LANG_MESSAGE_REMPLIR_ERR_DATEINSCRIP', 'Date d\'inscription Non valide - Format jj/mm/aaaa');
 	define('_LANG_MESSAGE_REMPLIR_ERR_LOGINPASSWD', 'Il existe déjà un couple login/mot de passe identique');  
@@ -391,7 +391,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	
 	
 /**
-* Localisation sur /templates/admin/remplir_preferences.tpl ET /admin/remplir_preferencesn.php
+* Localisation sur /templates/admin/remplir_preferences.tpl ET /admin/remplir_preferences.php
 */	 
 	define('_LANG_TITRE_ADMIN_PREFERENCES', 'Préférences administration - Modification des informations ...');
 	define('_LANG_PREF_MESSAGETITRE', 'Nom de l\'espace');	 // Indiquez le le nom de l'espace :  Exemple  'Espace Mon association .....'   {language name=pref_messagetitre}

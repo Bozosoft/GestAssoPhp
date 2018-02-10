@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
- * @copyright 2007-2017 (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -134,8 +134,8 @@ if ($d2 == '') $d2 = '0000-00-00' ; // évite date NULL
  * check_madateFR($date)    bool checkdate ( int $month , int $day , int $year )
  * $date = date au format 26/07/2007
  * http://de3.php.net/manual/fr/function.checkdate.php
- * Modif JCE acec ereg()
-  *  modifié par fonction  explode  le 15/10/2009    preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/"  NOTA \/  pour /
+ * Modif JCE avec ereg()
+  *  modifié par fonction explode le 15/10/2009  preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/"  NOTA \/  pour /
 
 
   if (( check_madateFR("32/03/2008") )== TRUE) {
@@ -165,10 +165,10 @@ function check_madateFR($date)
  * - Fonctions utilitaires Gallette
  *  Copyright (c) 2003 Frédéric Jaqcuot 
 
- *  Récupere la variable passé en Post ou get
+ *  Récupère la variable passée en Post ou get
  * 	$var= get_post_variable("var","$defaut");
  * 	 $Var = variable récupérée
- * 	 var   valeur passée en Post ou get
+ * 	 var  valeur passée en Post ou get
  * 	 $defaut = valeur par défaut si necessaire si,on ""
 */  	
 function get_post_variable($nom_var, $par_defaut)
@@ -184,7 +184,7 @@ function get_post_variable($nom_var, $par_defaut)
 
 
 /**
- *  Récupere la variable passé en Post ou get
+ *  Récupère  la variable passée en Post ou get
  *  Modification JCE  + htmlentities($_GET['msg'], ENT_QUOTES)	   http://fr.php.net/htmlentities   Tous les caractères qui ont des équivalents en entités HTML sont effectivement traduits
  *  Modification JCE  + ou http://fr.php.net/manual/fr/function.htmlspecialchars.php   pour éviter que des données fournies par les utilisateurs contiennent des balises HTML
  * <script>alert("Je t'ai eu !");</script>
@@ -222,7 +222,7 @@ function post_variable($nom_var, $par_defaut)
 
 
 /**
-*  Fonction Vérifie si  variable donnée est de type numérique
+*  Fonction Vérifie si la variable donnée est de type numérique
 */
 function get_post_variable_numeric($nom_var, $par_defaut)
 {
@@ -359,7 +359,7 @@ function resizeimage($img,$img2,$w,$h)
  
  
 /**
- * Fonction  pour tester le nom du fichier sans caractéres spéciaux et sans espace // (^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*$)
+ * Fonction pour tester le nom du fichier sans caractéres spéciaux et sans espace // (^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*$)
 */ 
 function validname($string) 
 {
@@ -373,7 +373,7 @@ function validname($string)
     	
 
 /**
- * Fonction  pour verifier si le Login + Mot de passe est unique
+ * Fonction pour verifier si le Login + Mot de passe est unique
 */ 
 function loginpass_unique($check_login,$check_pass) 
 {
@@ -394,8 +394,8 @@ function loginpass_unique($check_login,$check_pass)
 
 
 /**
- * Fonction  pour verifier si le Login ou Mot de passe contiennent les  bons caractères !!
- * si les  caractères sont OK renvoi TRUE
+ * Fonction pour verifier si le Login ou Mot de passe contiennent les  bons caractères !!
+ * si les caractères sont OK renvoie TRUE
 */ 
 
 function is_valid_mylogin($my_variable)
@@ -405,12 +405,12 @@ function is_valid_mylogin($my_variable)
 
 function is_valid_mypasswd($my_variable)
 {
-	return preg_match("/^[a-zA-Z0-9_-]{4,10}+$/", trim($my_variable));
+	return preg_match("/^[a-zA-Z0-9_-]{4,16}+$/", trim($my_variable)); // passe de 10 à 16 caractères
 }
 	
 	
 /**
- * Fonction  renvoie l'age en fonctionde la date 2010-25-01
+ * Fonction renvoie l'age en fonctionde la date 2010-25-01
  * age(1974-01-31')
  *  http://blog.jaysalvat.com/articles/snippet-php-calculer-un-age-a-partir-date-de-naissance.php
 */ 

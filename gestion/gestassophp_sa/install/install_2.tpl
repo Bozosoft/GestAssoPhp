@@ -56,7 +56,7 @@
 		</tr>		
 		
 		<tr>	
-			<th class="LignegrisRight">Attention coch&eacute; <span class='erreur-Jaunerouge'>Effacement des tables</span> :</th>				
+			<th class="LignegrisRight">Attention si coch&eacute; <span class='erreur-Jaunerouge'>Effacement des tables</span> :</th>				
 			<!--td><input type="checkbox" name="drop_bd" id="drop_bd" {if $config_bd.drop_bd == 'on'} checked="checked" {/if} title="Attention!" />
 			</td --> 
 				<td><input type="checkbox" name="drop_bd" id="drop_bd"  {if $config_bd.drop_bd == 'on'}  checked="$config_bd.drop_bd" {/if} title="Attention!" />

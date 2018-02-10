@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -159,7 +159,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		} /*****FIN on enregistre la photo */
 
 	
-		// -- Récuprération des variable du formulaire ---
+		// -- Récupération des variables du formulaire ---
 		//htmlspecialchars / htmlentities
 		$adherent['civilite_adht']= get_post_variable('civilite','');
 		$adherent['datenaisance_adht']= (get_post_variable('datenaisance_adht',''));	// jj/mm/aaaa
@@ -229,7 +229,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_LOGIN; 
 			} else {
 				if (is_valid_mylogin($adherent['login_adht']) ==  false) {		
-					// veriffication lettre-chiffre ET  Nb caractéres  suivant /fonction.php				
+				// vérification lettre-chiffre ET Nb caractéres suivant fonction.php				
 					$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_ERR_LOGIN;
 				} else {
 					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	 ou Majuscules+Minuscules
@@ -237,15 +237,15 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			}					
 		}			
 	
-		// Si Non vide on modifiera le mot de passe
+		// Si Non vide on modifiera le mot de passe - modification 10 à 16 caractères 09/02/18
 		$adherent['pass_adht1'] = get_post_variable ('pass_adht1','');
 		$adherent['pass_adht2'] = get_post_variable ('pass_adht2','');
 		$pass =''; // le password	
 	    if ( ($adherent['pass_adht1'] !='' && $adherent['pass_adht2'] !='') || ($required ['creation_adht'] == 1) ) {
-			if ($adherent['pass_adht1'] == $adherent['pass_adht2']) { // si les 2 mots de psse sont identiques
+			if ($adherent['pass_adht1'] == $adherent['pass_adht2']) { // si les 2 mots de passe sont identiques
 				if (is_valid_mypasswd($adherent['pass_adht2']) ==  false) {			
 					$erreur_saisie ['mdp'] = _LANG_MESSAGE_REMPLIR_ERR_PASSW ;
-					// veriffication lettre-chiffre ET  Nb caractéres  suivant /fonction.php				
+				// vérification lettre-chiffre ET Nb caractéres suivant fonction.php				
 				} else {
 				$pass_adht= md5($adherent['pass_adht1']);// on code en MD5 
 				// modif si Salt
@@ -269,20 +269,20 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_LOGIN; 
 			} else {	
 				if (is_valid_mylogin($adherent['login_adht']) ==  false) {		
-				// veriffication lettre-chiffre ET  Nb caractéres  suivant /fonction.php	
+				// verification lettre-chiffre ET Nb caractéres suivant fonction.php	
 					$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_ERR_LOGIN;
 				} else {
-					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	 ou Majuscules+Minuscules
+					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	ou Majuscules+Minuscules
 				}		
 			}	
 				
-	//  validation si login+pass n'exsite pas
+	//  validation si login+pass n’existe pas
 			if ( !(!empty($erreur_saisie ['login'])) && !(!empty($erreur_saisie ['mdp'])) ) {
 				if (! loginpass_unique ($adherent['login_adht'], $pass_adht)) {
 					$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_ERR_LOGINPASSWD ;
 				}
 			}	
-	//   Fin validation si  login+pass n'exsite pas	
+	//   Fin validation si login+pass n’existe pas	
 			
 			$adherent['date_inscription_adht'] = (get_post_variable ('date_inscription_adht',''));//26/07/2007
 			// Vérifie la date entrée  si OK passe de jj/mm/aaaa  au format aaaa-mm-jj Sinon ERREUR
@@ -427,7 +427,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		//	    $result_req_lire_infogene_adht = mysql_query($req_lire_infogene_adht );
 				$dbresult = $db->Execute($req_lire_infogene_adht);	
 				
-				// On récupere les données de la requette sous forme de tableau  $adherent["Nom_du_Champs_Table"]	
+				// On récupere les données de la requête sous forme de tableau  $adherent["Nom_du_Champs_Table"]	
 				while (($adherent = $dbresult->FetchRow())) {
 					// modifiaction affichage dates
 					$adherent['datenaisance_adht'] = switch_sqlFr_date($adherent['datenaisance_adht']); 
@@ -475,7 +475,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 // FIN Uniquement si on modifie donc si Nouvelle fiche On passe	
 	
 	
-	// Requette Pour affichage de la liste  Nom Prénom  Qui ont  priorite_adht > '4' //  qui a enregistré la fiche 
+	// Requête Pour affichage de la liste  Nom Prénom  Qui ont  priorite_adht > '4' //  qui a enregistré la fiche 
 	$req_list_benevol = "SELECT id_adht,nom_adht,prenom_adht FROM "
 	.TABLE_ADHERENTS."  WHERE soc_adht <> '999' AND priorite_adht > '4' ORDER BY  nom_adht asc ";	
 	$dbresult = $db->Execute($req_list_benevol);	
@@ -487,7 +487,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
     }		
 	// FINPour affichage de la liste  Nom Prénom  //   qui a enregistré la fiche 
 	
-	// Requette Pour affichage de la liste  nom_type_antenne
+	// Requête Pour affichage de la liste  nom_type_antenne
 	$req_list_antenne = "SELECT id_type_antenne,nom_type_antenne FROM ".TABLE_ANTENNE;	
 	$dbresult = $db->Execute($req_list_antenne);		
 	while ($dbresult && $row = $dbresult->FetchRow()) {
