@@ -15,9 +15,9 @@
  
 
 -----------------------------------
-Version 7.6.0 09/02/2018 - En cours
+Version 7.6.0 17/02/2018 - Finale
 -----------------------------------
-- Passage mot de passe de 10 à à 16 caractères
+- Passage mot de passe de 10 à 16 caractères
 - Modification function is_valid_mypasswd 
 - Modification lang.php, install_4.tpl et php 10 caractères passe à 16 caractères
 - Modification remplir_infogene_adht.tpl (data_adherent.pass) maxlength="12" passe à 18

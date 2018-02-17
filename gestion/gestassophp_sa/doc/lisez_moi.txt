@@ -69,8 +69,8 @@ A - INSTALLATION NOUVELLE
 
 3. Copier dans le dossier "gestion_sa" le contenu de l'archive
 Vous devez avoir :
-- un dossier \gestassophp_sa (les fichiers du système [GestAssoPhp+Pg]) (voir note 1)
-- un dossier \lib 
+- un dossier /gestassophp_sa (les fichiers du système [GestAssoPhp+Pg]) (voir note 1)
+- un dossier /lib 
 	- smarty (système de template)
 	- adodb (système de bibliothèque d'abstraction destinée à communiquer avec différents systèmes de gestion de base de données)
 - un fichier fileloc_gestasso_sa.php
@@ -84,11 +84,12 @@ NOTE :
 Note 1 - IMPORTANT
 - Le nom du dossier "gestassophp_sa" peut être changé à condition de changer 
    - la ligne 17 du fichier fileloc_gestasso_sa.php :   define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');
-- Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier \gestassophp_sa\config\lang.php
+- Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier /gestassophp_sa/config/lang.php
 
 
 POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
-- Suivant votre serveur modifiez le fichier \admin\export_bd.php
+***********************************************
+- Suivant votre serveur modifiez le fichier /admin/export_bd.php
 NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à renommer en export_bd.php
 ----------------------------------------------------------------------------------------------------
 
@@ -104,19 +105,51 @@ NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à reno
 
 
 4. Envoyer les fichiers en FTP sur votre site.
+----------------------------------------------
+Dossiers principaux de l'archive
+--------------------------------
+gestion_sa/lib
+gestion_sa/lib/smarty
+gestion_sa/lib/adodb
+gestion_sa/lib/version_lib_smarty.txt
+gestion_sa/lib/version_lib_adodb.txt
+gestion_sa/lib/index.html
+
+gestion_sa/gestassophp_sa
+gestion_sa/gestassophp_sa/doc
+gestion_sa/gestassophp_sa/aide
+gestion_sa/gestassophp_sa/config
+gestion_sa/gestassophp_sa/install
+gestion_sa/gestassophp_sa/include
+gestion_sa/gestassophp_sa/adherent
+gestion_sa/gestassophp_sa/templates
+gestion_sa/gestassophp_sa/templates/adherent
+gestion_sa/gestassophp_sa/templates/admin
+gestion_sa/gestassophp_sa/temp
+gestion_sa/gestassophp_sa/temp/templates_c
+gestion_sa/gestassophp_sa/photos
+gestion_sa/gestassophp_sa/js
+gestion_sa/gestassophp_sa/images
+gestion_sa/gestassophp_sa/fichiersadht
+gestion_sa/gestassophp_sa/admin
+gestion_sa/gestassophp_sa/index.php
+gestion_sa/gestassophp_sa/favicon.ico
+gestion_sa/index.html
+gestion_sa/fileloc_gestasso_sa.php
+gestion_sa/.htaccess
 
 
 5. Vérifications
 ---------------- 
 il est nécessaire d'accorder des permissions à certains répertoires, de manière à ce que PHP ait les droits en écriture sur :
-	\gestassophp_sa\config 				pour le répertoire de configuration - uniquement lors de l'installation
-	\gestassophp_sa\install 			pour les fichiers d'installation - uniquement lors de l'installation
+	/gestassophp_sa/config 				pour le répertoire de configuration - uniquement lors de l'installation
+	/gestassophp_sa/install 			pour les fichiers d'installation - uniquement lors de l'installation
 
-	\gestassophp_sa\fichiersadht 		pour les fichiers des adhérents
-	\gestassophp_sa\photos  			pour les Photos des adhérents
- 	\gestassophp_sa\temp 				pour l'écriture des fichiers des templates 
-	\gestassophp_sa\temp\templates_c 	pour l'écriture des fichiers des templates
-	- VERIFIER les fichiers .htaccess en fonction de votre hébergement
+	/gestassophp_sa/fichiersadht 		pour les fichiers des adhérents
+	/gestassophp_sa/photos  			pour les Photos des adhérents
+ 	/gestassophp_sa/temp 				pour l'écriture des fichiers des templates 
+	/gestassophp_sa/temp/templates_c 	pour l'écriture des fichiers des templates
+- VERIFIER les fichiers .htaccess en fonction de votre hébergement
 
 6. Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_sa/gestassophp_sa/install) 
 	
@@ -130,9 +163,9 @@ Etape 5 : Fin de la configuration-installation - lien vers la gestion_sa (http:/
 
 Supprimer ou renommer le dossier /install par mesure de sécurité
 Changez les permissions 
-		- à 755 sur le répertoire \gestassophp_sa\config 
-		- à 644 ou 444 sur le fichier \gestassophp_sa\config\connexion.cfg.php
-		- VERIFIER les fichiers .htaccess en fonction de votre hébergement
+	- à 755 sur le répertoire /gestassophp_sa/config 
+	- à 644 ou 444 sur le fichier /gestassophp_sa/config/connexion.cfg.php
+	- VERIFIER les fichiers .htaccess en fonction de votre hébergement
 
 Avant votre première connexion à l'espace, supprimer ou renommer le répertoire /install
 
@@ -146,7 +179,7 @@ et vous pourrez commencer à travailler.
 
 8. Vous pouvez ajuster : 
 - les couleurs et autres paramètres d'affichage, 
-- le logo Association en haut à gauche (fichier dans le dossier \images\logo\logo_asso.jpg),
+- le logo Association en haut à gauche (fichier dans le dossier /images/logo/logo_asso.jpg),
 en modifiant les feuilles de Styles style_print.css (pour impression) et style_screen.css (pour affichage à l'écran) du dossier /gestassophp_sa/js.
 Par défaut le style est de couleur verte. Dans le dossier /js/ deux fichiers m_style_print.css et m_style_screen.css sont configurés pour une couleur marron. Pour utiliser cette couleur marron, vous devez donc renommer ces fichiers en style_screen.css et style_print.css.
 D'autre part vous pouvez modifier le fichier lang.php contenu dans le dossier /config/ pour adapter vos textes. Nota ce fichier doit impérativement être sauvegardé en utf-8.
@@ -167,5 +200,5 @@ pour la mise à jour lire ATTENTIVEMENT le fichier majV6-V7.txt
 https://git.framasoft.org/Bozosoft/GestAssoPhp/tree/master
 
 ----------------------
-Mise à jour de cette page : 14/01/2017
+Mise à jour de cette page : 17/02/2018
 
