@@ -14,10 +14,11 @@
  
  
 -----------------------------------
-Version 7.6.1 13/08/2018 - En cours (Dev)
+Version 7.6.1 02/10/2018 - En cours (Dev2)
 -----------------------------------
-
+- Attention à la version de PHP - un nouveau fichier bootstrap.php dans /lib/smarty/ peut créer des erreurs si version trop ancienne de PHP comme PHP 5.2
 - Mise à jour de adodb à la version 5.20.12 du 30/03/2018
+- Mise à jour de Smarty à la version 3.1.33 du 12.09.2018
 - Mise à jour de Smarty à la version 3.1.32 du 24.04.2018
 
 

@@ -2,8 +2,10 @@
 https://github.com/smarty-php/smarty/
 
 
+02/10/2018 Smarty 3.1.33 (12.09.2018)
 10/07/2018 Smarty 3.1.32 (24.04.2018)
 17/01/2017 Smarty 3.1.31 (14.12.2016)
+- Attention à la version de PHP - un nouveau fichier bootstrap.php dans /lib/smarty/ peut créer des erreurs si version trop ancienne de PHP comme PHP 5.2
 
 05/11/2016 Smarty 3.1.30 (07.08.2016)
 22/02/2016 Smarty 3.1.29 (21.12.2015)
