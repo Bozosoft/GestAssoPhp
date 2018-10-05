@@ -12,17 +12,24 @@
  * @package   GestAssoPhp+Pg
  */
  
- 
 -----------------------------------
-Version 7.6.1 02/10/2018 - En cours (Dev2)
+* Version 7.6.1 05/10/2018 - En cours (Dev3)
 -----------------------------------
-- Attention à la version de PHP - un nouveau fichier bootstrap.php dans /lib/smarty/ peut créer des erreurs si version trop ancienne de PHP comme PHP 5.2
+- Installateur version 1.3.0 avec minimum Version PHP = 5.6.0
+- Correction lien bas de page installateur
+- Ajout class #titre dans js/style_screen.css pour les titres de l'installateur
+- Correction typo sur installateur
+- Ajout de votre version PHP sur l'onglet Préférences/Information version
+- Ajout sur les aides a_adht_liste_adht.php et a_adht_liste_adht_admin2.php de compléments d'information
+
+* Version 7.6.1 02/10/2018 - En cours (Dev2)
+- Attention à la version de PHP - PHP 5.6.x  minimum (Compatible PHP 7.x)
 - Mise à jour de adodb à la version 5.20.12 du 30/03/2018
-- Mise à jour de Smarty à la version 3.1.33 du 12.09.2018
+
+* Version 7.6.1 13/08/2018 - En cours (Dev)
+- Mise à jour de adodb à la version 5.20.12 du 30.03.2018
 - Mise à jour de Smarty à la version 3.1.32 du 24.04.2018
 
-
------------------------------------
 Version 7.6.0 17/02/2018 - Finale
 -----------------------------------
 - Passage mot de passe de 10 à 16 caractères
@@ -52,14 +59,12 @@ l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont
 - Nota Hébergement sur les pages perso Free.fr : le fichier /include/phpmysqldump.class.php.free.php est à renommer en phpmysqldump.class.php
 - Mise à jour de Smarty à la version 3.1.31 du 14.12.2016
 
-
   Version 7.4.0 05/11/2016  - Finale
   -----------------------
 - Correction sur tables_description contenu _preference_asso en 9 voir dossier /doc
 - Mise à jour de adodb à la version 5.20.7 du 20/09/2016
 - Mise à jour de Smarty à la version 3.1.30 du 07/08/2016
 
- 
   Version 7.3.0 05/04/2016  - Finale
   -----------------------
 - Ajout des fichiers pour archiver en série les fiches cotisations à une date donnée. Action réservée au priorité 7 (Trésorier) et 9 (Admin) :
@@ -86,7 +91,6 @@ l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont
   Fichiers adherent/liste_adht_admin.tpl, adherent/consulter_fiche_adht.tpl adherent/consulter_fiche_adht_admin2.php, adherent/consulter_fiche_adht.php
 - Ajout message d'erreur lors de la consultation du menu Liste Adhérents 
 	
-  
   Version 7.2.0 03/03/2016  - Finale
   -----------------------
 - Modification des fichiers .htaccess en conformité Apache 2.2 ou 2.4 avec la sélection par IfModule .... plus modification dans le cas de l'hébergement pages-perso free.fr avec ifDefine Free
@@ -100,7 +104,6 @@ l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont
 - modification du fichier /doc/lisez_moi.txt
 - modification du fichier /aide/a_admin_remplir_preferences.php
  
- 
  Version 7.1.2 03/12/2015  - Finale 
   -----------------------
 - Compatiblité PHP 7.0   
@@ -109,24 +112,20 @@ l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont
 - Installation :  par défaut MySQLi en remplacement de MySQL
 - Installation : jma_fin_cotis = 31/12/2016 dans data.sql
 
-  
 Version 7.1.0 01/06/2015 - 
 - Mise à jour de Smarty 3.1.24 (23/05/2015) https://github.com/smarty-php/smarty 
 - Mise à jour de adodb en V5.19 23-Apr-2014  https://github.com/ADOdb/ADOdb
 - Correction sur export_tadhts.php (champ18) et export_tcotis.php (champ3 et 11) 08/05/2015
 
-
-  Version 7.0.0  10/10/2014 Finale
+Version 7.0.0  10/10/2014 Finale
   -----------------------
 - Idem version 7.0.0-RC6 avec
 - Ajout sur Aide/Informations personnelles : la longueur login et mot de passe  
-  
   
   Version 7.0.0-RC6  23/09/2014 - En développement- Branche v7_html5 - Utliser en production avec précaution
   -----------------------
 - Ajout sécurité sur "SHOW TABLES"  et utf8_encode sur sortie fichier SQL dans phpmysqldump.class.php
 - Modification de 2013 en 2014 sur tous les fichiers : @version :  2014 et @copyright 2007-2014  (c) JC Etiemble
-
 
   Version 7.0.0-RC5  19/07/2014 - En développement- Branche v7_html5 - ne pas utliser en production
   ----------------------- 
@@ -141,19 +140,16 @@ define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', 'Impossible d\'archiver la fic
 - Ajout "il est obligatoire d'archiver la ou les cotisations avant de supprimer la fiche Utilisateur." dans a_adht_liste_cotisation_adht.php
 - Mise à jour de Smarty 3.1.19 Jun 30th, 2014 19/07
 
-
  Version 7.0.0-RC4  28/06/2014 - En développement- Branche v7_html5 - ne pas utliser en production
  -----------------------
  - Ajout de la possibilité de télécharger un fichier contenu dans sa fiche personnelle, pour un utilisateur de niveau 1 ou 4
  - Mise à jour de Smarty 3.1.18 Apr 7th, 2014 
  
- 
 Version 7.0.0-RC3  13/03/2014 - En développement- Branche v7_html5 - ne pas utliser en production
  -----------------------
  - Correction des .htaccess sur dossiers /fichiersadht /photos /photos
  - Mise à jour de Smarty 3.1.17 Mar 12th, 2014 
-  
-  
+   
 Version 7.0.0-RC2  17/02/2014 - En développement- Branche v7_html5 - ne pas utliser en production
  -----------------------
 - Mise à jour de Smarty 3.1.16 Dec 17th, 2013
@@ -212,14 +208,12 @@ Attention modifications de base de données !
 - Mise à jour de Smarty 3.1.14 Jun 28, 2013
 Les modifications entre V 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_6500.diff
 
-
 6.4.0 22/03/2013 - en cours
 -----------------------
 - Ajout contrôle sur suppression de la fiche adhérent si une ou des cotisations sont en cours (échues ou non) sur liste_adht_admin + remplir_cotisations_adht + a_adht_liste_admin.php
 - Ajout titre sur Raison de l'archivage 30 caractères maxi
 - Correction bug sur liste_cotisations_adht.php si Afficher par "tous"
 - Correction typo sur login.tpl
-
 
 6.3.0 10/03/2013 Finale
 -----------------------
@@ -237,7 +231,6 @@ Les modifications entre V 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_650
 	si Fiche supprimée, suppression de "Cotisation NON réglée" et du Bouton "Ajouter une cotisation"
 - Correction HTML lang.php  sûr ->s&ucirc;r
 
-
 6.2.0 07/02/2013 Finale
 ----------------------
 - correction de l'encodage des caractères en entités HTML sur les fichiers d'aide
@@ -250,7 +243,6 @@ Les modifications entre V 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_650
 - Modification de l'asrese Web http://gestassophp.xtreemhost.com/ par http://gestassophp.free.fr/ sur templates/login.tpl et templates/page_index.tpl
 - Passage des fichiers en encodage UTF8 sans BOM
 
-
 6.1.0 16/01/2013 Finale
 ----------------------
 - Mise à jour de  Smarty-3.1.13
@@ -262,12 +254,10 @@ Les modifications entre V 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_650
 -  correction phpmysqldump.class.php mysql_escape_string remplacer par  mysql_real_escape_string function is OBSOLETE depuis PHP 5.3.x et deprecated en php 5.4.x et +
 - Modification de  * @version :  2013 et  * @copyright 2007-2013 sur les fichiers
 
-
 6.0.04 18/11/2012
 ----------------
 http://gestassophp.xtreemhost.com/ remplace le nom de domaine http://gestassophp.co.cc abandonné
 Site mirroir http://gestassophp.free.fr
-
 
 6.0.03  20/10/2012
 -----------------
@@ -277,7 +267,6 @@ Site mirroir http://gestassophp.free.fr
 - Mise en conformtité du fichier lang pour entitées HTML
 - Mise à jour de  adodb (V5.18 3 Sep 2012)
 
-
 6.0.02 21/09/2012 (27/09/2012)
 -----------------
 - Correction affichage sur  _lang_fiche_adht_ant de Informations personnelles
@@ -285,24 +274,20 @@ Site mirroir http://gestassophp.free.fr
 - Correction iso-8859-1 sur  remplir_priorite et remplir_infogene_adht
 - Mise à jour de  Smarty-3.1.12
 
-
 6.0.01 02/07/2012  
 -----------------
 - Mise à jour de  Smarty-3.1.11
 - Mise à jour de  adodb (adodb-517-for-php5 2012-05-17)
-
 
 6.0.0 30/04/2012 (conforme 5.5.3)
 ----------------------------------
 - Mise à jour de  Smarty-3.1.8
 - Ajout sur la page Liste Adhérents de la photo (pour trombinoscope)
 
-
 6.0.0 RC6 17/01/2012 (conforme 5.5.2+)
 ----------------
 - Mise à jour de Smarty 3.1.7 (Dec 19th, 201)
 - Modification aide tableau de bord
-
 
 6.0.0 RC5 19/12/2011 (conforme 5.5.1)
 ----------------
@@ -321,9 +306,6 @@ Site mirroir http://gestassophp.free.fr
 - Modification sens tri par défaut sur colonne 1 sur Gestion des Bénévoles
 - Ajout de l'adresse IP sur liste logs
 
-
-
-
 6.0.0 RC3  31/10/2011  (conforme 5.3.0)
 ---------------
 - Ajout d'un champ 'montant_cotisation' dans la table _types_cotisations
@@ -337,8 +319,6 @@ Site mirroir http://gestassophp.free.fr
 - Modification de l'aide
 - Mise à jour de Smarty 3.1.4 (Oct 19th, 2011)
 
-
-
 6.0.0 RC2  19/10/2011 
 ------------------------
 - Chiffrage du mot de passe avec salt pour les nouvelles installations UNIQUEMENT 
@@ -350,13 +330,11 @@ Site mirroir http://gestassophp.free.fr
 ex : enlever ./ devant dossier en v 3.1.3 exemple  $tpl->fetch('./xxx  -> $tpl->fetch('xxx 
 - Remplacer  compile_dir -> setCompileDir ET template_dir ->setTemplateDir
 
-
 6.0.0 RC1  07/07/2011 
 ------------------------
 - Ajout /admin/upgrade5-sa.php pour mise à jour et transition GestAssoPhp_s 5.0.0 -> gestassophp_sa pour dates =0000-00-00 
 - Ajout dans lisezmoi.txt : NOTA installation en local
 - Mise à jour de Smarty 3.0.8 June 3rd, 2011 
-
 
 6.0.0 béta 6  17/03/2011 
 ------------------------
@@ -369,11 +347,9 @@ ex : enlever ./ devant dossier en v 3.1.3 exemple  $tpl->fetch('./xxx  -> $tpl->
 - Mise à jour de Smarty 3.0.6 (December 13th, 2010)
 Voir tansition GestAssoPhp_s 5.0.0 -> gestassophp_sa pour dates =0000-00-00 
 
-
 6.0.0 béta 4 27/11/2010 
 --------------------
 Ajouter devant dossier en v3.x $content = $tpl->fetch('./adherent/liste_adht_admin.tpl'); // On affiche
-
 
 6.0.0 béta 3 12/08/2010 
 --------------------
@@ -381,14 +357,12 @@ Mise en conformité des variables pour Smarty 3.x
 - Modification des Unexpected " }" par "}"
 - modification des {foreach from=variable en changeant item=item_variable 
 
-
 6.0.0 béta 2 11/02/2010
 ------------------------
 - remplir_cotisations_adht.php ajout test si aucune cotisation n'est déja saisie 10+11/02
 - Correction typo data.sql +install3 ($req) + schema (NOT NULL PRIMARY AUTOINCREMENT->KEY AUTO)  pour PostgreSql 11/02
 -> liste_fichiers_adht.php test si aucune fiche
 Voir CONCAT dans  liste_adht_admin.php + liste_adht.php + liste_fichiers_adht.php
-
 
 6.0.0 béta 1  07/02/2010
 -------------------------
@@ -400,9 +374,8 @@ Maintenant les bases de données MySql et PostreSql sont gérées.
 - Modification de l'installation en conséquences.
 - Ajout des dossiers \lib\adodb
 
-
 -----------------------------------------------------------
-(c) JC Etiemble  2007-2014 jc_point_etiemble_At_Free_point_fr
+(c) JC Etiemble  2007-2018 jc_point_etiemble_At_Free_point_fr
 
 
 

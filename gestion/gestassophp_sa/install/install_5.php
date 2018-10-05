@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -56,7 +56,8 @@
 	
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
-	$tpl->assign('version',VERSION_I); // Version de Gestasso		
+	$tpl->assign('version_i',VERSION_I); // version installateur	
+	$tpl->assign('style_i',STYLE_I); //  Feuille de syle  style_screen.css ou m_style_screen.css
 	$tpl->assign('messagetitre','Fin de la configuration-installation'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','Etape 2 - OK'); // menu	

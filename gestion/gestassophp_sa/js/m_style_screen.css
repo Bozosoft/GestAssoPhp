@@ -7,8 +7,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2016
- * @copyright 2007-2016  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg HTML5
  */
  
@@ -771,11 +771,19 @@ legend {
 	border: 1px solid #AAB6C1;
 	margin: 15px  0;
 	padding: 20px;
-	line-height: 1.5
+	line-height: 1.5;
 }
+
 .version h4 {
 	text-transform: uppercase;
 	color: #000000;
 	margin: 0;
 	padding: 0;	
+}
 
+/* pour les titres de l'installateur */
+#titre {
+	font-size: 15Px;
+	color: #c43360;
+	font-weight: bold;
+}

@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2017 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2018 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU avec AIDE remplir Préférences et Antennes(sections)  *}
 {*Auteur original : Jean-Claude Etiemble - Licence Creative Commons Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0) France*}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a_admin_remplir_preferences.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=700,resizable=no,scrollbars=yes,top=10,left=10')"  title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
@@ -257,8 +257,9 @@
     <li class="active">Information version</li>
 	</ul>	
 		<div class="centre-txt">
-		<br /><br />
+		<br />
 			<a href="../admin/remplir_preferences.php?tab=1"><span class="submit_nul" title="{language name=tpl_retour_button_title}"> {language name=tpl_retour_button}</span></a>
+		<br /><br />Votre version PHP : {$PHPVersion}<br />	
 		</div>	
 	<div id="tab4_table">
 	

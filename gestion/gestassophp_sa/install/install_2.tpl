@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg page 2 copyright 2007-2014  (c) JC Etiemble HTML5*}
+ {* Installation de GestAssoPhp+Pg page 2 copyright 2007-2018  (c) JC Etiemble HTML5*}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	
@@ -16,12 +16,12 @@
 		</div>	
  {/if}	
 	<br />
-	<span class='TextenoirGras'>Cr&eacute;er une nouvelle base de donn&eacute;es</span> 
+	<span class='TextenoirGras'>Cr&eacute;er les tables dans la base de donn&eacute;es.</span><br />
 	<span class='TextenoirGras'>Vous disposez du support de base de donn&eacute;es :<br />
 	- {$mysql_bd}<br />
-    - {$pgsql_bd}  </span><br />
+    - {$pgsql_bd}</span><br /><br />
 	<span class='TextenoirGras'>Assurez vous que la base de donn&eacute;es existe bien  !!!</span> <br />
-	<span class='erreur-Jaunerouge'>(Si vous r&eacute;installez, sauvegarder les donn&eacute;es !)</span><br />puis,
+	<span class='erreur-Jaunerouge'>(Si vous r&eacute;installez, sauvegarder vos anciennes donn&eacute;es !)</span><br />puis,
 	<br />
 	compl&eacute;ter les champs suivants :
 	<br /><br />
@@ -31,7 +31,7 @@
 		<tr>
 			<th class="LignegrisRight" style="width:45%;">Type de base de donn&eacute;es :</th>		
 			<td>
-			{html_options name="type_bd" options=$list_type_bd selected=$config_bd.type_bd title="Choix MySQL, MySQLi, ou PostgreSQL "}	
+			{html_options name="type_bd" options=$list_type_bd selected=$config_bd.type_bd title="Choix MySQLi, ou PostgreSQL "}	
 			</td>
 		</tr>
 		<tr>
@@ -56,7 +56,7 @@
 		</tr>		
 		
 		<tr>	
-			<th class="LignegrisRight">Attention si coch&eacute; <span class='erreur-Jaunerouge'>Effacement des tables</span> :</th>				
+			<th class="LignegrisRight">Attention si coch&eacute; <span class='erreur-Jaunerouge'>Effacement des tables et données</span> :</th>				
 			<!--td><input type="checkbox" name="drop_bd" id="drop_bd" {if $config_bd.drop_bd == 'on'} checked="checked" {/if} title="Attention!" />
 			</td --> 
 				<td><input type="checkbox" name="drop_bd" id="drop_bd"  {if $config_bd.drop_bd == 'on'}  checked="$config_bd.drop_bd" {/if} title="Attention!" />

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
- * @copyright 2007-2017  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -415,9 +415,7 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + rÃ
 	$tpl->assign('preference_asso',$preference_asso);//  tableau original pour affichage
 	$tpl->assign('new_antenne',$new_antenne); // tableau modif nom
 	$tpl->assign('antenne',$antenne); //  tableau original pour affichage
-//	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
-//	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
-//	$tpl->assign('numpage',$numpage_affiche); // le NÂ° de la page courrante
+	$tpl->assign('PHPVersion',phpversion()); //  ajout 03/10/18 Version PHP
 	$tpl->assign('new_type_cotisation',$new_type_cotisation); // tableau modif nom
 	$tpl->assign('type_cotisation',$type_cotisation); //  tableau original pour affichage	
 	$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie sur champs Obligatoires		

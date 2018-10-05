@@ -22,8 +22,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -51,7 +51,7 @@
 
 //*******************************************************************		
 // TEST Version de PHP car les utilisateur ne font pas attention !!
-			$minPHPVersion = "5.1.0"; // ATTENTION PHP 5.1 mini (normalement pour Smarty 5.2)
+			$minPHPVersion = "5.6.0"; // ATTENTION PHP
 			$PHPVersion = phpversion();
 			if (phpversion() < $minPHPVersion) {
 				echo "<br /><br />Votre version PHP : $PHPVersion&nbsp;&nbsp;<span class='TexterougeGras'>- Donc Erreur : PHP $minPHPVersion minimum pour une fonctionnement normal.</span>";
@@ -85,10 +85,11 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="author" content="JCE" />
-	<meta name="Description" content="{$version}">
+	<meta name="Description" content="<?php echo VERSION_I ?>">
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">	
-	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
+	<link rel="stylesheet" type="text/css" media="screen"  href="../js/<?php echo STYLE_I ?>"/>
+	<!-- link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/ -->
 	<title>GestAssoPhp+Pg - Installation</title>
 </head>
 <body>
@@ -119,14 +120,14 @@
 	
 	<br />
 	<br />
-	<span class='TextenoirGras'>V&eacute;rification version PHP mini (PHP 5.0):</span>
+	<span class='TextenoirGras'>V&eacute;rification version PHP minimum (PHP 5.6.x):</span>
 	<br />
 <?php		
 // Version de PHP
-			$minPHPVersion = "5.0.0"; // ATTENTION PHP 5 mini
-			$PHPVersion = phpversion();
+			//$minPHPVersion = "5.6.0"; // ATTENTION PHP mini
+			// $PHPVersion = phpversion();
 			if (phpversion() >= $minPHPVersion) {
-				echo "<span class='TextenoirGras'>OK</span> (PHP $PHPVersion)";
+				echo "Votre version : (PHP $PHPVersion) est <span class='TextevertGras'>OK</span>";
 				$miniPHPVer = false;				
 			} else {
 				echo "(PHP $PHPVersion)&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : PHP $minPHPVersion minimum.</span>";
@@ -140,7 +141,7 @@
 <?php
 // Fichiers template
 			if (is_writeable(TMP_LOCATION)) {
-				echo "<span class='TextenoirGras'>OK</span> (".TMP_LOCATION.")<br />";
+				echo "<span class='TextevertGras'>OK</span> (".TMP_LOCATION.")<br />";
 				$accesstemp1 = false;				
 			} else 	{
 			$accesstemp = true;
@@ -148,7 +149,7 @@
 				$accesstemp1 = true;
 			}
 			if (is_writeable(TMP_TEMPLATES_C_LOCATION)) {
-				echo "<span class='TextenoirGras'>OK</span> (".TMP_TEMPLATES_C_LOCATION.")<br />";
+				echo "<span class='TextevertGras'>OK</span> (".TMP_TEMPLATES_C_LOCATION.")<br />";
 				$accesstemp2 = false;					
 			} else 	{
 				echo TMP_TEMPLATES_C_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
@@ -157,7 +158,7 @@
 // Fichiers Photo
 	echo "<br /><span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour les Photos :<br /></span>";
 			if (is_writeable(DIR_PHOTOS)) {
-				echo "<span class='TextenoirGras'>OK</span> (".DIR_PHOTOS.")<br />";
+				echo "<span class='TextevertGras'>OK</span> (".DIR_PHOTOS.")<br />";
 				$accesstemp3 = false;	
 				} else 	{
 				echo DIR_PHOTOS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur  (777).</span><br />";
@@ -167,7 +168,7 @@
 	echo "<br /><span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour les fichiers adh&eacute;rents :<br /></span>";		
 			if (is_writeable(DIR_FILES_ADHTS)) {
 				$accesstemp4 = false;	
-			echo "<span class='TextenoirGras'>OK</span> (".DIR_FILES_ADHTS.")<br />";
+			echo "<span class='TextevertGras'>OK</span> (".DIR_FILES_ADHTS.")<br />";
 			} else 	{
 				echo DIR_FILES_ADHTS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
 				$accesstemp4 = true;
@@ -177,7 +178,7 @@
 	echo "<br /><span class='TextenoirGras'>V&eacute;rification permissions d'&eacute;criture pour le r&eacute;pertoire /config :<br /></span>";		
 			if (is_writeable(ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR.'config/')) {
 				$accesstemp6 = false;	
-			echo "<span class='TextenoirGras'>OK</span> (".ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."config) <br />";
+			echo "<span class='TextevertGras'>OK</span> (".ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."config) <br />";
 			} else 	{
 				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
 				$accesstemp6 = true;
@@ -186,7 +187,7 @@
 // Fichiers sessions			
 	echo "<br /><span class='TextenoirGras'>V&eacute;rification du r&eacute;pertoire sessions :</span><br />";	
 			if (function_exists('session_start')) {
-				echo "<span class='TextenoirGras'>OK</span> sauvegarde des sessions<br />";
+				echo "<span class='TextevertGras'>OK</span> sauvegarde des sessions<br />";
 				$accesstemp7 = false;	
 				} else 	{
 				echo $sessionpath."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur les sessions.</span><br />";
@@ -218,7 +219,7 @@
 
 </section>	<!-- / centre_page -->
 	<footer class="footer_pied_page"> 
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://jc.etiemble.free.fr/abc/" target="_blank" title="R&eacute;alisation">Version : <?php echo VERSION_I ?></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/" target="_blank" title="Gestion des associations">Version : <?php echo VERSION_I ?></a>
     </footer>
 	
 </div> <!-- / conteneur_page  -->

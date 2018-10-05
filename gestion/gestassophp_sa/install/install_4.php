@@ -154,7 +154,8 @@
 
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
-	$tpl->assign('version',VERSION_I); // Version de Gestasso		
+	$tpl->assign('version_i',VERSION_I); // version installateur	
+    $tpl->assign('style_i',STYLE_I); //  Feuille de syle  style_screen.css ou m_style_screen.css
 	$tpl->assign('messagetitre','Cr&eacute;ation des information de connexion'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','Etape 2 - OK'); // menu	

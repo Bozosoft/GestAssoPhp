@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -86,8 +86,8 @@ echo 'prefix_bd='.$prefix_bd.'-';
  *  Fichier : config.cfg.php
  *  Page connexion - configuation   
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -110,7 +110,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 
 				fwrite($fd,$data);
 				fclose($fd);
-				$message_file_config = 'Fichier de configuration cr&eacute;&eacute; ... OK';
+				$message_file_config = '<span class="TextevertGras">Fichier de configuration cr&eacute;&eacute; ... OK</span>';
 				$valid_file_config = 'oui';
 			} else {
 				$message_file_config = 'Erreur : Impossible de cr&eacute;er le fichier de configuration ...<br />'.CONFIG_FILE;
@@ -135,7 +135,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 
 // Insertion des DONNéES de la base de données
 
-				$message_bd['data'] =  'Insertion des donn&eacute;es .... : <br />';
+				$message_bd['data'] =  '<span class="TextevertGras">Insertion des donn&eacute;es .... : </span><br />';
 				define('FILE_SQL', join_path(ROOT_DIR_GESTASSO,'install','data.sql')); // 	
 				include 'sql_parse.php';			
 				// on lit le fichier SQL
@@ -187,7 +187,8 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 	
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
-	$tpl->assign('version',VERSION_I); // Version de Gestasso		
+	$tpl->assign('version_i',VERSION_I); // version installateur
+    $tpl->assign('style_i',STYLE_I); //  Feuille de syle  style_screen.css ou m_style_screen.css
 	$tpl->assign('messagetitre','Cr&eacute;ation du fichier de configuration et la base de donn&eacute;es'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','Etape 2 - OK'); // menu	

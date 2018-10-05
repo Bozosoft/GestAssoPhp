@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
@@ -33,10 +33,14 @@
 </p>
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
-    Cette page affiche <span class="TextenoirGras">uniquement</span> la liste 
+    Cette page affiche, surtout pour les <?php echo ADHERENT_BENE ;?>s de <span class="TextenoirGras">Priorité = 1</span>, la liste 
     des <?php echo ADHERENT_BENE ;?>s qui ont donn&eacute; leur accord pour afficher 
     leurs coordonn&eacute;es consultables par TOUS les <?php echo ADHERENT_BENE ;?>s 
     dans la fiche &quot;<?php echo _LANG_GESTION_FICHE_ADHT ;?>&quot;.</p>
+  <p class="Textenoir">  
+    <span class="TextenoirGras">NOTA :</span> si aucun Adhérent n'a donner le consentement pour afficher 
+   <span class="TextenoirGras">ses coordonn&eacute;es</span> consultables par TOUS les <?php echo ADHERENT_BENE ;?>s, sur sa fiche, il n'y aura aucun affichage.
+   </p> 
   <p class="Textenoir">Il est possible :<br/>
     - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span> <?php echo _LANG_LISTE_ADHT_PARMI.' des '. ADHERENT_BENE ;?>s pour rechercher un <?php echo _LANG_TPL_COL_ADHT_NOM ;?> ou un <?php echo _LANG_FICHE_ADHT_PRENOM ;?> particulier.<br/>
     - d'<span class="TextenoirGras"><?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />

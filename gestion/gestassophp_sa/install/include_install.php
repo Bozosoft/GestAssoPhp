@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
- * @copyright 2007-2017  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -28,7 +28,8 @@
 * --------------------------------------------------------------------
 */
 
-	define('VERSION_I', 'Installateur_Php+Pg V 1.2.0'); // version installateur 04/02/2013 - 13/01/2017 1.2
+	define('VERSION_I', 'Installateur_Php+Pg V 1.3.0'); // version installateur 04/02/2013 - 13/01/2017 1.2 - 03/10/18 1.3
+	define('STYLE_I', 'style_screen.css'); // Feuille de syle  style_screen.css ou m_style_screen.css
 	$file_loc = 'fileloc_gestasso_sa.php';  //******************** A DEFINIR
 	include_once '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
 	

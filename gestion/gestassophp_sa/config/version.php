@@ -8,7 +8,7 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
+ * @version :  2018
  * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
@@ -21,7 +21,7 @@
 */
 
 /**** La version de GestAsssoPhp  */
-$VERSION = "GestAssoPhp+Pg V 7.6.1-(Dev2)";
+$VERSION = "GestAssoPhp+Pg V 7.6.1-(Dev3)";
 define('VERSION', $VERSION);
 
 

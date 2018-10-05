@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  include_once '../config/connexion.php';  
@@ -34,7 +34,7 @@
 <div id="contenu"> 
   <p class="Textenoir">&nbsp;<br />
     Cette page affiche <span class="TextenoirGras">uniquement</span> la liste 
-    des <?php echo ADHERENT_BENE ;?>s actifs.</p>
+    des <?php echo ADHERENT_BENE ;?>s actifs avec leurs coordonnées visible uniquement pour les administrateurs de <span class="TextenoirGras">Priorité 5 à 9</span>.</p>
   <p class="Textenoir">Il est possible :<br/>
     - de <span class="submit_ok"><?php echo _LANG_TPL_FILTER_BUTTON ;?></span> <?php echo _LANG_LISTE_ADHT_PARMI.' des '. ADHERENT_BENE ;?>s pour rechercher un <?php echo _LANG_TPL_COL_ADHT_NOM ;?> ou un <?php echo _LANG_FICHE_ADHT_PRENOM ;?> particulier.<br/>
     - d'<span class="TextenoirGras"><?php echo _LANG_TPL_SELECT_AFFICHEPAR ;?></span> 10, 20, 50 lignes par page ou de Toute la liste sur une seule page. <br />

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
- * @copyright 2007-2017  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -136,7 +136,8 @@
 //			}
 		} else {
 			if(!@$db->Connect($config_bd ['serveur_bd'], $config_bd ['utilis_bd'], $config_bd ['motpas_bd'], $config_bd ['nom_bd'])) {
-				$erreur_saisie ['connexion'] = 'Connexion base de donn&eacute;es MySQL impossible !!!';		
+				$erreur_saisie ['connexion'] = 'Connexion base de donn&eacute;es '. $config_bd ['type_bd'] .' impossible !!!';		
+				// $config_bd ['type_bd'] =  mysqli ou postgres
 			}
 		}	
 	//Fin check port BD
@@ -165,14 +166,15 @@
 		// Recherche pour savoir si  Driver postgres (PostgreSQL Support) et/ou mysql  (MySQL Support) existe
 		$postgres = function_exists('pg_connect');
 		$pgsql_bd = 'PostgreSQL : '.($postgres ? 'Oui' : '<strong>Non</strong>');	
-		$mysql = function_exists('mysql_connect');
-		$mysql_bd = 'MySQL  : '.($mysql ? 'Oui' : '<strong>Non</strong>');
+		$mysqli = function_exists('mysqli_connect');
+		$mysqli_bd = 'MySQLi  : '.($mysqli ? 'Oui' : '<strong>Non</strong>');
 		$tpl->assign('pgsql_bd', $pgsql_bd); //		
-		$tpl->assign('mysql_bd', $mysql_bd); //	
+		$tpl->assign('mysql_bd', $mysqli_bd); //	
 	
 /***** ---------------------------------------------------------------------- */		
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	 	
-	$tpl->assign('version',VERSION_I); // Version de Gestasso		
+	$tpl->assign('version_i',VERSION_I); // version installateur	
+	$tpl->assign('style_i',STYLE_I); //  Feuille de syle  style_screen.css ou m_style_screen.css	
 	$tpl->assign('messagetitre','Information sur la base de donn&eacute;es'); // titre de la  page
 	$tpl->assign('Etape1','Etape 1 - OK'); // menu	
 	$tpl->assign('Etape2','<span class="TextenoirGras">Etape 2</span>'); // menu	
