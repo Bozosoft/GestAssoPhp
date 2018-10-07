@@ -30,5 +30,10 @@
 </IfModule>
 </IfDefine>
 
+# autoriser la lecture du fichier lisez_moi.txt uniquement
+<Files lisez_moi.txt>
+	Satisfy Any
+	allow from all
+</Files>
 
 

@@ -12,10 +12,16 @@
  * @package   GestAssoPhp+Pg
  */
  
+
 -----------------------------------
+* Version 7.6.1 7/10/2018 - En cours (Dev4)
+-----------------------------------
+- Correction typo sur install_2.php 
+- suppression de la base type mysql sur install_2.php et connexion.php
+- Ajout Avant toute installation vérifier les informations sur le fichier lisez_moi.txt sur /install/index.php
+- Correction et mise à jour du fichier lisez_moi.txt
 * Version 7.6.1 05/10/2018 - En cours (Dev3)
------------------------------------
-- Installateur version 1.3.0 avec minimum Version PHP = 5.6.0
+- Installateur v 1.3.0 avec minimum version PHP 5.6.0
 - Correction lien bas de page installateur
 - Ajout class #titre dans js/style_screen.css pour les titres de l'installateur
 - Correction typo sur installateur

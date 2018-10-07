@@ -26,13 +26,8 @@
 	$erreur_saisie = array();// tableau
 	$config_bd = array(); //  12/01/17 // Illegal string offset 'drop_bd'
 	$config_bd = array('drop_bd' => ''); //12/01/17 Illegal string offset 'drop_bd' // Vide non coché pour Effacement des tables
-	// Test si PHP 7 - Pour choix de mysqli ou postgres si PHP 7.x
-	if  (phpversion() > 6 ) { 
+	// suppression des bases type mysql- restechoix de mysqli ou postgres
 		$T_type_bd = array('mysqli'=>'MySQLi', 'postgres'=>'PostgreSQL');
-	}else{
-		$T_type_bd = array('mysqli'=>'MySQLi' , 'mysql'=>'MySQL' , 'postgres'=>'PostgreSQL');
-	}
-	
 
 // On modifie le repertoire de Smarty pour .....	
 	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
@@ -120,7 +115,7 @@
 	// Creé une connexion sur la Base de donnée
 	$db = ADONewConnection($config_bd ['type_bd']); //crée une connexion  
 	$db->debug = false; // true;// false; // Mode débug ou Non
-
+//echo "TESTpg = " .$pgsql_conn." -->".$config_bd['nom_bd'] ." + ".$config_bd['serveur_bd']." + ".$config_bd['utilis_bd']." +" .$config_bd['motpas_bd'];	
 	// cherche  un port existe pour postgres
 	$dbport = '';	 // en général $dbport = '5432';  
 		if ( ($config_bd['type_bd']) == "postgres") {
@@ -128,12 +123,22 @@
 			." user=".$config_bd['utilis_bd']." password=".$config_bd['motpas_bd']." ");
 			if ($pgsql_conn) {
 			   $dbport = pg_port($pgsql_conn) ;
+// ajout pour Free.fr pour éviter erreurs		 	   
+			}else {
+				echo "S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!";
+				exit;
 			}	
-// TEST sur free.fr  Supprimer les lignes suivant SINON erreur : Connexion base de données PostgreSQL impossible !!!			
-//			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'],$dbport)) {
-//				$erreur_saisie ['connexion'] = 'Connexion base de donn&eacute;es PostgreSQL impossible !!! ';
-	//if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");
-//			}
+// Fin ajout pour Free.fr pour éviter erreurs		
+		
+//-- Free.fr 	
+// TEST sur free.fr Supprimer les lignes suivant SINON erreur : Connexion base de données PostgreSQL impossible !!!	
+/*		
+			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'],$dbport)) {
+				$erreur_saisie ['connexion'] = 'Connexion base de donn&eacute;es PostgreSQL impossible !!! ';
+				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!");
+			}
+*/ 
+//-- / Free.fr
 		} else {
 			if(!@$db->Connect($config_bd ['serveur_bd'], $config_bd ['utilis_bd'], $config_bd ['motpas_bd'], $config_bd ['nom_bd'])) {
 				$erreur_saisie ['connexion'] = 'Connexion base de donn&eacute;es '. $config_bd ['type_bd'] .' impossible !!!';		

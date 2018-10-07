@@ -31,8 +31,8 @@
 	// Utilisation de adodb   TYPE_BD_AODB =  postgres ou  mysqli
 	define("TYPE_BD_AODB", strtolower(TYPE_BD) ); // pour compibilté version antérieure si  TYPE_BD = MySql MySqli
 //	echo TYPE_BD ." ++ ". strtolower(TYPE_BD) ." PHP = ". phpversion(); // test si PHP >= 7 et mysql
-	if (phpversion() > 6 && TYPE_BD_AODB == 'mysql') {
-	echo "Attention utlisation de mysql avec PHP ". phpversion();
+	if (phpversion() > 5.6 && TYPE_BD_AODB == 'mysql') {
+	echo "Attention utlisation de mysql avec PHP ". phpversion()." - Cette extension &eacute;tait obsol&egrave;te en PHP 5.5.0, et a &eacute;t&eacute; supprim&eacute;e en PHP 7.0.0";
 	exit;
 	}
 			

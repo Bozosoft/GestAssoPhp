@@ -36,19 +36,21 @@ Configuration nécessaire
 ************************
 Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
  un accès FTP pour l'installation des fichiers, 
-le support de PHP 5.6.x ou supérieur avec le support des sessions,
- un accès à une base de données MySQL version 5 minimum (utiliser l'extension mysqli).
+le support de PHP 5.6.x minimum ou supérieur avec le support des sessions,
+ un accès à une base de données type MySQL version 5 minimum (utiliser l'extension mysqli).
 ou
- un accès à une base de données PostgreSQL version 7 ou plus
+ un accès à une base de données PostgreSQL version 7 ou plus.
+Attention aux fichiers .htaccess fourni, il faudra vérifier la compatibilité avec votre hébergement.
 
 
 Vous devez connaître les données de votre connexion MySQL ou PostgreSQL : 
 - l'adresse du serveur MySQL ou PostgreSQL ->si vous êtes en local 'localhost'  
 - votre login MySQL ou PostgreSQL, 
 - votre password MySQL ou PostgreSQL, 
-- le nom de la base de données
+- le nom de la base de données crée ou a créer
 - un préfix est prévu lors de l'installation de la base de données (par défaut = gs_)
-Si vous utilisez Mysql attention en fonction des versions PHP il faut sélectionner en étape 2 Mysqli. Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL
+Si vous utilisez une base de données type MySQL, attention en fonction des versions PHP il faut sélectionner en étape 2 Mysqli. 
+Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL.
 
 NOTA installation en local sous WAMP ou EsayPhp ou ...
 Vérfier ou mofifier la configuration dans le php.ini
@@ -108,30 +110,30 @@ NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à reno
 ----------------------------------------------
 Dossiers principaux de l'archive
 --------------------------------
-gestion_sa/lib
-gestion_sa/lib/smarty
-gestion_sa/lib/adodb
+gestion_sa/lib/				Dossier pour les fichiers des bibliothèques de fonctionnement du système
+gestion_sa/lib/smarty/
+gestion_sa/lib/adodb/
 gestion_sa/lib/version_lib_smarty.txt
 gestion_sa/lib/version_lib_adodb.txt
 gestion_sa/lib/index.html
 
-gestion_sa/gestassophp_sa
-gestion_sa/gestassophp_sa/doc
-gestion_sa/gestassophp_sa/aide
-gestion_sa/gestassophp_sa/config
-gestion_sa/gestassophp_sa/install
-gestion_sa/gestassophp_sa/include
-gestion_sa/gestassophp_sa/adherent
-gestion_sa/gestassophp_sa/templates
-gestion_sa/gestassophp_sa/templates/adherent
-gestion_sa/gestassophp_sa/templates/admin
-gestion_sa/gestassophp_sa/temp
-gestion_sa/gestassophp_sa/temp/templates_c
-gestion_sa/gestassophp_sa/photos
-gestion_sa/gestassophp_sa/js
-gestion_sa/gestassophp_sa/images
-gestion_sa/gestassophp_sa/fichiersadht
-gestion_sa/gestassophp_sa/admin
+gestion_sa/gestassophp_sa/
+gestion_sa/gestassophp_sa/adherent/
+gestion_sa/gestassophp_sa/admin/
+gestion_sa/gestassophp_sa/aide/
+gestion_sa/gestassophp_sa/config/
+gestion_sa/gestassophp_sa/doc/
+gestion_sa/gestassophp_sa/fichiersadht/	Dossier pour VOS fichiers adhérents
+gestion_sa/gestassophp_sa/images/
+gestion_sa/gestassophp_sa/include/
+gestion_sa/gestassophp_sa/install/	Dossier à renommer ou a supprimer aprés installation
+gestion_sa/gestassophp_sa/js/
+gestion_sa/gestassophp_sa/photos/	Dossier pour VOS photos adhérents
+gestion_sa/gestassophp_sa/temp/		Dossier pour les fichiers temporaires du système
+gestion_sa/gestassophp_sa/temp/templates_c/
+gestion_sa/gestassophp_sa/templates/
+gestion_sa/gestassophp_sa/templates/adherent/
+gestion_sa/gestassophp_sa/templates/admin/
 gestion_sa/gestassophp_sa/index.php
 gestion_sa/gestassophp_sa/favicon.ico
 gestion_sa/index.html
@@ -184,7 +186,7 @@ en modifiant les feuilles de Styles style_print.css (pour impression) et style_s
 Par défaut le style est de couleur verte. Dans le dossier /js/ deux fichiers m_style_print.css et m_style_screen.css sont configurés pour une couleur marron. Pour utiliser cette couleur marron, vous devez donc renommer ces fichiers en style_screen.css et style_print.css.
 D'autre part vous pouvez modifier le fichier lang.php contenu dans le dossier /config/ pour adapter vos textes. Nota ce fichier doit impérativement être sauvegardé en utf-8.
 
-Merci de faire apparaître le contrat de licence et d'afficher un lien vers http://gestassophp.free.fr/  comme prévu dans la lience.
+Merci de faire apparaître le contrat de licence et d'afficher un lien vers http://gestassophp.free.fr/  comme prévu dans la licence.
 
 
 NOTA :
@@ -200,5 +202,5 @@ pour la mise à jour lire ATTENTIVEMENT le fichier majV6-V7.txt
 https://git.framasoft.org/Bozosoft/GestAssoPhp/tree/master
 
 ----------------------
-Mise à jour de cette page : 17/02/2018
+Mise à jour de cette page : 07/10/2018
 

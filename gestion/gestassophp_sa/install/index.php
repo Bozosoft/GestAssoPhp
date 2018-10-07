@@ -118,8 +118,8 @@
 	<div class="ligne_coul"></div> 	
 	<div id="contenu">
 	
-	<br />
-	<br />
+	<br /><span class='TexterougeGras'>* Avant toute installation vérifier les informations sur le fichier <a href="../doc/lisez_moi.txt">lisez_moi.txt</a></span>
+	<br /><br /><br />
 	<span class='TextenoirGras'>V&eacute;rification version PHP minimum (PHP 5.6.x):</span>
 	<br />
 <?php		
