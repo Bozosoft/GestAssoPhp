@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -74,7 +74,7 @@ $pas = $logpass[1];
 			//print "Le fichier $filename existe";
 			header('Location:'.WEB_FILES_ADHTS.$myfile );
 		} else {
-			//print "Le fichier $filename n'existe pas";
+			//print affiche en rouge en haut "Le fichier $filename n'existe pas";
 			$affiche_message =' -&nbsp;(<span class="Texterouge">'._LANG_MESSAGE_LISTE_FICHIERS_ADH_FILE.' '.$myfile.' '.
 			_LANG_MESSAGE_LISTE_FICHIERS_ADH_NOTEXIST.'</span>)';
 			$tpl->assign('affiche_message',$affiche_message); // pour afficher
@@ -88,7 +88,7 @@ $pas = $logpass[1];
 	$id_file_adht_supp = get_post_variable_numeric('id_file_adht', '');	
 	if ( ($supp_fichier_adht == 1) && ($id_file_adht_supp) ) {
 
-		// on récuprere le Nom diu fichier
+		// on récuprere le Nom du fichier
 		$req_supp_fichier_adht = "SELECT nom_file_adht From ".TABLE_FICHIER_ADHERENTS
 		." WHERE id_file_adht='$id_file_adht_supp'";
 		$dbresult = $db->Execute($req_supp_fichier_adht);		

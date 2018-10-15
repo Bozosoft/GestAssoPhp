@@ -1,0 +1,205 @@
+/**
+ * Projet : gestassophp_sa [GestAssoPhp+Pg] + HTML5
+ * ---------------------------
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Auteur original : Jean-Claude Etiemble
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
+ * ---------------------------
+ *	
+ * @author : JC Etiemble - http://jc.etiemble.free.fr
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
+ * @package   GestAssoPhp+Pg
+ */
+ 
+----------------------
+VERSION 6.x uniquement
+----------------------
+
+ Version 6.5.0 03/07/2013 Finale
+ -----------------------
+Attention modifications de base de données !
+	Aprés connexion à Gestassophp, faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_s/gestassophp_s/admin/upgrade640-650.php) 
+	une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les messages sont OK, puis supprimer le fichier admin/upgrade640-650.php
+- Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF.	
+- Ajout d'une zone Moyen de paiement sur Gestion Cotisations : Espèces(esp) Carte bancaire(c_b) Autre(aut)
+  - ajout d'une colonne paiement_cotis char(3) sur table xx_cotisations
+  - Modification fichier lang.php	  
+	+ define('_LANG_FICHE_COTIS_ADHT_MPAIE', 'Moyen de paiement'); //+ Ajout Zone PAIEMENT Gestion Cotisations
+	+ $T_PAIEMENT_COTIS = array('chq'=>'Ch&egrave;que','esp'=>'Esp&egrave;ces', 'c_b'=>'Carte bancaire', 'aut'=>'Autre')
+	Modification : define('_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT', 'Re&ccedil;u cotisation ');
+- Modification en base de donnée sur table xx_adherent du champ CP int(8) par VARCHAR( 8 ) pour les Codes Postaux avec 0 comme 1er chiffre
+- Mise à jour de Smarty 3.1.14 Jun 28, 2013
+Les modifications entre V 6.4.0 et 6.5.0 sont dans le fichier /doc/Diff_6400_6500.diff
+
+6.4.0 22/03/2013 - en cours
+-----------------------
+- Ajout contrôle sur suppression de la fiche adhérent si une ou des cotisations sont en cours (échues ou non) sur liste_adht_admin + remplir_cotisations_adht + a_adht_liste_admin.php
+- Ajout titre sur Raison de l'archivage 30 caractères maxi
+- Correction bug sur liste_cotisations_adht.php si Afficher par "tous"
+- Correction typo sur login.tpl
+
+6.3.0 10/03/2013 Finale
+-----------------------
+- Correction bug pour réactivation fiche adhérent (gerer_fiche_adht.php) sur PostgreSql
+- Correction bug pour remplir cotisation  (remplir_cotisations_adht.php) sur PostgreSql
+- Ajout information sur l'export du fichier adherents.xls dans l'aide Tableau de bord
+- Ajout information sur l'aide de Gestion des Bénévoles,Gestion des cotisations (+ ASTUCE), Fiche cotisation
+- Correction typo sur les aides
+- Ajout condition sur Date Dernière modification si = 00/00/0000 ou NULL cela affichera Aucune
+- Correction typo sur install_3.php
+- Ajout alerte information si 1 seule cotisation existe : la fiche XX existe déjà - Voulez vous en créer une nouvelle
+- Correction filtrage sur l'affichage dans Bénévoles/Liste des Bénévoles Gestion Membres/Liste Bénévoles
+- Modification affichage  "Visualisation et Gestion de mes informations" 
+	si pas de cotisation existante (suppression Type cotisation Début Fin)
+	si Fiche supprimée, suppression de "Cotisation NON réglée" et du Bouton "Ajouter une cotisation"
+- Correction HTML lang.php  sûr ->s&ucirc;r
+
+6.2.0 07/02/2013 Finale
+----------------------
+- correction de l'encodage des caractères en entités HTML sur les fichiers d'aide
+- Refonte installateur en v 1.1.0 ENCODAGE UTF-8 sans BOM et donc encodage de caractères en entités HTML
+- Ajout montant cotisation sur Type cotisation dans Fiche cotisation - (Création) [Suggestion BARRO Drissa]
+- Correction sur l'affichage des Noms-prénoms (PHP 5.4) "Fiche enregistrée par" dans remplir_infogene_adht.php
+- Modification sur affichage adresse mail (saut de ligne) gerer_fiche_adht.tpl
+- Correction tableau priorité sur remplir_priorite.tpl
+- Correction UFT8 sur adherent/remplir_fichier_adht.php + liste_cotisations_adht.php $affiche_message =' N° ' => $affiche_message =' N&deg; '
+- Modification de l'asrese Web http://gestassophp.xtreemhost.com/ par http://gestassophp.free.fr/ sur templates/login.tpl et templates/page_index.tpl
+- Passage des fichiers en encodage UTF8 sans BOM
+
+6.1.0 16/01/2013 Finale
+----------------------
+- Mise à jour de  Smarty-3.1.13
+- correction lang.php 
+	'_LANG_TABLEAUBORD_TCOTIS_ICON_TITLE   Adhérents => '.ADHERENT_BENE.'s
+	_LANG_MESSAGE_COTIS_ADHT_ALERT_ARCHIV  Non échue => Non &eacute;chue
+- correction dans la fonction de sauvegarde de la base “phpmysqldump.class.php” - Merci à Olivier Humez
+	Ajout ligne : if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";}; // pour empêcher la sauvegarde de "" en NUL
+-  correction phpmysqldump.class.php mysql_escape_string remplacer par  mysql_real_escape_string function is OBSOLETE depuis PHP 5.3.x et deprecated en php 5.4.x et +
+- Modification de  * @version :  2013 et  * @copyright 2007-2013 sur les fichiers
+
+6.0.04 18/11/2012
+----------------
+http://gestassophp.xtreemhost.com/ remplace le nom de domaine http://gestassophp.co.cc abandonné
+Site mirroir http://gestassophp.free.fr
+
+6.0.03  20/10/2012
+-----------------
+- Correction remplir_cotisations_adht : code alerte sur date fin de cotisation
+- Correction Warning sur consulter_fiche_adht.php consulter_fiche_adht_admin2.php
+- Correction problème accent sur saisie Par modification function get_post_variablehtml
+- Mise en conformtité du fichier lang pour entitées HTML
+- Mise à jour de  adodb (V5.18 3 Sep 2012)
+
+6.0.02 21/09/2012 (27/09/2012)
+-----------------
+- Correction affichage sur  _lang_fiche_adht_ant de Informations personnelles
+- Correction saisie avec apostrophe sur Détail des désignation des activités
+- Correction iso-8859-1 sur  remplir_priorite et remplir_infogene_adht
+- Mise à jour de  Smarty-3.1.12
+
+6.0.01 02/07/2012  
+-----------------
+- Mise à jour de  Smarty-3.1.11
+- Mise à jour de  adodb (adodb-517-for-php5 2012-05-17)
+
+6.0.0 30/04/2012 (conforme 5.5.3)
+----------------------------------
+- Mise à jour de  Smarty-3.1.8
+- Ajout sur la page Liste Adhérents de la photo (pour trombinoscope)
+
+6.0.0 RC6 17/01/2012 (conforme 5.5.2+)
+----------------
+- Mise à jour de Smarty 3.1.7 (Dec 19th, 201)
+- Modification aide tableau de bord
+
+6.0.0 RC5 19/12/2011 (conforme 5.5.1)
+----------------
+- Correction sur suppression cotisation
+- Correction code HTML requête export_tadhts
+- Ajout possibilité de modifier la date de "Date fin cotisation" affiché par défaut dans  Bénévoles - Fiche cotisation - (Création) dans Préférences
+- Correction sur suppression cotisation
+- Ajout Liste des Bénévoles dans la partie Administration/Bénévole pour afficher une liste simplifiée Nom,Prénom,Ville,Téléphone,Portable,Section 
+- Correction affichage bouton Ajouter une cotisation dans "Mes informations" si priorité 1 et 4
+- Supression de htmlentities dans tab antenne dans remplir_infogene_adht.
+- Correction bug sur insertion photo
+- Modification aide sur insertion photo et information dur la zone texte Observations
+- Mise à jour de SmartyS 3.1.6 (Dec 1st, 2011)
+- Optimisation requête export_tadhts et modifications noms des champs par variable du fichier lang.php
+- Ajout sur le fichiers export adhérents du champ "N° adhésion"
+- Modification sens tri par défaut sur colonne 1 sur Gestion des Bénévoles
+- Ajout de l'adresse IP sur liste logs
+
+6.0.0 RC3  31/10/2011  (conforme 5.3.0)
+---------------
+- Ajout d'un champ 'montant_cotisation' dans la table _types_cotisations
+- Passage de  "nom_type_cotisation" varchar(30) à 60 dans la table _types_cotisations
+- Possibilité de définir le montant des cotisation dans Préférences/ Détail des types de cotisations
+  *Donc un montant sera automatiquement défini lors de la création du type de cotisation
+  * mais attention !! : En mode modification si vous modifiez le "Type cotisation", vous devez aussi modifier le "Montant cotisation"
+- Correction d'affichage si une fiche cotisation existe déjà
+- Ajout de messages dans le fichier lang
+- Modification du champ `montant_cotis en mumérique avec 2 chiffres après le symbole décimal (point) dans la table _cotisations
+- Modification de l'aide
+- Mise à jour de Smarty 3.1.4 (Oct 19th, 2011)
+
+6.0.0 RC2  19/10/2011 
+------------------------
+- Chiffrage du mot de passe avec salt pour les nouvelles installations UNIQUEMENT 
+- Correction sur fonction compare_date
+- Correction sur adherent/export_tadhts.php
+- Correction bug sur remplir_infogene_adht.tpl
+- Mise à jour de Smarty 3.1.3 (Oct 7th, 2011)
+- Mise en conformité des variables pour Smarty 3.1.3  			
+ex : enlever ./ devant dossier en v 3.1.3 exemple  $tpl->fetch('./xxx  -> $tpl->fetch('xxx 
+- Remplacer  compile_dir -> setCompileDir ET template_dir ->setTemplateDir
+
+6.0.0 RC1  07/07/2011 
+------------------------
+- Ajout /admin/upgrade5-sa.php pour mise à jour et transition GestAssoPhp_s 5.0.0 -> gestassophp_sa pour dates =0000-00-00 
+- Ajout dans lisezmoi.txt : NOTA installation en local
+- Mise à jour de Smarty 3.0.8 June 3rd, 2011 
+
+6.0.0 béta 6  17/03/2011 
+------------------------
+- Mise à jour de Smarty 3.0.7 (February 11th, 2011)
+- correction de typo sur lang
+
+6.0.0 béta 5 02/02/2011  (04/02/11)
+----------
+- Mise en conformtité avec GestAssoPhp_s 5.0.0 du 25/12/2010 (les fichiers changés par GestAssoPhp_s)
+- Mise à jour de Smarty 3.0.6 (December 13th, 2010)
+Voir tansition GestAssoPhp_s 5.0.0 -> gestassophp_sa pour dates =0000-00-00 
+
+6.0.0 béta 4 27/11/2010 
+--------------------
+Ajouter devant dossier en v3.x $content = $tpl->fetch('./adherent/liste_adht_admin.tpl'); // On affiche
+
+6.0.0 béta 3 12/08/2010 
+--------------------
+Mise en conformité des variables pour Smarty 3.x
+- Modification des Unexpected " }" par "}"
+- modification des {foreach from=variable en changeant item=item_variable 
+
+6.0.0 béta 2 11/02/2010
+------------------------
+- remplir_cotisations_adht.php ajout test si aucune cotisation n'est déja saisie 10+11/02
+- Correction typo data.sql +install3 ($req) + schema (NOT NULL PRIMARY AUTOINCREMENT->KEY AUTO)  pour PostgreSql 11/02
+-> liste_fichiers_adht.php test si aucune fiche
+Voir CONCAT dans  liste_adht_admin.php + liste_adht.php + liste_fichiers_adht.php
+
+6.0.0 béta 1  07/02/2010
+-------------------------
+**Basée sur la version GestAssoPhp_s 4.1.2 09/02/2010** MODIFICATION pour  MySql et PostreSql avec adodb
+****************************************** / gestassophp_sa/
+Maintenant les bases de données MySql et PostreSql sont gérées.
+- Refonte du système de gestion des bases de données avec ADOdb - http://adodb.sourceforge.net/ 
+- Possibilité de choisir à l'installation entre MySql et PostreSql.
+- Modification de l'installation en conséquences.
+- Ajout des dossiers \lib\adodb
+
+-----------------------------------------------------------
+(c) JC Etiemble  2007-2018 jc_point_etiemble_At_Free_point_fr
+
+
+
