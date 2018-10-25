@@ -12,11 +12,18 @@
  * @package   GestAssoPhp+Pg
  */
  
+Version 7.6.2 - 25/10/2018 - En cours (Dev)
+------------------------------------
+- Correction typo et ajout commentaires sur liste_cotisations_adht.php
+- Ajout si "xx" cotisations archivées soc_adht dans tables_description.rtf + ajout fichier tables_description.xls
+- Ajout possibilité de télécharger un fichier des adhérents dont la cotisation est échue ou non réglée
+	-> Test avec .... /adherent/export_tadhts_cotisechue.php
+
 
 Version 7.6.1 - 15/10/2018 - Finale
 -----------------------------------
-- Correction sur le Changelog.txt ne reste que les versions 7.x
-- Anciennes versions 6.x voir le fichier /doc/Changelog6.txt
+- Correction sur le Changelog.txt ne reste que les version 7.x
+- Ancienne version 6.x voir le fichier /doc/Changelog6.txt
 
 * version 7.6.1 - 7/10/2018 - En cours (Dev4)
 - Correction typo sur install_2.php 
@@ -34,7 +41,7 @@ Version 7.6.1 - 15/10/2018 - Finale
 
 * version 7.6.1 - 02/10/2018 - En cours (Dev2)
 - Attention à la version de PHP - PHP 5.6.x  minimum (Compatible PHP 7.x)
-- Mise à jour de adodb à la version 5.20.12 du 30/03/2018
+- Mise à jour de Smarty 3.1.33 du 12.09.2018
 
 * version 7.6.1 - 13/08/2018 - En cours (Dev)
 - Mise à jour de adodb à la version 5.20.12 du 30.03.2018

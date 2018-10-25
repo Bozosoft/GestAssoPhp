@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2016
- * @copyright 2007-2016  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -43,7 +43,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$id_adht = '';
 	$req_lire_info_cotis = '';
 	$reqcompt_info_cotis = '';	
-	$affiche_liste_complete=''; // On affiche Toutes les citisation ou seulement 1 seul adhérent 
+	$affiche_liste_complete=''; // On affiche Toutes les cotisation ou seulement 1 seul adhérent 
 	$filtre_datedeb ='';
 	$filtre_datefin ='';
 	//Tableau xpour affichage
@@ -75,7 +75,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	//On prépare l'affichage 
 	$affiche_nb_lines = get_post_variable_numeric('affiche_nb_adht',NB_LIGNES_PAGE); //  par défaut NB_LIGNES_PAGE
 
-	// recherche sur les dates début et fin cotisations par  les filtres "filtre_datedeb" et  "filtre_datefin" 
+	// recherche sur les dates début et fin cotisations par les filtres "filtre_datedeb" et  "filtre_datefin" 
 	$select_datedeb= get_post_variable('select_datedeb','');
 	if ($select_datedeb) {	
 		if (( check_madateFR($select_datedeb))== TRUE) {
@@ -122,7 +122,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}	
 
 	
-	// recherche sur les dates début et fin cotisations par  les filtres "filtre_datedeb" et  "filtre_datefin" 
+	// recherche sur les dates début et fin cotisations par les filtres "filtre_datedeb" et  "filtre_datefin" 
 	if ($filtre_datedeb!='') {
 	   $req_lire_info_cotis .= " AND date_debut_cotis >= '".$select_datedeb_sql."' ";
 	   $reqcompt_info_cotis .= " AND date_debut_cotis >= '".$select_datedeb_sql."' ";
@@ -135,16 +135,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		
 		
 	// filtre d'affichage les cotisation  adhérents  0 => 'Les fiches actives', 1 => 'Les fiches achivées', 2 => 'Toutes les fiches'
-	if ($filtre_fiche == '0') { // Les fiches active
+	if ($filtre_fiche == '0') { // Les fiches actives  si suppression ou archivage fiche cotis=999
 		$req_lire_info_cotis .= " AND cotis <>'999' AND date_fin_cotis >= '".$date_du_jour."'"; // 16/01/2009  v 3.0.3
 		$reqcompt_info_cotis .= " AND cotis <>'999' AND date_fin_cotis >= '".$date_du_jour."'";	// 16/01/2009
 	}
 
-	//if ($filtre_fiche == '1') { //Toutes les fiche
+	//if ($filtre_fiche == '1') { //Toutes les fiches
 		// aucune 
 	//}
 		
-	if ($filtre_fiche == '2') { //Les fiches achivées
+	if ($filtre_fiche == '2') { //Les fiches achivées si suppression ou archivage fiche cotis=999
 		$req_lire_info_cotis .= " AND cotis ='999' ";
 		$reqcompt_info_cotis .= " AND cotis ='999' ";
 	}
@@ -223,7 +223,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	$dbresult = $db->Execute($req_lire_info_cotis);		
 	
-	// pour afficher le Nb de ligne par page		
+	// pour afficher le Nb de lignes par page		
 	if ($affiche_nb_lines == 0) {
 		$dbresult = $db->Execute($req_lire_info_cotis);	
 	} else {
@@ -299,7 +299,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');	
 
-/***** il y a une erreur ... Si erreur  on envoie vers la page de login ... avec message */				
+/***** il y a une erreur ... Si erreur on envoie vers la page de login ... avec message */				
 	} else {
 		header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);  
 	}
