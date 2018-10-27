@@ -1,6 +1,5 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
-{* Affichage du CONTENU Visualisation cotisation adhérent*}
-	<!--header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('../aide/a__remplir_cotisation.php','popup','height=300,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></div --> 
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2018 (c) JC Etiemble HTML5*}
+{* Affichage du CONTENU Visualisation cotisation adhérent pour le Reçu cotisation ....*}
 
     <header class="header_titre">&nbsp;{language name=titre_admin_fiche_visu_cotis_adht} {$affiche_message}</header>
 	<div class="ligne_coul"></div> 	

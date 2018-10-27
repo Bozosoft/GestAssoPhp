@@ -12,8 +12,15 @@
  * @package   GestAssoPhp+Pg
  */
  
-Version 7.6.2 - 25/10/2018 - En cours (Dev)
-------------------------------------
+ 
+Version 7.6.2 - 27/10/2018 - En cours (Dev1)
+-----------------------------------
+- Ajout sur tableau de bord ligne télécharger un fichier des adhérents dont la cotisation est échue ou non réglée
+- Modification de l'icone télécharger (disque32.png) et ajout disque16.png pour le tableau de bord
+- Correction javascript sur cursor: (lien vers l'aide)
+- Correction et ajouts sur le texte de l'aide Tableau de bord
+ 
+* version 7.6.2 - 25/10/2018 - En cours (Dev)
 - Correction typo et ajout commentaires sur liste_cotisations_adht.php
 - Ajout si "xx" cotisations archivées soc_adht dans tables_description.rtf + ajout fichier tables_description.xls
 - Ajout possibilité de télécharger un fichier des adhérents dont la cotisation est échue ou non réglée

@@ -8,15 +8,15 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/admin/
  *   Fichier :
- *   Affiche le tableau de bord Admin
+ *   Affiche le tableau de bord Admin Pour priorite_adht  > ou = 4 donc Membre du CA+Secrétaire+Trésorier+Admin
 */
 
 include_once '../config/connexion.php';
@@ -43,7 +43,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; //  pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 
-/***** Si ADMINISTRATEUR donc $priorite_adht  > ou = 4  DROIT DE CONSUTER ET MODIFIER   (4 a le droit)  */
+/***** Si ADMINISTRATEUR donc $priorite_adht  > ou = 4  DROIT DE CONSUTER ET MODIFIER   (4 a le droit restreint pas de téléchargement)  */
 	if ($priorite_adht < 4 ) {
 		$id_adht = $sessionadherent;
 		// Message erreur PAS LE DROIT
@@ -123,6 +123,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht);
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('date_debannee_asso',DATE_DEBANNEE_ASSO); // Date de début de l'assocation  -->tableaubord  //++	
+	$tpl->assign('date_du_jour',date('d/m/Y')); // Date du jour au format jj/mm/aaaa
 	$tpl->assign('nb_adherent',$nb_adherent);
 	$tpl->assign('nb_adherent_soc',$nb_adherent_soc);
 	$tpl->assign('montant_cotisation_adh',$montant_cotisation_adh); 	
