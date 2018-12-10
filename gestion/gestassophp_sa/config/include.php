@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2017
- * @copyright 2007-2017 (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -38,12 +38,12 @@
 	define('TABLE_COTISATIONS', DB_PREFIX.'cotisations');
 	// Table Type de cotisation 
 	define('TABLE_TYPE_COTISATIONS', DB_PREFIX.'types_cotisations');
-	// TABLES  Pour gestion fichiers	
+	// Table Pour gestion fichiers	
 	define("TABLE_FICHIER_ADHERENTS", DB_PREFIX.'fichier_adherent');
 	
-	// TABLES  Pour lire les preference_asso	//+ V. 3
+	// Table Pour lire les preference_asso	//+ V. 3
 	define("TABLE_PREFERENCES", DB_PREFIX.'preference_asso');
-	// TABLES  Pour lire les preference_asso	//+ V. 3
+	// Table Pour lire les preference_asso	//+ V. 3
 	define("TABLE_ANTENNE", DB_PREFIX.'types_antennes');	
 	
 /* --------------------------------------------------------------------*/
@@ -77,27 +77,27 @@
 	$result->Close();
 
 /**** le fichier de langues */		
-	include_once 'lang.php'; // le fichier de langue  lang.php 
+	include_once 'lang.php'; // le fichier de langue  /config/lang.php 
 	
 /**** La version de GestAsssoPhp  */
-	include_once 'version.php'; //  -> PHP 5.3
+	include_once 'version.php'; //  le fichier qui donne la version de GestAssoPhp+Pg
 
 	
-/**** Les chemins des répertoires  pour SMARTY */
+/**** Les chemins des répertoires pour SMARTY */
 	define('TEMPLATES_LOCATION', join_path(ROOT_DIR_GESTASSO,'templates' ) ); // répertoire Fichiers des templates
 	define('TMP_LOCATION', join_path(ROOT_DIR_GESTASSO,'temp'));  // répertoire  des Fichiers temporaires
 	define('TMP_TEMPLATES_C_LOCATION', join_path(ROOT_DIR_GESTASSO,'temp','templates_c')); // répertoire  des Fichiers temporaires de templates  
 // OPTIONS	
 
 
-/**** Les chemins et variables  pour SMARTY  */	
+/**** Les chemins et variables pour SMARTY  */	
 	//Il doit s'agir du chemin complet du répertoire où se trouvent les fichiers classes de Smarty., le chemin doit se terminer par un slash.
 	define('SMARTY_DIR', join_path(ROOT_LIB ,'smarty'). DIRECTORY_SEPARATOR );
 	require (SMARTY_DIR.'Smarty.class.php'); // la classe
 
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c 
-//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
+//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c // Smarty version 2x
+//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates // Smarty version 2x
 //  verson 3.x
 	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
 	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
@@ -121,7 +121,6 @@
 /**** Définir   WEB_FILES_ ADHTS   */	
 	define('WEB_FILES_ADHTS', " http://".$_SERVER['SERVER_NAME'].$path_adht."fichiersadht/");
 	//echo WEB_FILES_ADHTS;   // http://localhost         /xxx/xx/gestassophp_s/     fichiersadht/
-
 
 // Affichage en template 
 	$tpl->assign('adherent_bene',ADHERENT_BENE); // adhérent ou  Bénévole au singulier

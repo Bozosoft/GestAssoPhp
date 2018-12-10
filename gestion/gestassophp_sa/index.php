@@ -19,8 +19,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2018
+ * @copyright 2007-2018  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -61,14 +61,6 @@ $texterreurlogin = get_post_variablehtml('texterreur', '');// récupère un erre
 	if ($texterreurlogin != '') {	
 		$texterreurlogin =_LANG_MESSAGE_TEXTERREUR	;
 	}
-
-// Si pas de session ...
-$priorite_adht=(empty($_SESSION['ses_priorite_adht'])) ? $priorite_adht='' :$priorite_adht = $_SESSION['ses_priorite_adht'];
-
-$texterreurlogin = get_post_variablehtml('texterreur', '');// récupère un erreur ... fin de session, erreur de connexion...
-	if ($texterreurlogin != '') {	
-		$texterreurlogin =_LANG_MESSAGE_TEXTERREUR	;
-	}	
 
 /***** si on a validé le formulaire login */
 if (isset($_POST['ident'])) {
