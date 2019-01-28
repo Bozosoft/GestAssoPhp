@@ -3,11 +3,12 @@ http://adodb.org/dokuwiki/doku.php
 https://github.com/ADOdb/ADOdb
 
 
+28/01/2019 - ADOdb 5.20.14 datée du 06/01/2019 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.14
 
-10/17/2018 - ADOdb  5.20.12 datée du 30/03/2018   https://github.com/ADOdb/ADOdb/releases/tag/v5.20.12
+10/17/2018 - ADOdb 5.20.12 datée du 30/03/2018   https://github.com/ADOdb/ADOdb/releases/tag/v5.20.12
 
-05/11/2016 - ADOdb  5.20.7 datée du 20/09/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.7
-22/02/2016 - ADOdb  5.20.3 datée du 01/01/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.3
+05/11/2016 - ADOdb 5.20.7 datée du 20/09/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.7
+22/02/2016 - ADOdb 5.20.3 datée du 01/01/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.3
 03/12/2015 - 22/11/2015 ENCOURS version to 5.20dev VOIR changelog.md
 
 18/10/2012 -> V5.18 3 Sep 2012  adodb518a.tgz adodb-518-for-php5 2012-09-06 

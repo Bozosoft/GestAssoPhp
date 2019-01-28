@@ -8,13 +8,16 @@
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
  * @version :  2018
- * @copyright 2007-2018  (c) JC Etiemble
+ * @copyright 2007-2019  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
-
-Version 7.6.2 - 10/12/2018 - En cours (Dev2)
+ 
+Version 7.6.2 - 28/01/2019 - En cours (Dev3)
 -----------------------------------
+- Mise à jour de adodb à la version 5.20.14 datée du 06/01/2019
+
+* version 7.6.2 - 10/12/2018 - En cours (Dev2)
 - Correction typo index.php et include.php
 - Correction sur data.sql jma_fin_cotis par 31/12/2019
 
