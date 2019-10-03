@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2018
- * @copyright 2007-2018  (c) JC Etiemble
+ * @version :  2019
+ * @copyright 2007-2019 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 //include_once '../../fileloc_gestasso_s.php';  //----------Pour TEMPLATE et localise rep 

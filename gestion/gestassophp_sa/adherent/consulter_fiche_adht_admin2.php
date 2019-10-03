@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2016
- * @copyright 2007-2016  (c) JC Etiemble
+ * @version :  2019
+ * @copyright 2007-v (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2018
- * @copyright 2007-2018  (c) JC Etiemble
+ * @version :  2019
+ * @copyright 2007-2019  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -86,8 +86,8 @@ echo 'prefix_bd='.$prefix_bd.'-';
  *  Fichier : config.cfg.php
  *  Page connexion - configuation   
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2018
- * @copyright 2007-2018  (c) JC Etiemble
+ * @version :  2019
+ * @copyright 2007-2019  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
