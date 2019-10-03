@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2019 (c) JC Etiemble HTML5*}
 {* Affichage CONTENU Consulter Info complémentaires *}
 <table style="width:100%;">
 	<tr> 

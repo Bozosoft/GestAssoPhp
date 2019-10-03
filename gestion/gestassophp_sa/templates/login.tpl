@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2014 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2019  ↄ⃝  JC Etiemble HTML5*}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -50,9 +50,9 @@
 			<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="Syst&egrave;me mise &agrave; disposition sous un contrat Creative Commons"/></a><br /><br /><figcaption  class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></figcaption>
 		</figure>			
 	</div> {* / défini la zone gauche*}	
-	<section class="section_centre_page">{*défini les infos .. *}
+	<div class="section_centre_page">{*défini les infos .. ex section *}
 	
-		<header class="header_titre_aide"><a href='#' style="cursor:pointer;cursor:hand" onclick="javascript :window.open('aide/a_login.php','popup','height=420,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
+		<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('aide/a_login.php','popup','height=420,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
 		<header class="header_titre">&nbsp;{language name=login_adherent}</header>
 		<div class="ligne_coul"></div> 	
@@ -83,7 +83,7 @@
 				<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br/><br/>
 			</footer>
 		</div> {* / défini le contenu .. *}	
-	</section>{* / défini les infos .. *}
+	</div>{* / défini les infos .. ex /section *}
 
 	<footer class="footer_pied_page"> {*défini le pied de page  ne pas modifier lces lignes*}
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="R&eacute;alisation" >{$version}</a>

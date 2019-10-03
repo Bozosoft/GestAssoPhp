@@ -7,13 +7,13 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2018
- * @copyright 2007-2018  (c) JC Etiemble
+ * @version :  2019
+ * @copyright 2007-2019  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 ----------------------
-VERSION 6.x uniquement
+VERSION 6.x uniquement (Pour mémoire)
 ----------------------
 
  Version 6.5.0 03/07/2013 Finale

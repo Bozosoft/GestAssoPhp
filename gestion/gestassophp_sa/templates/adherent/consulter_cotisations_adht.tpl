@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2018 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2019 (c) JC Etiemble HTML5*}
 {* Affichage du CONTENU Visualisation cotisation adhérent pour le Reçu cotisation ....*}
 
     <header class="header_titre">&nbsp;{language name=titre_admin_fiche_visu_cotis_adht} {$affiche_message}</header>

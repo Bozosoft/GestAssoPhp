@@ -1,4 +1,4 @@
-{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2016 (c) JC Etiemble HTML5*}
+{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2019 (c) JC Etiemble HTML5*}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>

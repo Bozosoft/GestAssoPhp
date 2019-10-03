@@ -101,13 +101,13 @@ function smarty_function_mailto($params)
         for ($x = 0, $_length = strlen($string); $x < $_length; $x++) {
             $js_encode .= '%' . bin2hex($string[ $x ]);
         }
-        return '<script type="text/javascript">eval(unescape(\'' . $js_encode . '\'))</script>';
+        return '<script>eval(unescape(\'' . $js_encode . '\'))</script>';
     } elseif ($encode === 'javascript_charcode') {
         $string = '<a href="mailto:' . $address . '" ' . $extra . '>' . $text . '</a>';
         for ($x = 0, $y = strlen($string); $x < $y; $x++) {
             $ord[] = ord($string[ $x ]);
         }
-        $_ret = "<script type=\"text/javascript\" language=\"javascript\">\n" . "{document.write(String.fromCharCode(" .
+        $_ret = "<script language=\"javascript\">\n" . "{document.write(String.fromCharCode(" .
                 implode(',', $ord) . "))" . "}\n" . "</script>\n";
         return $_ret;
     } elseif ($encode === 'hex') {
