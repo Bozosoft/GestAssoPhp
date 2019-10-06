@@ -11,11 +11,10 @@
 	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" media="screen"  href="js/style_screen.css">
-	<!-- link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css" -->
 	{*  IE est non conforme aux standards *}
-	<!--[if IE]>
+	<!--[if lt IE 9]>
 	{literal}
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="js/html5shiv.min.js"></script>
 	{/literal}
 	<![endif]-->
 	<title>GestAssoPhp+Pg Pour g&eacute;rer votre association - {$version}</title>

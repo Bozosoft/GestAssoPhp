@@ -10,6 +10,9 @@
  * @version :  2019
  * @copyright 2007-2019  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
+ * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
+ * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
+ * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
  !! BIEN LIRE TOUT LE TEXTE AVANT DE DEMARRER !!
@@ -65,6 +68,8 @@ date.timezone = Europe/Paris
 
 A - INSTALLATION NOUVELLE
 -------------------------
+Voir aussi sur http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html
+
 1. Vous avez récupéré l'archive gestion_saxx.tar.bz2
 
 2. Créer un dossier "gestion_sa" ou donner lui le nom que vous voulez 
@@ -193,14 +198,15 @@ NOTA :
 Si vous désirez faire une mise à jour utiliser les fichiers de mise à jour de la page téléchargement.
 
 
-B - MISE A JOUR DEPUIS UNE VERSION 6.xxx
+B - MISE A JOUR DEPUIS UNE ANCIENNE VERSION 7xxx
 ----------------------------------------
-pour la mise à jour lire ATTENTIVEMENT le fichier majV6-V7.txt
+pour la mise à jour utliser le fichier diff_7x_7x+1.tar.bz2 disponible sur http://gestassophp.free.fr/cms/index.php/forrm_download.html
 
 
 - Pour information les fichiers de la version de développement sont disponible sur 
-https://git.framasoft.org/Bozosoft/GestAssoPhp/tree/master
+https://git.framasoft.org/Bozosoft/GestAssoPhp
+https://github.com/Bozosoft/GestAssoPhp
 
 ----------------------
-Mise à jour de cette page : 07/10/2018
+Mise à jour de cette page : 05/10/2019
 

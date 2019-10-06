@@ -1,4 +1,4 @@
-{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2019 (c) JC Etiemble HTML5*}
+{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2019  ↄ⃝  JC Etiemble HTML5*}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -12,9 +12,9 @@
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
 	<title>GestAssoPhp+Pg - {$nomprenom_adht}</title>
 	{*  IE est non conforme aux standards *}
-	<!--[if IE]>
+	<!--[if lt IE 9]>
 	{literal}
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="../js/html5shiv.min.js"></script>
 	{/literal}
 	<![endif]-->
 	

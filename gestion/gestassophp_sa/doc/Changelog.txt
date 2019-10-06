@@ -10,11 +10,16 @@
  * @version :  2019
  * @copyright 2007-2019  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
+ * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
+ * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
+ * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
  
  
-Version 7.6.3 - 03/10/2019 - En cours (Dev1)  
+Version 7.6.3 - 05/10/2019 - En cours (Dev2)  
 ------------------------------
+- Remplacement de html5shiv.googlecode.com par js/html5shiv.min.js (code 3.7.3 pour Internet Explorer 6-9 https://github.com/aFarkas/html5shiv )
+- Et ajout des fichiers html5shiv.min.js et html5shiv-printshiv.min.js dans le dossier /js
 - Corrections HTLM (cursor:pointer)
 - Suppression des anciens fichiers obsolètes version 6 et 5
 - Modification installateur 1.3.1 
