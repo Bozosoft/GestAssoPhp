@@ -53,7 +53,7 @@
     des menus sont accessibles ou non :<br />
   <span class="Textenoir">Sur cette page :  </span><br/>
 	- La priorité <span class="TextenoirGras">4 = Membre du CA</span> consutation seulement<br />
-	- Les priorités <span class="TextenoirGras">5 = Secrétaire, 7 = Trésorier, 9 = Admin</span> ont la possibité de toutes les actions et en particulier de télécharger les fichiers.<br /><br /> 
+	- Les priorités <span class="TextenoirGras">5 = Secrétaire, 7 = Trésorier, 9 = Admin</span> ont la possibilité de toutes les actions et en particulier de télécharger les fichiers.<br /><br /> 
 
  
   - <span class="TextenoirGras">Pour l'export du fichier des "<?php echo ADHERENT_BENE ;?>s"</span> (adherents.xls) sur chaque ligne de la colonne &quot;Societaire&quot; :<br />

@@ -16,8 +16,13 @@
  */
  
  
-Version 7.6.3 - 05/10/2019 - En cours (Dev2)  
+Version 7.6.3 - 28/11/2019 - En cours (Dev3)  
 ------------------------------
+- Mise à jour de adodb à la version 5.20.15 du 24/11/2019
+- Mise à jour de Smarty à la version 3.1.34 du 05/11/2019
+- Correction typo sur aide a_admin_tableaubord.php
+
+* Version 7.6.3 - 05/10/2019 - En cours (Dev2)  
 - Remplacement de html5shiv.googlecode.com par js/html5shiv.min.js (code 3.7.3 pour Internet Explorer 6-9 https://github.com/aFarkas/html5shiv )
 - Et ajout des fichiers html5shiv.min.js et html5shiv-printshiv.min.js dans le dossier /js
 - Corrections HTLM (cursor:pointer)
