@@ -24,5 +24,4 @@
 $VERSION = "GestAssoPhp+Pg V 7.6.3";
 define('VERSION', $VERSION);
 
-
 ?>
