@@ -17,8 +17,11 @@ L'impression se fait par le menu Fichier/Imprimer du navigateur
 
 __Attention GestAssoPhp ne fait pas :__ 
 
-* la gestion des comptes de l'association.
-* l'envoi de mailling (un hébergement n'est pas fait pour envoyer des messages en nombre)
+* la gestion des comptes de l'association,
+* l'envoi de mailling (un hébergement n'est pas fait pour envoyer des messages en nombre),
+* Le RGPD implique que les utilisateurs soient avertis EXPLICITEMENT des usages,
+* Note : les futurs membres ne peuvent pas s’inscrire directement en ligne (par sécurité et pour éviter les spammeurs notoires de polluer), seul les administrateurs (Priorité 5 à 9) peuvent inscrire les nouveaux membres.
+
 
 __Configuration nécessaire pour l'installation__
 
@@ -27,5 +30,11 @@ __Configuration nécessaire pour l'installation__
   - le support de PHP 5.6.x minimum avec le support des sessions, 
   - un accès à une base de données de type MySQL/MariaDB version 5 minimum ou PostgreSQL version 7 minimum.
 - Et bien sur une maîtrise de la gestion de votre hébergement !
+
+__Information détaillée__
+
+* [Installation en images](http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html "Comment procéder ?")
+* [Détails des menus](http://gestassophp.free.fr/cms/index.php/gestassophp.html "Une gestion multi-administrateurs par priorité pour les accès à l'interface d'administration")
+* [Démonstration de GestAssoPhp](http://gestassophp.free.fr/cms/index.php/demo.html "Pour avoir un accès à la démonstration il faut remplir le formulaire")
 
 
