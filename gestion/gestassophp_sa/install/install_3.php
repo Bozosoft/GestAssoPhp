@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -17,7 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
- * ENCODAGE UTF-8 sans BOM
+ *   ENCODAGE UTF-8 sans BOM
 */
 
 
@@ -86,8 +86,8 @@ echo 'prefix_bd='.$prefix_bd.'-';
  *  Fichier : config.cfg.php
  *  Page connexion - configuation   
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 

@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -17,7 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/config/
  *   Fichier :
  *   Les fichiers Include  et les chemins de repertoires  et les menus pour les templates page_index et login
- * ENCODAGE UTF-8 sans BOM
+ *   ENCODAGE UTF-8 sans BOM
 */
 
 /**
@@ -28,9 +28,9 @@
 * --------------------------------------------------------------------
 */
 
-	define('VERSION_I', 'Installateur_Php+Pg V 1.3.1'); // version installateur 04/02/2013 - 13/01/2017 1.2 - 03/10/18 1.3
+	define('VERSION_I', 'Installateur_Php+Pg V 1.3.2'); // version installateur 05/10/219=1.3.1 - 27/02/20=1.3.2
 	define('STYLE_I', 'style_screen.css'); // Feuille de syle  style_screen.css ou m_style_screen.css
-	$file_loc = 'fileloc_gestasso_sa.php';  //******************** A DEFINIR
+	$file_loc = 'fileloc_gestasso_sa.php';  // voir le fichier fileloc_gestasso_sa.php
 	include_once '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
 	
 /* --------------------------------------------------------------------*/

@@ -11,11 +11,26 @@
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
- * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
- * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
+ * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : 
+ *     https://github.com/smarty-php/smarty/blob/master/LICENSE
+ * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE
+ *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
  
- 
+
+Version 7.6.4 - 02/03/2020 - En cours (Dev2)
+------------------------------
+- Ajout information de déconnexion sur page_index.tpl
+- Ajout information de déconnexion sur aide a_login.php + aide/a_adht_remplir_infogene_adht.php + a_adht_gerer_fiche_adht.php
+- Modification .gitignore
+
+* version 7.6.4 - 27/02/2020 - En cours (Dev1)
+- Reformulation des commentaires sur fileloc_gestasso_sa.php
+- Ajout information sur lisez_moi.txt pour FREE.FR ne pas oublier de créer un dossier /sessions
+- Typo sur /install/index.php
+- Modification des dates à 2020 sur @version et @copyright
+
+
 Version 7.6.3 - 10/02/2020 - Finale 
 ------------------------------
 - Correction sur le Changelog.txt

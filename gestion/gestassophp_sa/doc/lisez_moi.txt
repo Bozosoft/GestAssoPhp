@@ -7,8 +7,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
@@ -38,12 +38,12 @@ http://gestassophp.free.fr/cms/index.php/home/questions-installation.html
 Configuration nécessaire
 ************************
 Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
- un accès FTP pour l'installation des fichiers, 
+ - un accès FTP pour l'installation des fichiers, 
 le support de PHP 5.6.x minimum ou supérieur avec le support des sessions,
- un accès à une base de données type MySQL version 5 minimum (utiliser l'extension mysqli).
+ - un accès à une base de données type MySQL version 5 minimum (utiliser l'extension mysqli).
 ou
- un accès à une base de données PostgreSQL version 7 ou plus.
-Attention aux fichiers .htaccess fourni, il faudra vérifier la compatibilité avec votre hébergement.
+ - un accès à une base de données PostgreSQL version 7 ou plus.
+Attention aux fichiers .htaccess fournis, il faudra vérifier la compatibilité avec votre hébergement.
 
 
 Vous devez connaître les données de votre connexion MySQL ou PostgreSQL : 
@@ -56,7 +56,7 @@ Si vous utilisez une base de données type MySQL, attention en fonction des vers
 Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL.
 
 NOTA installation en local sous WAMP ou EsayPhp ou ...
-Vérfier ou mofifier la configuration dans le php.ini
+Vérifier ou modifier la configuration dans le php.ini
 ; Error handling and logging ;
 ; Production Value: E_ALL & ~E_DEPRECATED
 error_reporting = E_ALL & ~E_DEPRECATED
@@ -64,6 +64,11 @@ error_reporting = E_ALL & ~E_DEPRECATED
 [Date]
 date.timezone = Europe/Paris
 
+***Pour une installation sur les pagesperso de Free.fr***
+ne pas oublier de créer un dossier /sessions à la racine de votre site, 
+sinon message en page "Installation de GestAssoPhp" :
+Warning: session_start(): open(/...../sessions/sess_xxx) failed: No such file or directory
+Voir le lien http://gestassophp.free.fr/cms/index.php/home/questions-installation.html
 
 
 A - INSTALLATION NOUVELLE
@@ -81,7 +86,7 @@ Vous devez avoir :
 	- smarty (système de template)
 	- adodb (système de bibliothèque d'abstraction destinée à communiquer avec différents systèmes de gestion de base de données)
 - un fichier fileloc_gestasso_sa.php
-- un fichier index.html avec lien vers gestassophp_sa/index.php (pour information A modier ou suppimer)
+- un fichier index.html avec lien vers gestassophp_sa/index.php (pour information à modifier ou supprimer)
 
 
 NOTE :
@@ -91,6 +96,7 @@ NOTE :
 Note 1 - IMPORTANT
 - Le nom du dossier "gestassophp_sa" peut être changé à condition de changer 
    - la ligne 17 du fichier fileloc_gestasso_sa.php :   define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');
+ Si vous remplacer "gestassophp_sa" par "gestassophp_xx" votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/
 - Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier /gestassophp_sa/config/lang.php
 
 
@@ -148,15 +154,16 @@ gestion_sa/.htaccess
 
 5. Vérifications
 ---------------- 
+Suivant votre hébergement :
 il est nécessaire d'accorder des permissions à certains répertoires, de manière à ce que PHP ait les droits en écriture sur :
 	/gestassophp_sa/config 				pour le répertoire de configuration - uniquement lors de l'installation
 	/gestassophp_sa/install 			pour les fichiers d'installation - uniquement lors de l'installation
 
-	/gestassophp_sa/fichiersadht 		pour les fichiers des adhérents
+	/gestassophp_sa/fichiersadht 			pour les fichiers des adhérents
 	/gestassophp_sa/photos  			pour les Photos des adhérents
  	/gestassophp_sa/temp 				pour l'écriture des fichiers des templates 
-	/gestassophp_sa/temp/templates_c 	pour l'écriture des fichiers des templates
-- VERIFIER les fichiers .htaccess en fonction de votre hébergement
+	/gestassophp_sa/temp/templates_c 		pour l'écriture des fichiers des templates
+- VÉRIFIER les fichiers .htaccess en fonction de votre hébergement
 
 6. Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_sa/gestassophp_sa/install) 
 	
@@ -169,13 +176,10 @@ Etape 4 : Création des informations de connexion
 Etape 5 : Fin de la configuration-installation - lien vers la gestion_sa (http://votreserveur/gestion_sa/gestassophp_sa)
 
 Supprimer ou renommer le dossier /install par mesure de sécurité
-Changez les permissions 
+Changez les permissions (Suivant votre hébergement)
 	- à 755 sur le répertoire /gestassophp_sa/config 
 	- à 644 ou 444 sur le fichier /gestassophp_sa/config/connexion.cfg.php
-	- VERIFIER les fichiers .htaccess en fonction de votre hébergement
-
-Avant votre première connexion à l'espace, supprimer ou renommer le répertoire /install
-
+	- VÉRIFIER les fichiers .htaccess en fonction de votre hébergement
 
 7. Connectez-vous à GestAssoPhp+Pg (ex : http://votreserveur/gestion_sa/gestassophp_sa)
 Compléter vos informations personnelles.
@@ -200,13 +204,13 @@ Si vous désirez faire une mise à jour utiliser les fichiers de mise à jour de
 
 B - MISE A JOUR DEPUIS UNE ANCIENNE VERSION 7xxx
 ----------------------------------------
-pour la mise à jour utliser le fichier diff_7x_7x+1.tar.bz2 disponible sur http://gestassophp.free.fr/cms/index.php/forrm_download.html
+pour la mise à jour utiliser  le fichier diff_7x_7x+1.tar.bz2 disponible sur http://gestassophp.free.fr/cms/index.php/forrm_download.html
 
 
-- Pour information les fichiers de la version de développement sont disponible sur 
+- Pour information les fichiers de la version de développement sont disponibles sur 
 https://git.framasoft.org/Bozosoft/GestAssoPhp
 https://github.com/Bozosoft/GestAssoPhp
 
 ----------------------
-Mise à jour de cette page : 05/10/2019
+Mise à jour de cette page : 01/03/2020
 

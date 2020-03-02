@@ -8,12 +8,20 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
- include_once '../config/connexion.php';  
+ 
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/aide/
+ *   Fichier :
+ *   Affiche l'aide pour la page login
+*/
+ 
+	include_once '../config/connexion.php';  
 ?>  
+
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -46,7 +54,8 @@ Chaque membre bénéficie de la possibilité de consulter et de modifier ses inf
 <?php
  include_once 'a_codepriorite.php';  
  ?> 
- 
+<br />
+- !! IMPORTANT !! OBLIGATOIRE pour votre sécurité, n'oublier pas d'utiliser le bouton <img src='../images/icones16/i_stop.png' alt="out" width="16" height="16" title='<?php echo _LANG_MENU_EXIT_TITLE ;?> '/> à la fin de votre session.<br />
 </p>
 <p>&nbsp;</p>
 

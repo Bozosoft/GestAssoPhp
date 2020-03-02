@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg page 4 copyright 2007-2019  (c) JC Etiemble HTML5*}
+ {* Installation de GestAssoPhp+Pg page 4 @copyright 2007-2020  (c) JC Etiemble HTML5*}
 
     <div id="titre">&nbsp;{$messagetitre}</div>
 	<div class="ligne_coul"></div> 	

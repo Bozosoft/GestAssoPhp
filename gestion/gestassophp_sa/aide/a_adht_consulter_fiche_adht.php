@@ -8,16 +8,22 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
-//include_once '../../fileloc_gestasso_s.php';  //----------Pour TEMPLATE et localise rep 
-include_once '../config/connexion.php';
- $masession = new sessions(); 
- $priorite_adht = $_SESSION['ses_priorite_adht'];
 
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/aide/
+ *   Fichier :
+ *   Affiche l'aide pour récapitulatif des informations Adhérent
+*/
+ 
+	include_once '../config/connexion.php';
+	$masession = new sessions(); 
+	$priorite_adht = $_SESSION['ses_priorite_adht'];
 ?>  
+
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>

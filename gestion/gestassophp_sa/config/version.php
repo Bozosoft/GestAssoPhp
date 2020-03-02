@@ -14,14 +14,14 @@
  */
  
 /**
- *  Directory :  /ROOT_DIR_GESTASSO/config/
+ *  Directory : /ROOT_DIR_GESTASSO/config/
  *   Fichier :
  *   la version de gestAssoPhp
- *  -
+ *   ENCODAGE UTF-8 sans BOM
 */
 
-/**** La version de GestAsssoPhp  */
-$VERSION = "GestAssoPhp+Pg V 7.6.3";
+/* La version de GestAsssoPhp  */
+$VERSION = "GestAssoPhp+Pg V 7.6.4-dev2";
 define('VERSION', $VERSION);
 
 ?>

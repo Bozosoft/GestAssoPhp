@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg index_install.tpl copyright 2007-2019  (c) JC Etiemble HTML5*}
+ {* Installation de GestAssoPhp+Pg index_install.tpl @copyright 2007-2020 (c) JC Etiemble HTML5*}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>

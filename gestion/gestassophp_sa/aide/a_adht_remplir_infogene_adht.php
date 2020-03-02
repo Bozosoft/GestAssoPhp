@@ -8,16 +8,22 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019 (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
-//include_once '../../fileloc_gestasso_s.php';  //----------Pour TEMPLATE et localise rep 
-include_once '../config/connexion.php';
- $masession = new sessions(); 
- $priorite_adht = $_SESSION['ses_priorite_adht'];
 
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/aide/
+ *   Fichier :
+ *   Affiche l'aide pour créer une fiche Informations personnelles
+*/
+
+	include_once '../config/connexion.php';
+	$masession = new sessions(); 
+	$priorite_adht = $_SESSION['ses_priorite_adht'];
 ?>  
+
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -68,9 +74,9 @@ include_once '../config/connexion.php';
   <span class="TextenoirGras">Attention</span><br/>- la zone <?php echo _LANG_FICHE_ADHT_COMPL;?>	ne doit pas comporter de retour à la ligne (touche Entrée) afin de permettre un export correct du fichier "<?php echo ADHERENT_BENE ;?>s" au format tableur.<br/>
   <br/> 
 
-	
   <?php	} ?>
-  <p>&nbsp;</p>
+  <p>- !! IMPORTANT !! OBLIGATOIRE pour votre sécurité, n'oublier pas d'utiliser le bouton <img src='../images/icones16/i_stop.png' alt="out" width="16" height="16" title='<?php echo _LANG_MENU_EXIT_TITLE ;?> '/> à la fin de votre session.<br />
+  &nbsp;</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>

@@ -8,11 +8,17 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/aide/
+ *   Fichier :
+ *   Affiche l'aide pour l'affichage de l'association et une information sur l'évolution de la version (partie Admin)
+*/
+
 include_once '../config/connexion.php';
  
 ?>  

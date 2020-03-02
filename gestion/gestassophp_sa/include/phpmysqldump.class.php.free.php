@@ -139,7 +139,7 @@
 *  21/09/2014 - ajout sécurité sur "SHOW TABLES."  
 *
 * modifié par JCE - GestAssoPhp
-* @package   GestAssoPhp+Pg 2019
+* @package   GestAssoPhp+Pg 2020
 *		
 */
 		

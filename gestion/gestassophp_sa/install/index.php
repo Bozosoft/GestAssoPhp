@@ -1,29 +1,15 @@
 <?php
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
- * Basé sur Gestion membres Pour CAP Compétences Version originale avril 2003 et sur la version Pour FB-Rouen 2007  (c) JC Etiemble 
  * ---------------------------
  * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
  * Auteur original : Jean-Claude Etiemble
- * @link :  http://creativecommons.org/licenses/by-nc-sa/2.0/fr/  - Paternité - Pas d'Utilisation Commerciale - Partage des Conditions Initiales à l'Identique 2.0 France
- * Vous êtes libres : de reproduire, distribuer et communiquer cette création au public, de modifier cette création
- * Selon les conditions suivantes : 
- * Paternité. Vous devez citer le nom de l'auteur original de la manière indiquée par l'auteur de l'oeuvre ou le titulaire des droits qui vous confère cette autorisation 
- * Pas d'Utilisation Commerciale. Vous n'avez pas le droit d'utiliser cette création à des fins commerciales. 
- * Partage des Conditions Initiales à l'Identique.  
- * Si vous modifiez, transformez ou adaptez cette création, vous n'avez le droit de distribuer la création qui en résulte que sous un contrat identique à celui-ci
- *
- * Chacune de ces conditions peut être levée si vous obtenez l'autorisation du titulaire des droits sur cette oeuvre.
- * Rien dans ce contrat ne diminue ou ne restreint le droit moral de l'auteur ou des auteurs.
- *
- * Code Juridique (la version intégrale du contrat). http://creativecommons.org/licenses/by-nc-sa/2.0/fr/legalcode
- * Copie de la licence - Contrat Public Creative Commons   /doc/CCA-NA-France.htm
- * Auteur original : Jean-Claude Etiemble
+ * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -31,19 +17,17 @@
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
- * ENCODAGE UTF-8 sans BOM
+ *   ENCODAGE UTF-8 sans BOM
 */
 
-
-	
 
 //@error_reporting(E_ALL); // debug
 	// Raz de variables
 	$accesstemp1 = $accesstemp2 = $accesstemp3 = $accesstemp4 = $accesstemp5 = $accesstemp6 = $accesstemp7 = '';
 	
-	$file_loc = 'fileloc_gestasso_sa.php';   //******************** A DEFINIR
-	// Test si  fileloc existe
-	$fileloc = '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
+	$file_loc = 'fileloc_gestasso_sa.php';   // voir le fichier fileloc_gestasso_sa.php
+	// Test si le fichier fileloc_ existe
+	$fileloc = '../../'.$file_loc; // défintion du fichier pour définir la variable ROOT_DIR
 	if (!file_exists ($fileloc) ) {
 		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le fichier $fileloc est absent à la racine ... <span><br /><br /><br /><br />";
 		exit;
@@ -145,14 +129,14 @@
 				$accesstemp1 = false;				
 			} else 	{
 			$accesstemp = true;
-				echo TMP_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
+				echo TMP_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (selon hébergement).</span><br />";
 				$accesstemp1 = true;
 			}
 			if (is_writeable(TMP_TEMPLATES_C_LOCATION)) {
 				echo "<span class='TextevertGras'>OK</span> (".TMP_TEMPLATES_C_LOCATION.")<br />";
 				$accesstemp2 = false;					
 			} else 	{
-				echo TMP_TEMPLATES_C_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
+				echo TMP_TEMPLATES_C_LOCATION."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (selon hébergement).</span><br />";
 				$accesstemp2 = true;
 			}
 // Fichiers Photo
@@ -161,7 +145,7 @@
 				echo "<span class='TextevertGras'>OK</span> (".DIR_PHOTOS.")<br />";
 				$accesstemp3 = false;	
 				} else 	{
-				echo DIR_PHOTOS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur  (777).</span><br />";
+				echo DIR_PHOTOS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur  (selon hébergement).</span><br />";
 				$accesstemp3 = true;
 			}	
 // Fichiers Adhérents
@@ -170,7 +154,7 @@
 				$accesstemp4 = false;	
 			echo "<span class='TextevertGras'>OK</span> (".DIR_FILES_ADHTS.")<br />";
 			} else 	{
-				echo DIR_FILES_ADHTS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
+				echo DIR_FILES_ADHTS."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (selon hébergement).</span><br />";
 				$accesstemp4 = true;
 			}	
 		
@@ -180,17 +164,17 @@
 				$accesstemp6 = false;	
 			echo "<span class='TextevertGras'>OK</span> (".ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."config) <br />";
 			} else 	{
-				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (777).</span><br />";
+				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (selon hébergement).</span><br />";
 				$accesstemp6 = true;
 			}		
 	
-// Fichiers sessions			
+// Fichiers de sessions			
 	echo "<br /><span class='TextenoirGras'>V&eacute;rification du r&eacute;pertoire sessions :</span><br />";	
 			if (function_exists('session_start')) {
 				echo "<span class='TextevertGras'>OK</span> sauvegarde des sessions<br />";
 				$accesstemp7 = false;	
 				} else 	{
-				echo $sessionpath."&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur les sessions.</span><br />";
+				echo "&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur les sessions.</span><br />";
 				$accesstemp7 = true;
 			}	
 

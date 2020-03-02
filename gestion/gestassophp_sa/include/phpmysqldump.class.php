@@ -141,7 +141,7 @@
 * 12/01/2017 MODIFICATION remplace mysql par mysqli pour export PHP 5.6, 7.x
 *
 * modifié par JCE - GestAssoPhp
-* @package   GestAssoPhp+Pg 2019
+* @package   GestAssoPhp+Pg 2020
 *		
 */
 		

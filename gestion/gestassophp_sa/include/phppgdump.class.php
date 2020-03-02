@@ -71,7 +71,7 @@
 /////////////////////////////////
 /*
 * 29/12/2009 remplace var par  private ou public PHP5
-* version......... : 1.01  pour gestassophp 2010-2019
+* version......... : 1.01  pour gestassophp 2010-2020
 */
 
 

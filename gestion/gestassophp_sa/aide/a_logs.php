@@ -8,12 +8,20 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
- include_once '../config/connexion.php';  
+
+/**
+ *  Directory :  /ROOT_DIR_GESTASSO/aide/
+ *   Fichier :
+ *   Affiche l'aide pour la page consulter les logs des connexions
+*/
+ 
+	include_once '../config/connexion.php';  
 ?>  
+
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>

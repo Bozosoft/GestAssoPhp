@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2019  ↄ⃝  JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2020  ↄ⃝  JC Etiemble HTML5*}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>

@@ -9,4 +9,7 @@ gestion/gestassophp_sa/photos/*.gif
 gestion/gestassophp_sa/doc/*.ods
 # ignorer fichier temporaire de smarty
 gestion/gestassophp_sa/temp/templates_c/
-
+# ignorer fichier template pour connexion login.tpl avec information pour la démo free.fr
+gestion/gestassophp_sa/templates/login.tpl.free.tpl
+# ignorer fichier template pour connexion index.php avec information pour la démo free.fr
+gestion/gestassophp_sa/index.php.free.php

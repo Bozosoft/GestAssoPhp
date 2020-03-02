@@ -8,20 +8,19 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *   Fichier :
- *   Affiche l'aide pour les priorités,
+ *   Affiche l'aide pour les priorités
 */
 
- //include_once '../config/connexion.php';  
- 
- ?>  
+	//include_once '../config/connexion.php';  
+?>  
  
  <span class="TextenoirGras">0 = accès interdit</span>, <br />
 <span class="TextenoirGras">1 = Membre</span> accès à <?php echo _LANG_MENU_ADHT_MEMBRES.' : '._LANG_MENU_ADHT_INFORMATION.', '._LANG_MENU_ADHT_LISTE ;?>

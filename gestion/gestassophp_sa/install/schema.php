@@ -8,22 +8,19 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2014
- * @copyright 2007-2014  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  
- * ENCODAGE UTF-8 sans BOM
  * basé sur le système d'installation de CMS made simple 
-# CMS - CMS Made Simple
-# (c)2004 by Ted Kulp 
-# This Project's homepage is: http://cmsmadesimple.org/
+ * CMS - CMS Made Simple (c)2004 by Ted Kulp This Project's homepage is: http://cmsmadesimple.org/
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/install/
  *   Fichier :
  *   Installation du système
- * ENCODAGE UTF-8 sans BOM  
+ *   ENCODAGE UTF-8 sans BOM  
 */
 
 

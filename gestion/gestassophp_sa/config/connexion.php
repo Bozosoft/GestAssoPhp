@@ -8,8 +8,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2019
- * @copyright 2007-2019  (c) JC Etiemble
+ * @version :  2020
+ * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/config/
  *   Fichier :
  *   Le fichier de connexion à la BD 
+ *   ENCODAGE UTF-8 sans BOM
 */	
 
 //----------------------------------------------------------------------------------
