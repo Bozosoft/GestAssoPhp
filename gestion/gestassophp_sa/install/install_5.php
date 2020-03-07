@@ -29,19 +29,19 @@
 // On modifie le repertoire de Smarty pour .....	
 	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c 
-//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
-//  verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
+	//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ; // répertoire par défaut de compilation = templates_c 
+	//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
+	//  verson 3.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ; // répertoire par défaut de compilation = templates_c // Smarty version 3.x
 	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
-//echo TEMPLATES_LOCATION_INSTAL;
+//echo TEMPLATES_LOCATION_INSTAL;  // DEBUG
 // OPTIONS	
 	$tpl->error_reporting = E_ALL & ~E_NOTICE;
 	//Gestion erreur retour arrière depuis page 5
 	$texterreurretour_ar = (get_post_variable('e_rar','')); // 
-	$tpl->assign('texterreurretour_ar',$texterreurretour_ar); // information	erreur
+	$tpl->assign('texterreurretour_ar',$texterreurretour_ar); // information erreur
 	
-	$id_adht = (get_post_variable('id_adht','')); // 
+	$id_adht = (get_post_variable('id_adht',''));
 //$id_adht = '1'; // pour TEST
 	$confing_fin = 'ok';
 	if ($id_adht == '1') {	 // vérifie que c'est bien la page 4 qui a été envoyée
@@ -69,7 +69,7 @@
 	
 	$tpl->assign('configuration',CONFIG_FILEOK); // le fichier de configuration
 	$tpl->assign('configuration_rep',CONFIG_REPOK); // le repertoire de configuration	
-	$tpl->assign('message',$message); // information	erreur
+	$tpl->assign('message',$message); // information erreur
 		
 	$content = $tpl->fetch('install_5.tpl'); // On affiche ...	
 	$tpl->assign('content',$content);		

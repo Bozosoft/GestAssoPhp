@@ -1,11 +1,11 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
 {* Affichage de la fiche de l'adhérent gestion *}
 {* Affichage du CONTENU avec AIDE *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_adht_gerer_fiche_adht.php','popup','height=420,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
     <header class="header_titre">&nbsp;{language name=titre_visu_fiche_adht}</header>
 	<div class="ligne_coul"></div> 	
-	<div id="contenu"> {*défini le contenu .. *}
+	<div id="contenu"> {* défini le contenu .. *}
 {* -- RECAPITULATF -- *}	
     <table style="width:100%;">
 		<tr> 
@@ -90,10 +90,10 @@
 	  <tr> 
 		    <td class="Lignegris_pad1" style="width:20%;">
 			{if $data_adherent.datenaisance_adht <> ""} {language name=tpl_adht_datenais}<br /><br />{/if}
-			{if $data_adherent.telephonef_adht} {language name=tpl_col_adht_teleph}<br />{/if} {* 25% -> 30*}
+			{if $data_adherent.telephonef_adht} {language name=tpl_col_adht_teleph}<br />{/if} {* 25% -> 30 *}
 			{if $data_adherent.telephonep_adht} {language name=tpl_col_adht_portable}<br />{/if}
 			{if $data_adherent.telecopie_adht} {language name=fiche_adht_fax}<br />{/if}
-			{if $data_adherent.profession_adht} {language name=fiche_adht_profession}<br />{/if}{* +profession V 7*}	 
+			{if $data_adherent.profession_adht} {language name=fiche_adht_profession}<br />{/if}{* +profession V 7 *}	 
 			<br />
 			{if $data_adherent.email_adht} {language name=fiche_adht_mail} 
 				{if $priorite_adht > 4}  {* Ajout FONCTION MAIL*}
@@ -120,7 +120,7 @@
 			&nbsp;</td>
 		</tr>	  
   
-		<tr> {* Affiche Autorisation de consulter ...*}
+		<tr> {* Affiche Autorisation de consulter ... *}
 			<td class="Lignegris_pad1" colspan="4">
 		{if $data_adherent.visibl_adht=="Non"}	
 			<span class="TexterougeGras">{$data_adherent.visibl_adht}</span>{language name=visu_fiche_adht_coord_no} {$adherent_bene}s {$nom_asso_gestassophp}<br/>
@@ -161,5 +161,6 @@
 	{* ----Feuille INFO_FICHIER_MISSIONS  ------- *}
 	{if $info_fichiermission_adht == '1'}{include file='adherent/consulter_info_fichiermission_adht.tpl'}{/if}
 {/if}
+
 	
-	</div> {* / défini le contenu .. *} 
+	</div> {* Fin défini le contenu .. *} 

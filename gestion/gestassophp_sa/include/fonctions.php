@@ -44,9 +44,9 @@ function join_path()
 
 /**   
 *    Fonction récupere sur forum     passe du format 1972-02-09 au format francais et inversement
-*	12/02/2006 --> 2006-02-12   	2006-02-12--> 12-02-2006  ou 2006/02/12-->12-02-2006
+*	 12/02/2006 --> 2006-02-12   	2006-02-12--> 12-02-2006  ou 2006/02/12-->12-02-2006
 *    retourne "" si $date n'est pas defini
-*  modifié par fonction  http://dotclear.placeoweb.com/post/PHP-5.3 le 15/10/2009  UNIQUEMENT 2009-07-14 => 14/07/2009
+*    modifié par fonction  http://dotclear.placeoweb.com/post/PHP-5.3 le 15/10/2009  UNIQUEMENT 2009-07-14 => 14/07/2009
 */
 function switch_date($date) 
 {
@@ -60,9 +60,9 @@ function switch_date($date)
 
  
 /** 
- * Fonction   passe du format 2006-02-12 -->12/02/2006 pour affichage apres requete SQL Modif de JCE 	
- * echo switch1_date("12 02 2006") ;
- * echo switch_sqlFr_date("2006-02-12") ;
+ *  Fonction   passe du format 2006-02-12 -->12/02/2006 pour affichage apres requête SQL Modif de JCE 	
+ *  echo switch1_date("12 02 2006") ;
+ *  echo switch_sqlFr_date("2006-02-12") ;
  *  modifié par fonction  http://dotclear.placeoweb.com/post/PHP-5.3 le 15/10/2009
 */ 
 function switch_sqlFr_date($date) 
@@ -79,8 +79,8 @@ function switch_sqlFr_date($date)
 
 
 /**  
-* Fonction  passe du format 2006-08-16 11:48:22 --> 12/02/2006  11:48:22 ( format francais)  apres requete SQL Modif de JCE 	
- *  modifié par fonction  http://dotclear.placeoweb.com/post/PHP-5.3 le 15/10/2009
+*  Fonction  passe du format 2006-08-16 11:48:22 --> 12/02/2006  11:48:22 ( format francais) apres requête SQL Modif de JCE 	
+*  modifié par fonction  http://dotclear.placeoweb.com/post/PHP-5.3 le 15/10/2009
 */  
 function switch_date_heure($date) 
 {
@@ -94,9 +94,9 @@ function switch_date_heure($date)
 
 
 /**
-* Fonction Comparer 2 dates  Description : Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. <br /> <br /> Format des dates : aaaa-mm-jj
-www.nexen.net/index.php?option=com_nexen_v2&Itemid=119&lang=FR&nexen_url_type=intern&nexen_path=%252Fscripts%252Fdetails.php%253Fscripts%253D1133
- *  modifié par fonction  explode  le 15/10/2009 ->date1= 2009-10-15 date2= 2009-12-31  date1explode $a1.'#'. $m1.'#'.  $j1  = 2009#10#15 date2ex= 2009#12#31
+* Fonction Comparer 2 dates  Description : Retourne vrai si la date 1 est inférieure ou égale à la date 2, 
+* sinon retourne faux. <br /> <br /> Format des dates : aaaa-mm-jj www.nexen.net/index.php?option=com_nexen_v2&Itemid=119&lang=FR&nexen_url_type=intern&nexen_path=%252Fscripts%252Fdetails.php%253Fscripts%253D1133
+*  modifié par fonction  explode  le 15/10/2009 ->date1= 2009-10-15 date2= 2009-12-31  date1explode $a1.'#'. $m1.'#'.  $j1  = 2009#10#15 date2ex= 2009#12#31
 */  
 function compare_date($d1 , $d2) 
 {
@@ -131,12 +131,11 @@ if ($d2 == '') $d2 = '0000-00-00' ; // évite date NULL
 
 /**
 * Fonction Verifie si une date est bien entre au format jj/mm/aaaa
- * check_madateFR($date)    bool checkdate ( int $month , int $day , int $year )
- * $date = date au format 26/07/2007
- * http://de3.php.net/manual/fr/function.checkdate.php
- * Modif JCE avec ereg()
-  *  modifié par fonction explode le 15/10/2009  preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/"  NOTA \/  pour /
-
+* check_madateFR($date)    bool checkdate ( int $month , int $day , int $year )
+* $date = date au format 26/07/2007
+* http://de3.php.net/manual/fr/function.checkdate.php
+* Modif JCE avec ereg()
+* modifié par fonction explode le 15/10/2009  preg_match("/^(\d{2})\/(\d{2})\/(\d{4})$/"  NOTA \/  pour /
 
   if (( check_madateFR("32/03/2008") )== TRUE) {
 				echo 'OK';
@@ -162,14 +161,14 @@ function check_madateFR($date)
 	
 /**
 *  3 Fonctions Basées sur  functions.inc.php
- * - Fonctions utilitaires Gallette
- *  Copyright (c) 2003 Frédéric Jaqcuot 
+*  - Fonctions utilitaires Gallette
+*  Copyright (c) 2003 Frédéric Jaqcuot 
 
- *  Récupère la variable passée en Post ou get
- * 	$var= get_post_variable("var","$defaut");
- * 	 $Var = variable récupérée
- * 	 var  valeur passée en Post ou get
- * 	 $defaut = valeur par défaut si necessaire si,on ""
+*  Récupère la variable passée en Post ou get
+* 	 $var= get_post_variable("var","$defaut");
+* 	 $Var = variable récupérée
+* 	 var  valeur passée en Post ou get
+* 	 $defaut = valeur par défaut si necessaire si,on ""
 */  	
 function get_post_variable($nom_var, $par_defaut)
 {
@@ -184,10 +183,11 @@ function get_post_variable($nom_var, $par_defaut)
 
 
 /**
- *  Récupère  la variable passée en Post ou get
- *  Modification JCE  + htmlentities($_GET['msg'], ENT_QUOTES)	   http://fr.php.net/htmlentities   Tous les caractères qui ont des équivalents en entités HTML sont effectivement traduits
- *  Modification JCE  + ou http://fr.php.net/manual/fr/function.htmlspecialchars.php   pour éviter que des données fournies par les utilisateurs contiennent des balises HTML
- * <script>alert("Je t'ai eu !");</script>
+*  Récupère  la variable passée en Post ou get
+*  Modification JCE  + htmlentities($_GET['msg'], ENT_QUOTES)	   
+*  http://fr.php.net/htmlentities   Tous les caractères qui ont des équivalents en entités HTML sont effectivement traduits
+*  Modification JCE  + ou http://fr.php.net/manual/fr/function.htmlspecialchars.php   pour éviter que des données fournies par les utilisateurs contiennent des balises HTML
+* <script>alert("Je t'ai eu !");</script>
 */  
 function get_post_variablehtml($nom_var, $par_defaut)
 {
@@ -236,8 +236,8 @@ function get_post_variable_numeric($nom_var, $par_defaut)
 
 /**
 *  Fonction Retourne le dernier identifiant généré par un champ de type AUTO_INCREMENT  généré par la table MySQL
-* // http://fr3.php.net/manual/fr/function.mysql-insert-id.php By rudolflai at gmail dot com  et  Ben AT alfreido.com
-* $id = Identifiant champ de la table
+*  // http://fr3.php.net/manual/fr/function.mysql-insert-id.php By rudolflai at gmail dot com  et  Ben AT alfreido.com
+*  $id = Identifiant champ de la table
 *  $table= Nom de la table	
 */
 function my_last_id($id,$table)
@@ -359,7 +359,7 @@ function resizeimage($img,$img2,$w,$h)
  
  
 /**
- * Fonction pour tester le nom du fichier sans caractéres spéciaux et sans espace // (^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*$)
+* Fonction pour tester le nom du fichier sans caractéres spéciaux et sans espace // (^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*$)
 */ 
 function validname($string) 
 {
@@ -373,7 +373,7 @@ function validname($string)
     	
 
 /**
- * Fonction pour verifier si le Login + Mot de passe est unique
+* Fonction pour verifier si le Login + Mot de passe est unique
 */ 
 function loginpass_unique($check_login,$check_pass) 
 {
@@ -394,8 +394,8 @@ function loginpass_unique($check_login,$check_pass)
 
 
 /**
- * Fonction pour verifier si le Login ou Mot de passe contiennent les  bons caractères !!
- * si les caractères sont OK renvoie TRUE
+* Fonction pour verifier si le Login ou Mot de passe contiennent les  bons caractères !!
+* si les caractères sont OK renvoie TRUE
 */ 
 
 function is_valid_mylogin($my_variable)
@@ -410,9 +410,9 @@ function is_valid_mypasswd($my_variable)
 	
 	
 /**
- * Fonction renvoie l'age en fonctionde la date 2010-25-01
- * age(1974-01-31')
- *  http://blog.jaysalvat.com/articles/snippet-php-calculer-un-age-a-partir-date-de-naissance.php
+* Fonction renvoie l'age en fonctionde la date 2010-25-01
+* age(1974-01-31')
+*  http://blog.jaysalvat.com/articles/snippet-php-calculer-un-age-a-partir-date-de-naissance.php
 */ 
 	
 function age($date) 
@@ -429,7 +429,7 @@ function age($date)
 } 
 
 /**
- * Fonctions Fin 
+* Fonctions Fin 
 */ 
 
 ?>

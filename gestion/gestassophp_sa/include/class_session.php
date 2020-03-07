@@ -28,7 +28,7 @@
         * @copyright  None -  modifiée par JCE 21/10/2009
         * @version 1.00
         * 
-       */
+   */
 
 	class Sessions { 
     /**
@@ -66,8 +66,8 @@
 	 * Exemple : $valeur = $masession->get_var_session('nom_de_la_variable');	 
             * @access  public
             * @param $var_nom -  La variable à obtenir
-	 *	.
-            */	
+	 *
+     */	
 			public function  get_var_session($key) 
 			{ 
 			return isset($_SESSION[$key]) ? $_SESSION[$key] : FALSE; 
@@ -80,7 +80,7 @@
             * @param $var_nom - Nom de la variable
             * @paran $var_val  - Valeur de la variable $$var_nom
 	 *	
-           */	
+     */	
 			public function set_var_session($key, $value) 
 			{ 
 			$_SESSION[$key] = $value; 
@@ -93,7 +93,7 @@
             * @access  public
             * @param  Aucun
 	 *		
-            */	
+     */	
 			public function end_session() 
 			{ 
 			session_unset(); 
@@ -103,12 +103,12 @@
 
 // AJOUT POUR CONTROLE 
     /**
-            * Fonction - verifie_LogingPaswd_bd() Récupere le Login et pass de la base de donnée.
+     * Fonction - verifie_LogingPaswd_bd() Récupere le Login et pass de la base de donnée.
 	 * Exemple : $logpass=$masession->verifie_LogingPaswd_bd($sessionadherent);			
             * @access  public
             * @param  $sessionadherent  -  Le nom de la sesion adhérent passé lors de l'authentification
 	 * @return  $logpass=array($log,$pas);  --> $log = $logpass[0]; et 	$pas = $logpass[1];
-            */	
+     */	
 			
 			public function verifie_LogingPaswd_bd($sessionadherent)
             {
@@ -125,14 +125,14 @@
             }
 	
     /**
-            * Fonction -write_log()  Add : 23/05/20007 écrit la requete
+            * Fonction -write_log()  Add : 23/05/20007 écrit la requête
 	 * Inscrit les logs dans la base de donnée
 	 * Exemple : $ecritlog=$masession->write_log("Action_xx",$nom_adht." ".$prenom_adht);	 
             * @access  public
             * @param  $action_log - Login Déconnexion ErreurLogin - Creer xx -- Delete xx -- Modif xx
 	 * @param  $nomprenom = $nom_adht  + $prenom_adht
 	 *	
-            */	
+     */	
 	
 			public function write_log($action_log,$nomprenom)
 			{

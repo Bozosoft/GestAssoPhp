@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/admin/
  *   Fichier :
- *   Affiche le tableau de bord Admin Pour priorite_adht  > ou = 4 donc Membre du CA+Secrétaire+Trésorier+Admin
+ *   Affiche le tableau de bord Admin pour priorite_adht  > ou = 4 donc Membre du CA+Secrétaire+Trésorier+Admin
 */
 
 include_once '../config/connexion.php';
@@ -26,14 +26,14 @@ $_SESSION['tri']=0; // par pour avoir colone 1 = Nom adherents sur liste // Par 
 $_SESSION['tri_sens']=0; // pour avoir liste triée par 1--> 100 ou a-->z;	
 
 $sessionadherent=(empty($_SESSION['ses_id_adht'])) ? $sessionadherent='' :$sessionadherent = $_SESSION['ses_id_adht'];
-	//echo 'super ICI tab bord = '.$log .'<br/>';
+	// echo 'super ICI tab bord = '.$log .'<br/>';
 	
 	// on récupère le login et le password correspondant au numéro de session en cours	
 $logpass=$masession->verifie_LogingPaswd_bd($sessionadherent);
 $log = $logpass[0];
 $pas = $logpass[1];
 	//echo 'LOG = '.$log .'<br/>';
-		//echo 'PASS = '.$pas .'<br/>';
+	//echo 'PASS = '.$pas .'<br/>';
 		
 // vérification de l'authenticité du visiteur		
 if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SESSION['ses_paswd_adht'])) {
@@ -54,19 +54,19 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$nb_adherent_asso = '' ;
 	$nb_adherent_soc_asso = '' ;
 	// la date du jour	
-	$date_du_jour=date('Y-m-d');//Pour définir la différence entre 2  dates
+	$date_du_jour=date('Y-m-d'); //Pour définir la différence entre 2 dates
 //echo 'date_du_jour=date = '.$date_du_jour .'<br/>';
 		
 	/***** ADHERENTS *****/	
-	// on met à jour pour les cotisations  avec Soc_Adh= "s"  en vérifiant la date du jour / datefin_cotisation
+	// 1- on met à jour pour les cotisations  avec Soc_Adh= "s"  en vérifiant la date du jour datefin_cotisation
 	$req_cherche_soc=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='' WHERE soc_adht='s'"); 	
 	$dbresult = $db->Execute($req_cherche_soc);	
-	// 2- chercher toutes les fiches actives  dans TABLE_COTISATIONS en groupant par id_adhtasso
+	// 2- chercher toutes les fiches actives dans TABLE_COTISATIONS en groupant par id_adhtasso
 	$req_verif_cotis_adht = "SELECT id_adhtasso, date_fin_cotis FROM "
 	.TABLE_COTISATIONS." WHERE qui_cotis ='adh' AND cotis <>'999'AND date_fin_cotis >= '".$date_du_jour."' GROUP BY id_adhtasso,date_fin_cotis";
-//echo $req_verif_cotis_adht;
+// echo $req_verif_cotis_adht;
 	$dbresult = $db->Execute($req_verif_cotis_adht);
-	//3-  a affecter  les cotisations  avec Soc_Adh= "s"  +  datefin_cotisation	
+	// 3-  affecter les cotisations avec Soc_Adh= "s"  +  datefin_cotisation	
 		while ($dbresult && $row = $dbresult->FetchRow()) {
 			$id_adht = $row['id_adhtasso'];
 			$datefin_cotisation = $row['date_fin_cotis'];		
@@ -77,17 +77,17 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}
 		
 	
-	// NB total d'adhérents  //renvoie le nombre Total de lignes de la base 
+	// NB total d'adhérents  //renvoie le nombre Total de lignes de la table 
 	$reqcompt_adht = "SELECT id_adht FROM ".TABLE_ADHERENTS ;
 	$dbresult = $db->Execute($reqcompt_adht);
 	 $nb_adherent = $dbresult->RecordCount() ;
 	 
-	// NB total d'ahérents Qui ont Cotisé //renvoie le nombre Total de lignes de la base SI Sociétaire
+	// NB total d'ahérents Qui ont Cotisé //renvoie le nombre Total de lignes de la table SI Sociétaire
 	$reqcompt_adht_soc = "SELECT id_adht FROM ".TABLE_ADHERENTS." WHERE soc_adht ='s'";
 	$dbresult = $db->Execute($reqcompt_adht_soc);
 	$nb_adherent_soc = $dbresult->RecordCount() ;
 
-	 // Montant total des cotisations TOTALE  d'adhérents
+	 // Montant total des cotisations TOTALE d'adhérents
 	$montant_cotisation_adh = 0;
 	$req_verif_montant_adht = "SELECT montant_cotis FROM ".TABLE_COTISATIONS
 	." WHERE qui_cotis='adh' "; //AND cotis =''";
@@ -96,7 +96,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		$montant_cotisation_adh = $montant_cotisation_adh  + ($row['montant_cotis']); 
 	}		
-	// Montant total des cotisations d'adhérents à jour de la cotisation  // modif 12/08/2008
+	// Montant total des cotisations d'adhérents à jour de leur(s) cotisation(s)  // modif 12/08/2008
 	$montant_cotisation_adh_encours = 0;
 	$req_verif_montant_adht_encours = "SELECT montant_cotis FROM ".TABLE_COTISATIONS
 	." WHERE qui_cotis='adh' AND cotis ='' AND date_fin_cotis > '$date_du_jour' ";
@@ -128,7 +128,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nb_adherent_soc',$nb_adherent_soc);
 	$tpl->assign('montant_cotisation_adh',$montant_cotisation_adh); 	
 	$tpl->assign('montant_cotisation_adh_encours',$montant_cotisation_adh_encours); // modif 12/08/2008
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR  AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('admin/tableaubord.tpl'); // On affiche la fiche Tableau de bord
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');
@@ -138,4 +138,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 }
 	
 ?>
-    

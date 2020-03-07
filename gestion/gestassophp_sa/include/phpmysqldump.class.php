@@ -17,7 +17,7 @@
 *
 * changements..... : fixe set_timeout automatique, separe ( merci à ADL )
 *					 ajout de la sauvegarde au vol sans compression du fichier
-*					 reecriture de la methode backup pour en faciliter la lecture
+*					 réecriture de la methode backup pour en faciliter la lecture
 *
 * change ......... : set_timout detect, fly backup, rewrite backup methode to make easy to read
 *
@@ -84,7 +84,7 @@
 *					   si $fichier est ommis un nom de fichier est attribue (methode recomandee)
 *					   le fichier est cree dans un sous repertoire temp du repertoire ou s'execute le script
 *					   Si temp n'existe pas il est cree.verifiez bien si vous avez le droit d'ecrire. 
-*					   Pour la sauvegarde a la volée ( $fly=1 ) rien n'est ecrit sur le disque.
+*					   Pour la sauvegarde a la volée ( $fly=1 ) rien n'est écrit sur le disque.
 *					   le nom du fichier est utilise pour le transfert HTTP
 *
 *					   makes the backup in the file $fichier
@@ -173,7 +173,7 @@ class phpmysqldump
 	public $struct_yes=1;		// 1 = structure  0 pas de stucture
 							
 	
-	private $no_time_limit=TRUE;// si la fonction set_time_limit() est désactivée devient FALSE
+	private $no_time_limit=TRUE; // si la fonction set_time_limit() est désactivée devient FALSE
 							// time limit for big database			
 							
 	private $fp= ''; // add PHP5.3 27/10/2009
@@ -183,7 +183,7 @@ class phpmysqldump
 	function __construct ( $host, $user, $password, $base, $langue="fr", $link=NULL)
 	{	
 		$this->language=$langue;
-		// recherche si set_time_limit() est desactivee  // look for set_time_limit() active
+		// recherche si set_time_limit() est désactivée  // look for set_time_limit() active
 		if(get_cfg_var("safe_mode")){ 
 			$this->no_time_limit=FALSE;
 		}
@@ -222,7 +222,7 @@ class phpmysqldump
 //************** dump de la base ***************** beging the dump****
 	function backup($fichier="") // si $fichier null ignoré sinon utilise comme nom de fichier de sauvegarde
 	{							 // $fichier is optional If is used is the name of the backup file
-		$fp ='';// add PHP5  Undefined variable
+		$fp =''; // add PHP5  Undefined variable
 		if($this->fly){$this->sousdir="";}
 		if($this->errr)
 		{
@@ -432,11 +432,11 @@ class phpmysqldump
 		$message['err_fichier']['fr']='Erreur d\'ouverture de fichier';
 		$message['err_fichier']['en']='Error when open file';
 	
-		$message['err_base']['fr']='base mysqli inexistante'; //+i //+ 12/01/2017
-		$message['err_base']['en']='mysqli database not exist'; //+i //+ 12/01/2017
+		$message['err_base']['fr']='base mysqli inexistante'; // +i // + 12/01/2017
+		$message['err_base']['en']='mysqli database not exist'; // +i // + 12/01/2017
 
-		$message['err_mysql']['fr']='Erreur d\'ouverture de mysqli';//+i //+ 12/01/2017
-		$message['err_mysql']['en']='mysqli server not found'; //+i //+ 12/01/2017
+		$message['err_mysql']['fr']='Erreur d\'ouverture de mysqli'; // +i // + 12/01/2017
+		$message['err_mysql']['en']='mysqli server not found'; // +i // + 12/01/2017
 		
 		$message['err_mysql_table']['fr']='Erreur mysqli SHOW TABLES'; // ++ 21/09 //+i //+ 12/01/2017
 		$message['err_mysql_table']['en']='mysqli server error SHOW TABLES';	 // ++ 21/09 //+i //+ 12/01/2017

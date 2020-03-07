@@ -37,7 +37,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; //  pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 
-// entete du fichier téléchargé	
+// entête du fichier téléchargé	
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=adherents_cotisechues.xls");
     header("Pragma: no-cache");
@@ -49,8 +49,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
     $title = _LANG_EXTRAIT_TABLE.TABLE_ADHERENTS." - ".$now_date;	
     echo("$title\n");  // affiche la ligne de titre
 
-// requete	
-	$date_du_jour=date("Y-m-d");//Pour définir la date du jour pour controler la date date_echeance_cotis 
+// requête	
+	$date_du_jour=date("Y-m-d"); // Pour définir la date du jour pour controler la date date_echeance_cotis 
 	$req_lire_table_adht = "SELECT id_adht,soc_adht,civilite_adht,prenom_adht,nom_adht, adresse_adht, cp_adht, ville_adht,"
 	." telephonef_adht, telephonep_adht, telecopie_adht, email_adht, promotion_adht, datecreationfiche_adht,"
 	." antenne_adht, date_echeance_cotis,"
@@ -90,7 +90,7 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 				$champ20 = html_entity_decode(utf8_decode("NON règlée"),ENT_QUOTES); //"NON règlée";
 			}	
 			 		
-		//ecriture de la ligne
+		// écriture de la ligne
 		//Num	 Societaire	 Civilité	 Prénom	 Nom	 Adresse	 Code Postal	 Ville	 Téléphone	 Tel Portable	 Tel Professionnel	 Email	 DateCreationFiche	 Section	 Date fin cotisation
         print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t $champ8\t $champ9\t $champ10\t $champ11\t  $champ13\t $champ14\t $champ20 \n");
 	}

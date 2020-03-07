@@ -21,21 +21,22 @@
 */
 
 
-//@error_reporting(E_ALL); // debug
+//@error_reporting(E_ALL); // Décommenter pour debug
 	// Raz de variables
 	$accesstemp1 = $accesstemp2 = $accesstemp3 = $accesstemp4 = $accesstemp5 = $accesstemp6 = $accesstemp7 = '';
-	
-	$file_loc = 'fileloc_gestasso_sa.php';   // voir le fichier fileloc_gestasso_sa.php
-	// Test si le fichier fileloc_ existe
-	$fileloc = '../../'.$file_loc; // défintion du fichier pour définir la variable ROOT_DIR
+
+	// le repertoire des fichiers du système GestAssoPhp = ROOT_DIR_GESTASSO défini dans le fichier fileloc_gestasso_sa.php à la racine	
+	$file_loc = 'fileloc_gestasso_sa.php';   
+	// Test si le fichier fileloc_gestasso_xx existe
+	$fileloc = '../../'.$file_loc;
 	if (!file_exists ($fileloc) ) {
 		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le fichier $fileloc est absent à la racine ... <span><br /><br /><br /><br />";
 		exit;
 	}
 
 //*******************************************************************		
-// TEST Version de PHP car les utilisateur ne font pas attention !!
-			$minPHPVersion = "5.6.0"; // ATTENTION PHP
+// TEST lsur la version de PHP car les utilisateurs ne font pas toujours attention !!
+			$minPHPVersion = "5.6.0"; // ATTENTION PHP MINI = 5.6.0
 			$PHPVersion = phpversion();
 			if (phpversion() < $minPHPVersion) {
 				echo "<br /><br />Votre version PHP : $PHPVersion&nbsp;&nbsp;<span class='TexterougeGras'>- Donc Erreur : PHP $minPHPVersion minimum pour une fonctionnement normal.</span>";
@@ -44,19 +45,19 @@
 			}
 //*******************************************************************	
 	
-	// Test si  les libs existe
-	$libadodb = '../../lib/adodb'; // défintion du fichier pour définir  ROOT_DIR
+	// Test si les libs existent
+	$libadodb = '../../lib/adodb'; // défintion du dossier - Gestion de base de données MySql et POstgreSql : ADOdb
 	if (!file_exists ($libadodb) ) {
 		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le dossier $libadodb est absent &agrave; la racine ... <span><br /><br /><br /><br />";
 		exit;
 	}	
-	$libsmarty = '../../lib/smarty'; // défintion du fichier pour définir  ROOT_DIR
+	$libsmarty = '../../lib/smarty'; // défintion du dossier - Système de template : Smarty
 	if (!file_exists ($libsmarty) ) {
 		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le dossier $libsmarty est absent &agrave; la racine ... <span><br /><br /><br /><br />";
 		exit;
 	}	
 	
-	include_once 'include_install.php'; // les variables + les définitions de répertoires
+	include_once 'include_install.php'; // les variables + les définitions des répertoires
 	$masession = new sessions(); // -->la classe session
 	session_unset(); // RAZ
 	session_destroy(); //  RAZ
@@ -102,7 +103,7 @@
 	<div class="ligne_coul"></div> 	
 	<div id="contenu">
 	
-	<br /><span class='TexterougeGras'>* Avant toute installation vérifier les informations sur le fichier <a href="../doc/lisez_moi.txt">lisez_moi.txt</a></span>
+	<br /><span class='TexterougeGras'>* Avant toute installation v&eacute;rifier les informations sur le fichier <a href="../doc/lisez_moi.txt">lisez_moi.txt</a></span>
 	<br /><br /><br />
 	<span class='TextenoirGras'>V&eacute;rification version PHP minimum (PHP 5.6.x):</span>
 	<br />
@@ -164,11 +165,11 @@
 				$accesstemp6 = false;	
 			echo "<span class='TextevertGras'>OK</span> (".ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."config) <br />";
 			} else 	{
-				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (selon hébergement).</span><br />";
+				echo ROOT_DIR_GESTASSO.DIRECTORY_SEPARATOR."'config/&nbsp;&nbsp;<span class='TexterougeGras'>Erreur : V&eacute;rifier les droits sur le serveur (selon h&eacute;bergement).</span><br />";
 				$accesstemp6 = true;
 			}		
 	
-// Fichiers de sessions			
+// Fichiers de sessions		// Attention pour pagesperso FREE.fr il faut un dossiers sessions à la racine	
 	echo "<br /><span class='TextenoirGras'>V&eacute;rification du r&eacute;pertoire sessions :</span><br />";	
 			if (function_exists('session_start')) {
 				echo "<span class='TextevertGras'>OK</span> sauvegarde des sessions<br />";
@@ -179,7 +180,8 @@
 			}	
 
 			
-		if($miniPHPVer || $accesstemp1 || $accesstemp2|| $accesstemp3|| $accesstemp4|| $accesstemp5|| $accesstemp6 || $accesstemp7)  //erreur pas de bouton
+		if($miniPHPVer || $accesstemp1 || $accesstemp2|| $accesstemp3|| $accesstemp4|| $accesstemp5|| $accesstemp6 || $accesstemp7)  
+			// SI erreur donc pas de bouton pour continuer
 			{
 			echo "<br /><br /><br /><span class='TexterougeGras'>VERIFIER et MODIFIER les donn&eacute;es avant de continuer ...</span><br /><br />";		
 ?>
@@ -203,7 +205,7 @@
 
 </section>	<!-- / centre_page -->
 	<footer class="footer_pied_page"> 
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/" target="_blank" title="Gestion des associations">Version : <?php echo VERSION_I ?></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html" target="_blank" title="Gestion des associations - Installation">Version : <?php echo VERSION_I ?></a>
     </footer>
 	
 </div> <!-- / conteneur_page  -->

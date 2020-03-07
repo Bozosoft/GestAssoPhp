@@ -40,17 +40,17 @@ $pas = $logpass[1];
 
 	// Raz de variables
 	$affiche_message =''; // Raz message	
-	//Tableau xpour affichage
+	// Tableau pour affichage
 	$cotis_adh=array(); // Tableau $cotis_adht[champ de la table]  passage des data vers TPL
 	// initialisation	
-	$date_du_jour=date('Y-m-d');// la date du jour // aaa-mm-jj -->2007-08-08
+	$date_du_jour=date('Y-m-d'); // la date du jour // aaa-mm-jj -->2007-08-08
 
 	
 
-//echo $priorite_adht;
+//echo $priorite_adht;  // DEBUG
 	/***** Si ADMINISTRATEUR donc $priorite_adht >4  DROIT DE CONSUTER ET MODIFIER     (4 n'a PAS le droit)	*/
 	if ($priorite_adht > 5 ) { // AUTORISATION
-		$id_cotis_adht = get_post_variable_numeric('id_cotis', '');// l'id de la cotisation existante		
+		$id_cotis_adht = get_post_variable_numeric('id_cotis', ''); // l'id de la cotisation existante		
 		$affiche_message =' N&deg; '.$id_cotis_adht;	
 		$req_lire_info_cotis = "SELECT id_cotis,qui_cotis,id_adhtasso,"
 		."id_type_cotis,montant_cotis,info_cotis,date_enregist_cotis,"
@@ -97,9 +97,9 @@ $pas = $logpass[1];
 	$tpl->assign('priorite_adht',$priorite_adht);
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht);
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE		
-	$tpl->assign('date_dujour',switch_sqlFr_date($date_du_jour));// date du jour pour  Date d'inscription 
+	$tpl->assign('date_dujour',switch_sqlFr_date($date_du_jour)); // date du jour pour  Date d'inscription 
 	$tpl->assign('affiche_message',$affiche_message); // pour afficher
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('adherent/consulter_cotisations_adht.tpl'); // On affiche ...	
 	$tpl->assign('content',$content);		
 	$tpl->display('page_index.tpl');	

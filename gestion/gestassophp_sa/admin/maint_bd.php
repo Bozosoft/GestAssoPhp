@@ -52,16 +52,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$sav_struct_bd = '';
 	$sav_data_bd = '';
 	// la date du jour	
-	$date_du_jour=date('Y-m-d');//Pour définir la différence entre 2  dates
+	$date_du_jour=date('Y-m-d'); //Pour définir la différence entre 2 dates
 		
 
 /***** VOIR POUR OPTIMISATION DES TABLES */	
 	 // opt_bd=Ok
 	if (isset($_REQUEST["opt_bd"])) {
-		$opt_bd_ok = get_post_variablehtml('opt_bd','0');// par défaut Ok
+		$opt_bd_ok = get_post_variablehtml('opt_bd','0'); // par défaut Ok
 		if ($opt_bd_ok == 'Ok') {	
 
-// si  postgres OPTIMIZE  http://docs.postgresqlfr.org/8.2/sql-vacuum.html
+// si  postgresql OPTIMIZE  http://docs.postgresqlfr.org/8.2/sql-vacuum.html
 			if ( TYPE_BD_AODB == 'postgres' ) {		
 				//Donne la liste des tables		
 				$sql_tables_pg =
@@ -77,30 +77,30 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$dbresult_tables_pg->Close() ; // ferme les connexions 
 			} // si  postgres OPTIMIZE fin
 
-// si  mysql OPTIMIZE		
+// si  MySql OPTIMIZE		
 			if ( TYPE_BD_AODB == 'mysql' ||  TYPE_BD_AODB == 'mysqli') { //12/01/2017
 				//on prépare la requête 
 				$sql = "OPTIMIZE TABLE";  //////////////////////
 				//on recherche toutes les données des tables   		
 				$dbresult = $db->Execute('SHOW TABLE STATUS');				
 				while (($row = $dbresult->FetchRow())) {			
-					//on regarde seulement les tables qui affichent des pertes   http://dev.mysql.com/doc/refman/5.0/fr/show-table-status.html
+					// on regarde seulement les tables qui affichent des pertes   http://dev.mysql.com/doc/refman/5.0/fr/show-table-status.html
 					if($row['Data_free'] > 0) { 
-							//et on l'inclut si elle comporte des pertes 
+							// et on l'inclut si elle comporte des pertes 
 							$sql .= '`'.$row['Name'].'`, '; 
 							// liste des tables avec pertes
 	//						echo 'Table : <strong>'. $row['Name'].'</strong> Pertes : <strong>'.$row['Data_free']."</strong><br />\n\n";	
 					} 
 				} 			
-				//on enlève le ', ' de trop 
+				// on enlève le ', ' de trop 
 				$sql = substr($sql, 0, (strlen($sql)-2)); 
-				//et on optimise 
+				// et on optimise 
 				$dbresult1 = $db->Execute($sql);
 				$tpl->assign('optimisation','<span class="TextevertGras">'._LANG_MESSAGE_TABLES_OPT.'</span>');	
 
 			}	
 			
-		} else { // si  mysql OPTIMIZE fin	
+		} else { // si MySql OPTIMIZE fin	
 		header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR); 
 		}
 
@@ -108,7 +108,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	 
 
 /***** ON SAUVEGARDE  les données  .... */		
-		//form action="export_bd.php"
+		// form action="export_bd.php"
 	
 
 /***** ---------------------------------------------------------------------- */	
@@ -126,7 +126,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	// On n'affiche rien juste le download du fichier .....
 
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR  AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('admin/maint_bd.tpl'); // On affiche la liste des logs	
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');
@@ -137,4 +137,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 }
 	
 ?>
-    

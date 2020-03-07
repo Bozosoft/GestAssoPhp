@@ -17,7 +17,7 @@
 	<script src="js/html5shiv.min.js"></script>
 	{/literal}
 	<![endif]-->
-	<title>GestAssoPhp+Pg Pour g&eacute;rer votre association - {$version}</title>
+	<title>GestAssoPhp+Pg pour g&eacute;rer votre association - {$version}</title>
 </head>
 <body onload="document.getElementById('login').focus()">
  	
@@ -26,7 +26,7 @@
 			{$messagetitre} {$nom_asso_gestassophp}
     </header> {* / défini le bandeau haut *}	
 	
-	<div class="gauche_page"> {*défini la zone gauche *}
+	<div class="gauche_page"> {* défini la zone gauche *}
 		<nav>
 			<h1>{language name=menu_adht_membres}</h1>
 			<ul>
@@ -48,7 +48,7 @@
 			<br /><br />
 			<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="Syst&egrave;me mise &agrave; disposition sous un contrat Creative Commons"/></a><br /><br /><figcaption  class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></figcaption>
 		</figure>			
-	</div> {* / défini la zone gauche*}	
+	</div> {* / défini la zone gauche *}	
 	<div class="section_centre_page">{*défini les infos .. ex section *}
 	
 		<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('aide/a_login.php','popup','height=420,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
@@ -84,8 +84,8 @@
 		</div> {* / défini le contenu .. *}	
 	</div>{* / défini les infos .. ex /section *}
 
-	<footer class="footer_pied_page"> {*défini le pied de page  ne pas modifier lces lignes*}
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="R&eacute;alisation" >{$version}</a>
+	<footer class="footer_pied_page"> {*défini le pied de page  ne pas modifier lces lignes *}
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="Evolution" >{$version}</a>
     </footer> {* / défini le pied de page *}
 	
 </div>  {* / défini la page extérieure *}

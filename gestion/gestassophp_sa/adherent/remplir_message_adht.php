@@ -41,20 +41,20 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	// Raz de variables
 	$id_adht = ''; //RAZ
-	//Tableau xpour affichage
+	// Tableau pour affichage
 	$adherent = array(); // Tableau $adherent[champ de la table]  passage des data vers TPL
 	$emmeteur = array();
 	$required = array(); // Champs Obligatoires à saisir
 	$erreur_saisie = array(); //Erreur si  Champs Obligatoires à saisir
 	// initialisation
-	$dateh_du_jour=date('Y-m-d H:i');// la date du jour 
+	$dateh_du_jour=date('Y-m-d H:i'); // la date du jour 
 	
 
 	/***** Si ADMINISTRATEUR donc $priorite_adht >4  DROIT DE CONSUTER ET MODIFIER   */
 		if ($priorite_adht >= 5 ) { // AUTORISATION		
-			$id_adht = get_post_variable_numeric('id_adht', '');// l'id de la personne destinataire
+			$id_adht = get_post_variable_numeric('id_adht', ''); // l'id de la personne destinataire
 			$affiche_message =' -&nbsp;(<span class="Texterouge">'._LANG_MESSAGE_MODIF.'</span>)'; // ENVOI  Message
-			$disabled = array (  //   pour afficher "disabled" les champs non modifiables du formulaire
+			$disabled = array (  // pour afficher "disabled" les champs non modifiables du formulaire
 				'email_adht' => 'disabled="disabled"',
 				'email_emmet'=> 'disabled="disabled"'
 			);
@@ -70,14 +70,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	if (isset($_POST['valid'])) {
 
 		// -- Récuprération des variable du formulaire ---
-		$adherent['email_adht'] = get_post_variable ('email_adht','');// enléve les parasites		
+		$adherent['email_adht'] = get_post_variable ('email_adht',''); // enléve les parasites		
 		$email_emmet  = get_post_variable ('email_emmet','');
 		$email_sujet = get_post_variablehtml ('email_sujet',''); // htmlspecialchars($_GET[$nom_var], ENT_QUOTES);
 		$email_message  =  (get_post_variablehtml ('email_message',''));
 		$pnom_admin = get_post_variable ('pnom_admin','');
 		$id_adht = get_post_variable ('id_adht','');
-//echo "id_adht=".$id_adht."<br />";	
-//echo "email_adht=".$adherent[email_adht]."<br />email_emmet=".$email_emmet."<br />email_sujet=".$email_sujet."<br />email_message=".$email_message."<br />pnom_admin=".$pnom_admin;
+//echo "id_adht=".$id_adht."<br />";	  // DEBUG
+//echo "email_adht=".$adherent[email_adht]."<br />email_emmet=".$email_emmet."<br />email_sujet=".$email_sujet."<br />email_message=".$email_message."<br />pnom_admin=".$pnom_admin;  // DEBUG
 		
 		if 	($email_sujet =='') {
 				$erreur_saisie ['email_sujet'] = _LANG_MESSAGE_REMPLIR_ERR_SUJET_MAIL ;
@@ -88,7 +88,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}		
 		
 			if (count($erreur_saisie)==0) {
-			// Si Aucune erreur de saisie ON Valide le 
+			// Si Aucune erreur de saisie ON Valide 
 /*
 http://www.vulgarisation-informatique.com/mail.php
 Cc: : cet en-tête permet de spécifier les autres destinataires qui recevront le mail en Cc (Carbon copy), c'est à dire que tous les destinataires pourront voir à qui le message a été transmis.
@@ -108,7 +108,7 @@ Content-Transfer-Encoding : cet en-tête permet de spécifier l'encodage du mail
 				// -------- To			
 				$to =$adherent['email_adht'] ; //destinataire
 				// -------------------------- SUJET --------------	
-				//http://de3.php.net/manual/fr/function.htmlspecialchars-decode.php
+				// http://de3.php.net/manual/fr/function.htmlspecialchars-decode.php
 				$subject =  htmlspecialchars_decode($email_sujet , ENT_QUOTES);  // ENT_QUOTES	Convertira les guillemets et les apostrophe
 				// -------- Message
 				$email_message =  htmlspecialchars_decode($email_message, ENT_QUOTES);				
@@ -123,14 +123,14 @@ Content-Transfer-Encoding : cet en-tête permet de spécifier l'encodage du mail
 
 				} else { // si mail NON OK
 		
-				//message 'erreur			
+				// message 'erreur			
 					header('location: gerer_fiche_adht.php?id_adht='.$id_adht."&mail=0"); 			
 			
 				}
 			
 			}
-		//header('location: remplir_message_adht.php?id_adht='.$id_adht); 		
-	//renvoi champs	Si ERREUR
+		// header('location: remplir_message_adht.php?id_adht='.$id_adht); 		
+	// renvoi champs Si ERREUR
 		$tpl->assign('email_sujet',$email_sujet);
 		$tpl->assign('email_message',$email_message);
 		
@@ -144,14 +144,14 @@ Content-Transfer-Encoding : cet en-tête permet de spécifier l'encodage du mail
 		." id_adht='$id_adht' ";
 		$dbresult_adht = $db->Execute($req_lire_infogene_adht);
 		
-		// On récupere les données de la requette sous forme de tableau  $adherent["Nom_du_Champs_Table"]
+		// On récupère les données de la requête sous forme de tableau  $adherent["Nom_du_Champs_Table"]
 		$adherent = $dbresult_adht->FetchRow();
 		$tpl->assign('data_adherent',$adherent);
 
-		//Qui est l'emmeteur du message
+		// Qui est l'emmeteur du message
 		$req_lire_nom_emmeteur = "SELECT prenom_adht,nom_adht, email_adht"
 		." From ".TABLE_ADHERENTS." WHERE id_adht='$sessionadherent'";	
-//echo $req_lire_nom_emmeteur ;
+//echo $req_lire_nom_emmeteur ;  // DEBUG
 		$dbresult_emmeteur = $db->Execute($req_lire_nom_emmeteur);		
 		$tpl->assign('email_emmet',$dbresult_emmeteur->fields['email_adht']);
 		$tpl->assign('pnom_admin',$dbresult_emmeteur->fields['prenom_adht']." ".$dbresult_emmeteur->fields['nom_adht']);		
@@ -173,7 +173,7 @@ Content-Transfer-Encoding : cet en-tête permet de spécifier l'encodage du mail
 	$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie sur champs Obligatoires		
 	$tpl->assign('disabled',$disabled); // pour afficher "disabled" les zones non modifiables du formulaire
 	$tpl->assign('affiche_message',$affiche_message); // pour afficher	
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('adherent/remplir_message_adht.tpl'); // On affiche ...	
 	$tpl->assign('content',$content);		
 	$tpl->display('page_index.tpl');	

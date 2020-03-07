@@ -24,25 +24,25 @@
 	include_once 'include_install.php';  // les variables + les définitions de répertoires
 	
 	// Raz de variables
-	$erreur_saisie = array();// tableau
+	$erreur_saisie = array(); // tableau
 	$config_bd = array(); //  12/01/17 // Illegal string offset 'drop_bd'
 	$config_bd = array('drop_bd' => ''); //12/01/17 Illegal string offset 'drop_bd' // Vide non coché pour Effacement des tables
-	// suppression des bases type mysql- restechoix de mysqli ou postgres
+	// suppression des bases type mysql - reste le choix de mysqli ou postgres
 		$T_type_bd = array('mysqli'=>'MySQLi', 'postgres'=>'PostgreSQL');
 
-// On modifie le repertoire de Smarty pour .....	
-	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
+// On modifie le répertoire de Smarty pour .....	
+	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // répertoire Fichiers des templates Installation
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c 
-//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
-//  verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
+	//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ; // répertoire par défaut de compilation = templates_c 
+	//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
+	//  verson 3.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION); // répertoire par défaut de compilation = templates_c // Smarty version 3.x
 	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
 // OPTIONS		
 	$tpl->error_reporting = E_ALL & ~E_NOTICE;
 	
 	if (isset($_POST['valid1'])) {	// on arrive de la page 1 
-		$ok_valid=(get_post_variable('valid1','')); // vérifie que c'et bien la page 1 qui a été envoyée
+		$ok_valid=(get_post_variable('valid1','')); // vérifie que c'est bien la page 1 qui a été envoyée
 		if ($ok_valid == 'valid1') {
 
 			$masession = new sessions(); // -->la classe session 
@@ -71,26 +71,26 @@
 	}
 
 
-/***** Si on validé le Formulaire  par le bouton Valider  */
+/***** Si on validé le Formulaire par le bouton Valider  */
 	if (isset($_POST['valid2'] )) { // on a validé la page 2 .tpl
 		
 		$ok_valid2=(get_post_variable('valid2',''));
-//echo'--->'. $ok_valid2 ;		
+//echo'--->'. $ok_valid2 ;  // DEBUG	
 		// -- Récuprération des variable du formulaire ---
 		$config_bd['type_bd'] = post_variable('type_bd',''); //'MySQL ou  postgres'; //Type de base de données
-//echo $config_bd['type_bd'].'-';			
+//echo $config_bd['type_bd'].'-';  // DEBUGG		
 		$config_bd ['serveur_bd']= post_variable('serveur_bd',''); //Addresse du serveur de base de données
-//echo $config_bd ['serveur_bd'].'-';	
-		$config_bd ['nom_bd']= post_variable('nom_bd','');//Nom de la base de données
-//echo $config_bd ['nom_bd'].'-';	
-		$config_bd ['utilis_bd']= post_variable('utilis_bd','');//Nom de la base de données
-//echo $config_bd ['utilis_bd'].'-';	
+//echo $config_bd ['serveur_bd'].'-';  // DEBUGG
+		$config_bd ['nom_bd']= post_variable('nom_bd',''); //Nom de la base de données
+//echo $config_bd ['nom_bd'].'-';  // DEBUG
+		$config_bd ['utilis_bd']= post_variable('utilis_bd',''); //Nom de la base de données
+//echo $config_bd ['utilis_bd'].'-';  // DEBUG
 		$config_bd ['motpas_bd']= post_variable('motpas_bd',''); //Mot de passe
-//echo $config_bd ['motpas_bd'].'-';		
+//echo $config_bd ['motpas_bd'].'-';  // DEBUG	
 		$config_bd ['prefix_bd']= post_variable('prefix_bd','gs0_'); //Préfix des table  /////////////////////////////////
-//echo $config_bd ['prefix_bd'].'-';		
+//echo $config_bd ['prefix_bd'].'-';  // DEBUG
 		$config_bd ['drop_bd']= post_variable('drop_bd',''); //drop table coché oui = on  = Effacement des tables
-//echo '->'.$config_bd ['drop_bd'].'-';
+//echo '->'.$config_bd ['drop_bd'].'-';  // DEBUG
 
 	
 		if ($config_bd ['serveur_bd'] == '') {
@@ -115,8 +115,8 @@
 // Test Connexion à la  base données			
 	// Creé une connexion sur la Base de donnée
 	$db = ADONewConnection($config_bd ['type_bd']); //crée une connexion  
-	$db->debug = false; // true;// false; // Mode débug ou Non
-//echo "TESTpg = " .$pgsql_conn." -->".$config_bd['nom_bd'] ." + ".$config_bd['serveur_bd']." + ".$config_bd['utilis_bd']." +" .$config_bd['motpas_bd'];	
+	$db->debug = false; // true; // false; // Mode débug ou Non
+//echo "TESTpg = " .$pgsql_conn." -->".$config_bd['nom_bd'] ." + ".$config_bd['serveur_bd']." + ".$config_bd['utilis_bd']." +" .$config_bd['motpas_bd'];  // DEBUG
 	// cherche  un port existe pour postgres
 	$dbport = '';	 // en général $dbport = '5432';  
 		if ( ($config_bd['type_bd']) == "postgres") {
@@ -192,7 +192,7 @@
 	
 	$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie				
 	$tpl->assign('config_bd',$config_bd); // le tableau des variables de configuration
-	//$tpl->assign('message',$message); // information	connexion BD OK
+	//$tpl->assign('message',$message); // information connexion BD OK
 	
 	$content = $tpl->fetch('install_2.tpl'); // On affiche ...	
 	$tpl->assign('content',$content);		

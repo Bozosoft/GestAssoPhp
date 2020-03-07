@@ -45,31 +45,31 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$reqcompt_info_tousadht = '';
 	$filtre_adht_nom1 = '';
 	$id_adht = '' ;
-	//Tableau xpour affichage	
+	// Tableau pour affichage	
 	$membres = array();
 	// initialisation	
 		
 
-	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1');// par défaut 1 page
+	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1'); // par défaut 1 page
 	$req_lire_info_adht='';
 	
-	//On prépare l'affichage 
+	// On prépare l'affichage 
 	$affiche_nb_lines = get_post_variable_numeric('affiche_nb_adht',NB_LIGNES_PAGE); //  par défaut NB_LIGNES_PAGE
 	
 	// recherche sur le Nom ou prénom par filtre "filtre_nom"	
 	$filtre_adht_nom ='';
 	if (isset($_GET['filtre_nom'])) {
 		//$filtre_adht_nom=trim(stripslashes(htmlspecialchars($_GET['filtre_nom'],ENT_QUOTES)));
-		$filtre_adht_nom1 = addslashes(trim($_GET['filtre_nom']));// pour les problème d' apostrosphe	 Mod  04/11/2008		
+		$filtre_adht_nom1 = addslashes(trim($_GET['filtre_nom'])); // pour les problème d' apostrosphe	 Mod  04/11/2008		
 	}
 	
-	// requette principale
+	// requête principale
 	$req_lire_info_adht ="SELECT id_adht,prenom_adht,nom_adht,cp_adht,ville_adht, "
 	."telephonef_adht,telephonep_adht,antenne_adht,id_type_antenne,nom_type_antenne FROM "
 	.TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE antenne_adht=id_type_antenne AND soc_adht <>'999' ";
-	// requette pour comptage 
+	// requête pour comptage 
 	$reqcompt_info_adht = "SELECT id_adht FROM ".TABLE_ADHERENTS." WHERE soc_adht <>'999' ";
-	// requette pour Comptage de TOUS les adhérents inscrits		
+	// requête pour Comptage de TOUS les adhérents inscrits		
 	$reqcompt_info_tousadht = "SELECT id_adht FROM ".TABLE_ADHERENTS." WHERE soc_adht <>'999' ";
 
 	// recherche sur le Nom ou prénom par filtre "filtre_nom"
@@ -94,7 +94,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	
 
 	// phase de tri sur les colonnes  #=N°    	 Nom    	 Ville    	 tél  fixe   	 Portable
-	if (isset($_GET['tri'])) { // récupere l le N° de la colosne de tri 
+	if (isset($_GET['tri'])) { // récupère le N° de la colosne de tri 
 		if (is_numeric($_GET['tri'])) {
 			if ($_SESSION['tri']==$_GET['tri']) {
 				$_SESSION['tri_sens']=($_SESSION['tri_sens']+1)%2; // 0 ou 1
@@ -138,7 +138,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	// comptage des fiches
 	$dbresult = $db->Execute($reqcompt_info_adht); //Pour compter le NB d'enregistrements
-//test si aucune fiche
+// test si aucune fiche
 		if ($dbresult) {
 			$nb_lines = $dbresult->RecordCount() ; //Pour compter le NB de fiche	
 		}else {
@@ -161,7 +161,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page ;-)
 		
 	$indice = 1+($numpage_affiche-1)*$affiche_nb_lines ; // le N° de ligne
-	$nbpages=$nbpages+1;// pour affichage sur template Page  1 2 3... avec lien
+	$nbpages=$nbpages+1; // pour affichage sur template Page  1 2 3... avec lien
 	$dbresult = $db->Execute($req_lire_info_adht);	
 
 	// pour afficher le Nb de ligne par page	
@@ -177,10 +177,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$membres[$indice]['nom_adht'] = $row['nom_adht'];	
 		$membres[$indice]['prenom_adht'] = $row['prenom_adht'];				
 		$membres[$indice]['ville_adht'] = $row['cp_adht']." "
-		.stripslashes($row['ville_adht']);// pour eviter les \ dans les noms
+		.stripslashes($row['ville_adht']); // pour eviter les \ dans les noms
 		$membres[$indice]['telephonef_adht'] = $row['telephonef_adht'];
 		$membres[$indice]['telephonep_adht'] = $row['telephonep_adht'];	
-		$membres[$indice]['nom_type_antenne'] =$row['nom_type_antenne'];	// +sections ou secteurs d'activité" propre à l'association		
+		$membres[$indice]['nom_type_antenne'] =$row['nom_type_antenne']; // +sections ou secteurs d'activité" propre à l'association		
 		$membres[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
 	
 		$indice++;	
@@ -196,14 +196,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('id_adht',$id_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('membres',$membres); // tableau $membres[$indice]['xx_adht']	
-	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
+	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requête
 	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
 	$tpl->assign('numpage',$numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_adht',$affiche_nb_lines); // NB lignes par select
 	$tpl->assign('affiche_nb_inscrits',$nb_inscrits); // NB adhérents inscrits
 	$tpl->assign('filtre_adht_nom',$filtre_adht_nom); // Filtrage par Rechercher ...	
 	$tpl->assign('affichenb_adht_options',$T_AFFICHE_NB_PAGE); /// Nb de lignes par page	
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('adherent/liste_adht_admin2.tpl'); // On affiche ...
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');	

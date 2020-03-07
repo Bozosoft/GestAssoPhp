@@ -1,5 +1,5 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
-{* Affichage du CONTENU avec AIDE  Liste des adhérents  + trombi 04/12*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
+{* Affichage du CONTENU avec AIDE  Liste des adhérents  + trombi 04/12 *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_adht_liste_adht.php','popup','height=320,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
     <header class="header_titre">&nbsp;{language name=titre_liste_adht}</header>
@@ -65,7 +65,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>
-<!--  ajout photo -->				
+{* ajout photo *}				
 				<th class="LignegrisTC" style="width:10%;">Photo
 				</th>				
 
@@ -129,7 +129,7 @@
 			<tr class="Lignegris{$item_membres.coul}">
 				<td>{$item_membres.id_adht}</td>
 				<td><a href="../adherent/consulter_fiche_adht.php?id_adht={$item_membres.id_adht}" title="{language name=liste_adht_visu_icon_title}">{$item_membres.nom_adht} {$item_membres.prenom_adht}</a></td>
-				<!--  ajout photo --><td class="centre-txt">{if $item_membres.image_adht} <a href="../adherent/consulter_fiche_adht.php?id_adht={$item_membres.id_adht}" title="{language name=liste_adht_visu_icon_title}"><img src="{$item_membres.image_adht}" alt="" /></a>{/if}</td><!--  ajout photo -->				
+				{* ajout photo *}<td class="centre-txt">{if $item_membres.image_adht} <a href="../adherent/consulter_fiche_adht.php?id_adht={$item_membres.id_adht}" title="{language name=liste_adht_visu_icon_title}"><img src="{$item_membres.image_adht}" alt="" /></a>{/if}</td>{* ajout photo *}				
 				<td>{$item_membres.ville_adht}</td>
 				<td>{$item_membres.telephonef_adht}</td>
 				<td>&nbsp;{$item_membres.telephonep_adht}</td>
@@ -151,5 +151,4 @@
 					{/section}</span></div>
 
 	
-	 
 	</div> {* Fin défini le contenu .. *} 

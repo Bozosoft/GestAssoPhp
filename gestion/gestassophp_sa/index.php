@@ -27,12 +27,12 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/
  *   Fichier :
- *   Fichier Index controle l'authentfication et redirige vers /adherent/index.php
+ *   Fichier Index contrôle l’authentification et redirige vers /adherent/index.php
 */
 
 //Test si l'installation est existante par le fichier config/connexion.cfg.php
 	if (file_exists('config/connexion.cfg.php')) {
-		define('INDEX0', 'OK');// pour inclusion de  fileloc_gestasso dans la suite du programme
+		define('INDEX0', 'OK'); // pour inclusion de  fileloc_gestasso dans la suite du programme
 		include_once 'config/connexion.php';
 	}else {
 		// sinon vers install
@@ -40,7 +40,7 @@
 			header('location: install/index.php');
 		} else {
 			echo '<br /><br /><span style="color:#FF0000; font-weight : bold">Fichier config/connexion.cfg.php absent !  STOP !</span>
-			<br /><br /> Vérifier ou connectez vous sur '.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'/install/ <br />
+			<br /><br /> Vérifiez ou connectez-vous sur '.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'/install/ <br />
 			Si vous êtes autorisé à effectuer cette opération';			
 		}
 		exit;
@@ -57,7 +57,7 @@ $masession = new sessions(); // -->la classe session //session_start();
 // Si pas de session ...
 $priorite_adht=(empty($_SESSION['ses_priorite_adht'])) ? $priorite_adht='' :$priorite_adht = $_SESSION['ses_priorite_adht'];
 
-$texterreurlogin = get_post_variablehtml('texterreur', '');// récupère un erreur ... fin de session, erreur de connexion...
+$texterreurlogin = get_post_variablehtml('texterreur', ''); // récupère une erreur ... fin de session, erreur de connexion...
 	if ($texterreurlogin != '') {	
 		$texterreurlogin =_LANG_MESSAGE_TEXTERREUR	;
 	}
@@ -67,12 +67,12 @@ if (isset($_POST['ident'])) {
 
 		$mylogin =  htmlentities(post_variable('login',''), ENT_QUOTES); //++	
 			if ( is_valid_mylogin($mylogin)==  false  ) {	
-			// veriffication lettre-chiffre ET  Nb caractéres  suivant /fonction.php	
+			// vérification lettre-chiffre ET Nb caractères suivant /fonction.php	
 				$mylogin = '';				
 			}	
 		$mypassword = htmlentities(post_variable('password',''), ENT_QUOTES); //++ 
 			if ( is_valid_mypasswd($mypassword) ==  false ) {	
-			// veriffication lettre-chiffre ET  Nb caractéres  suivant /fonction.php	
+			// vérification lettre-chiffre ET Nb caractères suivant /fonction.php	
 				$mypassword ='' ;
 			}
 
@@ -101,25 +101,25 @@ if (isset($_POST['ident'])) {
 			$nom_adht = $_SESSION['ses_nom_adht']; //  pour écrture log		
 						
 		if ( $priorite_adht == 0 ) { // PAS autorisé à se loguer 
-			//ecrit qui s'est connecté	
+			// écrit qui s'est connecté	
 			$ecritlog = $masession->write_log('LoginInterdit',$nom_adht.' '.$prenom_adht);
 			$texterreurlogin = _LANG_TEXTERREURLOGIN1;
-			$alerte = 1; // Pour afficher message Contacter ...
-			$tpl->assign('texterreurlogin0',$alerte);// si erreur login Pour afficher message Contacter 
+			$alerte = 1; // Pour afficher message Contacter moi ...
+			$tpl->assign('texterreurlogin0',$alerte); // si erreur login pour afficher message Contacter 
 		} else { //  Si Autorisation OK 
 			$texterreurlogin = '';
-			//ecrit qui s'est connecté
+			// écrit qui s'est connecté
 			$ecritlog =  $masession->write_log('Login', addslashes($nom_adht).' '.addslashes($prenom_adht)); 
 			// On inscrit la date de dernier accés dans la base de données 
 			$datedernier_acces = date('Y-m-d H:i:s'); 
 			$req_ecrit_acces = ("UPDATE ".TABLE_ADHERENTS." SET dacces ='$datedernier_acces'"
 			." WHERE id_adht='$sessionadherent'");
 			$dbresult = $db->Execute($req_ecrit_acces);
-			header('location: adherent/index.php'); // Si Auht OK on envoie vers la page  ...
+			header('location: adherent/index.php'); // Si Autorisation OK on envoie vers la page  ...
 		}	
 		
 	} else { // LOGIN ou MDP NON Valide
-		$ecritlog = $masession->write_log('ErreurLogin',$mylogin); //ecrit qui s'est connecté	
+		$ecritlog = $masession->write_log('ErreurLogin',$mylogin); //écrit qui s'est connecté	
 		$texterreurlogin = _LANG_TEXTERREURLOGIN2;
 		
 	} /***** FIN vérification de l'autorisation */
@@ -127,9 +127,9 @@ if (isset($_POST['ident'])) {
 } /***** FIN si on a validé le formulaire login */
 
 
-/**** DECONNEXION si on se déconnecte ... */
+/**** DÉCONNEXION si on se déconnecte ... */
 if (isset($_REQUEST['logout'])) {
-	//ecrit qui s'est déconnecté
+	// écrit qui s'est déconnecté
 	$priorite_adht == '';
 	if(!empty($_SESSION['ses_nom_adht']) && !empty($_SESSION['ses_prenom_adht'])) {
 		$ecritlog = $masession->write_log('Logout',addslashes($_SESSION['ses_nom_adht']).' '.addslashes($_SESSION['ses_prenom_adht'])); 	
@@ -140,9 +140,9 @@ if (isset($_REQUEST['logout'])) {
 		session_destroy();
 		$priorite_adht == '';	
 	}
-	header('location: index.php'); //  on rafraichi  la page
+	header('location: index.php'); //  on rafraîchit la page
 }
-/***** FIN DECONNEXION si on se déconnecte .. */
+/***** FIN DÉCONNEXION si on se déconnecte .. */
 
 		
 /***** ---------------------------------------------------------------------- */	
@@ -153,11 +153,10 @@ $tpl->assign('nom_asso_gestassophp',NOM_ASSO_GESTASSOPHP); // le Nom de l'associ
 
 $tpl->assign('priorite_adht',$priorite_adht);
 // Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
-$tpl->assign('texterreurlogin',$texterreurlogin);// si erreur login Pour afficher message erreur
-$tpl->assign('email_adresse',EMAIL_ADRESSE);// message Oubli mot de passe ...	
+$tpl->assign('texterreurlogin',$texterreurlogin); // si erreur login pour afficher message erreur
+$tpl->assign('email_adresse',EMAIL_ADRESSE); // message Oubli mot de passe ...	
 
-//POUR  AFFICHAGE VERS TEMPLATE	
+// POUR AFFICHAGE VERS TEMPLATE	
 $tpl->display('login.tpl');
 
 ?>
-    

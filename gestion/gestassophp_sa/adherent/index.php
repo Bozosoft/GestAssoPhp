@@ -57,10 +57,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 		
 		
-	// Envoi vers la page en fonction de 	priorite_adht	>=4  -->4 = admin en consultation tableau de bord	
+	// Envoi vers la page en fonction de priorite_adht	>=4  -->4 = admin en consultation tableau de bord	
 		if ($priorite_adht >=4) {
 			header('location: ../admin/tableau_bord.php');
-			//echo 'Ok pour tabbord adht/index<br/>';
+			//echo 'Ok pour tabbord adht/index<br/>';  // DEBUG
 		} else {
 			header('location: ../adherent/gerer_fiche_adht.php');
 		}

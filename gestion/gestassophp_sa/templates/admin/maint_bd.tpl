@@ -1,5 +1,5 @@
 {* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
-{* Affiche Pour sauvegarde BD *}
+{* Affiche pour sauvegarde BD *}
 {* Affichage du CONTENU avec AIDE *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_admin_maint_bd.php','popup','height=350,toolbar=no,location=no,directories=no,status=yes,width=700,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
@@ -28,4 +28,6 @@
 		</form>	
 	{/if}				
 	<br /><br /> 
-	</div> {* / défini le contenu .. *} 
+	
+	
+	</div> {* FIN défini le contenu .. *} 

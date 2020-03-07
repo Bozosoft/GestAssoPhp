@@ -40,7 +40,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; //  pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 
-// entete du fichier téléchargé	
+// entête du fichier téléchargé	
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=cotis_adherents.xls");
     header("Pragma: no-cache");
@@ -70,7 +70,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		$champ0 = $row['id_cotis'];
-		//$champ1 = $row['id_adhtasso'];	
+		// $champ1 = $row['id_adhtasso'];	
 		$champ2 = html_entity_decode(utf8_decode($row['nom_adht']." ".$row['prenom_adht']),ENT_QUOTES);				
 		$champ3 = utf8_decode($row['nom_type_cotisation']);  //modif pour éviter les Annuelle rÃ©duite
 		$champ4 = $row['montant_cotis']; // 
@@ -78,18 +78,18 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$champ6 = switch_sqlFr_date($row['date_enregist_cotis']);
 		$champ7 = switch_sqlFr_date($row['date_debut_cotis']);
 		$champ8 = switch_sqlFr_date($row['date_fin_cotis']);	
-		$champ9 = $row['cotis']; //cotis 999 ou vide			
+		$champ9 = $row['cotis']; // cotis 999 ou vide			
 		if ($champ9 =='999') {
-			$champ9 = 'Archive';// Affichage du statut Archivée
+			$champ9 = 'Archive'; // Affichage du statut Archivée
 		}
-		$champ10 = $row['paiement_cotis']; //+ Ajout Zone PAIEMENT 	
-		$champ11 =  utf8_decode($row['info_archiv_cotis']);  //modif pour éviter les   annÃ©e Ã©coulÃ©e	
+		$champ10 = $row['paiement_cotis']; // + Ajout Zone PAIEMENT 	
+		$champ11 =  utf8_decode($row['info_archiv_cotis']);  // modif pour éviter les   annÃ©e Ã©coulÃ©e	
 		$champ12 = switch_sqlFr_date($row['datemodiffiche_cotis']);
 		if ($champ12 == '00/00/0000'){
 			$champ12='';
 		}					
 
-		//ecriture de la ligne
+		// écriture de la ligne
 		print ("$champ0\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t"
 		." $champ8\t $champ9\t $champ10\t  $champ11\t $champ12 \n");
 		

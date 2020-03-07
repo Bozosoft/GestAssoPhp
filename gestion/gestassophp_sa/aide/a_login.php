@@ -64,4 +64,3 @@ Chaque membre bénéficie de la possibilité de consulter et de modifier ses inf
 </div>
 </body>
 </html>
-

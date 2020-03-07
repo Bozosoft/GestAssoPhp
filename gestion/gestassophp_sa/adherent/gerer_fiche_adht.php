@@ -44,16 +44,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Raz de variables
 	$id_adht = ''; //RAZ	
 	$indice = '' ;
-	//Tableau xpour affichage
+	// Tableau xpour affichage
 	$adherent=array(); // pour affichage adherent
 	// initialisation
 	$affiche_message = '';
-	$date_du_jour=date('Y-m-d');// la date du jour	//Pour définir la différence entre 2  dates	
+	$date_du_jour=date('Y-m-d'); // la date du jour	// Pour définir la différence entre 2  dates	
 	
 
 	/*****  Si ADMINISTRATEUR donc $priorite_adht >4  DROIT DE CONSUTER ET MODIFIER   */
 	if (($priorite_adht > 4) && get_post_variable_numeric('id_adht', '') )  {
-		$id_adht = get_post_variable_numeric('id_adht', '');// l'id de la personne de la fiche infogénérales
+		$id_adht = get_post_variable_numeric('id_adht', ''); // l'id de la personne de la fiche infogénérales
 	} else {
 		$id_adht = $sessionadherent;	
 	}
@@ -73,7 +73,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$dbresult = $db->Execute($req_ecrit_reactiv_adht);	
 	
 		$affiche_message ='-&nbsp;<span class="TexterougeGras">'._LANG_MESSAGE_FICHE_REACT.'</span>';
-		//ecrit qui a fait la manip			
+		// écrit qui a fait la manip			
 		$ecritlog = $masession->write_log('Reactivation_Adht : '
 		.$id_adht_reactiv,$masession->get_var_session('ses_nom_adht').' '
 		.$masession->get_var_session('ses_prenom_adht'));
@@ -120,11 +120,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	
 		while ($dbresult && $row = $dbresult_cotis->FetchRow()) {		
 			$cotis_adht[$indice]['id_adhtasso'] = $row['id_adhtasso'];	
-			$cotis_adht[$indice]['nom_type_cotisation'] = $row['nom_type_cotisation'];// 
+			$cotis_adht[$indice]['nom_type_cotisation'] = $row['nom_type_cotisation'];
 			$cotis_adht[$indice]['date_debut_cotis'] = switch_sqlFr_date($row['date_debut_cotis']);
 			$cotis_adht[$indice]['date_fin_cotis'] = switch_sqlFr_date($row['date_fin_cotis']);
 			if (( compare_date($date_du_jour ,  ($row['date_fin_cotis']) ) )== FALSE) {
-				//Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 			
+				// Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 			
 					$cotis_adht[$indice]['date_fin_cotis'] = '<span class="TexterougeGras" title="Cotisation échue">'
 					.$cotis_adht[$indice]['date_fin_cotis'].'</span>';
 					$cotis_adht[$indice]['nom_type_cotisation'] = '<span class="Texterouge" title="Cotisation échue">'
@@ -171,7 +171,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$tpl->assign('affiche_message',$affiche_message); /// message fiche supprimée			
 	}		
 	
-	//+  qui a enregistré la fiche
+	// +  qui a enregistré la fiche
 	$req_lire_nom_enregistrant = "SELECT prenom_adht,nom_adht"
 	." From ".TABLE_ADHERENTS." WHERE id_adht='$qui_enrg_adht'";	
 	$dbresult_enr = $db->Execute($req_lire_nom_enregistrant);		
@@ -179,7 +179,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// fin +  qui a enregistré
 
 // ajout test message Ok ou Erreur + Ajout 15/04/09 FONCTION MAIL
-	$result_mail = get_post_variable ('mail','');// enléve les parasites	
+	$result_mail = get_post_variable ('mail',''); // enléve les parasites	
 		if ($result_mail == 'Ok') {
 			$tpl->assign('resultat_mail','<span class="TextenoirGras">'._LANG_MESSAGE_FICHE_MAIL_OK.'</span>'); //message  Ok
 		} else if ($result_mail == '0') {
@@ -188,19 +188,19 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$tpl->assign('resultat_mail',''); //vide		
 		}
 	
-	/***** FIN Pour affichage de la fiche Mon Récapitulatif et  Informations personnelles */	
+	/***** FIN pour affichage de la fiche Mon Récapitulatif et  Informations personnelles */	
 
 /**
-Si l'adhérent est SUPPRIME soit soc_adht='999' NE PAS AFFICHER LES DONNEES SUIVANTES
+Si l'adhérent est SUPPRIMÉ soit soc_adht='999' NE PAS AFFICHER LES DONNEES SUIVANTES
 */	
 
-	/*****  Pour affichage de la fiche Mes fichiers et mes missions */
+	/*****  Pour affichage de la fiche Mes fichiers */
 		if (INFO_FICHIER_MISSIONS == '1') {
 			include 'consulter_info_fichiermission_adht.php';
 			// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE	
 			$tpl->assign('info_fichiermission_adht',INFO_FICHIER_MISSIONS);
 		}
-	/***** FIN Pour affichage de la fiche Mes fichiers et mes missions  */
+	/***** FIN pour affichage de la fiche Mes fichiers et mes missions  */
 
 
 		

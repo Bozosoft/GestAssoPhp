@@ -24,7 +24,7 @@
 	include_once 'include_install.php'; // les variables + les définitions de répertoires
 	
 	// Raz de variables
-	$erreur_saisie = array();// tableau
+	$erreur_saisie = array(); // tableau
 	$valid_bd_config = '';
 	$sql_query = '';
 	$effacetables = 0;
@@ -33,10 +33,10 @@
 	
 	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c 
-//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
-//  verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
+	//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ; // répertoire par défaut de compilation = templates_c 
+	//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
+	//  verson 3.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION); // répertoire par défaut de compilation = templates_c // Smarty version 3.x
 	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
 // OPTIONS		
 	$tpl->error_reporting = E_ALL & ~E_NOTICE;
@@ -53,7 +53,7 @@
 		$ok_valid2 = $_SESSION['valid2'];	 // vérifie que c'et bien la page 2 qui a été envoyée
 		if ($ok_valid2 == 'valid2') {	
 
-//on  écrit les fichier de config et installe la BD
+//on écrit le fichier de config et installe la BD
 	
 			$type_bd = $_SESSION['type_bd'];
 			$serveur_bd = $_SESSION['serveur_bd'];		
@@ -64,6 +64,7 @@
 			$effacetables =	$_SESSION['drop_bd'] ; // = on ==1	
 			$errorfile_config = '';
 /*	
+//  --DEBUG--
 echo 'type_bd='.$type_bd.'-';	
 echo 'serveur_bd='.$serveur_bd.'-';	
 echo 'utilis_bd='.$utilis_bd.'-';		
@@ -77,7 +78,7 @@ echo 'prefix_bd='.$prefix_bd.'-';
 		
 		define('CONFIG_FILE', join_path(ROOT_DIR_GESTASSO,'config','connexion.cfg.php')); // 	
 			if($fd = @fopen (CONFIG_FILE , 'w')) {
-//Modéle Fichier de config			
+// Modéle Fichier de config			
 				$data = "<?php 
 				
 /**
@@ -117,7 +118,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 				$valid_file_config = 'non';
 			}	
 
-//Création de la base de données
+// Création de la base de données
 		
 			if ($valid_file_config == 'oui') { // on continue
 				$valid_bd_sql = 'non'; // initialise pour erreur
@@ -128,12 +129,12 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	
 
 
-//Création des TABLES  la base de données
+// Création des TABLES de la base de données
 
 				include 'schema.php';	
 
 
-// Insertion des DONNéES de la base de données
+// Insertion des DONNéES dans la base de données
 
 				$message_bd['data'] =  '<span class="TextevertGras">Insertion des donn&eacute;es .... : </span><br />';
 				define('FILE_SQL', join_path(ROOT_DIR_GESTASSO,'install','data.sql')); // 	
@@ -143,18 +144,18 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 				// on remplace par le prefix
 				$sql_query = preg_replace('/gs_/', DB_PREFIX, $sql_query);
 				$sql_query = remove_remarks($sql_query);	
-				// on= crée un tableau de chaque ligne de requette  -->fin de ligne ;
+				// on= crée un tableau de chaque ligne de requête  -->fin de ligne ;
 				$sql_query = split_sql_file($sql_query, ";");
 
 				for ($i = 0; $i < sizeof($sql_query); $i++) {
 					$query = trim($sql_query[$i]);
 					if ($query != '' && $query[0] != '-') {				
-						// la requette vers la base de données
+						// la requête vers la base de données
 						$req = $sql_query[$i];
 						$dbresult = $db->Execute($req);
 						if (!$dbresult) {					
 							$valid_bd_sql = 'non';
-							//echo $dbresult;
+							//echo $dbresult;  // DEBUG
 							$message_bd[$i] = 'erreurs lors de la cr&eacute;ation .... : '.($db->ErrorMsg()). '<br />';
 						} else {
 							$valid_bd_sql = 'oui';
@@ -173,7 +174,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 					$message_bd_config = 'Erreur : Base de donn&eacute;es et tables... ';	
 					$valid_bd_sql = 'non';
 				}
-//si config NON valide			
+// si config NON valide			
 			} else {
 				$message_bd_config = 'Erreur : Cr&eacute;ation de la base de donn&eacute;es et des tables... Impossible ! ';
 				$valid_bd_config = 'non';			

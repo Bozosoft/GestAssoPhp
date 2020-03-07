@@ -41,13 +41,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; //  pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 
-	$adherent=array(); //On passe par un Tableau pour affichage adherent
+	$adherent=array(); // On passe par un Tableau pour affichage adherent
 	$erreur_saisie = array(); //Erreur  V 7.3
 	
 /**** Tout le monde a le  DROIT DE CONSUTER   */
-	$id_adht = get_post_variable_numeric('id_adht', '');// l'id de la personne de la fiche infogénérales
+	$id_adht = get_post_variable_numeric('id_adht', ''); // l'id de la personne de la fiche infogénérales
 
-	//Vérifier si la personne a donné sont accord pour voir sa fiche - SINON  visualise fiche du connecté
+	// Vérifier si la personne a donné sont accord pour voir sa fiche - SINON  visualise fiche du connecté
     $req_lire_info_visibl_adht = "SELECT visibl_adht FROM ".TABLE_ADHERENTS." WHERE id_adht='$id_adht'"; 	
 	$dbresult = $db->Execute($req_lire_info_visibl_adht);	
 	$oui_fiche_adht = $dbresult->fields['visibl_adht'];
@@ -125,7 +125,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE				
 	$tpl->assign('id_adht',$id_adht);	
 	$tpl->assign('vientde',_LANG_MENU_ADHT_MEMBRES.' -'); // V 7.3
-	//POUR  AFFICHAGE VERS TEMPLATE				
+	// POUR AFFICHAGE VERS TEMPLATE				
 	$content = $tpl->fetch('adherent/consulter_fiche_adht.tpl'); // On affiche la fiche GESTION adhérent	
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');

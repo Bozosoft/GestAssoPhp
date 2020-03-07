@@ -1,6 +1,7 @@
 {* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
-{* Affichage du CONTENU avec AIDE remplir Préférences et Antennes(sections)  *}
-{*Auteur original : Jean-Claude Etiemble - Licence Creative Commons Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0) France*}
+{* Affichage Remplir Préférence Association, des désignation des activités,des types de cotisations Et Information version *}
+{* Affichage du CONTENU avec AIDE *}
+{* Auteur original : Jean-Claude Etiemble - Licence Creative Commons Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0) France *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_admin_remplir_preferences.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=700,resizable=no,scrollbars=yes,top=10,left=10')"  title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
     <header class="header_titre">&nbsp;{language name=titre_admin_preferences}</header>
@@ -11,7 +12,7 @@
 	
 	<ul id="tabnav">
 	{if $tab eq 1} 
-{* -------------------------------------- TAB 1 -------------------------- *}		
+{* -------------------------------------- TAB 1 Préférence Association -------------------------- *}		
 	<li class="active">{language name=titre_admin_preftab1}</li>
 	<li><a href="remplir_preferences.php?tab=2">{language name=titre_admin_preftab2}</a></li>
 	<li><a href="remplir_preferences.php?tab=3">{language name=titre_admin_preftab3}</a></li>	
@@ -67,10 +68,10 @@
 </form>
 	
 	</div>
-	{* -------------------------------------- FIN TAB 1 -------------------------- *}	
+	{* -------------------------------------- FIN TAB 1 Préférence Association -------------------------- *}	
 	
 	{elseif $tab eq 2}
-{* -------------------------------------- TAB 2 -------------------------- *}		
+{* -------------------------------------- TAB 2 Détail des désignation des activités -------------------------- *}		
     <li><a href="remplir_preferences.php">{language name=titre_admin_preftab1}</a></li>
     <li class="active">{language name=titre_admin_preftab2}</li>
 	<li><a href="remplir_preferences.php?tab=3">{language name=titre_admin_preftab3}</a></li>
@@ -155,10 +156,10 @@
 	</table>
 	
 	</div>	
-	{* -------------------------------------- FIN TAB 2 -------------------------- *}
+	{* -------------------------------------- FIN TAB 2 Détail des désignation des activités -------------------------- *}
 
 {elseif $tab eq 3}
-{* -------------------------------------- TAB 3 -------------------------- *}		
+{* -------------------------------------- TAB 3 Détail des types de cotisations -------------------------- *}		
 	<li><a href="remplir_preferences.php?tab=1">{language name=titre_admin_preftab1}</a></li>
 	<li><a href="remplir_preferences.php?tab=2">{language name=titre_admin_preftab2}</a></li> 
     <li class="active">{language name=titre_admin_preftab3}</li>
@@ -245,12 +246,12 @@
 	</table>
 	
 	</div>	
-	{* -------------------------------------- FIN TAB 3 -------------------------- *}
+	{* -------------------------------------- FIN TAB 3 Détail des types de cotisations -------------------------- *}
 
 
 
 {else}
-{* -------------------------------------- TAB 4  affichage Changelog -------------------------- *}		
+{* -------------------------------------- TAB 4  Affichage Changelog -------------------------- *}		
 	<li><a href="remplir_preferences.php?tab=1">{language name=titre_admin_preftab1}</a></li>
 	<li><a href="remplir_preferences.php?tab=2">{language name=titre_admin_preftab2}</a></li>
 	<li><a href="remplir_preferences.php?tab=2">{language name=titre_admin_preftab3}</a></li> 
@@ -266,8 +267,6 @@
 	<div class="version">
 	<h4> Version : {$version}</h4>
 	</div>
-	<!--p class='file'>{$changelogfilename}</p -->
-
     <div class="changelog">
         {$changelog}
     </div>
@@ -276,8 +275,9 @@
 			<a href="../admin/remplir_preferences.php?tab=1"><span class="submit_nul" title="{language name=tpl_retour_button_title}"> {language name=tpl_retour_button}</span></a>
 		</div>
 	</div>	
-	{* -------------------------------------- FIN TAB 4 -------------------------- *}
+	{* -------------------------------------- FIN TAB 4 Affichage Changelog -------------------------- *}
 	
 {/if}	
  
-	</div> {* / défini le contenu .. *} 
+ 
+	</div> {* FIN défini le contenu .. *} 

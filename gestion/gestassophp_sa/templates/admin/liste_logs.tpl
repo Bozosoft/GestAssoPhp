@@ -1,5 +1,5 @@
 {* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
-{* Affiche les logs des adhérents *}
+{* Affiche des logs des adhérents *}
 {* Affichage du CONTENU avec AIDE *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_logs.php','popup','height=250,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
@@ -7,7 +7,7 @@
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {*défini le contenu .. *}
  	
-{* =Affichage - NB pages *}		
+{* Affichage du NB pages *}		
 	<form action="liste_logs.php" method="get" name="filtre">	
 		<table  style="width:100%;">
 			<tr>
@@ -29,7 +29,7 @@
 		</table>
 	</form>
 	
-{* FIN Affichage - NB pages *}								
+{* FIN Affichage du NB pages *}								
 		<table style="width:100%;"> 
 			<tr>
 				<th class="LignegrisTC" style="width:6%;">
@@ -106,7 +106,7 @@
 			<tr><td colspan="6">{language name=tpl_liste_vide}</td></tr>
 {/foreach}
 		</table>
-{* Affichage - NB pages *}		
+{* Affichage du NB pages *}		
 	<div class="aff_droite-txt">{language name=tpl_pages}<span class="NumPageGras">
 	{section name=pageLoop start=1 loop=$nb_pages}
 	{if $smarty.section.pageLoop.index eq $numpage}{$smarty.section.pageLoop.index}
@@ -114,6 +114,7 @@
 		<a href="liste_logs.php?numpage_affiche={$smarty.section.pageLoop.index}" title="{language name=tpl_go_pages}">{$smarty.section.pageLoop.index} </a>
 	{/if}
 	{/section}</span></div>
-{* FIN Affichage - NB pages *}	
+{* FIN Affichage du NB pages *}	
 
-	</div> {* / défini le contenu .. *} 
+
+	</div> {* FIN défini le contenu .. *} 

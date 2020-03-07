@@ -44,10 +44,10 @@ $pas = $logpass[1];
 	$reqcompt_info_fichier = '';
 	$affiche_message = ''; // Raz message alerte	
 	$id_adht = '' ;
-	//Tableau xpour affichage	
+	// Tableau pour affichage	
 	$fichier = array();
 	// initialisation	
-	$date_du_jour=date('Y-m-d');//Pour définir la date du jour et la  différence entre 2  dates
+	$date_du_jour=date('Y-m-d'); // Pour définir la date du jour et la différence entre 2  dates
 
 
 	
@@ -66,15 +66,15 @@ $pas = $logpass[1];
 		$req_lire_info_fichier = "SELECT nom_file_adht From ".TABLE_FICHIER_ADHERENTS
 		." WHERE id_file_adht='$id_file_adht_download'";
 		$dbresult = $db->Execute($req_lire_info_fichier);			
-	    //affiche les variables de la ligne 
+	    // affiche les variables de la ligne 
 		$myfile = $dbresult->fields['nom_file_adht'];
 		$filename = DIR_FILES_ADHTS.$myfile;
 
 		if (file_exists($filename)) {
-			//print "Le fichier $filename existe";
+			// print "Le fichier $filename existe";
 			header('Location:'.WEB_FILES_ADHTS.$myfile );
 		} else {
-			//print affiche en rouge en haut "Le fichier $filename n'existe pas";
+			// print affiche en rouge en haut "Le fichier $filename n'existe pas";
 			$affiche_message =' -&nbsp;(<span class="Texterouge">'._LANG_MESSAGE_LISTE_FICHIERS_ADH_FILE.' '.$myfile.' '.
 			_LANG_MESSAGE_LISTE_FICHIERS_ADH_NOTEXIST.'</span>)';
 			$tpl->assign('affiche_message',$affiche_message); // pour afficher
@@ -88,15 +88,15 @@ $pas = $logpass[1];
 	$id_file_adht_supp = get_post_variable_numeric('id_file_adht', '');	
 	if ( ($supp_fichier_adht == 1) && ($id_file_adht_supp) ) {
 
-		// on récuprere le Nom du fichier
+		// on récupére le Nom du fichier
 		$req_supp_fichier_adht = "SELECT nom_file_adht From ".TABLE_FICHIER_ADHERENTS
 		." WHERE id_file_adht='$id_file_adht_supp'";
 		$dbresult = $db->Execute($req_supp_fichier_adht);		
-        //affiche les variables de la ligne 
+        // affiche les variables de la ligne 
 		$nom_fichier = $dbresult->fields['nom_file_adht'];
 		// on renomme le fichier avec 999_
 		$nom_fichier_renom="999_".$nom_fichier;
-        //on ajoute un 999_ dans file_adht de la table TABLE_FICHIER_ADHERENTS  + datemodif_file_adht = date_du_jour
+        // on ajoute un 999_ dans file_adht de la table TABLE_FICHIER_ADHERENTS  + datemodif_file_adht = date_du_jour
         $req_supp_fichier =  ("UPDATE ".TABLE_FICHIER_ADHERENTS." SET "
 		."nom_file_adht='$nom_fichier_renom', datemodif_file_adht ='$date_du_jour', file_adht='999' "
 		." WHERE id_file_adht='$id_file_adht_supp'");		
@@ -112,7 +112,7 @@ $pas = $logpass[1];
 			rename($a_effacer, (DIR_FILES_ADHTS.$nom_fichier_renom)); // on renomme le fichier dans le répertoire
 		}
 			
-		//ecrit qui a fait la manip			
+		// écrit qui a fait la manip			
 		$ecritlog = $masession->write_log("Suppression_Fichier_Adht : "
 		.$id_file_adht_supp,$masession->get_var_session('ses_nom_adht')." "
 		.$masession->get_var_session('ses_prenom_adht'));
@@ -123,19 +123,19 @@ $pas = $logpass[1];
 /***** FIN Si on SUPPRIME  le fichier adhérent  */	
 
 
-	// récupere la variable de la page pour afficher la suite
-	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1');// par défaut 1 page
+	// récupère la variable de la page pour afficher la suite
+	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1'); // par défaut 1 page
 	
 
-	//On prépare l'affichage 
-	//Nb de fichiers
+	// On prépare l'affichage 
+	// Nb de fichiers
 	$affiche_nb_lines = get_post_variable_numeric('affiche_nb_fich',NB_LIGNES_PAGE);
 	
 	// recherche sur le Nom ou prénom par filtre "filtre_nom"	
 	$filtre_adht_nom ='';
 	if (isset($_GET['filtre_nom'])) {
 		$filtre_adht_nom=trim(stripslashes(htmlspecialchars($_GET['filtre_nom'],ENT_QUOTES)));
-		$filtre_adht_nom1 = trim($_GET['filtre_nom']);// pour les problème d' apostrosphe			
+		$filtre_adht_nom1 = trim($_GET['filtre_nom']); // pour les problème d' apostrosphe			
 	}
 
 	// filtre d'affichage des fichiers par 0 => 'Les fichiers actifs',1 => 'Les fichiers supprimées 2 => 'Tous les fichiers
@@ -147,13 +147,13 @@ $pas = $logpass[1];
 		}
 	}
 
-	// requette principale
+	// requête principale
 	$req_lire_info_fichier ="SELECT id_file_adht,id_adht_file,nom_file_adht,design_file_adht,"
 	."date_file_adht,file_adht, "	
 	." prenom_adht,nom_adht" // TABLE_ADHERENTS		
 	." FROM ".TABLE_FICHIER_ADHERENTS.", ".TABLE_ADHERENTS
 	." WHERE ".TABLE_FICHIER_ADHERENTS.".id_adht_file=".TABLE_ADHERENTS.".id_adht ";
-	// requette pour comptage 
+	// requête pour comptage 
 	$reqcompt_info_fichier="SELECT id_file_adht,id_adht_file"	
 	." FROM ".TABLE_FICHIER_ADHERENTS.", ".TABLE_ADHERENTS
 	." WHERE ".TABLE_FICHIER_ADHERENTS.".id_adht_file=".TABLE_ADHERENTS.".id_adht ";
@@ -196,7 +196,7 @@ $pas = $logpass[1];
 
 		
 	// phase de tri sur les colonnes  #=N°      	 Nom fichier    	 Description    	 Date    	 Nom adhérent
-	if (isset($_GET['tri'])) { // récupere l le N° de la colosne de tri 
+	if (isset($_GET['tri'])) { // récupère l le N° de la colosne de tri 
 		if (is_numeric($_GET['tri'])) {
 			if ($_SESSION['tri']==$_GET['tri']) {
 				$_SESSION['tri_sens']=($_SESSION['tri_sens']+1)%2; // 0 ou 1
@@ -237,7 +237,7 @@ $pas = $logpass[1];
 
 	// comptage des fiches
 	$dbresult = $db->Execute($reqcompt_info_fichier); //Pour compter le NB d'enregistrements
-//test si aucune fiche
+// test si aucune fiche
 		if ($dbresult) {
 			$nb_lines = $dbresult->RecordCount() ; //Pour compter le NB de fiche	
 		}else {
@@ -255,7 +255,7 @@ $pas = $logpass[1];
 	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page ;-)
 		
 	$indice = 1+($numpage_affiche-1)*$affiche_nb_lines ; // le N° de ligne
-	$nbpages=$nbpages+1;// pour affichage sur template Page  1 2 3... avec lien
+	$nbpages=$nbpages+1; // pour affichage sur template Page  1 2 3... avec lien
 
 	$dbresult = $db->Execute($req_lire_info_fichier);	
 	
@@ -271,7 +271,7 @@ $pas = $logpass[1];
 		
 		$fichier[$indice]['id_file_adht'] = $row['id_file_adht'];	//Id		
 		$fichier[$indice]['nom_file_adht'] = $row['nom_file_adht']; //Nom fichier				
-		$fichier[$indice]['designation_file_adht'] = stripslashes($row['design_file_adht']);// Description
+		$fichier[$indice]['designation_file_adht'] = stripslashes($row['design_file_adht']); // Description
 		$fichier[$indice]['date_file_adht'] = switch_sqlFr_date($row['date_file_adht']); //Date
 		$id_adht_file = $row['id_adht_file']; // id adht
 		$fichier[$indice]['prenom_adht'] = $row['prenom_adht']; //  Prénom de la table adhérent
@@ -291,16 +291,16 @@ $pas = $logpass[1];
 	$tpl->assign('id_adht',$id_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE		
 	$tpl->assign('fichier',$fichier); // tableau $fichier[$indice]['xx_xx']			
-	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
+	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requête
 	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
 	$tpl->assign('numpage',$numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_fich',$affiche_nb_lines); // NB lignes par select
 	//$tpl->assign('affiche_nb_lines',$affiche_nb_lines);
 	$tpl->assign('filtre_adht_nom',$filtre_adht_nom); // Filtrage par Rechercher ...
-	$tpl->assign('filtrefichier_ou',$filtrefichier_ou);// Filtrage parmi .les fichiers actifs, supprimés
+	$tpl->assign('filtrefichier_ou',$filtrefichier_ou); // Filtrage parmi .les fichiers actifs, supprimés
 	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_FICHIERS); // la litse des options  fichier actifs ou supprimés..
 	$tpl->assign('affichenb_adht_options',$T_AFFICHE_NB_PAGE); // Nb de lignes par page		
-	//POUR  AFFICHAGE VERS TEMPLATE		
+	// POUR AFFICHAGE VERS TEMPLATE		
 	$content = $tpl->fetch('adherent/liste_fichiers_adht.tpl'); // On affiche ...
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');	

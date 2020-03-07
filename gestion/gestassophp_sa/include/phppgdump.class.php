@@ -34,17 +34,17 @@
 /////////////////////////////////
 
 * Methodes........ : 
-	$pg_sav->nettoyage(); // facultatif enleve les anciens fichiers de sauvegarde / empty the temp directory SI utilisation SAV avec fichier sur l'espace
+	$pg_sav->nettoyage(); // facultatif enlève les anciens fichiers de sauvegarde / empty the temp directory SI utilisation SAV avec fichier sur l'espace
 *		**nettoyage() 
-*					   permet de vider le repertoire temporaire dans lequel sont crees les sauvegardes
-*					   si cette methode n'est pas utilisee les sauvegardes sont archivées.
+*					   permet de vider le répertoire temporaire dans lequel sont crees les sauvegardes
+*					   si cette méthode n'est pas utilisée les sauvegardes sont archivées.
 *	 $pg_sav->backup();  // 	or  $pg_sav->backup( $sql_file); 
 *                    **backup($fichier) 
-*					   realise la sauvegarde dans le fichier $fichier
-*					   si $fichier est ommis un nom de fichier est attribue (methode recomandee)
-*					   le fichier est cree dans un sous repertoire temp du repertoire ou s'execute le script
-*					   Si temp n'existe pas il est cree.verifiez bien si vous avez le droit d'ecrire. 
-*					   Pour la sauvegarde a la volée ( $fly=1 ) rien n'est ecrit sur le disque.
+*					   réalise la sauvegarde dans le fichier $fichier
+*					   si $fichier est omis un nom de fichier est attribue (méthode recommandée)
+*					   le fichier est crée dans un sous répertoire temp du répertoire ou s’exécute le script
+*					   Si temp n'existe pas il est cree.verifiez bien si vous avez le droit d’écrire. 
+*					   Pour la sauvegarde a la volée ( $fly=1 ) rien n'est écrit sur le disque.
 *					   le nom du fichier est utilise pour le transfert HTTP
 *		 **$fly 
 *					  la sauvegarde n'est pas écrite sur le disque elle est directement téléchargée
@@ -53,7 +53,7 @@
 *					active la compression gz sauf si $fly
 *					 Activate compression exept if $fly is on (=1)
 *
-* Parametres...... :     
+* Parametres...... :        
 *	$pg_sav = new phpmypostgresqldump ($db_host, $db_user, $db_pass, $source_db,$dbport,$dblangue);
 		$host, $user, $password, $base, $port = '', $langue="fr"
 		$db_host = 'localhost';
@@ -63,7 +63,7 @@
 		$dbport = '5432'; // Local  5432
 		$dblangue = 'fr'  or 'en'
 *		
-*	$pg_sav->encoding = "UTF8"; // Encodoge Base   (Supported are: SQL_ASCII and UTF8. Unknown behaviour with others.)
+*	$pg_sav->encoding = "UTF8"; // Encodage Base   (Supported are: SQL_ASCII and UTF8. Unknown behaviour with others.)
 *
 *	 $pg_sav->backup();  // 	or  $pg_sav->backup( $sql_file); 								
 *
@@ -85,7 +85,7 @@ class phpmypostgresqldump {  //  basée sur  phpmysqldump
 	private $port; 				//$port = 5432  tu devrais autoriser postgresql à utiliserle support tcp/ip   regarde dans /var/lib/pgsql/data/postgresql.conf  // By default PostgreSQLt listen on TCP port 5432
 	private $filename; 			// nom du fichier de sauvegarde	
 	private $fp;
-	private $sousdir='';	// sous repertoire dans lequel s'effectue la sauvegarde avec le / final  exemple  sousdir='temp/';
+	private $sousdir='';	// sous répertoire dans lequel s'effectue la sauvegarde avec le / final  exemple  sousdir='temp/';
 	private $version = '1.0.1';
 	public $fly;				// flag si oui=1 sauvegarde au vol SINON 0
 	public $compress_ok;		// flag pour la compression	 		// juste verifier que la GZLIB de PHP est bien active		// if you have an erroz verify if your PHP hve the GZLIB
@@ -100,10 +100,10 @@ class phpmypostgresqldump {  //  basée sur  phpmysqldump
 	private $excludetables = array();
 	private $row = 0;
    //---[ Error Handling
-   	public $errr;				// remontees d'erreurs	   
+   	public $errr;				// remontées d'erreurs	   
 	private $gotsqlerror = false;
 	private $lastsqlerror = '';
-	private $language;			// pret pour d'autres langues defaut "fr" sinon "en" "sp" "ge" 	// language
+	private $language;			//prêt pour d'autres langues défaut "fr" sinon "en" "sp" "ge" 	// language
 	private $pkeywords = array('desc');  //---[ Protected keywords
 	private $usecompleteinsert = false;    // Include table names into INSERT statement
 	private $usedroptable = true;    // Drop the table before re-creating it
@@ -210,7 +210,7 @@ class phpmypostgresqldump {  //  basée sur  phpmysqldump
 //*******************************************	
 	function backup($fichier='') { // si $fichier null ignoré sinon utilise comme nom de fichier de sauvegarde
 							 // $fichier is optional If is used is the name of the backup file
-		$fp ='';// add PHP5 .3	Undefined variable
+		$fp =''; // add PHP5 .3	Undefined variable
 		if($this->fly){$this->sousdir='';}
 		if($this->errr) {
 			return false;
@@ -222,10 +222,10 @@ class phpmypostgresqldump {  //  basée sur  phpmysqldump
 				$this->filename = $this->sousdir.'backup_'.$this->base.'_'.date('Y_m_d__G_i').'.sql';
 			}
 			
-			if($this->fly){  			// sauvegarde a la volee  // on fly backup
+			if($this->fly){  			// sauvegarde à la volee  // on fly backup
 		   		$this->entete($this->filename);
 			} else {
-		   		@mkdir($this->sousdir,700);	// creation du repertoire s'il n'existe pas  // tmp directory creation
+		   		@mkdir($this->sousdir,700);	// création du répertoire s'il n'existe pas  // tmp directory creation
 		   		$fp = @fopen($this->filename,'w');
 					if (!$fp){$this->errr=$this->message('err_fichier'); return false;}
 			}

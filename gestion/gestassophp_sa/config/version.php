@@ -20,8 +20,8 @@
  *   ENCODAGE UTF-8 sans BOM
 */
 
-/* La version de GestAsssoPhp  */
-$VERSION = "GestAssoPhp+Pg V 7.6.4-dev2";
+/* La version de GestAsssoPhp  V X.X.S ou su dev V X.X.S-devx */
+$VERSION = "GestAssoPhp+Pg V 7.6.4-dev3";
 define('VERSION', $VERSION);
 
 ?>

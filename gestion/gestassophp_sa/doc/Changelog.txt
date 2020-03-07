@@ -18,8 +18,12 @@
  */
  
 
-Version 7.6.4 - 02/03/2020 - En cours (Dev2)
+Version 7.6.4 - 07/03/2020 - En cours (Dev3)
 ------------------------------
+- Correction sur les commentaires PHP et TPL
+- Ajout alerte NB de caractères dépassés sur la "Raison de l'archivage" dans remplir_cotisations_adht.php
+
+* version 7.6.4 - 02/03/2020 - En cours (Dev2)
 - Ajout information de déconnexion sur page_index.tpl
 - Ajout information de déconnexion sur aide a_login.php + aide/a_adht_remplir_infogene_adht.php + a_adht_gerer_fiche_adht.php
 - Modification .gitignore
@@ -63,7 +67,7 @@ Version 7.6.2 - 07/02/2019 - Finale
 
 * version 7.6.2 - 27/10/2018 - En cours (Dev1)
 - Ajout sur tableau de bord ligne télécharger un fichier des adhérents dont la cotisation est échue ou non réglée
-- Modification de l'icone télécharger (disque32.png) et ajout disque16.png pour le tableau de bord
+- Modification de l'icône télécharger (disque32.png) et ajout disque16.png pour le tableau de bord
 - Correction javascript sur cursor: (lien vers l'aide)
 - Correction et ajouts sur le texte de l'aide Tableau de bord
  

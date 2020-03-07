@@ -1,10 +1,10 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
 {* Affichage du CONTENU avec AIDE Rempir information générale *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_adht_remplir_message_adht.php','popup','height=200,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
     <header class="header_titre">&nbsp;{language name=titre_mailto_adht}</header>
 	<div class="ligne_coul"></div> 	
-	<div id="contenu"> {*défini le contenu .. *}
+	<div id="contenu"> {* défini le contenu .. *}
  	<br />
 {if !empty($erreur_saisie)}
 	{if $erreur_saisie|@count != 0}
@@ -60,6 +60,4 @@
 {* Fin Form .. *}		 
 	 
 
-		
-	 
-	</div> {* / défini le contenu .. *} 
+	</div> {* FIN  défini le contenu .. *} 

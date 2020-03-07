@@ -78,19 +78,19 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 
 	// récupere la variable de la page pour afficher la suite
-	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1');// par défaut 1 page
+	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1'); // par défaut 1 page
 
 	//On prépare l'affichage 
 	$affiche_nb_lines = NB_LIGNES_PAGE;
 	// si on a modifié le nb de ligne par page par selecteur Afficher par : 
 	if (isset($_GET['affiche_nb_fich'])) {
-		$affiche_nb_lines = get_post_variable_numeric('affiche_nb_fich',NB_LIGNES_PAGE);// par défaut  	
+		$affiche_nb_lines = get_post_variable_numeric('affiche_nb_fich',NB_LIGNES_PAGE); // par défaut  	
 	}
 	
-	// requette principale
+	// requête principale
 	$req_lire_logs = "SELECT id_log,date_log,ip_log,nom_log,action_log FROM ".TABLE_LOGS;
 	$req_lire_logs .= " ORDER BY ";
-	// requette pour comptage
+	// requête pour comptage
 	$reqcompt_logs = "SELECT id_log FROM ".TABLE_LOGS;
 
 		
@@ -147,7 +147,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page ;-)
 		
 	$indice = 1+($numpage_affiche-1)*$affiche_nb_lines ; // le N° de ligne
-	$nbpages=$nbpages+1;// pour affichage sur template Page  1 2 3... avec lien	
+	$nbpages=$nbpages+1; // pour affichage sur template Page  1 2 3... avec lien	
 
 	$dbresult = $db->Execute($req_lire_logs);	
 
@@ -165,7 +165,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$logs[$indice]['date'] = switch_date_heure($row['date_log']);
 		$logs[$indice]['adh'] = $row['nom_log'];
 		$logs[$indice]['ip'] = $row['ip_log'];
-		$logs[$indice]['action'] = stripslashes($row['action_log']);// pour eviter les \ dans les noms d'asso
+		$logs[$indice]['action'] = stripslashes($row['action_log']); // pour eviter les \ dans les noms d'asso
 		$logs[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
 		$indice++;	
 	}
@@ -179,12 +179,12 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('logs',$logs);	// tableau $logs[$indice]['xxx']
-	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
+	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requête
 	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
 	$tpl->assign('numpage',$numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_fich',$affiche_nb_lines); // NB lignes par select
 	$tpl->assign('affichenb_log_options',$T_AFFICHE_NB_PAGE); // Nb de lignes par page			
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR  AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('admin/liste_logs.tpl'); // On affiche la liste des logs	
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');
@@ -195,4 +195,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 }
 	
 ?>
-    

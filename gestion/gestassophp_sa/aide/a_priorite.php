@@ -60,4 +60,3 @@ Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="T
 </div>
 </body>
 </html>
-

@@ -37,7 +37,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; //  pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; //  pour affichage
 
-// entete du fichier téléchargé	
+// entête du fichier téléchargé	
     header("Content-Type: application/vnd.ms-excel");
     header("Content-Disposition: attachment; filename=adherents.xls");
     header("Pragma: no-cache");
@@ -49,7 +49,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
     $title = _LANG_EXTRAIT_TABLE.TABLE_ADHERENTS." - ".$now_date;	
     echo("$title\n");  // affiche la ligne de titre
 
-// requete	
+// requête	
 	$req_lire_table_adht = "SELECT id_adht,soc_adht,civilite_adht,prenom_adht,nom_adht, adresse_adht, cp_adht, ville_adht,"
 	." telephonef_adht, telephonep_adht, telecopie_adht, email_adht, promotion_adht, datecreationfiche_adht,"
 	." antenne_adht, datenaisance_adht, visibl_adht, datemodiffiche_adht, siteweb_adht,"
@@ -104,7 +104,7 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 			}
 		$champ22 = $row['tranche_age'];
 
-		$champ23 = $row['promotion_adht']; //N° adhésion 
+		$champ23 = $row['promotion_adht']; // N° adhésion 
 		$champ23 = utf8_decode(($champ23)); // Convertira les guillemets et les apostrophes
 		/*		
 		$champ24 = $row['situation_socialv;
@@ -120,14 +120,14 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 			if ($champ32 == '0'){
 				$champ32='x';
 			} else {
-		//  qui a enregistré la fiche
+		// qui a enregistré la fiche
 		$req_lire_nom_enregistrant = "SELECT prenom_adht,nom_adht"
 		." From ".TABLE_ADHERENTS." WHERE id_adht='$champ32'";	
 		$dbresult_nom = $db->Execute($req_lire_nom_enregistrant);			
 		$champ32 = utf8_decode($dbresult_nom->fields['nom_adht']." ".$dbresult_nom->fields['prenom_adht']); 		
 		// fin   qui a enregistré		
 			}
-		//$champ33 = $row['cotis_adht'];
+		// $champ33 = $row['cotis_adht'];
 		$champ34 =$row['disponib_adht'];
 		if ($champ34 != ''){
 			$champ34 = substr($row['disponib_adht'],0,510)."...";
@@ -136,7 +136,7 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 		$champ35 = html_entity_decode(utf8_decode($row['profession_adht']),ENT_QUOTES); // ajout V 7
 		$champ36 = html_entity_decode(utf8_decode($row['autres_info_adht']),ENT_QUOTES); // ajout V 7
 		
-		//ecriture de la ligne
+		// écriture de la ligne
         print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t $champ8\t $champ9\t $champ10\t $champ11\t  $champ13\t $champ14\t $champ15\t $champ16\t $champ17\t $champ18\t $champ19\t  $champ20\t $champ21\t $champ22\t $champ23\t $champ32\t $champ35\t $champ36\t $champ34\n");
 		
 	}

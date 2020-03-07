@@ -46,16 +46,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$affiche_liste_complete=''; // On affiche Toutes les citisation ou seulement 1 seul adhérent 
 	$filtre_datedeb ='';
 	$filtre_datefin ='';
-	//Tableau xpour affichage
+	// Tableau pour affichage
 	$cotis_adht = array(); // Tableau $cotis_adht[champ de la table]  passage des data vers TPL
 	$erreur_saisie = array(); //Erreur si  Champs Obligatoires à saisir
 	// initialisation
-	$date_du_jour=date("Y-m-d");//Pour définir la différence entre 2  dates
+	$date_du_jour=date("Y-m-d"); //Pour définir la différence entre 2  dates
 	$Date_fin_cotisation_pref = switch_date(JMA_FIN_COTIS); // ajout pour avoir la Date fin cotisation du menu  Préférences/Préférence Association au format 2016-12-31
 		
 	/***** Si ADMINISTRATEUR donc $priorite_adht > 8     (4, 5 et 7 n'a PAS le droit) */
 	if ($priorite_adht >= 7 ) {
-		$id_adht_cotis = get_post_variable_numeric('id_adht_cotis', '');// l'id cotis/adhérent pour affichage liste du seul cotisant			
+		$id_adht_cotis = get_post_variable_numeric('id_adht_cotis', ''); // l'id cotis/adhérent pour affichage liste du seul cotisant			
 		if ( $id_adht_cotis == '') { 
 			$affiche_liste_complete = 1; //  On affichera la liste complete de Tous les cotisants		
 		}
@@ -66,14 +66,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	} 
 		
 
-	// récupere la variable de la page pour afficher la suite
-	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1');// par défaut 1 page
+	// récupère la variable de la page pour afficher la suite
+	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1'); // par défaut 1 page
 		
 		
-	//On prépare l'affichage 
-	$affiche_nb_lines = get_post_variable_numeric('affiche_nb_adht',NB_LIGNES_PAGE); //  par défaut NB_LIGNES_PAGE
+	// On prépare l'affichage 
+	$affiche_nb_lines = get_post_variable_numeric('affiche_nb_adht',NB_LIGNES_PAGE); // par défaut NB_LIGNES_PAGE
 
-	// recherche sur les dates début et fin cotisations par  les filtres "filtre_datedeb" et  "filtre_datefin" 
+	// recherche sur les dates début et fin cotisations par les filtres "filtre_datedeb" et "filtre_datefin" 
 	$select_datedeb= get_post_variable('select_datedeb','');
 	if ($select_datedeb) {	
 		if (( check_madateFR($select_datedeb))== TRUE) {
@@ -100,7 +100,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// filtre d'affichage  les cotisation  adhérents 0 => 'Les fiches actives', 1 => 'Toutes les fiches', 2 => 'Les fiches archivées'
 	$filtre_fiche = get_post_variable_numeric('filtre_fiche', '1');  // Toutes les fiches uniquement + EXLURE les fiches archivées
 	
-	// requette principale    TABLE_COTISATIONS + TABLE_ADHERENTS + TABLE_TYPE_COTISATIONS
+	// requête principale TABLE_COTISATIONS + TABLE_ADHERENTS + TABLE_TYPE_COTISATIONS
 	$req_lire_info_cotis = "SELECT id_cotis,id_adhtasso,id_type_cotis,"
 	."montant_cotis,date_enregist_cotis,date_debut_cotis,date_fin_cotis,cotis,datemodiffiche_cotis,"
 	." prenom_adht,nom_adht," // TABLE_ADHERENTS
@@ -112,7 +112,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." AND ".TABLE_COTISATIONS.".date_fin_cotis <> '$Date_fin_cotisation_pref' ";
 	// ET dont la date de fin de cotisation est antérieure à la date Date fin cotisation du menu  Préférences/Préférence Association 
 	
-	// requette pour comptage 	
+	// requête pour comptage 	
 	$reqcompt_info_cotis = "SELECT id_cotis FROM ".TABLE_COTISATIONS." WHERE qui_cotis ='adh' "
 	." AND ".TABLE_COTISATIONS.".cotis <>'999'" // EXLURE les fiches archivées	
 	." AND ".TABLE_COTISATIONS.".date_fin_cotis <> '$Date_fin_cotisation_pref' "; // ET dont la date de fin de cotisation est antérieure à la date Date fin cotisation		
@@ -124,7 +124,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}	
 
 	
-	// recherche sur les dates début et fin cotisations par  les filtres "filtre_datedeb" et  "filtre_datefin" 
+	// recherche sur les dates début et fin cotisations par les filtres "filtre_datedeb" et "filtre_datefin" 
 	if ($filtre_datedeb!='') {
 	   $req_lire_info_cotis .= " AND date_debut_cotis >= '".$select_datedeb_sql."' ";
 	   $reqcompt_info_cotis .= " AND date_debut_cotis >= '".$select_datedeb_sql."' ";
@@ -136,7 +136,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}
 		
 		
-	// filtre d'affichage les cotisation  adhérents  0 => 'Les fiches actives', 1 => 'Les fiches achivées', 2 => 'Toutes les fiches'
+	// filtre d'affichage les cotisation adhérents  0 => 'Les fiches actives', 1 => 'Les fiches achivées', 2 => 'Toutes les fiches'
 	if ($filtre_fiche == '0') { // Les fiches active
 		$req_lire_info_cotis .= " AND cotis <>'999' AND date_fin_cotis >= '".$date_du_jour."'"; // 16/01/2009  v 3.0.3
 		$reqcompt_info_cotis .= " AND cotis <>'999' AND date_fin_cotis >= '".$date_du_jour."'";	// 16/01/2009
@@ -153,8 +153,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 
 		
-	// phase de tri sur les colonnes  #=N°    	 Date Enr    		 Nom Prénom    	 Type Cotis    	 Montant    	 Statut  
-	if (isset($_GET['tri'])) { // récupere l le N° de la colosne de tri 
+	// phase de tri sur les colonnes  #=N°   Date Enr   Nom Prénom   Type Cotis    Montant    Statut  
+	if (isset($_GET['tri'])) { // récupère le N° de la colosne de tri 
 		if (is_numeric($_GET['tri'])) {
 			if ($_SESSION['tri']==$_GET['tri']) {
 				$_SESSION['tri_sens']=($_SESSION['tri_sens']+1)%2; // 0 ou 1
@@ -203,8 +203,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 
 	// comptage des fiches
-	$dbresult = $db->Execute($reqcompt_info_cotis); //Pour compter le NB d'enregistrements
-	$nb_lines = $dbresult->RecordCount() ; // le NB de ligne totales
+	$dbresult = $db->Execute($reqcompt_info_cotis); // Pour compter le NB d'enregistrements
+	$nb_lines = $dbresult->RecordCount() ; // le NB de lignes totales
 
 	if ($affiche_nb_lines == 0) {
 		$nbpages = 1;
@@ -214,14 +214,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$nbpages = intval($nb_lines/$affiche_nb_lines)+1; // reste <>0 donc page + 1
 	}	
 		
-	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page ;-)
+	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page
 		
 	$indice = 1+($numpage_affiche-1)*$affiche_nb_lines ; // le N° de ligne
-	$nbpages=$nbpages+1;// pour affichage sur template Page  1 2 3... avec lien
+	$nbpages=$nbpages+1; // pour affichage sur template Page  1 2 3... avec lien
 
 	$dbresult = $db->Execute($req_lire_info_cotis);		
 	
-	// pour afficher le Nb de ligne par page		
+	// pour afficher le Nb de lignes par page		
 	if ($affiche_nb_lines == 0) {
 		$dbresult = $db->Execute($req_lire_info_cotis);	
 	} else {
@@ -237,17 +237,17 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$cotis_adht[$indice]['date_fin_cotis'] = switch_sqlFr_date($row['date_fin_cotis']);
 		// Si date cotisation échue
 			if (( compare_date($date_du_jour ,  ($row['date_fin_cotis']) )) == FALSE) {
-				//Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 			
+				// Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 			
 					$cotis_adht[$indice]['date_fin_cotis'] = '<span class="Texterouge" title="Cotisation échue">'
 					.$cotis_adht[$indice]['date_fin_cotis'].'</span>';
 			}			
 		$cotis_adht[$indice]['nom_adht'] =  $row['nom_adht'];	
 		$cotis_adht[$indice]['prenom_adht'] =  $row['prenom_adht'];				
-		$cotis_adht[$indice]['nom_type_cotisation'] =  $row['nom_type_cotisation'];// 
-		$cotis_adht[$indice]['montant_cotis'] =  $row['montant_cotis'];// 			
+		$cotis_adht[$indice]['nom_type_cotisation'] =  $row['nom_type_cotisation'];
+		$cotis_adht[$indice]['montant_cotis'] =  $row['montant_cotis'];		
 			if ( $row['cotis'] =='999') {
 				$cotis_adht[$indice]['cotis'] =  $row['cotis']; // 999
-//				$cotis_adht[$indice]['cotis_txt'] = _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV;// Affichage du statut Archivée
+				// $cotis_adht[$indice]['cotis_txt'] = _LANG_MESSAGE_LISTE_COTIS_ADHT_ARCHIV; // Affichage du statut Archivée
 				$cotis_adht[$indice]['datemodiffiche_cotis'] = switch_sqlFr_date($row['datemodiffiche_cotis']);
 			}
 		$cotis_adht[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
@@ -258,7 +258,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	
 	// Il n'y a pas d'enregistrement sélectionné
 	if ($indice == 1 && $affiche_liste_complete != 1) { // Il n'y a pas d'enregistrement sélectionné  et la liste est personnelle
-		// Requette Pour affichage du Nom Prénom en fonction de l'Id adhérent = id_adht_cotis
+		// Requête pour affichage du Nom Prénom en fonction de l'Id adhérent = id_adht_cotis
 	    $req_lire_benevol = "SELECT nom_adht,prenom_adht FROM "
 		.TABLE_ADHERENTS."  WHERE id_adht= '$id_adht_cotis'";	
 		$dbresult = $db->Execute($req_lire_benevol);	
@@ -269,20 +269,20 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 /***** Si on SUPPRIME la fiche cotisaton - Basé sur remplir_cotisations_adht.php*/
 	$cotis_adh = array(); // Tableau $cotis_adht[champ de la table] 
 		
-	$id_cotis_adht = get_post_variable_numeric('id_cotis', '');// l'id de la cotisation existante		
+	$id_cotis_adht = get_post_variable_numeric('id_cotis', ''); // l'id de la cotisation existante		
 	$supp_fiche_cotis = get_post_variable_numeric('supp_fiche_cotis', ''); // controle si suppression fiche
 
 	if ( ($supp_fiche_cotis == 1) && ($id_cotis_adht) ) {
 		// texte du message 
 		$cotis_adh['info_archiv_cotis'] = "Arch+ par id=".$_SESSION['ses_id_adht']." ".switch_sqlFr_date($date_du_jour);		
-		//on SUPPRIME  .... en fait on met 999  dans le champ  Cotis + Date du jour dans DateModifFiche_Cotis 
+		// on SUPPRIME  .... en fait on met 999  dans le champ  Cotis + Date du jour dans DateModifFiche_Cotis 
 		$req_supp_cotis=("UPDATE ".TABLE_COTISATIONS." SET cotis='999',"
 		." datemodiffiche_cotis='$date_du_jour' , info_archiv_cotis='$cotis_adh[info_archiv_cotis]'" 
 		." WHERE id_cotis='$id_cotis_adht'");	
 		$dbresult = $db->Execute($req_supp_cotis);
 			if  (! $dbresult) $erreur_saisie ['bd'] = _LANG_MESSAGE_LISTEARCHIV_ADHT_ERREUR. $id_cotis_adht.' supp_cotis';
 
-		// On récupere le Id adht qui vient de la ligne cotisation A supprimer	
+		// On récupère le Id adht qui vient de la ligne cotisation A supprimer	
 		$req_lire_info_idadht = "SELECT id_adhtasso FROM ".TABLE_COTISATIONS
 		." WHERE id_cotis='$id_cotis_adht'";
 		$dbresult = $db->Execute($req_lire_info_idadht);
@@ -292,7 +292,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$id_result = $row['id_adhtasso']; // 
 		}	
 
-// LES vérfications à faire.....
+// Les vérifications à faire.....
 		// vérifier si il y a une autre cotisation pour le même adhérent $id_result V 5.5.0 + 5.5.1 AND cotis <> '999'
 		$compt_adht_cotis = "SELECT id_cotis, date_fin_cotis"
 		." FROM ".TABLE_COTISATIONS
@@ -301,14 +301,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		if  (! $dbresult) $erreur_saisie ['bd'] = _LANG_MESSAGE_LISTEARCHIV_ADHT_ERREUR. $id_cotis_adht.' compt_adht_cotis';
 		$nb_compt_adht_cotis = $dbresult->RecordCount() ; // on compte le Nb cotis pour $id_result
 
-		// vérfier si la fiche _adherent ne contient pas 999 donc serait déja archivée		
+		// vérifier si la fiche _adherent ne contient pas 999 donc serait déja archivée		
 		$req_lire_soc_adht = "SELECT soc_adht"
 		." FROM ".TABLE_ADHERENTS
 		." WHERE id_adht ='$id_result' "; 			
 		$dbresult_soc_adht = $db->Execute($req_lire_soc_adht);		
 		if  (! $dbresult) $erreur_saisie ['bd'] = _LANG_MESSAGE_LISTEARCHIV_ADHT_ERREUR. $id_cotis_adht.' lire_soc_adht';
 		//- si "xx" toutes les cotisations "Bénévole" sont archivées,
-		//- si "999" la fiche "Bénévole" a été supprimée (mais la fiche est réactivable).
 		//- si "999" la fiche "Bénévole" a été supprimée (mais la fiche est réactivable).
 		$check_soc_adht= $dbresult_soc_adht->fields['soc_adht']; // valeur fiche _adherent "s" ou si "vide" ou "xx" ou "999"
 
@@ -344,7 +343,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			} // fin si Nb cotis ...
 
 		if (count($erreur_saisie) == 0) {	
-			//ecrit qui a fait la manip		
+			// écrit qui a fait la manip		
 			$ecritlog = $masession->write_log('ArchiveSérie_Adht_Cotis : '
 			.$id_cotis_adht, addslashes($nom_adht).' '.addslashes($prenom_adht));	
 			// on retourne à la page apres avoir SUPPRIMé la fiche cotisaton
@@ -367,20 +366,20 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE		
 	$tpl->assign('id_adht',$id_adht_cotis);	// On passe l'Id adhérent qui a déclencher l'opération		
-	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
+	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requête
 	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
 	$tpl->assign('numpage',$numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_liste_complete',$affiche_liste_complete); // Affichage liste pour seulement 1 seul adhérent si vide
 	$tpl->assign('affiche_nb_adht',$affiche_nb_lines); // NB lignes par select
 	$tpl->assign('filtre_datedeb',$filtre_datedeb); // Filtrage par Rechercher les dates début 
 	$tpl->assign('filtre_datefin',$filtre_datefin); // Filtrage par Rechercher les dates  fin
-	$tpl->assign('filtre_fiche',$filtre_fiche);// Filtrage par  parmi  0 Les fiches actives  1 Les fiches achivées 2 Toutes les fiches
+	$tpl->assign('filtre_fiche',$filtre_fiche); // Filtrage par  parmi  0 Les fiches actives  1 Les fiches achivées 2 Toutes les fiches
 	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_COTISATIONS); // la litse des options  membres actifs, à jour,...
 	$tpl->assign('affichenb_adht_options',$T_AFFICHE_NB_PAGE); // Nb de lignes par page
 	$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie sur champs Dates
-	$tpl->assign('date_3112',JMA_FIN_COTIS);// date pour fin de cotisation			
+	$tpl->assign('date_3112',JMA_FIN_COTIS); // date pour fin de cotisation			
 
-	//POUR  AFFICHAGE VERS TEMPLATE		
+	// POUR  AFFICHAGE VERS TEMPLATE		
 	$content = $tpl->fetch('adherent/archiverenserie_cotisations_adht.tpl'); // On affiche ...
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');	

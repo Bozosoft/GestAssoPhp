@@ -29,20 +29,20 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	
 	// Raz de variables
 	
-	//Tableau xpour affichage
+	// Tableau pour affichage
 	$adherent_visu = array(); // On passe par un Tableau pour affichage du nom prénom adhérent
 	$fichier = array(); // On passe par un Tableau pour affichage des fichiers
 	// initialisation
-	//$date_du_jour=date("Y-m-d");//Pour définir la différence entre 2  dates
+	//$date_du_jour=date("Y-m-d"); //Pour définir la différence entre 2  dates
 	$indice ='';
 	
 
 	
 /***** Pour affichage de la fiche */
-// Récupère  Prénom Nom du possesseur de la fiche pour afficher Liste des fichiers adhérents
+// Récupère Prénom Nom du possesseur de la fiche pour afficher Liste des fichiers adhérents
     $req_lire_nom_adht = "SELECT prenom_adht,nom_adht FROM ".TABLE_ADHERENTS." WHERE id_adht='".$id_adht."'";
 	$dbresult_nom = $db->Execute($req_lire_nom_adht);	
-	$adherent_nomfiltre = $dbresult_nom->fields['nom_adht'];//." ".$dbresult_nom->fields['prenom_adht'];
+	$adherent_nomfiltre = $dbresult_nom->fields['nom_adht']; //." ".$dbresult_nom->fields['prenom_adht'];
 	
 	// On lit la table des fichiers relative à l'adhérent sur la Fiche en cours
 	$req_lire_info_fichier = "SELECT id_file_adht, nom_file_adht, design_file_adht From ".TABLE_FICHIER_ADHERENTS
@@ -50,7 +50,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$dbresult = $db->Execute($req_lire_info_fichier);	
 	
 	while ($dbresult && $row = $dbresult->FetchRow()) {	
-		//affiche les variables de la ligne 
+		// affiche les variables de la ligne 
 		$fichier[$indice]['nom_file_adht'] = $row['nom_file_adht']; //Nom fichier
 		$fichier[$indice]['id_file_adht'] = $row['id_file_adht']; //++ ajout pour téléchargement
 		$fichier[$indice]['design_file_adht'] = $row['design_file_adht']; //++ ajout désignation pour téléchargement
@@ -60,7 +60,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 
 	
-/***** FIN Pour affichage de la fiche */
+/***** FIN pour affichage de la fiche */
 
 		
 /***** ---------------------------------------------------------------------- */	
@@ -68,7 +68,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE	
 	$tpl->assign('fichier',$fichier); // tableau $fichier[$indice]['xx_xx']	
 	$tpl->assign('adherent_nomfiltre',$adherent_nomfiltre); //  Nom du possesseur de la fiche	
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR AFFICHAGE VERS TEMPLATE			
 	$tpl->assign('nb_mission_adht',($indice)); // NB missions
 
 } else { /***** il y a une erreur ... Si erreur  on envoie vers la page de login ... avec message */		

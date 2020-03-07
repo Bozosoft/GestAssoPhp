@@ -25,7 +25,7 @@
 
 
 
-// Si efface table  'drop_bd'  //drop table coché oui = on en page 2
+// Si on éfface les tables  'drop_bd'  //drop table coché oui = on en page 2
 	if (isset($effacetables) && $effacetables == 'on') {
 	
 		$dbdict = NewDataDictionary($db);
@@ -56,7 +56,7 @@
 	
 // si installation	
 $erreur_saisie = array() ;
-	// Choix de mysql ou mysqli
+	// Choix de mysql ou mysqli // ATTENTION suivant la version PHP 
 	$type_bd = $_SESSION['type_bd']; // récupération du choix mysql ou mysqli
 	if ($type_bd == 'mysql' || $type_bd == 'mysqli')
 		@$db->Execute("ALTER DATABASE `" . $db->database . "` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
@@ -106,7 +106,7 @@ $erreur_saisie = array() ;
 	$table_num = 't1';
 	$_sqlarray = $dbdict->CreateTableSQL($table, $flds, $taboptarray);
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
-//echo 	$_return; // 2 Ok   1 errreur	
+//echo 	$_return; // 2 = Ok   1 = erreur  // DEBUG
 		if ($_return == 2) {
 		$message_bd[$table_num] =  'Ajout .... : '.$table.' =>  OK <br />';
 		} else {

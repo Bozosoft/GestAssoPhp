@@ -17,7 +17,7 @@
 *
 * changements..... : fixe set_timeout automatique, separe ( merci à ADL )
 *					 ajout de la sauvegarde au vol sans compression du fichier
-*					 reecriture de la methode backup pour en faciliter la lecture
+*					 réecriture de la methode backup pour en faciliter la lecture
 *
 * change ......... : set_timout detect, fly backup, rewrite backup methode to make easy to read
 *
@@ -33,20 +33,20 @@
 *
 * Description .... : Pour faire une sauvegarde d'une base MySQL l'outil habituel est mysqldump
 *					 fourni avec MySQL.
-*					 Pour l'utiliser en PHP il faut avoir un acces au shell et qu'il soit dans le path.
-*					 Cela n'est pas toujour le cas selon l'hebergeur, le systeme, Microsoft, Linux ...
-*					 J'avais besoin d'un outil qui me genere une sauvegarde totale de base au format
-*					 le plus courant et independant de la plateforme.
-*					 Comme la sauvegarde doit pouvoir etre faite par un utilisateur de base, le systeme
-*					 doit etre simple: j'ouvre la page web je telecharge le fichier, c'est fini.
-*					 le fichier peut etre compresse avec la gzlib de PHP,donc sans utiliser le shell et
-*					 quelque soit le systeme d'exploitation.
+*					 Pour l'utiliser en PHP il faut avoir un accès au shell et qu'il soit dans le path.
+*					 Cela n'est pas toujours le cas selon l’hébergeur, le système, Microsoft, Linux ...
+*					 J'avais besoin d'un outil qui me génère une sauvegarde totale de base au format
+*					 le plus courant et indépendant de la plateforme.
+*					 Comme la sauvegarde doit pouvoir être faite par un utilisateur de base, le systeme
+*					 doit être simple: j'ouvre la page web je télécharge le fichier, c'est fini.
+*					 le fichier peut être compresse avec la gzlib de PHP, donc sans utiliser le shell et
+*					 quel que soit le système d'exploitation.
 *					 
-*					 Pour la restoration je n'ai rien prevu, simplement parceque pour reconstruire une base
-*					 il vaut mieux savoir et verifier ce que l'on fait. il vaut donc mieux utiliser un des 
-*					 nombreux outils prevus a cet effet qui travaillent en direct sur le port MySQL.
-*					 Certain outils de traitement des fichier sql ne suppoortent pas les commantaire.
-*					 en mettant $class->format_out = "no_comment" le probleme est regle
+*					 Pour la restauration je n'ai rien prévu, simplement parce que pour reconstruire une base
+*					 il vaut mieux savoir et vérifier ce que l'on fait. il vaut donc mieux utiliser un des 
+*					 nombreux outils prévus a cet effet qui travaillent en direct sur le port MySQL.
+*					 Certain outils de traitement des fichier sql ne supportent pas les commantaire.
+*					 en mettant $class->format_out = "no_comment" le problème est réglé
 *
 * Description .... : To do a backup of a base MySQL the basic tool is mysqldump furnished with MySQL
 *					 To use it in PHP you shoul have an access to the shell and to be in the path
@@ -62,29 +62,29 @@
 *					 If you must to restore in PHP and you think you know what you do, contact me.
 *					 I have littles script that i use, they are not clean, comments are in french and not up to date, but i can send you.
 
-* remarques ...... : Le fichier de sauvegarde est creer dans le repertoire du script
-* 					 vous devez donc avoir le droit d'ecrire dans ce repertoire
-*					 la securite n'est pas geree par cette class. Si vous ne le faite pas
+* remarques ...... : Le fichier de sauvegarde est créer dans le répertoire du script
+* 					 vous devez donc avoir le droit d'ecrire dans ce répertoire
+*					 la sécurité n'est pas gérée par cette class. Si vous ne le faite pas
 *					 avec des htaccess ou du code n'importe quel visiteur peut avoir une copie de vos bases
-*					 La compression est desactivee pour la sauvegarde a la volee
+*					 La compression est desactiveée pour la sauvegarde a la volée
 * reamarks ....... : the back up file is created in the script directory. 
 *					 You should be allowed to write in that directory because the security is not administrated by that class.
 *					 If you don’t do it with some htaccess or encoding it any visitor could have a copy of your data.
 *                    Compress is disable if fly is on.					 
 *
 * Methodes........ : **nettoyage() 
-*					   permet de vider le repertoire temporaire dans lequel sont crees les sauvegardes
-*					   si cette methode n'est pas utilisee les sauvegardes sont archivées.
+*					   permet de vider le répertoire temporaire dans lequel sont créés les sauvegardes
+*					   si cette méthode n'est pas utilisée les sauvegardes sont archivées.
 *
 *					   Allows to empty the temp directory in which are all the backup.
 *					   If you don’t use that method the backups are archived
 *
 *                    **backup($fichier) 
-*					   realise la sauvegarde dans le fichier $fichier
-*					   si $fichier est ommis un nom de fichier est attribue (methode recomandee)
-*					   le fichier est cree dans un sous repertoire temp du repertoire ou s'execute le script
-*					   Si temp n'existe pas il est cree.verifiez bien si vous avez le droit d'ecrire. 
-*					   Pour la sauvegarde a la volée ( $fly=1 ) rien n'est ecrit sur le disque.
+*					   réalise la sauvegarde dans le fichier $fichier
+*					   si $fichier est ommis un nom de fichier est attribue (méthode recommandée)
+*					   le fichier est crée dans un sous-répertoire temp du répertoire ou s’exécute le script
+*					   Si temp n'existe pas il est cree.verifiez bien si vous avez le droit d’écrire. 
+*					   Pour la sauvegarde a la volée ( $fly=1 ) rien n'est écrit sur le disque.
 *					   le nom du fichier est utilise pour le transfert HTTP
 *
 *					   makes the backup in the file $fichier
@@ -96,21 +96,20 @@
 *
 *					 **compress() 
 *					   compresse au format gzip le fichier cree avec backup et le renome en .gz
-*					   il vaut mieux utiliser le flag compress_ok pour activer ou desactiver l'utilisation de la methode
+*					   il vaut mieux utiliser le flag compress_ok pour activer ou desactiver l'utilisation de la méthode
 *
 *					   This methode zip to the format gzip the file created with backup and rename it in .gz			
 *					   It' better to use the compress_ok flag to activate or desactivate compress for the class.
 *			
 * Proprietes...... : **format_out 
-* Property			   si ="no_comment" la sauvegarde est faite sans commentaires
-*					   utilie pour certains outils de restoration. A n'utiliser que si votre outil de restoration
+* 			   		   si ="no_comment" la sauvegarde est faite sans commentaires
+*					   utilise pour certains outils de restauration. A n'utiliser que si votre outil de restauration
 *					   ne lit pas correctement le fichier
-*
-*					   the backup is done without comment 
+*Property			   the backup is done without comment 
 *					   usefull for some restoring tools. Use it only if your restoring tool doesn’t read correctly the file					   
 *
 *					 **$fly 
-*					   la sauvegarde n'est pas écrite sur le disque elle est directement telegargee
+*					   la sauvegarde n'est pas écrite sur le disque elle est directement téléchargée
 *					   The backup is not write on the server, it send to the browser on fly.
 *					 **$compress_ok
 *						 active la compression gz sauf si $fly
@@ -119,9 +118,9 @@
 *
 * Parametres...... : $sav = new phpmysqldump($link, $host, $user, $password, $base, $langue);
 * Parameters		 
-*					 **$link est un link vers une base deja ouverte, les autres parametre sont alors ""
-*					 si $link est "" les autres parametres sont utilises et n'ont pas besoin de commentaires
-*					 se sont les parametre de la base a sauvegarder
+*					 **$link est un link vers une base déjà ouverte, les autres paramètres sont alors ""
+*					 si $link est "" les autres paramètres sont utilisés et n'ont pas besoin de commentaires
+*					 se sont les paramètre de la base à sauvegarder
 
 *					 **$link is a valid link to an already open base, the other parameters are then  ""
 *				 	 If $link is "" the other parameters are used and don’t need comments. 
@@ -134,7 +133,7 @@
 * 07/08/2008 par JCE- GestAssoPhp  Ajout - Modification   sauver ou non les tables + Modification ajout espace après -- X dans les commentaire cela provoque une erreur a l'import BD
 * 27/10/2009 PHP 5.3  // supprimé -> //!!!!  Function mysql_list_tables() is deprecated  -  On remplace par  exemple sur  http://fr.php.net/manual/fr/function.mysql-list-tables.php 
 * 29/12/2009 remplace var par  private ou public PHP5
-* 16/01/2013 merci à Olivier Humez ajoutligne : if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";};
+* 16/01/2013 merci à Olivier Humez ajout ligne : if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";};
 *  Correction OHV0.0 pour empêcher la sauvegarde de "" en NULL
 *  21/09/2014 - ajout sécurité sur "SHOW TABLES."  
 *
@@ -151,16 +150,16 @@
 
 class phpmysqldump
 {
-	private $link;				// lien vers la base a sauvegarder 		//link to the database to backup
+	private $link;				// lien vers la base à sauvegarder 		//link to the database to backup
 	private $base;				// nom de la base						// the database name						
 	private $host;				// nom ou ip du serveur de MySQL		// name or IP of the MySQL server
 	public $filename; 			// nom du fichier de sauvegarde			// name of the backup file
-	private $sousdir="temp/";	// sous repertoire dans lequel s'effectue la sauvegarde avec le / final
+	private $sousdir="temp/";	// sous répertoire dans lequel s'effectue la sauvegarde avec le / final
 							// sub-directory in which the backup file is done ( not on fly mode) ( note the final /)
 	private $version="0.6";  // "0.53" -> .06 par JCE
 	private $format_out;		// format de sortie null : mysql dump "no_comment" idem sans commentaires
 							// "" : normal backup, "no_comment" : for a dump without comment
-	private $language;			// pret pour d'autres langues defaut "fr" sinon "en" "sp" "ge" 	// language
+	private $language;			// pret pour d'autres langues défaut "fr" sinon "en" "sp" "ge" 	// language
 	public $fly;				// flag si oui sauvegarde au vol								// flag for fly backup
 	public $compress_ok;		// flag pour la compression		
 								// flag for compress
@@ -171,7 +170,7 @@ class phpmysqldump
 	public $struct_yes=1;		// 1 = structure  0 pas de stucture
 							
 	
-	private $no_time_limit=TRUE;// si la fonction set_time_limit() est désactivée devient FALSE
+	private $no_time_limit=TRUE; // si la fonction set_time_limit() est désactivée devient FALSE
 							// time limit for big database			
 							
 	private $fp= ''; // add PHP5.3 27/10/2009
@@ -181,7 +180,7 @@ class phpmysqldump
 	function __construct ( $host, $user, $password, $base, $langue="fr", $link=NULL)
 	{	
 		$this->language=$langue;
-		// recherche si set_time_limit() est desactivee  // look for set_time_limit() active
+		// recherche si set_time_limit() est désactivée  // look for set_time_limit() active
 		if(get_cfg_var("safe_mode")){ 
 			$this->no_time_limit=FALSE;
 		}
@@ -218,23 +217,23 @@ class phpmysqldump
 //************** dump de la base ***************** beging the dump****
 	function backup($fichier="") // si $fichier null ignoré sinon utilise comme nom de fichier de sauvegarde
 	{							 // $fichier is optional If is used is the name of the backup file
-		$fp ='';// add PHP5  Undefined variable
+		$fp =''; // add PHP5  Undefined variable
 		if($this->fly){$this->sousdir="";}
 		if($this->errr)
 		{
 			return false;
 		}else{ 
 			
-			if($fichier){ 				// *** si un nom de fichier en parametre on l'utilise
+			if($fichier){ 				// *** si un nom de fichier en paramètre on l'utilise
 										// *** if you provide a file name we use it
 				$this->filename=$this->sousdir.$fichier;
 			}else{						// *** sinon on en genere un // else automatic name
 				$this->filename = $this->sousdir."backup_".$this->base."_".date("Y_m_d__G_i").".sql";
 			}
-		   if($this->fly){  			// sauvegarde a la volee  // on fly backup
+		   if($this->fly){  			// sauvegarde a la volée  // on fly backup
 		   		$this->entete($this->filename);
 		   }else{
-		   		@mkdir($this->sousdir,700);	// creation du repertoire s'il n'existe pas  // tmp directory creation
+		   		@mkdir($this->sousdir,700);	// création du répertoire s'il n'existe pas  // tmp directory creation
 		   		$fp = @fopen($this->filename,"w");
 				if (!$fp){$this->errr=$this->message("err_fichier"); return false;}
 		   }
@@ -262,10 +261,10 @@ class phpmysqldump
 // si on veut  sauver les tables	 ..CREATE TABLE ...   Ajout - Modification 07/08/2008 par JCE
 				if($this->struct_yes==1){
 					$this->backup_comment("debut_table", $tablename);
-					// debut du query on vire la table si elle existe deja // if the table exist we erase it
+					// début du query on supprime la table si elle existe déjà // if the table exist we erase it
 					$this->ecrire("DROP TABLE IF EXISTS `$tablename`;\n");
 				  
-					// creation des tables									// table creation
+					// création des tables									// table creation
 					$query = "SHOW CREATE TABLE $tablename";
 					$tbcreate = mysql_query($query);
 					$row = mysql_fetch_array($tbcreate);
@@ -274,7 +273,7 @@ class phpmysqldump
 				}
 // si on veut ne pas sauver les tables	 ..CREATE TABLE ... - Modification 07/08/2008 par JCE
 
-				// recuperation des data								// dump of the data
+				// récupération des data								// dump of the data
 				if($this->data_yes==1){
 					
 					$query = "SELECT * FROM $tablename";
@@ -282,7 +281,7 @@ class phpmysqldump
 					if (mysql_num_rows($datacreate) > 0) 	// *** si la table n'est pas vide // table not empty
 					{
 						$this->backup_comment("debut_dump", $tablename);
-						// sauvegarde des donnees
+						// sauvegarde des données
 						$qinsert = "TRUNCATE TABLE ".$tablename." ; \n";	//TRUNCATE TABLE  - Modification 07/08/2008 par JCE
 						$qinsert .= "LOCK TABLES $tablename WRITE; \n";
 						$qinsert .= "INSERT INTO `$tablename` values \n  ";
@@ -314,7 +313,7 @@ class phpmysqldump
 	function backup_comment($section, $tablename=""){
 		if($this->format_out=="no_comment"){return;}
 		
-		// en tete du fichier dump  // top of the backup  *|* Modification ajout espace après -- X dans les commentaire cela provoque une erreur a l'import BD
+		// en tête du fichier dump  // top of the backup  *|* Modification ajout espace après -- X dans les commentaire cela provoque une erreur à l'import BD
 		if($section=="debut"){
 			$this->ecrire("-- PHPMySQLDump $this->version \n");
 			$this->ecrire("--  phpdev@cawete.com   - http://jc.etiemble.free.fr \n");
@@ -329,7 +328,7 @@ class phpmysqldump
 			$this->ecrire("-- Server version            $server_info \n");
 			$this->ecrire("\n");
 		}
-		// commentaires de debut de table 		// top of thr table section
+		// commentaires de début de table 		// top of thr table section
 		
 		if($section=="debut_table"){
 			$this->ecrire("\n");
@@ -340,7 +339,7 @@ class phpmysqldump
 			$this->ecrire("\n");
 		}
 		
-		// commentaires de debut de data		// top of the data section
+		// commentaires de début de data		// top of the data section
 		if($section=="debut_dump"){
 			$this->ecrire("--\n");
 			$this->ecrire("-- Dumping data for table '$tablename' \n");
@@ -358,11 +357,11 @@ class phpmysqldump
 	}
 	
 	//************************************
-	// ******* fonction utilisee pour la separer les data // to convert incoming data to backup data
-	function separe($tbl) // utilisee dans array_map dans backup pour formater la recup du query  // used in array_map
+	// ******* fonction utilisée pour séparer les data // to convert incoming data to backup data
+	function separe($tbl) // utilisée dans array_map dans backup pour formater la récup du query  // used in array_map
 	{
 		if(is_null($tbl)){return "NULL";} else if($tbl==""){return "''";};	// Correction OHV0.0 15/01/2013 pour empêcher la sauvegarde de "" en NULL
-		//$tbl=mysql_escape_string($tbl); 	// prepare les data pour etre injectées dans mysql  // change string not compatible with MySQL
+		//$tbl=mysql_escape_string($tbl); 	// prépare les data pour être injectées dans mysql  // change string not compatible with MySQL
 		$tbl=mysql_real_escape_string($tbl); // mysql_escape_string remplacer par  mysql_real_escape_string function is deprecated PHP 5. 
 		if(is_numeric($tbl)){ return $tbl;}	// si chiffre , c'est bon							// numeric
 		if(!$tbl){return "NULL";}			// si c'est null on le dit							// NULL
@@ -372,8 +371,8 @@ class phpmysqldump
 			
 	function compress()
 	{	// compresse un fichier sans utiliser le shell				// compress file without shell
-		// pour ne pas se preocuper de la plateforme sur laquelle tourne le script
-		// juste verifier que la GZLIB de PHP est bien active		// if you have an erroz verify if your PHP hve the GZLIB
+		// pour ne pas se préocuper de la plateforme sur laquelle tourne le script
+		// juste vérifier que la GZLIB de PHP est bien active		// if you have an erroz verify if your PHP hve the GZLIB
 		if($this->filename and !$this->errr){
 			$fp = @fopen($this->filename,"rb");
 			$zp = @gzopen($this->filename.".gz", "wb9");

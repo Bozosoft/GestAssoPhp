@@ -46,9 +46,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 /***** On EXPORTE tout les logs	*/
 	if (isset($_GET['export_ok'])) {
-		$export_ok = get_post_variable_numeric('export_ok','0');// par défaut 1 
+		$export_ok = get_post_variable_numeric('export_ok','0'); // par défaut 1 
 		if ($export_ok == 1) {	
-		// entete du fichier téléchargé	
+		// entête du fichier téléchargé	
 		
 		    header("Content-Type: application/vnd.ms-excel");
 		    header("Content-Disposition: attachment; filename=logs_gestassophp.xls");
@@ -62,9 +62,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		    echo("$title\n");  // affiche la ligne de titre
 
 			$dbresult = $db->Execute("SELECT * FROM  ".TABLE_LOGS );
-			//id_log	date_log	ip_log	nom_log	action_log
+			// id_log	date_log	ip_log	nom_log	action_log
 		    print("Num\t Date \t IP \t Nom \t Action \n");	
-			//  chaque fois que "$res" est dif. de "$i", donc qu'il y a un enregisrement 	
+			// chaque fois que "$res" est différent de "$i", donc qu'il y a un enregisrement 	
 
 			while ($dbresult && $row = $dbresult->FetchRow()) {
 				$champ0 = $row['id_log'];	
@@ -73,7 +73,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		        $champ3 = $row['nom_log'];
 		        $champ4 = $row['action_log'];
 				
-				//$indice++;	
+				// $indice++;	
 				print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\n");
 			}			
 
@@ -89,4 +89,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 }
 	
 ?>
-    

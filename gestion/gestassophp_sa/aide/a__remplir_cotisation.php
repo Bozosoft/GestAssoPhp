@@ -78,4 +78,3 @@ Cet archivage n'est pas obligatoire, mais permet de tracer l'activit&eacute; cot
 </div>
 </body>
 </html>
-

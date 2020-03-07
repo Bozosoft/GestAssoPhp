@@ -4,7 +4,7 @@
 
     <header class="header_titre">{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_adht}</header>
 	<div class="ligne_coul"></div> 	
-	<div id="contenu"> {*défini le contenu .. *}
+	<div id="contenu"> {* défini le contenu .. *}
  {if $erreur_suppression_fiche == 1}
 		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur_suppression_id} !! - {language name=admin_liste_adht_date_f_cotis}{$erreur_suppression_date} <br /> {language name=liste_cotis_adht_archiv_alert}
 	</div>
@@ -192,6 +192,5 @@
 					{/if}
 					{/section}</span></div>
 
-	
 	 
 	</div> {* Fin défini le contenu .. *} 

@@ -56,7 +56,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$id_adht = '';
 	$tpl->assign('message',$message);	
 	//Tableaux pour affichage
-	$priorite = array();// tableau
+	$priorite = array(); // tableau
 
 
 	// Récuprération de id_adht_priorite du formulaire par le bouton Valider	
@@ -78,7 +78,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$tpl->assign('id_adht_priorite',$id_adht_priorite);			
 		$tpl->assign('code_priorite',$code_priorite);
 		$tpl->assign('message',$message);			
-		//ecrit qui a fait la manip			
+		// écrit qui a fait la manip			
 		$ecritlog = $masession->write_log('Priorité_Adht : '.$id_adht_priorite.' Priorité->'
 		.$code_priorite, addslashes($nom_adht).' '.addslashes($prenom_adht));	
 	
@@ -89,31 +89,31 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$req_list_benevol = "SELECT id_adht,nom_adht,prenom_adht FROM "
 	.TABLE_ADHERENTS."  WHERE soc_adht <>'999' ORDER BY  nom_adht asc ";	
 	$dbresult = $db->Execute($req_list_benevol);
-    $tab_benevol = array('' => (''._LANG_ARRAY_SELECTIONNEZ_NOM.''));// ligne affichée si vide
+    $tab_benevol = array('' => (''._LANG_ARRAY_SELECTIONNEZ_NOM.'')); // ligne affichée si vide
 
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		// on construit le tableau ID=Nom Prénom 
 		$tab_benevol[$row['id_adht']] = htmlentities(stripslashes(strtoupper($row['nom_adht']).' '.$row['prenom_adht']),ENT_NOQUOTES,'UTF-8');		
     } 
 	
-//***** FIN Pour affichage de la liste  Nom Prénom
+//***** FIN pour affichage de la liste  Nom Prénom
 
 
 /***** On prépare l'affichage des informations sur la priorité*/
 
 	// récupere la variable de la page pour afficher la suite
-	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1');// par défaut 1 page
-	//On prépare l'affichage 
+	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1'); // par défaut 1 page
+	// On prépare l'affichage 
 	$affiche_nb_lines = NB_LIGNES_PAGE;
 	if (isset($_GET['affiche_nb_fich'])) {
-		$affiche_nb_lines = get_post_variable_numeric('affiche_nb_fich',NB_LIGNES_PAGE);// par défaut  	
+		$affiche_nb_lines = get_post_variable_numeric('affiche_nb_fich',NB_LIGNES_PAGE); // par défaut  	
 	}
 	
-	// requette principale  lire les adhérents dont priorité  <> 1
+	// requête principale  lire les adhérents dont priorité  <> 1
 	$req_lire_priorite = "SELECT id_adht,nom_adht,prenom_adht,priorite_adht FROM "
 	.TABLE_ADHERENTS."  WHERE soc_adht <>'999' AND priorite_adht <> '1'";
 	$req_lire_priorite .= " ORDER BY ";
-	// requette pour comptage
+	// requête pour comptage
 	$reqcompt_priorite = "SELECT id_adht FROM "
 	.TABLE_ADHERENTS."  WHERE soc_adht <>'999' AND priorite_adht <> '1'";
 		
@@ -165,7 +165,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page ;-)
 		
 	$indice = 1+($numpage_affiche-1)*NB_LIGNES_PAGE ; // le N° de ligne
-	$nbpages=$nbpages+1;// pour affichage sur template Page  1 2 3... avec lien
+	$nbpages=$nbpages+1; // pour affichage sur template Page  1 2 3... avec lien
 
 	$dbresult = $db->Execute($req_lire_priorite);	
 	
@@ -180,7 +180,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		$priorite[$indice]['id_adht'] = $row['id_adht'];		
 		$priorite[$indice]['nom_prenom_adht'] = $row['nom_adht']." ".$row['prenom_adht'];
-		$priorite[$indice]['priorite_adht'] = $row['priorite_adht'];// pour eviter les \ dans les noms d'asso
+		$priorite[$indice]['priorite_adht'] = $row['priorite_adht']; // pour eviter les \ dans les noms d'asso
 		$priorite[$indice]['coul'] = $indice % 2; // Pour afficher 1 ligne sur 2  classs= Lignegris0  / Lignegris1
 		$indice++;	
 	}	
@@ -201,10 +201,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('listnoms',$tab_benevol); // la liste des noms des adhérents		
 	$tpl->assign('list_priorite_adht', $T_PRIORITE_ACCESS);	// la liste des priorités	
 	$tpl->assign('priorite',$priorite);	// tableau $priorite[$indice]['xxx']
-	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
+	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requête
 	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
 	$tpl->assign('numpage',$numpage_affiche); // le N° de la page courrante	
-	//POUR  AFFICHAGE VERS TEMPLATE					
+	// POUR  AFFICHAGE VERS TEMPLATE					
 	$content = $tpl->fetch('admin/remplir_priorite.tpl'); // On affiche ...
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');	
@@ -215,4 +215,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 }
 	
 ?>
-    

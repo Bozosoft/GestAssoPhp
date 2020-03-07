@@ -24,17 +24,17 @@
 	include '../config/connexion.cfg.php'; // fichier de configuration
 	include 'include_install.php';  // les variables + les définitions de répertoires
 	
-	$erreur_saisie = array();// tableau
+	$erreur_saisie = array(); // tableau
 	
 // On modifie le repertoire de Smarty pour .....	
 	define('TEMPLATES_LOCATION_INSTAL', join_path(ROOT_DIR_GESTASSO,'install' ) ); // repertoire Fichiers des templates Installation
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c 
-//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
-//  verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
+	//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ; // répertoire par défaut de compilation = templates_c 
+	//	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates
+	//  verson 3.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ; // répertoire par défaut de compilation = templates_c // Smarty version 3.x
 	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
-//echo TEMPLATES_LOCATION_INSTAL;
+//echo TEMPLATES_LOCATION_INSTAL;  // DEBUG
 // OPTIONS	
 	$tpl->error_reporting = E_ALL & ~E_NOTICE;
 
@@ -47,14 +47,14 @@
 	}
 
 	$masession = new sessions(); // -->la classe session
-		//Gestion erreur retour arrière depuis page 5
+		// Gestion erreur retour arrière depuis page 5
 		if ( isset($_SESSION['id_install2']) && $_SESSION['id_install2'] == '1') {
 			$texterreurretour_ar = 'Op&eacute;ration retour arri&egrave;re INTERDITE !';
 			header('location: install_5.php?id_adht=1&e_rar='.$texterreurretour_ar);
 					exit;
 		}
 
-/***** Si on validé le Formulaire  par le bouton Valider  */
+/***** Si on validé le Formulaire par le bouton Valider  */
 	if (isset($_POST['valid4'] )) { // on a validé la page 4 .tpl
 
 		$ok_valid4=(get_post_variable('valid4',''));		
@@ -66,11 +66,11 @@
 				if (is_valid_mylogin($adherent['login_adht']) ==  false) {	
 					$erreur_saisie ['login'] ='Login entre 4 et 20 caract&egrave;res ou caract&egrave;res invalides !';
 				} else {
-					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht',''));// MAJUSCULES	ou Majuscules+Minuscules
+					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht','')); // MAJUSCULES	ou Majuscules+Minuscules
 				}		
 			}				
 			
-		$adherent['email_adht'] = strtolower(trim(get_post_variable ('email_adht','')));// enléve les parasites	
+		$adherent['email_adht'] = strtolower(trim(get_post_variable ('email_adht',''))); // enléve les parasites	
 		if 	($adherent['email_adht'] !=='') {
 			if (!is_valid_email($adherent['email_adht'])) {
 				$erreur_saisie ['email'] = 'Attention adresse email Non valide';
@@ -87,8 +87,8 @@
 					// vérification lettre-chiffre ET  Nb caractéres ente 4 et 10->16 
 				} else {
 					// Modif POUR adminsalt Nouvelle installation à compter de la 5.2.0
-					$salt = substr(str_shuffle("23456789ABCDEFGHJKMNPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*"),0,16);// + 5.2.0		
-					$pass_adht= md5($salt.$adherent['pass_adht1']);// on code en MD5
+					$salt = substr(str_shuffle("23456789ABCDEFGHJKMNPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz@#$%^&*"),0,16); // + 5.2.0		
+					$pass_adht= md5($salt.$adherent['pass_adht1']); // on code en MD5
 				}
 			} else { //	si les 2 mots sont différents 
 			  $erreur_saisie ['mdp'] = 'Les 2 mots de passe ne sont pas identiques'; 
@@ -106,14 +106,14 @@
 				$erreur_saisie ['pnom'] = 'Indiquez le Pr&eacute;nom';
 			}			
 					
-		// TABLES définir les noms	
+		// Définir les noms	des TABLES pour les insertions de données ci-après
 		define('TABLE_ADHERENTS', DB_PREFIX.'adherent');	
 		define('TABLE_LOGS', DB_PREFIX.'logs');			//
-		define("TABLE_PREFERENCES", DB_PREFIX.'preference_asso'); // Table  Pour lire les preference_asso + 5.2.0		
+		define('TABLE_PREFERENCES', DB_PREFIX.'preference_asso'); // Table pour lire les preference_asso depuis V 5.2.0		
 		
-		if (count($erreur_saisie)== 0  && $ok_valid4 == 'valid4') { // si pas erreur Et  on a validé la page 4 .tpl	
-			$date_du_jour=date('Y-m-d');// la date du jour
-		// Si Aucune erreur de saisie ON Valide lesdonnées
+		if (count($erreur_saisie)== 0  && $ok_valid4 == 'valid4') { // si pas d'erreur Et si on a validé la page 4 .tpl	
+			$date_du_jour=date('Y-m-d'); // la date du jour
+		// Si Aucune erreur de saisie on valide les données
 				$adherent['nom_adht']= addslashes($adherent['nom_adht']); // ajoute \ si on a fait une erreur	
 				$adherent['prenom_adht']= addslashes($adherent['prenom_adht']); // ajoute \ si on a fait une erreur					
 		// Connexion à la  base données			
@@ -121,7 +121,7 @@
 				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");				
 
 
-			//Modif POUR admin salt Nouvelle installation à compter de la 5.2.0
+			// Modification pour administration ajout du salt - Nouvelle installation à compter de la 5.2.0
 			$req_ecrit_salt= "INSERT INTO ".TABLE_PREFERENCES." (id_pref, design_pref, val_pref)"
 			." VALUES('8','sitemask','$salt')";
 			$dbresult = $db->Execute($req_ecrit_salt);
@@ -135,8 +135,8 @@
 			." '$adherent[login_adht]','$pass_adht','9','1','1')";	// V3 + antenne + qui_enrg_adht				
 			$dbresult = $db->Execute($req_ecrit_nouvel_adht);				
 				
-			$id_adht = my_last_id('id_adht',TABLE_ADHERENTS);// on récupere le N° de la derniere Insertion		
-		//ecrit qui a fait la manip			
+			$id_adht = my_last_id('id_adht',TABLE_ADHERENTS); // on récupere le N° de la derniere Insertion		
+		// écrit qui a fait la manip			
 			$ecritlog = $masession->write_log('Creation_Admin : '.$id_adht,$adherent['nom_adht'].' '.$adherent['prenom_adht']);	
 			$_SESSION['id_install2'] = $id_adht;	
 					
@@ -145,10 +145,10 @@
 		}
 			
 		// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE				
-		$tpl->assign('data_adherent',$adherent);// on réaffiche les informations dans le formulaire de saisie
-		$tpl->assign('erreur_saisie',$erreur_saisie);// on affiche les erreurs de saisie dans le formulaire de saisie
+		$tpl->assign('data_adherent',$adherent); // on réaffiche les informations dans le formulaire de saisie
+		$tpl->assign('erreur_saisie',$erreur_saisie); // on affiche les erreurs de saisie dans le formulaire de saisie
 		
-/***** FIN Si on validé le Formulaire  par le bouton Valider  */
+/***** FIN Si on validé le Formulaire par le bouton Valider  */
 	} 
 	
 

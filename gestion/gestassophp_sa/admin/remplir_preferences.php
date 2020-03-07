@@ -41,16 +41,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Raz de variables
 	$antenne = '';
 	$indice ='';
-	//Tableau xpour affichage
+	// Tableau xpour affichage
 	$preference_asso = array();
 	$antenne = array(); // 12/01/17
 	$new_antenne = array();
 	$type_cotisation = array();
 	$new_type_cotisation = array();	
-	$erreur_saisie = array(); //Erreur si  Champs Obligatoires à saisir
+	$erreur_saisie = array(); // Erreur si Champs Obligatoires à saisir
 	$required = array();
 	// initialisation
-	$date_du_jour=date('Y-m-d');// la date du jour 
+	$date_du_jour=date('Y-m-d'); // la date du jour 
 
 	
 	/***** Si ADMINISTRATEUR donc $priorite_adht  > ou = 4  DROIT DE CONSUTER ET MODIFIER   (4 a le droit)  */
@@ -60,11 +60,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		header('location: ../adherent/gerer_fiche_adht.php'); 
 	}	
 
-	// on récupere les valeurs
-	$tab = get_post_variable_numeric('tab', '1');// l'onglet ..  par défaut l'onglet 1 	
+	// on récupère les valeurs
+	$tab = get_post_variable_numeric('tab', '1'); // l'onglet ..  par défaut l'onglet 1 	
 
 	
-/***** Si on validé le Formulaire  par le bouton Valider  pour  onglet 1  - preference_asso */
+/***** Si on validé le Formulaire par le bouton Valider pour  onglet 1  - preference_asso */
 	if (isset($_POST['valid_tab1']) ) {
 		$pref_asso[1] =(get_post_variablehtml('messagetitre','')); // (1, 'messagetitre'
 		$pref_asso[2] =(get_post_variablehtml('nom_asso_gestassophp','')); //(2, 'nom_asso_gestassophp'
@@ -82,11 +82,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$erreur_saisie ['champ'] =_LANG_MESSAGE_REMPLIR_CHAMP ;	
 		}		
 
-		//contrôle date fin cotis parrapport  date du jour  //modif 11/12/11
+		// contrôle date fin cotis parrapport date du jour  //modif 11/12/11
 		if ($pref_asso[9] > $date_du_jour) {
 			$alert_saisie ['date'] = 1 ;
 		}	
-		// contrôle dat au formar jj/mm/aaaa //modif 11/12/11
+		// contrôle date au format jj/mm/aaaa //modif 11/12/11
 		if 	(( check_madateFR($pref_asso[9]) )== FALSE) { 
 				$erreur_saisie ['date'] = '!! '.$pref_asso[9].' '. _LANG_MESSAGE_LISTE_COTIS_ADHT_DATE_FIN ;
 		}
@@ -109,20 +109,20 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 //				$qi=mysql_query($req_ecrit_modif);
 				$dbresult = $db->Execute($req_ecrit_modif);
 			}
-			//ecrit qui a fait la manip			
+			// écrit qui a fait la manip			
 			$ecritlog = $masession->write_log('Modif_preference_asso ', addslashes($nom_adht).' '.addslashes($prenom_adht));	
 			// on retourne à la page ... gerer_fiche_adht
 			header('location: remplir_preferences.php');		
 		}	
-	/***** FIN Si on validé le Formulaire  par le bouton Valider  pour  onglet 1 */
+	/***** FIN Si on validé le Formulaire par le bouton Valider pour onglet 1 */
 	} 	
 	
 	
 
-/***** Si  onglet 2 - # types_antennes  */	
+/***** Si onglet 2 - # types_antennes  */	
 	if ($tab == 2 ) {  
-		$modifok = get_post_variable_numeric('modifant', '');//  pour modifier
-		$id_type_antenne_modif = get_post_variable_numeric('id_ant', '');//  ID antenne
+		$modifok = get_post_variable_numeric('modifant', ''); // pour modifier
+		$id_type_antenne_modif = get_post_variable_numeric('id_ant', ''); // ID antenne
 		
 		if ( $id_type_antenne_modif == '') { //  On crée un nouveau nom 
 			$required ['creation_ant'] = 1; // il faut créer
@@ -137,10 +137,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		/*****  FIN Si on cliqué sur modifier le Nom  pour  onglet 2 - # types_antennes  */			
 		}
 		
-/***** Si on validé le Formulaire  par le bouton Valider  pour  onglet 2 - # types_antennes  */	
+/***** Si on validé le Formulaire par le bouton Valider pour onglet 2 - # types_antennes  */	
 		if (isset($_POST['valid_tab2']) ) {
 		// -- Récuprération des variable du formulaire ---
-		$new_nom_type_antenne = addslashes(get_post_variable('new_nom_type_antenne', ''));//  
+		$new_nom_type_antenne = addslashes(get_post_variable('new_nom_type_antenne', ''));  
 		// verification Non vide
 		if ($new_nom_type_antenne == '' || $new_nom_type_antenne == ' ') {  // si vide ou 1 espace
 				$erreur_saisie['nom_antenne'] = _LANG_MESSAGE_REMPLIR_NOM ;
@@ -153,8 +153,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 					." VALUES('$new_nom_type_antenne')";		
 					$dbresult = $db->Execute($req_ecrit_nouvelle_ant);
 					
-					$id_type_antenne = my_last_id('id_type_antenne',TABLE_ANTENNE);// on récupere le N° de la derniere Insertion	
-					//ecrit qui a fait la manip			
+					$id_type_antenne = my_last_id('id_type_antenne',TABLE_ANTENNE); // on récupère le N° de la derniere Insertion	
+					// écrit qui a fait la manip			
 					$ecritlog = $masession->write_log('Creation_Antenne_asso id : '
 					.$id_type_antenne, addslashes($nom_adht).' '.addslashes($prenom_adht));	
 					// on retourne à la page ... 
@@ -167,7 +167,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 					$req_ecrit_modif_ant = "UPDATE ".TABLE_ANTENNE
 					." SET nom_type_antenne='$new_nom_type_antenne' WHERE id_type_antenne='$id_type_antenne_modif'"; 
 					$dbresult = $db->Execute($req_ecrit_modif_ant);
-					//ecrit qui a fait la manip			
+					// écrit qui a fait la manip			
 					$ecritlog = $masession->write_log('Modif_Antenne_asso id : '
 					.$id_type_antenne_modif, addslashes($nom_adht).' '.addslashes($prenom_adht));	
 					// on retourne à la page ...
@@ -180,10 +180,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		} 	
 		/***** On prépare l'affichage des informations sur yypes_antennes*/
 		// par défaut 1 page
-		// requette principale  lire		id_type_antenne 	nom_type_antenne
+		// requête principale  lire	 id_type_antenne 	nom_type_antenne
 		$req_lire_ant = "SELECT id_type_antenne,nom_type_antenne FROM ".TABLE_ANTENNE ;
 		$req_lire_ant .= " ORDER BY ";
-		// requette pour comptage
+		// requête pour comptage
 		$reqcompt_ant = "SELECT id_type_antenne FROM ".TABLE_ANTENNE ;		
 		
 		// phase de tri par colonne  Adht   	id_type_antenne 	nom_type_antenne
@@ -234,15 +234,15 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	
 
-/***** Si  onglet 3 - # type_cotisations  */	
+/***** Si onglet 3 - # type_cotisations  */	
 	if ($tab == 3 ) {  
-		$modifcok = get_post_variable_numeric('modifc', '');//  pour modifier
-		$id_type_cotis_modif = get_post_variable_numeric('id_typecotis', '');//  ID cotis
+		$modifcok = get_post_variable_numeric('modifc', ''); // pour modifier
+		$id_type_cotis_modif = get_post_variable_numeric('id_typecotis', ''); // ID cotis
 //echo 'idd='. $id_type_cotis_modif .'->';		
 		if ( $id_type_cotis_modif == '') { //  On crée un nouveau nom 
 			$required ['creation_type_cotis'] = 1; // il faut créer
 		}
-		/***** Si on cliqué sur modifier le Nom  pour  onglet 2 - # types_antennes  */	
+		/***** Si on a cliqué sur modifier le Nom pour onglet 2 - # types_antennes  */	
 		if ($modifcok == 1 && $id_type_cotis_modif != 0 ) {  
 			$req_lire_info_cotis = "SELECT id_type_cotisation,nom_type_cotisation, montant_cotisation FROM "
 			.TABLE_TYPE_COTISATIONS." WHERE id_type_cotisation='$id_type_cotis_modif'";
@@ -251,15 +251,15 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$new_type_cotisation['id_type_cotisation'] = $dbresult->fields['id_type_cotisation'];
 			$new_type_cotisation['montant_cotisation'] = $dbresult->fields['montant_cotisation']; // + new_montant_cotisation 
 
-		/*****  FIN Si on cliqué sur modifier le Nom  pour  onglet 2 - # types_antennes  */			
+		/*****  FIN Si on a cliqué sur modifier le Nom  pour onglet 2 - # types_antennes  */			
 		}
 				
 		
-/***** Si on validé le Formulaire  par le bouton Valider  pour  onglet 3 - # type_cotisation  */	
+/***** Si on a validé le Formulaire par le bouton Valider pour onglet 3 - # type_cotisation  */	
 		if (isset($_POST['valid_tab3']) ) {
 		// -- Récuprération des variable du formulaire ---
 		$new_nom_type_cotisation = get_post_variablehtml('new_nom_type_cotisation', ''); // si vide ou 1 espace
-		// verification Non vide
+		// vérification Non vide
 		if ($new_nom_type_cotisation == '' || $new_nom_type_cotisation == ' ') {
 				$erreur_saisie['nom_type_cotisation'] = _LANG_MESSAGE_REMPLIR_NOM ;
 //+
@@ -277,15 +277,15 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 		}
 //+		
 				
-		/*****  On crée un nouveau nom */
+		/*****  On à créé un nouveau nom */
 			if ( !empty($required ['creation_type_cotis']) && $required ['creation_type_cotis'] == 1) {	
 				if (count($erreur_saisie)== 0) {
 					// Si Aucune erreur de saisie ON Valide			
 					$req_ecrit_nouvelle_cot =  "INSERT INTO ".TABLE_TYPE_COTISATIONS." (nom_type_cotisation, montant_cotisation)"
 					." VALUES('$new_nom_type_cotisation','$new_montant_cotisation' )";	// + new_montant_cotisation 							
 					$dbresult = $db->Execute($req_ecrit_nouvelle_cot);	
-					$id_type_cotisation = my_last_id('id_type_cotisation',TABLE_TYPE_COTISATIONS);// on récupere le N° de la derniere Insertion	
-					//ecrit qui a fait la manip			
+					$id_type_cotisation = my_last_id('id_type_cotisation',TABLE_TYPE_COTISATIONS); // on récupere le N° de la derniere Insertion	
+					// écrit qui a fait la manip			
 					$ecritlog = $masession->write_log('Creation_Type_Cotis id : '
 					.$id_type_cotisation, addslashes($nom_adht).' '.addslashes($prenom_adht));	
 					// on retourne à la page ... 
@@ -298,7 +298,7 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 					$req_ecrit_modif_cot = "UPDATE ".TABLE_TYPE_COTISATIONS
 					." SET nom_type_cotisation='$new_nom_type_cotisation',montant_cotisation ='$new_montant_cotisation' WHERE id_type_cotisation='$id_type_cotis_modif'"; // + new_montant_cotisation 				
 					$dbresult = $db->Execute($req_ecrit_modif_cot);					
-					//ecrit qui a fait la manip			
+					// écrit qui a fait la manip			
 					$ecritlog = $masession->write_log('Modif_Type_Cotis id : '
 					.$id_type_cotis_modif, addslashes($nom_adht).' '.addslashes($prenom_adht));	
 					// on retourne à la page ... 
@@ -313,10 +313,10 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 		
 		/***** On prépare l'affichage des informations sur type_cotisation*/
 		// par défaut 1 page
-		// requette principale  lire		id_type_cotisation,nom_type_cotisation
+		// requête principale  lire		id_type_cotisation,nom_type_cotisation
 		$req_lire_cotis = "SELECT id_type_cotisation,nom_type_cotisation ,montant_cotisation FROM ".TABLE_TYPE_COTISATIONS ; //+ montant_cotisation
 		$req_lire_cotis .= " ORDER BY ";
-		// requette pour comptage
+		// requête pour comptage
 		$reqcompt_cotis = "SELECT id_type_cotisation FROM ".TABLE_TYPE_COTISATIONS ;		
 		
 		// phase de tri par colonne  Adht   	id_type_cotisation,nom_type_cotisation
@@ -368,7 +368,7 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 	/***** FIN Si  onglet 3 - # type_cotisation  */	
 	}
 
-/***** Si  onglet 4 - # affichage Changelog  */	
+/***** Si onglet 4 - # affichage Changelog  */	
 	if ($tab == 4 ) {  
 	
 		$ch_filename =  join_path(ROOT_DIR_GESTASSO, 'doc', 'Changelog.txt');
@@ -388,10 +388,10 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 		$tpl->assign("changelog", $changelog);
 		$tpl->assign("changelogfilename", $ch_filename);
 
-	/***** FIN Si  onglet 4 -# affichage Changelog */	
+	/***** FIN Si onglet 4 -# affichage Changelog */	
 	}
 	
-/********* On recupere les informations déja enregistrées  */
+/********* On recupère les informations déja enregistrées  */
 	// On lit la table preference_asso   id_pref design_pref  val_pref
 	$req_lire_pref = "SELECT * FROM  ".TABLE_PREFERENCES;
 	$dbresult = $db->Execute($req_lire_pref);
@@ -401,7 +401,7 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 
 
 	
-/********* FIN On recupere les informations déja enregistrées  */	
+/********* FIN On recupère les informations déja enregistrées  */	
 
 /***** ---------------------------------------------------------------------- */	
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE	  		
@@ -412,14 +412,14 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 	$tpl->assign('nomprenom_adht',$prenom_adht.' '.$nom_adht); 
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE			
 	$tpl->assign('tab',$tab); // pour afficher l'onglet		
-	$tpl->assign('preference_asso',$preference_asso);//  tableau original pour affichage
+	$tpl->assign('preference_asso',$preference_asso); //  tableau original pour affichage
 	$tpl->assign('new_antenne',$new_antenne); // tableau modif nom
 	$tpl->assign('antenne',$antenne); //  tableau original pour affichage
 	$tpl->assign('PHPVersion',phpversion()); //  ajout 03/10/18 Version PHP
 	$tpl->assign('new_type_cotisation',$new_type_cotisation); // tableau modif nom
 	$tpl->assign('type_cotisation',$type_cotisation); //  tableau original pour affichage	
 	$tpl->assign('erreur_saisie',$erreur_saisie); // Erreur de saisie sur champs Obligatoires		
-	//POUR  AFFICHAGE VERS TEMPLATE			
+	// POUR  AFFICHAGE VERS TEMPLATE			
 	$content = $tpl->fetch('admin/remplir_preferences.tpl'); // On affiche ...
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');
@@ -430,4 +430,3 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 }
 	
 ?>
-    

@@ -42,12 +42,12 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Raz de variables
 	$req_lire_info_adht = '';
 	$reqcompt_info_adht  = ''; 
-	//Tableau xpour affichage
+	// Tableau pour affichage
 	$membres = array();
 	// initialisation	
 	$filtre_adht_nom1 = '';
 	$id_adht = '' ;
-	$date_du_jour=date('Y-m-d');//Pour définir la date du jour et la  différence entre 2  dates
+	$date_du_jour=date('Y-m-d'); //Pour définir la date du jour et la  différence entre 2  dates
 	
 	/***** Si ADMINISTRATEUR donc $priorite_adht >5  DROIT DE CONSUTER ET MODIFIER     (4 et 5 n'a PAS le droit) */
 	if ($priorite_adht < 5 ) { // INTERDIT
@@ -71,7 +71,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 // On vérfie la date de cotisation
 		$check_fin_cotisation = switch_sqlFr_date($date_echeance_cotisation['date_echeance_cotis']);
 		if (( compare_date($date_du_jour ,$date_echeance_cotisation['date_echeance_cotis'] ) )== FALSE) {
-			//Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 
+			// Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux. 
 			if ($check_fin_cotisation == '00/00/0000' || $check_fin_cotisation == '') { // pas de date ou date NULL
 				$check_fin_cotisation = '0' ;
 			} else {	// Si date échue				
@@ -104,14 +104,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			
 			} else { 
 	
-// On enregistre dans la BD.  on met 999 dans le champ Soc_Adht  pour récupérer si erreur + Date_sortie  et date de mise à jour fiche = date du jour	
+// On enregistre dans la BD. on met 999 dans le champ Soc_Adht pour récupérer si erreur + Date_sortie  et date de mise à jour fiche = date du jour	
 				$req_supp_adht=("UPDATE ".TABLE_ADHERENTS." SET soc_adht='999',"
 				." datemodiffiche_adht='$date_du_jour'," 
 				." date_sortie='$date_du_jour'" 
 				." WHERE id_adht='$id_adht_supp'");
 				$dbresult = $db->Execute($req_supp_adht);
 				
-				//ecrit qui a fait la manip			
+				// écrit qui a fait la manip			
 				$ecritlog = $masession->write_log('Suppression_Adht : '
 				.$id_adht_supp,$masession->get_var_session('ses_nom_adht').' '
 				.$masession->get_var_session('ses_prenom_adht'));
@@ -121,17 +121,17 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}
 /***** FIN Si on SUPPRIME la fiche adhérent */	
 
-	// récupere la variable de la page pour afficher la suite
-	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1');// par défaut 1 page
+	// récupère la variable de la page pour afficher la suite
+	$numpage_affiche= get_post_variable_numeric('numpage_affiche','1'); // par défaut 1 page
 	
 
-	//On prépare l'affichage 
+	// On prépare l'affichage 
 	$affiche_nb_lines = get_post_variable_numeric('affiche_nb_adht',NB_LIGNES_PAGE); //  par défaut NB_LIGNES_PAGE
 	
 	// recherche sur le Nom ou prénom par filtre "filtre_nom"	
 	$filtre_adht_nom ='';
 	if (isset($_GET['filtre_nom'])) {
-		$filtre_adht_nom1 = addslashes(trim($_GET['filtre_nom']));// pour les problème d' apostrosphe	
+		$filtre_adht_nom1 = addslashes(trim($_GET['filtre_nom'])); // pour les problème d' apostrosphe	
 	}
 
 	// filtre d'affichage des adherents par  0 => 'Les membres inscrits' 1 => 'Les membres à jour', 2 => 'Les membres en retard',  3 => Les fiches supprimées + Toutes les fiches 14/11/07
@@ -143,12 +143,12 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}
 	}
 	
-	// requette principale
+	// requête principale
 	$req_lire_info_adht ="SELECT id_adht,soc_adht,prenom_adht,nom_adht,ville_adht,datecreationfiche_adht,antenne_adht,qui_enrg_adht,"
 	."date_echeance_cotis,nom_type_antenne FROM "
 	.TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE 1=1 AND antenne_adht=id_type_antenne "; //  ++ antenne_adht
 
-	// requette pour comptage 
+	// requête pour comptage 
 	$reqcompt_info_adht = "SELECT id_adht FROM ".TABLE_ADHERENTS." WHERE 1=1 ";		
 	
 	// recherche sur le Nom ou prénom par filtre "filtre_nom"
@@ -198,7 +198,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}	
 
 	// phase de tri sur les colonnes  #=N°    	 Nom    	 Ville    	 Inscription    	 Cotisation
-	if (isset($_GET['tri'])) { // récupere l le N° de la colosne de tri 
+	if (isset($_GET['tri'])) { // récupère l le N° de la colosne de tri 
 		if (is_numeric($_GET['tri'])) {
 			if ($_SESSION['tri']==$_GET['tri']) {
 				$_SESSION['tri_sens']=($_SESSION['tri_sens']+1)%2; // 0 ou 1
@@ -245,14 +245,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		
 	// comptage des fiches
 	$dbresult = $db->Execute($reqcompt_info_adht); //Pour compter le NB d'enregistrements
-//test si aucune fiche
+// test si aucune fiche
 		if ($dbresult) {
 			$nb_lines = $dbresult->RecordCount() ; //Pour compter le NB de fiche	
 		}else {
 			$nb_lines = 0 ;
 		}	
 		
-//echo  $nb_lines ;
+//echo $nb_lines ;  // DEBUG
 		
 	if ($affiche_nb_lines == 0) {
 		$nbpages = 1;
@@ -265,8 +265,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	if ($nbpages == 0) $nbpages = 1; // si 0 on prévoit 1 page ;-)
 		
 	$indice = 1+($numpage_affiche-1)*$affiche_nb_lines ; // le N° de ligne
-	$nbpages=$nbpages+1;// pour affichage sur template Page  1 2 3... avec lien
-//echo $req_lire_info_adht;
+	$nbpages=$nbpages+1; // pour affichage sur template Page  1 2 3... avec lien
+//echo $req_lire_info_adht;  // DEBUG
 	$dbresult = $db->Execute($req_lire_info_adht);	
 
 	// pour afficher le Nb de ligne par page	
@@ -283,7 +283,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$membres[$indice]['soc_adht'] = $row['soc_adht'];		
 		$membres[$indice]['nom_adht'] = $row['nom_adht'];	
 		$membres[$indice]['prenom_adht'] = $row['prenom_adht'];				
-		$membres[$indice]['ville_adht'] = stripslashes($row['ville_adht']);// pour eviter les \ dans les noms d'asso
+		$membres[$indice]['ville_adht'] = stripslashes($row['ville_adht']); // pour eviter les \ dans les noms d'asso
 		$membres[$indice]['date_adht'] = switch_sqlFr_date($row['datecreationfiche_adht']);
 			
 		$membres[$indice]['fin_cotisation'] = switch_sqlFr_date($row['date_echeance_cotis']);
@@ -298,7 +298,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				}
 			}
 	
-//echo $membres[$indice]['id_adht'];	
+//echo $membres[$indice]['id_adht'];  // DEBUG	
 		// +  qui a enregistré la fiche 	
 		$membres[$indice]['qui_enrg_adht'] =$row['qui_enrg_adht'];	
 		$numf = $membres[$indice]['qui_enrg_adht']  ;	
@@ -324,16 +324,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('id_adht',$id_adht);	
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE	
 	$tpl->assign('membres',$membres); // tableau $membres[$indice]['xx_adht']	
-	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requete
+	$tpl->assign('nb_lines',$nb_lines); // Nb de ligne de requête
 	$tpl->assign('nb_pages',$nbpages); // le Nombre de pages totale
 	$tpl->assign('numpage',$numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_adht',$affiche_nb_lines); // NB lignes par select
-	//$tpl->assign('affiche_nb_lines',$affiche_nb_lines);
+	// $tpl->assign('affiche_nb_lines',$affiche_nb_lines);
 	$tpl->assign('filtre_adht_nom',$filtre_adht_nom); // Filtrage par Rechercher ...
-	$tpl->assign('filtremembre_adht',$filtremembre_adht);// Filtrage par  parmi ...
+	$tpl->assign('filtremembre_adht',$filtremembre_adht); // Filtrage par  parmi ...
 	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_MEMBRES); // la litse des options  membres actifs, à jour,...
 	$tpl->assign('affichenb_adht_options',$T_AFFICHE_NB_PAGE); // Nb de lignes par page			
-	//POUR  AFFICHAGE VERS TEMPLATE	
+	// POUR AFFICHAGE VERS TEMPLATE	
 	$content = $tpl->fetch('adherent/liste_adht_admin.tpl'); // On affiche ...
 	$tpl->assign('content',$content);
 	$tpl->display('page_index.tpl');	

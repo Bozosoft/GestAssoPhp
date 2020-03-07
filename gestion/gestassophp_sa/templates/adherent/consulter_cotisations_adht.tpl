@@ -1,9 +1,9 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
-{* Affichage du CONTENU Visualisation cotisation adhérent pour le Reçu cotisation ....*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
+{* Affichage du CONTENU Visualisation cotisation adhérent pour le Reçu cotisation ... *}
 
     <header class="header_titre">&nbsp;{language name=titre_admin_fiche_visu_cotis_adht} {$affiche_message}</header>
 	<div class="ligne_coul"></div> 	
-	<div id="contenu"> {*défini le contenu .. *}
+	<div id="contenu"> {* défini le contenu .. *}
  	<br />
 	<table style="width:100%;">
 		<tr>		
@@ -56,7 +56,7 @@
 		<tr>		
 			<td>&nbsp;</td><td>&nbsp;</td>
 		</tr>
-		<tr><!-- Ajout Zone PAIEMENT Gestion Cotisations -->
+		<tr>{* Ajout Zone PAIEMENT Gestion Cotisations *}
 			<th class="LignegrisRight"> {language name=fiche_cotis_adht_mpaie} :</th>		
 			<td>{$data_cotis_adh.paiement_cotis}</td>
 		</tr>		
@@ -79,5 +79,7 @@
 		<tr>		
 			<td>&nbsp;</td><td><a href="../adherent/liste_cotisations_adht.php?filtre_fiche=1&amp;id_adht={$data_cotis_adh.id_adhtasso}"><span class="submit_nul" title="{language name=tpl_retour_button_title}">{language name=tpl_retour_button}</span></a></td>
 		</tr>		
-     </table>		
+     </table>	
+     
+     	
 	</div> {* Fin défini le contenu .. *} 

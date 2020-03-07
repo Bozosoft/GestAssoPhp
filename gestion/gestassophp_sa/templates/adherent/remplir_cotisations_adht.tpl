@@ -1,6 +1,5 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
-{* Affichage du CONTENU avec AIDE Remplir cotisation adhérent*}
-{*Auteur original : Jean-Claude Etiemble - Licence Creative Commons Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0) France*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
+{* Affichage du CONTENU avec AIDE Remplir cotisation adhérent *}
 	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a__remplir_cotisation.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
 
     <header class="header_titre">&nbsp;{language name=titre_admin_fiche_cotis_adht} {$affiche_message}</header>
@@ -36,15 +35,15 @@
 			<label class="label_fc" title="{language name=fiche_cotis_adht_date_enr_title}"> {language name=fiche_cotis_adht_date_enr}</label>	{*Date d'enregistrement*}	
 			<input type="text" name="date_enregist_cotis" id="date_enregist_cotis" title="{language name=fiche_cotis_adht_date_enr_title}" value="{if $data_cotis_adh.date_enregist_cotis}{$data_cotis_adh.date_enregist_cotis} {else}{$date_dujour}{/if}" size="12" maxlength="12" tabindex="1" {$disabled.date_enregist_cotis} />{if $erreur_saisie.d_enregist}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.d_enregist}</span>{/if}
 <br />
-			<label class="label_fc_Oblig">  {$adherent_bene} </label>{* Utilisateur*}	
-			{if $modif_fiche == 1} {*||$data_cotis_adh.id_adhtasso *}
+			<label class="label_fc_Oblig">  {$adherent_bene} </label>{* Utilisateur *}	
+			{if $modif_fiche == 1} {* ||$data_cotis_adh.id_adhtasso *}
 			{html_options name=id_adht_cotis options=$listnoms selected=$data_cotis_adh.id_adhtasso tabindex="2" disabled="disabled"}
 			{else}
             {html_options name=id_adhtasso options=$listnoms selected=$data_cotis_adh.id_adhtasso tabindex="2"} {if $erreur_saisie.id_adhtasso}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.id_adhtasso}</span>{/if}
 			{/if}
 <br /><br />			
    				
-			<label class="label_fc_Oblig"> {language name=fiche_cotis_adht_montant}</label >{*Montant cotisation*}		
+			<label class="label_fc_Oblig"> {language name=fiche_cotis_adht_montant}</label >{* Montant cotisation *}		
 		{if $modif_fiche == 1}
 			<input type="text" name="montant_cotis" id="montant_cotis" title="{language name=fiche_cotis_adht_montant_title}" value="{$data_cotis_adh.montant_cotis}" size="10"  maxlength="10" tabindex="3" {$disabled.montant_cotis} /> {if $erreur_saisie.montant != ""}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.montant}</span>{else}Euros{/if}
 		{else}	
@@ -52,39 +51,39 @@
 		{/if}
 <br />
 		
-			<label class="label_fc_Oblig"> {language name=fiche_cotis_adht_type}</label >{* *}			
+			<label class="label_fc_Oblig"> {language name=fiche_cotis_adht_type}</label >{* Type cotisation *}	
 			{if $archive_fiche == "1" || $supprime_fiche =="1"}{html_options name=id_type_cotisation options=$listnomtypecotisation selected=$data_cotis_adh.id_type_cotisation tabindex="4" disabled="disabled"}
 			{else}
 			{html_options name=id_type_cotisation options=$listnomtypecotisation selected=$data_cotis_adh.id_type_cotisation tabindex="4"}{if $erreur_saisie.type_cotisation}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.type_cotisation}</span>{/if}
 			{/if}
 <br /><br />			
 
-			<label class="label_fc_Oblig" title="{language name=tpl_texte_date_title}"> {language name=fiche_cotis_adht_date_deb}</label >{*Date début cotisation*}			
+			<label class="label_fc_Oblig" title="{language name=tpl_texte_date_title}"> {language name=fiche_cotis_adht_date_deb}</label >{* Date début cotisation *}			
 			<input type="text" name="date_debut_cotis" id="date_debut_cotis" title="{language name=tpl_texte_date_title}" value="{if $data_cotis_adh.date_debut_cotis}{$data_cotis_adh.date_debut_cotis}{else}{$date_dujour}{/if}" size="12" maxlength="12" tabindex="5" {$disabled.date_debut_cotis} />{if $erreur_saisie.d_debut_cotis}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.d_debut_cotis}</span>{/if}{if $alert_saisie.d_debut_cotis && $archive_fiche != 1 && $supprime_fiche !=1}<br /><span class="erreur-Jaunerouge">&nbsp;{$alert_saisie.d_debut_cotis}</span>{/if}
 <br />
 			
-			<label class="label_fc_Oblig" title="{language name=tpl_texte_date_title}"> {language name=fiche_cotis_adht_date_fin}</label >{*Date fin cotisation*}			
+			<label class="label_fc_Oblig" title="{language name=tpl_texte_date_title}"> {language name=fiche_cotis_adht_date_fin}</label >{* Date fin cotisation *}			
 			<input type="text" name="date_fin_cotis" id="date_fin_cotis" title="{language name=tpl_texte_date_title}" value="{if $data_cotis_adh.date_fin_cotis}{$data_cotis_adh.date_fin_cotis}{else}{$date_3112}{/if}" size="12" maxlength="12" tabindex="6" {$disabled.date_fin_cotis} />{if $alert_saisie.d_fin_cotis_alert}<span class="erreur-Jaunerouge">&nbsp;{language name=message_cotis_adht_alert_archiv}</span>{/if} {if $erreur_saisie.d_fin_cotis}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.d_fin_cotis}</span>{/if}
 <br /><br />
-<!-- Ajout Zone PAIEMENT Gestion Cotisations -->
-			<label class="label_fc" title="{language name=fiche_cotis_adht_mpaie}"> {language name=fiche_cotis_adht_mpaie}</label>{*PAIEMENT*}
+{*  Ajout Zone PAIEMENT Gestion Cotisations *}
+			<label class="label_fc" title="{language name=fiche_cotis_adht_mpaie}"> {language name=fiche_cotis_adht_mpaie}</label>
+			{* PAIEMENT *}
 			{if $archive_fiche == "1" || $supprime_fiche =="1"}{html_options name="paiement_cotis" options=$list_paiement_cotis selected=$data_cotis_adh.paiement_cotis tabindex="8" disabled="disabled"}
 			{else}
 			{html_options name="paiement_cotis" options=$list_paiement_cotis selected=$data_cotis_adh.paiement_cotis tabindex="8"}
 			{/if}	
-<br /><br />				
-<!-- / Ajout Zone PAIEMENT Gestion Cotisations -->
-			<label class="label_fc" title="{language name=fiche_cotis_adht_comm_title}"> {language name=fiche_cotis_adht_comm}</label>{*Commentaire*}			
+<br /><br />	
+{*  FIN Ajout Zone PAIEMENT Gestion Cotisations *}			
+			<label class="label_fc" title="{language name=fiche_cotis_adht_comm_title}"> {language name=fiche_cotis_adht_comm}</label>
+			{* Commentaire *}			
 			<input type="text" name="info_cotis" id="info_cotis" title="{language name=fiche_cotis_adht_comm_title}" value="{$data_cotis_adh.info_cotis}" size="72"  maxlength="80" tabindex="7" placeholder="   {language name=fiche_cotis_adht_comm_placeholder}" {$disabled.info_cotis} />
 <br />
-		{if $supprime_fiche == "1" || $archive_fiche == 1}	
-			<label class="label_fc_Oblig" title="{language name=fiche_cotis_adht_raison_title} 30 caract&egrave;res maxi" > {language name=fiche_cotis_adht_raison}</label>{* *}			
+		{if $supprime_fiche == "1" || $archive_fiche == 1}
+			<label class="label_fc_Oblig" title="{language name=fiche_cotis_adht_raison_title} 30 caract&egrave;res maxi" > {language name=fiche_cotis_adht_raison}</label>{* Raison de l'archivage *}			
 			<input type="text" name="info_archiv_cotis" id="info_archiv_cotis" title="{language name=fiche_cotis_adht_raison_title} 30 caract&egrave;res maxi" value="{$data_cotis_adh.info_archiv_cotis}" size="40"  maxlength="30" tabindex="8" placeholder="{language name=fiche_cotis_adht_raison_placeholder}" {$disabled.info_archiv_cotis} />{if $erreur_saisie.info_archiv_cotis}<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.info_archiv_cotis}</span>{/if}
 		{else}
 			<div class="centre-txt"><br /></div>
 		{/if}
-
-	
 
 	
 		<p class="TexterougeR">&nbsp;&nbsp;&nbsp;{language name=tpl_texte_oblig}</p>
@@ -119,6 +118,4 @@
 {* Fin Form .. *}		 
 	 
 
-		
-	 
 	</div> {* Fin défini le contenu .. *} 

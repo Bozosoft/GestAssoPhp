@@ -97,6 +97,7 @@ Note 1 - IMPORTANT
 - Le nom du dossier "gestassophp_sa" peut être changé à condition de changer 
    - la ligne 17 du fichier fileloc_gestasso_sa.php :   define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');
  Si vous remplacer "gestassophp_sa" par "gestassophp_xx" votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/
+
 - Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier /gestassophp_sa/config/lang.php
 
 
@@ -119,24 +120,29 @@ NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à reno
 
 4. Envoyer les fichiers en FTP sur votre site.
 ----------------------------------------------
-Dossiers principaux de l'archive
+Dossiers (fichiers) principaux de l'archive
 --------------------------------
 gestion_sa/lib/				Dossier pour les fichiers des bibliothèques de fonctionnement du système
-gestion_sa/lib/smarty/
-gestion_sa/lib/adodb/
+gestion_sa/lib/smarty/			Dossier des fichiers du système de template)
+gestion_sa/lib/adodb/			Dossier des fichiers du système de gestion de base de données MySql et POstgreSql
 gestion_sa/lib/version_lib_smarty.txt
 gestion_sa/lib/version_lib_adodb.txt
 gestion_sa/lib/index.html
 
-gestion_sa/gestassophp_sa/
+gestion_sa/gestassophp_sa/		
+(les fichiers du système GestAssoPhp -/gestassophp_sa/ peut être changé voir Note 1 plus haut)
 gestion_sa/gestassophp_sa/adherent/
 gestion_sa/gestassophp_sa/admin/
+		*NOTA export_bd.php OU
+                *Si page perso de FREE.fr utiliser export_bd.php.free.php a renommer en export_bd.php
 gestion_sa/gestassophp_sa/aide/
 gestion_sa/gestassophp_sa/config/
 gestion_sa/gestassophp_sa/doc/
 gestion_sa/gestassophp_sa/fichiersadht/	Dossier pour VOS fichiers adhérents
 gestion_sa/gestassophp_sa/images/
 gestion_sa/gestassophp_sa/include/
+		*NOTA phpmysqldump.class.php OU
+                *Si page perso de FREE.fr utiliser phpmysqldump.class.php.free.php a renommer en phpmysqldump.class.php
 gestion_sa/gestassophp_sa/install/	Dossier à renommer ou a supprimer aprés installation
 gestion_sa/gestassophp_sa/js/
 gestion_sa/gestassophp_sa/photos/	Dossier pour VOS photos adhérents
@@ -147,7 +153,7 @@ gestion_sa/gestassophp_sa/templates/adherent/
 gestion_sa/gestassophp_sa/templates/admin/
 gestion_sa/gestassophp_sa/index.php
 gestion_sa/gestassophp_sa/favicon.ico
-gestion_sa/index.html
+gestion_sa/index.html			avec lien vers gestassophp_s/index.php (pour information)
 gestion_sa/fileloc_gestasso_sa.php
 gestion_sa/.htaccess
 
@@ -212,5 +218,5 @@ https://git.framasoft.org/Bozosoft/GestAssoPhp
 https://github.com/Bozosoft/GestAssoPhp
 
 ----------------------
-Mise à jour de cette page : 01/03/2020
+Mise à jour de cette page : 04/03/2020
 

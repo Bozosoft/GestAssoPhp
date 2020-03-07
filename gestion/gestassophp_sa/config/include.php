@@ -31,20 +31,20 @@
 * --------------------------------------------------------------------
 */
 	// TABLES ADHERENTS	
-	define('TABLE_ADHERENTS', DB_PREFIX.'adherent');
-	//  TABLES Pour ecrire les logs
-	define('TABLE_LOGS', DB_PREFIX.'logs');
-	// Table cotisation Commune pour les adhérents et les associations	
-	define('TABLE_COTISATIONS', DB_PREFIX.'cotisations');
+	define('TABLE_ADHERENTS', DB_PREFIX.'adherent'); // Administration - Gestion des Adhérents
+	// TABLES pour écrire les logs
+	define('TABLE_LOGS', DB_PREFIX.'logs'); //  Historique des connexions
+	// Table cotisation pour les adhérents
+	define('TABLE_COTISATIONS', DB_PREFIX.'cotisations'); // Administration - Gestion des cotisations Adhérents
 	// Table Type de cotisation 
-	define('TABLE_TYPE_COTISATIONS', DB_PREFIX.'types_cotisations');
-	// Table Pour gestion fichiers	
-	define("TABLE_FICHIER_ADHERENTS", DB_PREFIX.'fichier_adherent');
+	define('TABLE_TYPE_COTISATIONS', DB_PREFIX.'types_cotisations'); // Détail des types de cotisations
+	// Table pour gestion fichiers	
+	define("TABLE_FICHIER_ADHERENTS", DB_PREFIX.'fichier_adherent'); // Administration - Gestion des fichiers Adhérents 
 	
-	// Table Pour lire les preference_asso	//+ V. 3
-	define("TABLE_PREFERENCES", DB_PREFIX.'preference_asso');
-	// Table Pour lire les preference_asso	//+ V. 3
-	define("TABLE_ANTENNE", DB_PREFIX.'types_antennes');	
+	// Table pour lire les preference_asso	//+ V. 3
+	define("TABLE_PREFERENCES", DB_PREFIX.'preference_asso'); // Année de début, ... Date fin cotisation
+	// Table pour lire les preference_asso	//+ V. 3
+	define("TABLE_ANTENNE", DB_PREFIX.'types_antennes'); // Détail des désignation des activités	
 	
 /* --------------------------------------------------------------------*/
 
@@ -57,17 +57,17 @@
 /**** Les chemins des libs  */	
 	define('ROOT_LIB', join_path(ROOT_DIR,'lib'));	
 	
-/**** Les chemins et variables  pour adodb  */	
+/**** Les chemins et variables pour ADOdb  */	
 	define('AODB_DIR', join_path(ROOT_LIB ,'adodb'). DIRECTORY_SEPARATOR );
-	include (AODB_DIR.'adodb.inc.php');  //charge le code deADOdb  
+	include (AODB_DIR.'adodb.inc.php');  //charge le code de ADOdb  
 	// include (AODB_DIR.'toexport.inc.php'); //  Voir
 	// Creé une connexion sur la Base de donnée   TYPE_BD_AODB = postgres ou mysql ou mysqli
 	$db = ADONewConnection(TYPE_BD_AODB); //crée une connexion  Strict Standards: Only variables should be assigned by reference SUPRESSION de &  deavant &ADONewConnection
-	$db->debug =  false;//true; // false; // Mode débug ou Non
+	$db->debug =  false; //true; // false; // Mode débug ou Non
 	if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es impossible !!!");	
 
 	
-	// On lit la table preference_asso   (`id_pref`, `design_pref`, `val_pref`)  //  adodb		
+	// On lit la table preference_asso   (`id_pref`, `design_pref`, `val_pref`)  //  ADOdb		
 	$result = $db->Execute("SELECT * FROM  ".TABLE_PREFERENCES);
 	while (!$result->EOF)
 	{
@@ -96,17 +96,17 @@
 	require (SMARTY_DIR.'Smarty.class.php'); // la classe
 
 	$tpl = new Smarty; //instance de Smarty pour scripts PHP	
-//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ;// répertoire par défaut de compilation = templates_c // Smarty version 2x
+//	$tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ; // répertoire par défaut de compilation = templates_c // Smarty version 2x
 //	$tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates // Smarty version 2x
 //  verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ;// répertoire par défaut de compilation = templates_c // Smarty version 3.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ; // répertoire par défaut de compilation = templates_c // Smarty version 3.x
 	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
 	
 // OPTIONS	
 	//$tpl->debugging = true;
 
-//3.0.5 has been released. More minor bug fixes, one important change:
-//Smarty now follows the PHP error_reporting level by default. If PHP does not mask E_NOTICE and you try to access an unset template variable, you will now get an E_NOTICE warning. To revert to the old behavior:	
+	//3.0.5 has been released. More minor bug fixes, one important change:
+	//Smarty now follows the PHP error_reporting level by default. If PHP does not mask E_NOTICE and you try to access an unset template variable, you will now get an E_NOTICE warning. To revert to the old behavior:	
 	$tpl->error_reporting = E_ALL & ~E_NOTICE;
 
 
@@ -115,12 +115,12 @@
 	define('DIR_FILES_ADHTS', join_path(ROOT_DIR_GESTASSO,'fichiersadht').DIRECTORY_SEPARATOR); // répertoire Fichiers pour les adhts
 
 /**** Les chemins WEB en fonction du serveur et des répertoires utilisés pour le téléchargement des fichiers */	
-	// Pour le téléchargement des fichiers qui se trouve dans le dossier gestassophp_s/adherent/ on détemine :
-	//echo dirname($_SERVER['PHP_SELF']);  //  le chemin  /xxx/xx/gestassophp_s/adherent
-	$path_adht = rtrim(dirname($_SERVER['PHP_SELF']), 'adherent'); // On supprime  le Rep  /adherent  pour avoir   /xxx/xx/gestassophp_s/
+	// Pour le téléchargement des fichiers qui se trouve dans le dossier gestassophp_xx/adherent/ on détemine :
+	//echo dirname($_SERVER['PHP_SELF']);  //  le chemin  /xxx/xx/gestassophp_xx/adherent
+	$path_adht = rtrim(dirname($_SERVER['PHP_SELF']), 'adherent'); // On supprime  le Rep  /adherent  pour avoir   /xxx/xx/gestassophp_xx/
 /**** Définir   WEB_FILES_ ADHTS   */	
 	define('WEB_FILES_ADHTS', " http://".$_SERVER['SERVER_NAME'].$path_adht."fichiersadht/");
-	//echo WEB_FILES_ADHTS;   // http://localhost         /xxx/xx/gestassophp_s/     fichiersadht/
+	//echo WEB_FILES_ADHTS;   // http://localhost         /xxx/xx/gestassophp_xx/     fichiersadht/
 
 // Affichage en template 
 	$tpl->assign('adherent_bene',ADHERENT_BENE); // adhérent ou  Bénévole au singulier

@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
 {* Affichage CONTENU Consulter Info complémentaires *}
 <table style="width:100%;">
 	<tr> 
@@ -37,5 +37,6 @@
 		<td class="LignegrisC" colspan="2">&nbsp;</td>
 	</tr>
 	</table>
-	
-{* /  Affichage CONTENU Info complémentaires *} 
+
+
+{* FIN Affichage CONTENU Info complémentaires *} 

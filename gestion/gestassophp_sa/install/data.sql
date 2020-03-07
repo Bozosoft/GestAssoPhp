@@ -1,10 +1,10 @@
 #-- data.sql
 #--
-#-- donnees tables   * ENCODAGE UTF-8 sans BOM
+#-- données tables   * ENCODAGE UTF-8 sans BOM
 #--
 
 #--
-#-- Contenu de la table gs_types_cotisations V 7.6.3
+#-- Contenu de la table gs_types_cotisations depuis V 7.6.3
 #--
 
 

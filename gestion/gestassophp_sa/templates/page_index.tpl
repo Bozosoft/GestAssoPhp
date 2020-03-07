@@ -1,4 +1,4 @@
-{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2020  ↄ⃝  JC Etiemble HTML5*}
+{* Affichage de la page type AVEC menu à gauche et CONTENU à définir copyright 2007-2020  ↄ⃝  JC Etiemble HTML5 *}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -21,12 +21,12 @@
 </head>
 <body>
 
-<div id="conteneur_page"> {*défini la page extérieure *}
-      <header class="header_page"> {*défini le bandeau haut *}
+<div id="conteneur_page"> {* défini la page extérieure *}
+      <header class="header_page"> {* défini le bandeau haut *}
 			{$messagetitre} {$nom_asso_gestassophp}
       </header>	
 	
-	<div class="gauche_page"> {*défini la zone gauche *}
+	<div class="gauche_page"> {* défini la zone gauche *}
 		<nav>
 			<h1>{language name=menu_adht_membres}</h1>
 			<ul>
@@ -74,14 +74,14 @@
 		</nav>
 		<figure class="centre-txt">{* Logo GestAssoPhp+ *}<img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+"/></figure>
 		
-	</div> {*/ défini la zone gauche *}
+	</div> {* / défini la zone gauche *}
 
-	<div class="section_centre_page"> {*défini les infos .. *}
+	<div class="section_centre_page"> {* défini les infos .. *}
 	{$content}
 	</div> {* / défini les infos .. *}
 	 
 	<footer class="footer_pied_page">  {*défini le pied de page  ne pas modifier ces lignes*}
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="R&eacute;alisation" >{$version}</a>&nbsp;&nbsp;&nbsp;&nbsp; <span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="Evolution" >{$version}</a>&nbsp;&nbsp;&nbsp;&nbsp; <span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span>
     </footer> {* / défini le pied de page *}
 	
 </div> {* / défini la page extérieure *}
