@@ -74,7 +74,7 @@
 			<label class="label_fc"> {language name=fiche_adht_autres_info}&nbsp;&nbsp; </label>
 			<input type="text" name="autres_info_adht" id="autres_info_adht" title="{language name=fiche_adht_autres_info_title}" value="{$data_adherent.autres_info_adht}" size="65" maxlength="980" tabindex="15" placeholder="{language name=fiche_adht_autres_info_placeholder}" {$disabled.telecopie_adht} />		
 		<br />
-		{* Afficher mes coordonnées OUI/Non visible par les autres *} 
+		{* Afficher mes coordonnées OUI/Non visible par les autres sur la page "Liste des Utilisateurs" *} 
 			<label class="label_fc" title="{language name=fiche_adht_coord_title}{$nom_asso_gestassophp}">{language name=fiche_adht_coord} &nbsp;&nbsp;</label>	
 			{html_options name="visible_adht" options=$list_oui_non selected=$data_adherent.visibl_adht  tabindex="16"}		
 			<p class="TextenoirR">&nbsp;[{language name=fiche_adht_coord_title} {$nom_asso_gestassophp}]</p>	

@@ -23,7 +23,7 @@
 *  Textes et messages pour affichage
 *  	define('_LANG_VIDE', 'le texte de votre langue ici');
 *	Inscrivez votre texte entre les guillemets simples  ,'.....'
-*	define('_LANG_VIDE', 'texte vide de texte');    sur template {language name=vide}  affiche => texte vide de texte
+*	define('_LANG_VIDE', 'texte vide de texte'); sur template {language name=vide}  affichera => texte vide de texte
 *   
 * --------------------------------------------------------------------
 * LES MENUS

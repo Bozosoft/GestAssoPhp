@@ -55,11 +55,11 @@
     : <span class="TextenoirGras">mode <?php echo _LANG_MESSAGE_MODIF ;?></span> (Les zones non modifiables 
     sont gris&eacute;es )<br/>
     	&nbsp;&nbsp;Avec la possibilit&eacute; de&nbsp; :<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;- de renseigner la zone &quot;<span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_COORD ;?></span> [consultables par TOUS...]&quot; afin de permettre ou non aux autres de voir vos informations<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;- de renseigner la zone &quot;<span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_COORD ;?></span> [consultables par TOUS...]&quot; afin de permettre ou non aux autres de voir vos informations (Nom Prénom, Photo, Ville, Téléphone, Tel Portable).<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;- de modifier son mot de passe dans la zone <span class="TextenoirGras">&quot;<?php echo _LANG_FICHE_ADHT_MODIF_PASSWD ;?>&quot;</span>, pour sa propre fiche et &eacute;ventuellement 
     sur les fiches des autres <?php echo ADHERENT_BENE ;?>s <span class="TextenoirGras"> 
     si le niveau de priorit&eacute; vous y autorise</span><br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;- <?php echo _LANG_FICHE_ADHT_UPLOAD_PHOTO;?> qui sera redimensionnée automatiquement à 66 pixels de larg et/ou 94 pixels de haut (<span class="TextenoirGras">Attention</span> celle ci doit être au format GIF ou JPEG de taille maxi 800x600)<br/> 
+    &nbsp;&nbsp;&nbsp;&nbsp;- <?php echo _LANG_FICHE_ADHT_UPLOAD_PHOTO;?> qui sera redimensionnée automatiquement à 66 pixels de larg et/ou 94 pixels de haut (<span class="TextenoirGras">Attention</span> celle ci doit être au format GIF ou JPG de taille maxi 800x600)<br/> 
 	    La zone "<?php echo _LANG_FICHE_ADHT_FICHE_ENR ;?>" est remplie automatiquement lors du premier enregistrement de la fiche.</p>
 <br/><span class="TextenoirGras">Attention</span><br/>- la zone <?php echo _LANG_FICHE_ADHT_COMPL;?>	ne doit pas comporter de retour à la ligne (touche Entrée) afin de permettre un export correct du fichier "<?php echo ADHERENT_BENE ;?>s" au format tableur.<br/>
 		- La zone "<span class="TextenoirGras"><?php echo _LANG_FICHE_ADHT_FICHE_ENR ;?></span> est remplie automatiquement lors du premier enregistrement de la fiche. Elle ne peut être modifiée que <span class="TextenoirGras">si le niveau de priorit&eacute; (9) vous y autorise</span><br/></p>

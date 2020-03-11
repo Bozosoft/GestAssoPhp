@@ -30,12 +30,21 @@
 	// Test si le fichier fileloc_gestasso_xx existe
 	$fileloc = '../../'.$file_loc;
 	if (!file_exists ($fileloc) ) {
-		echo "<span class='TexterougeGras'><br /><br /><br /><br />V&eacute;rifier votte installation.....<br /><br /> le fichier $fileloc est absent à la racine ... <span><br /><br /><br /><br />";
+		echo "<br /><br /><br /><br /><strong>V&eacute;rifier votre installation.....</strong>strong><br /><br /> le fichier $fileloc est absent à la racine ... <br /><br /><br /><br />";
 		exit;
 	}
+	
+	// Sécurité si après installation (donc fichier/config/connexion.cfg.php présent) le dossier /install/ n'est pas renommé ou supprimé
+	if  (file_exists ("../config/connexion.cfg.php"))  { 	// fichier connexion.cfg.php présent
+		if (file_exists ("../install") ) {					// dossier /install/ n'est pas renommé ou supprimé
+			echo "<br /><br /><br /><br /><strong>S&eacute;curit&eacute; de votre installation.....</strong><br /><br /> le fichier de configuation connexion.cfg.php est présent. <br />Mais <br /> le r&eacute;pertoire d'installation /install n'a pas &eacute;t&eacute; renomm&eacute; ou supprim&eacute;<br /><br /><br />";
+			exit;
+		}
+	}	
+	
 
 //*******************************************************************		
-// TEST lsur la version de PHP car les utilisateurs ne font pas toujours attention !!
+// TEST sur la version de PHP
 			$minPHPVersion = "5.6.0"; // ATTENTION PHP MINI = 5.6.0
 			$PHPVersion = phpversion();
 			if (phpversion() < $minPHPVersion) {

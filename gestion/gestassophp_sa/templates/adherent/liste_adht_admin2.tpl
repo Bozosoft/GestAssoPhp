@@ -42,7 +42,7 @@
 		<table style="width:100%;"> 
 			<tr>
 				<th class="LignegrisTC" style="width:4%;">
-					<a href="liste_adht_admin2.php?tri=0&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">#</a>
+					<a href="liste_adht_admin2.php?tri=0&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">#</a>{* #=N°*}
 					{if $smarty.session.tri eq 0}
 					{if $smarty.session.tri_sens eq 0}
 					<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{language name=tpl_title_clictri_up}"/>
@@ -53,7 +53,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>				
-				<th class="LignegrisTC"  style="width:23%;">
+				<th class="LignegrisTC"  style="width:23%;">{* Nom Prénom *}
 					<a href="liste_adht_admin2.php?tri=1&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=tpl_col_nompre}</a>
 					{if $smarty.session.tri eq 1}
 					{if $smarty.session.tri_sens eq 0}
@@ -67,7 +67,7 @@
 				</th>
 				
 
-				<th class="LignegrisTC"  style="width:25%;">
+				<th class="LignegrisTC"  style="width:25%;">{* Ville *} 
 					<a href="liste_adht_admin2.php?tri=2&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=tpl_col_adht_ville}</a>
 					{if $smarty.session.tri eq 2}
 					{if $smarty.session.tri_sens eq 0}
@@ -80,7 +80,7 @@
 					{/if}
 				</th>		
 				
-				<th class="LignegrisTC"  style="width:12%;">
+				<th class="LignegrisTC"  style="width:12%;">{* Téléphone *} 
 					<a href="liste_adht_admin2.php?tri=3&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}">{language name=tpl_col_adht_teleph}  </a>
 					{if $smarty.session.tri eq 3}
 					{if $smarty.session.tri_sens eq 0}
@@ -92,7 +92,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt=""/>
 					{/if}
 				</th>
-				<th class="LignegrisTC"  style="width:12%;">
+				<th class="LignegrisTC"  style="width:12%;">{* Tel Portable *} 
 					<a href="liste_adht_admin2.php?tri=4&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}"> {language name=tpl_col_adht_portable}  </a>
 					{if $smarty.session.tri eq 4}
 					{if $smarty.session.tri_sens eq 0}
@@ -106,7 +106,7 @@
 				</th>		
 
 				{* + Section critères "sections ou secteurs d'activité" propre à l'association *}
-				<th class="LignegrisTC"  style="width:16%;">
+				<th class="LignegrisTC"  style="width:16%;">{* Nom définissant les activités *} 
 					<a href="liste_adht_admin2.php?tri=5&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={$filtremembre_adht}&amp;filtre_nom={$filtre_adht_nom}" title="{language name=tpl_title_clictri}"> {language name=fiche_adht_ant}</a>
 					{if $smarty.session.tri eq 5}
 					{if $smarty.session.tri_sens eq 0}
