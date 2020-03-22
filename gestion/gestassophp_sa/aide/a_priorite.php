@@ -52,7 +52,7 @@ choisir le "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>", puis <span class
 L'affichage montre les adhérents qui ont un "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>" <span class="TextenoirGras">autre que 1</span>.<br /><br />
 Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_NUM.', '. _LANG_TPL_COL_NOMPRE.', '. _LANG_ADMIN_PRIORITE_COL_PRIORITE ;?></span>.
 </p>
-<p><span class="TextenoirGras">Nota :</span> il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.</p>
+<p><span class="TextenoirGras">Nota :</span> il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.<br/><span class="TexterougeGras">NOTA</span> seul uniquement les Administrateurs (de Priorité 9) peuvent changer le niveau de priorité <?php echo ADHERENT_BENE ;?>.</p>
 <p>&nbsp;</p> 
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -18,8 +18,11 @@
  */
  
 
-Version 7.6.4 - 08/03/2020 - En cours (Dev4)  
+Version 7.6.4 - 22/03/2020 - En cours (Dev5)  
 --------------------------------------
+- Ajout affichage de la "Priorité Accès" de l'adhérent sur la page "Visualisation et Gestion de mes informations" uniquement les Admins (Priorité 9)
+
+* version 7.6.4 - 08/03/2020 - En cours (Dev4)  
 - Ajout informations sur page finale installation install_5.tpl
 - Ajout sécurité sur install/index.php si après installation (donc fichier/config/connexion.cfg.php présent) le dossier /install/ n'est pas renommé ou supprimé
 - Complément d'information sur aide a_adht_remplir_infogene_adht.php (Nom Prénom, Photo, Ville, Téléphone, Tel Portable

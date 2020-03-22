@@ -12,7 +12,9 @@
 			<th class="LignegrisC" colspan="2">{language name=visu_fiche_adht_recap}  {$affiche_message}</th> 
 		</tr>
 		<tr>
-			<td class="Lignegris_pad1" style="width:50%;">{language name=visu_fiche_adht_enr}&nbsp;{$id_adht}&nbsp;{language name=visu_fiche_adht_enrdu}:&nbsp;{$data_adherent.datecreationfiche_adht}</td>
+			<td class="Lignegris_pad1" style="width:50%;">{language name=visu_fiche_adht_enr}&nbsp;{$id_adht}&nbsp;{language name=visu_fiche_adht_enrdu}:&nbsp;{$data_adherent.datecreationfiche_adht}
+			{* affiche priorité adherent - Uniquement si consultation par admin 9 *}{if $priorite_adht == 9} | {language name=menu_admin_gestion_pa} : {$data_adherent.priorite_adht} {/if}
+			</td>
 			<td class="Lignegris_pad1" >{language name=visu_fiche_adht_lastmod}:&nbsp;{if $data_adherent.datemodiffiche_adht == '00/00/0000' || $data_adherent.datemodiffiche_adht ==''} Aucune {else}{$data_adherent.datemodiffiche_adht}{/if}</td>	
 		</tr>
 		<tr>

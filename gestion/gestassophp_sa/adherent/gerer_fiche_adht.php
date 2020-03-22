@@ -91,7 +91,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." datemodiffiche_adht,"
 	." disponib_adht, " 
 	." profession_adht, autres_info_adht," // ajout V 7
-	." siteweb_adht, password_adht, login_adht, date_echeance_cotis, date_sortie, "
+	." siteweb_adht, password_adht, login_adht, priorite_adht, date_echeance_cotis, date_sortie, " //+ affiche priorite_adht sur fiche
 	." tranche_age, qui_enrg_adht, nom_type_antenne, promotion_adht " 
 	." FROM  ".TABLE_ADHERENTS.", ".TABLE_ANTENNE." WHERE " 
 	." id_adht='$id_adht' AND antenne_adht=id_type_antenne "; 

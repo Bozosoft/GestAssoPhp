@@ -49,7 +49,7 @@
     <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?></span> 
     :<br/>
     Le num&eacute;ro et date de cr&eacute;ation de la fiche, la date de modification 
-    et les informations sur la(les) cotisation(s) et qui a enregistré la Fiche<br/>
+    et les informations sur la(les) cotisation(s) et qui a enregistré la Fiche<?php if ($priorite_adht == 9){ ?> et la Priorité Accès (code de priorité 0 à 9)<?php } ?><br/>
     <span class="TextenoirGras">- <?php echo _LANG_GESTION_FICHE_ADHT ; ?></span> 
     :<br/>
     Affiche les informations administratives.<br/>

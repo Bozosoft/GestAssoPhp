@@ -92,6 +92,7 @@
     une &quot;Fiche&quot; supprim&eacute;e. La fiche supprim&eacute;e est toujours gard&eacute;e en base de donn&eacute;es)<br/>
 	Nota 1 : il est <span class="TexterougeGras">obligatoire d'archiver</span> la ou les cotisations avant de supprimer la fiche <?php echo ADHERENT_BENE ;?>. Si la ou les cotisations ne sont pas archivées un message d'erreur est affiché.<br/>
 	Nota 2 : il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.
+	<br/><span class="TexterougeGras">NOTA</span> seul uniquement les Administrateurs (de Priorité 9) peuvent changer le niveau de priorité <?php echo ADHERENT_BENE ;?>.
 	</p>
   <p>Si la s&eacute;lection est &quot;<span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_MEMBRES[3]) ;?></span>&quot; 
     :<br/>
