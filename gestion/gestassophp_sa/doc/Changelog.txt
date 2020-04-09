@@ -9,7 +9,7 @@
  * @author : JC Etiemble - http://jc.etiemble.free.fr
  * @version :  2020
  * @copyright 2007-2020  (c) JC Etiemble
- * @package   GestAssoPhp+Pg
+ * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : 
  *     https://github.com/smarty-php/smarty/blob/master/LICENSE
@@ -18,8 +18,12 @@
  */
  
 
-Version 7.6.4 - 22/03/2020 - En cours (Dev5)  
+Version 7.6.4 - 09/04/2020 - Finale 
 --------------------------------------
+- Correction sur le Changelog.txt + lisez_moi.txt
+- Mise à jour version
+
+* version 7.6.4 - 22/03/2020 - En cours (Dev5) 
 - Ajout affichage de la "Priorité Accès" de l'adhérent sur la page "Visualisation et Gestion de mes informations" uniquement les Admins (Priorité 9)
 
 * version 7.6.4 - 08/03/2020 - En cours (Dev4)  
@@ -273,7 +277,7 @@ define('_LANG_...._PLACEHOLDER' pour les messages HTML5 avec message placeholder
  Ancienne Version 6.x voir le fichier /doc/Changelog6.txt
  
 -----------------------------------------------------------
-(c) JC Etiemble  2007-2020 jc_point_etiemble_At_Free_point_fr
+(c) JC Etiemble  2007-2020 gestassophp_At_Free_point_fr
 
 
 

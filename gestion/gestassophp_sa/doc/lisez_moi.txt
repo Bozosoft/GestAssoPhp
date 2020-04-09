@@ -9,7 +9,7 @@
  * @author : JC Etiemble - http://jc.etiemble.free.fr
  * @version :  2020
  * @copyright 2007-2020  (c) JC Etiemble
- * @package   GestAssoPhp+Pg
+ * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
  * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
@@ -218,6 +218,10 @@ pour la mise à jour utiliser  le fichier diff_7x_7x+1.tar.bz2 disponible sur ht
 https://git.framasoft.org/Bozosoft/GestAssoPhp
 https://github.com/Bozosoft/GestAssoPhp
 
+* Crédits *
+- GestAssoPhp+Pg utilise SmartGit (graphical Git client (Non commercial licence) pour gérer les fichiers Git
+- SmartGit can be used free of charge by Open Source developers (Non commercial licence) https://www.syntevo.com/smartgit/
+  
 ----------------------
-Mise à jour de cette page : 12/03/2020
+Mise à jour de cette page : 09/04/2020
 
