@@ -7,23 +7,26 @@
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/config/
- *   Fichier :
- *   Le fichier de connexion à la BD 
- *   ENCODAGE UTF-8 sans BOM
+ *  Fichier :   connexion.php
+ *  Le fichier de connexion à la BD 
+ *  ENCODAGE UTF-8 sans BOM
 */	
 
 //----------------------------------------------------------------------------------
-//@error_reporting(E_ALL | E_STRICT); // DEBUG pour TESTS
-//@error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED); // DEBUG pour TESTS
-// voir error_reporting dans php.ini et https://www.php.net/manual/fr/function.error-reporting.php
+// Consulter la ligne error_reporting dans php.ini et https://www.php.net/manual/fr/function.error-reporting.php
+// error_reporting(E_ALL); // Afficher les erreurs et les avertissements
+// ini_set('display_errors', 0); // Supprimer l'affichage des erreurs
+// ------
+// error_reporting(0); // Désactiver TOUS les rapport d'erreurs
+// ini_set('display_errors', 0); // Supprimer l'affichage des erreurs
 //---------------------------------------------------------------------------------
 
 	$file_loc = 'fileloc_gestasso_sa.php';  

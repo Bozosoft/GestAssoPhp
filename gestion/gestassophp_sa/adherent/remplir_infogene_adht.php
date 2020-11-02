@@ -7,17 +7,17 @@
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
- *   Fichier :
- *   Modifier ou Créer les informations générales de l'adhérent
- *  Seul l'admin Priorité = 9 peut aussi modidier Login et Mot de passe 
+ *  Fichier :	remplir_infogene_adht.php
+ *  Modifier ou Créer les informations générales de l'adhérent
+ *  Seul l'admin Priorité = 9 peut aussi modifier le Login et le Mot de passe 
 */
 
 include_once '../config/connexion.php';
@@ -223,7 +223,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}
 		
 		// cas si Admin =9 possible modifier LOGIN
-		if ($priorite_adht == 9  && $required ['creation_adht'] ==''){	
+		if ($priorite_adht == 9  && $required ['creation_adht'] == 0){		// Correction PHP8 =='' => == 0
 			$adherent['login_adht'] = (get_post_variable ('login_adht',''));				
 			if ($adherent['login_adht'] =='') {
 				$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_LOGIN; 
@@ -241,6 +241,15 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$adherent['pass_adht1'] = get_post_variable ('pass_adht1','');
 		$adherent['pass_adht2'] = get_post_variable ('pass_adht2','');
 		$pass =''; // le password	
+		// + Cas le mot de passe 1=vide ET le mot de passe 2=NON vide - Ajout PHP8
+		if ( ($adherent['pass_adht1'] =='' && $adherent['pass_adht2'] !='') ) {  // si mdp 1 est vide et si mdp 2 est donné		
+			$erreur_saisie ['mdp'] = _LANG_MESSAGE_REMPLIR_ERR_PASSW ;			
+		}
+		// + Cas le mot de passe 1=NON vide ET le mot de passe 2=vide - Ajout PHP8
+	    if ( ($adherent['pass_adht1']!='' && $adherent['pass_adht2'] =='') ) {   // si mdp 1 est donné et si mdp 2 est vide			
+			$erreur_saisie ['mdp'] = _LANG_MESSAGE_REMPLIR_ERR_PASSW ;			
+		}			
+		// Cas le mot de passe 1=NON vide ET le mot de passe 2=NON vide  ET Création Nouvel adhérent
 	    if ( ($adherent['pass_adht1'] !='' && $adherent['pass_adht2'] !='') || ($required ['creation_adht'] == 1) ) {
 			if ($adherent['pass_adht1'] == $adherent['pass_adht2']) { // si les 2 mots de passe sont identiques
 				if (is_valid_mypasswd($adherent['pass_adht2']) ==  false) {			

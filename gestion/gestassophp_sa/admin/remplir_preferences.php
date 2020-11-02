@@ -7,16 +7,16 @@
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/admin/
- *   Fichier :
- *   Préférences et Antennes(sections) de GestAssophp_s
+ *  Fichier : 	remplir_preferences.php
+ *  Préférences et Antennes(sections) de GestAssophp_s
 */
 
 include_once '../config/connexion.php';
@@ -40,7 +40,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	// Raz de variables
 	$antenne = '';
-	$indice ='';
+	$indice ='0'; // Correction PHP8 ='' => ='0'
 	// Tableau xpour affichage
 	$preference_asso = array();
 	$antenne = array(); // 12/01/17

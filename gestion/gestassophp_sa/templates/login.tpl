@@ -75,7 +75,7 @@
 	<br/>
 			<footer class="centre-txt">
 				<span class="TexterougeGras">&nbsp;{$texterreurlogin}
-				{if $texterreurlogin0 == 1}
+				{if !empty($texterreurlogin0) && $texterreurlogin0 ==1 }  {* - if $texterreurlogin0 == 1 PHP8 *}
 				{language name=mail_contacter}{mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} {language name=mail_mail}
 				{/if}
 				</span><br/><br/>

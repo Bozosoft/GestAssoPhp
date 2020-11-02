@@ -21,10 +21,10 @@
 	<div id="tab1_table">
 		<br />
 {if !empty($erreur_saisie.champ)}		
-	{if $erreur_saisie.champ|@count != 0}
+	{* - if $erreur_saisie.champ|@count != 0 PHP8 *}
 		<div id="erreur-box">{language name=tpl_texte_err_saisie} ...<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.champ}</span>
 		</div>	
-	{/if}
+	{*/if*}
 {/if}	
 <form action="remplir_preferences.php" method="post" name="ma_form_tab2">		
 

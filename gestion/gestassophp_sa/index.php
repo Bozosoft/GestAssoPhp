@@ -18,16 +18,16 @@
  * Auteur original : Jean-Claude Etiemble
  * ---------------------------
  *
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/
- *   Fichier :
- *   Fichier Index contrôle l’authentification et redirige vers /adherent/index.php
+ *  Fichier :   index.php
+ *  Fichier Index contrôle l’authentification et redirige vers /adherent/index.php
 */
 
 //Test si l'installation est existante par le fichier config/connexion.cfg.php

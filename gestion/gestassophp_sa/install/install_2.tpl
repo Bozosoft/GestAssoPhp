@@ -11,9 +11,8 @@
 			{if $erreur_saisie.utilis_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.utilis_bd}</span>{/if}	
 			{if $erreur_saisie.motpas_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.motpas_bd}</span>{/if}	
 			{if $erreur_saisie.prefix_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.prefix_bd}</span>{/if}	
-			{if $erreur_saisie.connexion} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.connexion}</span>{/if}
-			{if $erreur_saisie.connexionb} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.connexionb}</span>{/if}				
-		</div>	
+			{if $erreur_saisie.connexion} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.connexion}</span>{/if}			
+		</div>
  {/if}	
 	<br />
 	<span class='TextenoirGras'>Cr&eacute;er les tables dans la base de donn&eacute;es.</span><br />

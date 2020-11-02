@@ -7,17 +7,17 @@
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
- *   Fichier :
- *   Affiche les détails des fichiers 
- *   PAGE étant une SOUS-PAGE de Visualisation et Gestion de mes informations
+ *  Fichier : consulter_info_fichiermission_adht.php
+ *  Affiche les détails des fichiers 
+ *  PAGE étant une SOUS-PAGE de Visualisation et Gestion de mes informations
 */
 
 // Si pas de session ...		
@@ -34,7 +34,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$fichier = array(); // On passe par un Tableau pour affichage des fichiers
 	// initialisation
 	//$date_du_jour=date("Y-m-d"); //Pour définir la différence entre 2  dates
-	$indice ='';
+	$indice ='0'; // Correction PHP8 ='' => ='0'
 	
 
 	
