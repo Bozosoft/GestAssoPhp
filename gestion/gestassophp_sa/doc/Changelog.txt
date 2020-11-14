@@ -18,14 +18,26 @@
  */
  
 
-Version 7.6.5 - 02/11/2020 - En cours (Dev2)
+Version 7.6.5 - 13/11/2020 - En cours (Dev4)
+-------------------------------------------
+- remplir_infogene_adht.php contrôle supplémentaire des espaces (trim) sur les entrées des nom_adht, login_adht, pass_adht1, pass_adht2,
+- /install/install_4.php et install_4.tpl contrôle supplémentaire des espaces (trim) sur les entrées des nom_adht, login_adht, pass_adht1, pass_adht2,
+
+x version 7.6.5 - 11/11/2020 - En cours (Dev3)
+-------------------------------------------
+- lang.php : Modification de define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT' .. 
+- lang.php : Modification/précision de define('_LANG_ADMIN_LISTE_ADHT_ATT'...
+- lang.php : Modification de define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', ..
+- remplir_cotisations_adht.tpl : Correction du bug si modification de de remplir cotisation le montant de cotisation n'est plus affiché 
+- remplir_cotisations_adht.php : typo $cotis_adh[id_adhtasso]); == $cotis_adh['id_adhtasso']);
+
+* version 7.6.5 - xx/xx2020 - En cours (Dev2)
 - Début des corrections pour PHP 8.x ( Undefined array key ..., Uncaught TypeError: ...)
   adherent/ gerer_fiche_adht.php, consulter_info_fichiermission_adht.php, remplir_infogene_adht.php 
   admin/ remplir_preferences.php 
   templates/ login.tpl
   templates/ adminremplir_preferences.tpl
   install/  install_2.tpl
-
 
 * version 7.6.5 - 16/08/2020 - En cours (Dev1)
 - Mise à jour de adodb à la version 5.20.18 du 28/06/2020

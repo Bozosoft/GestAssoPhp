@@ -23,10 +23,10 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 			<td><input type="text" name="login_adht" id="login_adht" title=" Le Login (entre 4 et 20 caractères autorisés A à Z, 0 à 9 et _ - ) sera créé en Majuscules automatiquement - Attention -" value="{$data_adherent.login_adht}"  size="32"  maxlength="50" tabindex="1"/>{if $erreur_saisie.login} <span class="erreur-Jaunerouge">{$erreur_saisie.login}</span>{/if}</td>
 		</tr>
 		<tr>		
-			<td colspan ="2"><span class="TexterougeR">Le Login (entre 4 et 20 caract&egrave;res autoris&eacute;s A &agrave; Z, 0 &agrave; 9 et _ - ) sera cr&eacute;&eacute; en Majuscules automatiquement')</span></td>
+			<td colspan ="2"><span class="TextenoirR">Le Login (entre 4 et 20 caract&egrave;res autoris&eacute;s A &agrave; Z, 0 &agrave; 9 et _ - ) sera cr&eacute;&eacute; en Majuscules automatiquement')</span></td>
 		</tr>
 		<tr>
-			<th class="LignegrisRight">Adresse email :</th>		
+			<th class="LignegrisRight">Adresse email :</th>
 			<td><input type="text" name="email_adht" id="email_adht" title="Votre adresse email " value="{$data_adherent.email_adht}" size="32"  maxlength="50" tabindex="2"/> {if $erreur_saisie.email} <span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.email}</span>{/if}</td>
 		</tr>
 		<tr>
@@ -35,10 +35,11 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 		</tr>
 		<tr>
 			<th class="LignegrisRight">Mot de passe encore :</th>		
-			<td><input type="password" name="pass_adht2" id="pass_adht2" title="Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ -" value="{$data_adherent.pass_adht2}" size="32"  maxlength="50" tabindex="4"/></td>
+			<td><input type="password" name="pass_adht2" id="pass_adht2" title="Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ -" value="{$data_adherent.pass_adht2}" size="32"  maxlength="50" tabindex="4"/>{if $erreur_saisie.mdp2} <span class="erreur-Jaunerouge">{$erreur_saisie.mdp2}</span>{/if}
+			</td>
 		</tr>
 		<tr>		
-			<td colspan ="2"><span class="TexterougeR">Mot de passe entre 4 et 16 caract&egrave;res autoris&eacute;s a/A &agrave; z/Z, 0 &agrave; 9 et _ -</span></td>
+			<td colspan ="2"><span class="TextenoirR">Mot de passe entre 4 et 16 caract&egrave;res autoris&eacute;s a/A &agrave; z/Z, 0 &agrave; 9 et _ -</span></td>
 		</tr>		
 		<tr>		
 			<td colspan ="2">&nbsp;</td>

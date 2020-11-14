@@ -15,7 +15,7 @@
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
- *  Fichier :	remplir_infogene_adht.php
+ *  Fichier :   remplir_infogene_adht.php
  *  Modifier ou Créer les informations générales de l'adhérent
  *  Seul l'admin Priorité = 9 peut aussi modifier le Login et le Mot de passe 
 */
@@ -176,9 +176,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$adherent['profession_adht']= stripslashes(get_post_variablehtml('profession_adht',''));		// ajout V 7
 		$adherent['autres_info_adht']= stripslashes(get_post_variablehtml('autres_info_adht',''));		// ajout V 7
 		
-		// Suivant  $priorite_adht  Modifiable ou NON
-		$adherent['nom_adht']= strtoupper(stripslashes(get_post_variablehtml('nom_adht','')));	// - stripslashes
-		$adherent['prenom_adht']= stripslashes(get_post_variablehtml('prenom_adht',''));	 // + stripslashes		
+		// Suivant  $priorite_adht  Modifiable ou NON + trim = Supprime les espaces sur Nom Prénom
+		$adherent['nom_adht']= strtoupper(trim(stripslashes(get_post_variablehtml('nom_adht',''))));	// - stripslashes + trim
+		$adherent['prenom_adht']= stripslashes(trim(get_post_variablehtml('prenom_adht','')));	 // + stripslashes + trim
 		$adherent['id_type_antenne'] = get_post_variable_numeric('id_type_antenne_adht',''); //---->RECUPERE ID  id_type_antenne
 		// $adherent[tranche_age] = get_post_variable ('tranche_age','');		
 		$adherent['tranche_age'] = get_post_variable ('tranche_age_adht',''); // ESSAI  html_options name="tranche_age_adht"
@@ -221,7 +221,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$erreur_saisie ['email'] = _LANG_MESSAGE_REMPLIR_ERR_MAIL ;
 			}	
 		}
-		
+	
 		// cas si Admin =9 possible modifier LOGIN
 		if ($priorite_adht == 9  && $required ['creation_adht'] == 0){		// Correction PHP8 =='' => == 0
 			$adherent['login_adht'] = (get_post_variable ('login_adht',''));				
@@ -232,21 +232,21 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				// vérification lettre-chiffre ET Nb caractéres suivant fonction.php				
 					$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_ERR_LOGIN;
 				} else {
-					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht','')); // MAJUSCULES	 ou Majuscules+Minuscules
+					$adherent['login_adht'] = strtoupper(trim(get_post_variable ('login_adht',''))); // MAJUSCULES // + trim
 				}		
 			}					
 		}			
 	
 		// Si Non vide on modifiera le mot de passe - modification 10 à 16 caractères 09/02/18
-		$adherent['pass_adht1'] = get_post_variable ('pass_adht1','');
-		$adherent['pass_adht2'] = get_post_variable ('pass_adht2','');
-		$pass =''; // le password	
+		$adherent['pass_adht1'] = trim(get_post_variable ('pass_adht1','')); // + trim
+		$adherent['pass_adht2'] = trim(get_post_variable ('pass_adht2','')); // + trim
+		$pass =''; // le password
 		// + Cas le mot de passe 1=vide ET le mot de passe 2=NON vide - Ajout PHP8
 		if ( ($adherent['pass_adht1'] =='' && $adherent['pass_adht2'] !='') ) {  // si mdp 1 est vide et si mdp 2 est donné		
 			$erreur_saisie ['mdp'] = _LANG_MESSAGE_REMPLIR_ERR_PASSW ;			
 		}
 		// + Cas le mot de passe 1=NON vide ET le mot de passe 2=vide - Ajout PHP8
-	    if ( ($adherent['pass_adht1']!='' && $adherent['pass_adht2'] =='') ) {   // si mdp 1 est donné et si mdp 2 est vide			
+	    if ( ($adherent['pass_adht1']!='' && $adherent['pass_adht2'] =='') ) {   // si mdp 1 est donné et si mdp 2 est vide
 			$erreur_saisie ['mdp'] = _LANG_MESSAGE_REMPLIR_ERR_PASSW ;			
 		}			
 		// Cas le mot de passe 1=NON vide ET le mot de passe 2=NON vide  ET Création Nouvel adhérent
@@ -267,13 +267,12 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			  $erreur_saisie ['mdp'] = _LANG_MESSAGE_REMPLIR_ERR_2PASSW ; 
 			}
 		}
-		// si mdp 2 est vide pas d'erreur !!!
 
 		
 		/*****  On crée un  nouvel adhérent */
 		if ( $required ['creation_adht'] == 1) {	
 			$adherent['tranche_age'] = get_post_variable ('tranche_age_adht',''); // ESSAI  html_options name="tranche_age_adht"			
-			$adherent['login_adht'] = (get_post_variable ('login_adht',''));				
+			$adherent['login_adht'] = get_post_variable ('login_adht','');				
 			if ($adherent['login_adht'] == '') {
 				$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_LOGIN; 
 			} else {	
@@ -281,7 +280,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				// verification lettre-chiffre ET Nb caractéres suivant fonction.php	
 					$erreur_saisie ['login'] = _LANG_MESSAGE_REMPLIR_ERR_LOGIN;
 				} else {
-					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht','')); // MAJUSCULES ou Majuscules+Minuscules
+					$adherent['login_adht'] = strtoupper(trim(get_post_variable ('login_adht',''))); // MAJUSCULES // + trim
 				}		
 			}	
 				
@@ -344,7 +343,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				." '$adherent[profession_adht]','$adherent[autres_info_adht]'," // ajout V 7
 				." '$adherent[login_adht]','$pass_adht','$sessionadherent')"; //   qui a enregistré = '$sessionadherent' lors du 1er enregistrement	
 				$dbresult = $db->Execute($req_ecrit_nouvel_adht);					
-//echo 'rq='.$req_ecrit_nouvel_adht;  // DEBUG					
+// echo 'DEBUGrqnouvel='.$req_ecrit_nouvel_adht."<br>";  // DEBUG			
 	
 				$id_adht = my_last_id('id_adht',TABLE_ADHERENTS); // on récupère le N° de la derniere Insertion
 				// écrit qui a fait la manip			
@@ -356,8 +355,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 		} else {  /*****   adhérent existant on Update simplement */			
 			if (count($erreur_saisie)==0) {	  
-			// Si Aucune erreur de saisie Udpate 
-		
+			// Si Aucune erreur de saisie Udpate 	
 				$adherent['adresse_adht'] = addslashes($adherent['adresse_adht']); 
 				$adherent['ville_adht']= addslashes($adherent['ville_adht']); // ajoute \ si on a fait une erreur
 				$adherent['nom_adht']= addslashes($adherent['nom_adht']); // ajoute \ si on a fait une erreur
@@ -399,11 +397,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 					$req_ecrit_modif_adht.= ",promotion_adht = '$adherent[promotion_adht]'"; //  Ajouté N° adhésion/Licence
 					
 				}
-				// +++++
+				// +
 				$req_ecrit_modif_adht.= " WHERE id_adht='$id_adht'"; 				
 				$dbresult = $db->Execute($req_ecrit_modif_adht);						
-//echo 'rq='.$req_ecrit_modif_adht;  // DEBUG
-
 				// écrit qui a fait la manip			
 				$ecritlog = $masession->write_log('Modifie_Adht : '
 				.$id_adht, addslashes($nom_adht).' '.addslashes($prenom_adht));	
@@ -438,7 +434,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				
 				// On récupère les données de la requête sous forme de tableau  $adherent["Nom_du_Champs_Table"]	
 				while (($adherent = $dbresult->FetchRow())) {
-					// modifiaction affichage dates
+					// modification affichage dates
 					$adherent['datenaisance_adht'] = switch_sqlFr_date($adherent['datenaisance_adht']); 
 					// Préparation pour Affichage partie variable en fonction des données
 					$adherent['ville_adht'] = stripslashes($adherent['ville_adht']);

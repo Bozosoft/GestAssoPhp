@@ -7,17 +7,17 @@
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/install/
- *   Fichier :
- *   Installation du système
- *   ENCODAGE UTF-8 sans BOM
+ *  Fichier :   install_4.php
+ *  Installation du système
+ *  ENCODAGE UTF-8 sans BOM
 */
 
 
@@ -59,14 +59,14 @@
 
 		$ok_valid4=(get_post_variable('valid4',''));		
 		// -- Récuprération des variable du formulaire ---
-		$adherent['login_adht'] = (get_post_variable ('login_adht',''));				
+		$adherent['login_adht'] = get_post_variable ('login_adht','');
 			if ($adherent['login_adht'] =='') {
 				$erreur_saisie ['login'] = 'Indiquez un login';
 			} else {
 				if (is_valid_mylogin($adherent['login_adht']) ==  false) {	
 					$erreur_saisie ['login'] ='Login entre 4 et 20 caract&egrave;res ou caract&egrave;res invalides !';
 				} else {
-					$adherent['login_adht'] = strtoupper(get_post_variable ('login_adht','')); // MAJUSCULES	ou Majuscules+Minuscules
+					$adherent['login_adht'] = strtoupper(trim(get_post_variable ('login_adht',''))); // MAJUSCULES // + trim	
 				}		
 			}				
 			
@@ -77,13 +77,16 @@
 			}	
 		}
 		// Si Non vide on modifiera le mot de passe
-		$adherent['pass_adht1'] = get_post_variable ('pass_adht1','');
-		$adherent['pass_adht2'] = get_post_variable ('pass_adht2','');			
-		$pass=''; // le password				
+		$adherent['pass_adht1'] = trim(get_post_variable ('pass_adht1','')); // + trim
+		$adherent['pass_adht2'] = trim(get_post_variable ('pass_adht2',''));  // + trim			
+		$pass=''; // le password
+		if ($adherent['pass_adht1'] =='') { // si le mot de passe 1 est vide	
+			$erreur_saisie ['mdp'] = 'Indiquez un mot de passe';
+		}
 	    if ( ($adherent['pass_adht1'] !='' && $adherent['pass_adht2'] !='')  ) {
 			if ($adherent['pass_adht1'] == $adherent['pass_adht2']) { // si les 2 mots de psse sont identiques
 				if (is_valid_mypasswd($adherent['pass_adht2']) ==  false) {						
-					$erreur_saisie ['mdp'] = 'Mot de passe entre 4 et 16 caract&egrave;res ou caract&egrave;res invalides !';
+					$erreur_saisie ['mdp2'] = 'Mot de passe entre 4 et 16 caract&egrave;res ou caract&egrave;res invalides !';
 					// vérification lettre-chiffre ET  Nb caractéres ente 4 et 10->16 
 				} else {
 					// Modif POUR adminsalt Nouvelle installation à compter de la 5.2.0
@@ -91,17 +94,17 @@
 					$pass_adht= md5($salt.$adherent['pass_adht1']); // on code en MD5
 				}
 			} else { //	si les 2 mots sont différents 
-			  $erreur_saisie ['mdp'] = 'Les 2 mots de passe ne sont pas identiques'; 
+			  $erreur_saisie ['mdp2'] = 'Les 2 mots de passe ne sont pas identiques'; 
 			}
-		} else {
-			$erreur_saisie ['mdp'] = 'Indiquez un mot de passe'; 
+		} else if ($adherent['pass_adht2'] =='') {	// si le mot de passe 2 est vide
+			$erreur_saisie ['mdp2'] = 'Indiquez un mot de passe'; 
 		}
 		
-		$adherent['nom_adht']= (strtoupper(stripslashes(get_post_variable('nom_adht',''))));	//
+		$adherent['nom_adht']= (strtoupper(trim(stripslashes(get_post_variable('nom_adht','')))));	// + trim
 			if ($adherent['nom_adht'] =='') {
 				$erreur_saisie ['nom'] = 'Indiquez le Nom';
 			}		
-		$adherent['prenom_adht']= stripslashes(get_post_variable('prenom_adht',''));
+		$adherent['prenom_adht']= stripslashes(trim(get_post_variable('prenom_adht',''))); // + trim
 			if ($adherent['prenom_adht'] =='') {
 				$erreur_saisie ['pnom'] = 'Indiquez le Pr&eacute;nom';
 			}			

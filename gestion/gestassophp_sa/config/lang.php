@@ -7,17 +7,17 @@
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
  *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
  
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/lang/
- *   Fichier : lang.php
- *   Fichier de langue
- *   ENCODAGE entitiés pour UTF8  é = &eacute; à = &agrave; è = &egrave;  î = &icirc; ê = &ecirc;
+ *  Fichier : lang.php
+ *  Fichier de langue
+ *  ENCODAGE entitiés pour UTF8  é = &eacute; à = &agrave; è = &egrave;  î = &icirc; ê = &ecirc;
  
  
 *  Textes et messages pour affichage
@@ -442,7 +442,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 * Localisation sur      /templates/adherent/liste_adht_admin.tpl    ET   /adherent/liste_adht_admin.php 
 */		
 	define('_LANG_TITRE_ADMIN_LISTE_ADHT', 'Gestion des '.ADHERENT_BENE.'s');	
-	define('_LANG_ADMIN_LISTE_ADHT_ATT', 'ATTENTION Suppression impossible de la fiche N°');
+	define('_LANG_ADMIN_LISTE_ADHT_ATT', 'ATTENTION Suppression impossible de la fiche '.ADHERENT_BENE.' N°'); // ajout .ADHERENT_BENE. 10/11/20
 	define('_LANG_ADMIN_LISTE_ADHT_DATE_F_COTIS', 'Date de fin de cotisation : ');
 	define('_LANG_LISTE_ADHT_PARMI', 'parmi les noms/prénoms');
 	define('_LANG_ADMIN_LISTE_ADHT_ADDADHT_BUTTON_TITLE', 'Ajouter un '.ADHERENT_BENE); // title=
@@ -458,9 +458,9 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_ADMIN_LISTE_ADHT_JS_CONFIRM_DELFICHE', 'Êtes vous sûr(e) de vouloir supprimer la fiche N°');
 	define('_LANG_ADMIN_LISTE_ADHT_DEL_FICHE_ICON_TITLE', 'Supprimer la fiche'); // title="
 	// ajout messages si suppression
-	define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT', 'Impossible d\'archiver la fiche cotisation');
+	define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT', 'il est obligatoire d\'archiver la fiche cotisation'); // ex Impossible d\'archiver la fiche cotisation 10/11/20
 	define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE', 'Niveau de priorité : ');
-	define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', 'Impossible d\'archiver la fiche il faut changer le niveau de priorité à 0');
+	define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', 'Impossible d\'archiver la fiche '.ADHERENT_BENE.' il faut changer le niveau de priorité à 0'); // ajout .ADHERENT_BENE. 11/11/20
 	
 /**  Messages PHP   */
 	define('_LANG_MESSAGE_ADMIN_LISTE_ADHT_', 'NON règlée'); 

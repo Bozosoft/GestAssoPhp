@@ -5,16 +5,23 @@
     <header class="header_titre">{language name=menu_admin_gestion}&nbsp;-&nbsp;{language name=titre_admin_liste_adht}</header>
 	<div class="ligne_coul"></div> 	
 	<div id="contenu"> {* défini le contenu .. *}
- {if $erreur_suppression_fiche == 1}
-		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur_suppression_id} !! - {language name=admin_liste_adht_date_f_cotis}{$erreur_suppression_date} <br /> {language name=liste_cotis_adht_archiv_alert}
-	</div>
-{/if}	
- {*	ajout alerte si supression fiche avec niveau priorité >=0 *}	
- {if $erreur1_suppression_fiche == 1}
-		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur1_suppression_id} !! <br /> - {language name=admin_liste_adht_alert_priorite}{$erreur1_suppression_priorite} <br />
-		<a href="../admin/remplir_priorite.php" title="{language name=titre_admin_gerer_priorite_adherents}">{language name=admin_liste_adht_alert_priorite_0} </a>
+	
+{* Alerte si supression fiche avec cotisation(s) existante(s) non archivée(s) - affiche la date la plus tardive si X cotisations *}	
+	 {if $erreur_suppression_fiche == 1}
+		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur_suppression_id}{* ID adhérent+Nom prénom *} !! <br />
+		{language name=liste_cotis_adht_archiv_alert} - {language name=admin_liste_adht_date_f_cotis}{$erreur_suppression_date}
+		{* Date de fin de cotisation : xx/xx/xx - il est obligatoire d'archiver la fiche cotisation *}
 		</div>
-{/if}	
+	{/if}	
+		
+{* Alerte si supression fiche avec niveau priorité >0 *}
+	{if $erreur1_suppression_fiche == 1}			
+		<div id="erreur-box">  {language name=admin_liste_adht_att} {$erreur1_suppression_id}{* ID adhérent+Nom prénom *} !! <br /> - {language name=admin_liste_adht_alert_priorite}{$erreur1_suppression_priorite} {* niveau priorité *} <br />
+{* lien vers Priorité Accès *}		
+		<a href="../admin/remplir_priorite.php" title="{language name=titre_admin_gerer_priorite_adherents}">{language name=admin_liste_adht_alert_priorite_0} </a> 
+		</div>
+	{/if}	
+	
 {* Affichage  Recherche *}	
 	<form action="liste_adht_admin.php" method="get" name="filtre">
  	
