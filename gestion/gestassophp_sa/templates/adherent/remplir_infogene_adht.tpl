@@ -158,7 +158,7 @@
 		{* Photo *}
 		{if $required.creation_adht !== 1}
 		<div class="centre-txt">
-			 {if $photo_adht!=="[ Pas de photo ]"}{$photo_adht}<br />
+			 {if $photo_adht!== "[ Pas de photo ]"}{$photo_adht}<br />
 				<input type="submit" name="del_photo" value="{language name=fiche_adht_del_photo}" onclick="return confirm('{language name=fiche_adht_confirm_del_photo}')"  title="{language name=fiche_adht_del_photo_title}" class="submit_del" tabindex="22"/>
 			{else} {language name=fiche_adht_upload_photo}<br /> {if $erreur_saisie.photo} <span class="erreur-Jaunerouge">{$erreur_saisie.photo}</span><br />{/if}
 				<input type="file" name="photo" title="{language name=fiche_adht_add_photo_title}" />
