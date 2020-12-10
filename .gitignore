@@ -1,14 +1,16 @@
 # ignorer config
 gestion/gestassophp_sa/config/connexion.cfg.php
-# ignorer fichiersadht
+# ignorer les fichiers du dossier /fichiersadht
 gestion/gestassophp_sa/fichiersadht/
-# ignorer les photos
+# ignorer les fichiers du dossier /photos
 gestion/gestassophp_sa/photos/*.jpg
 gestion/gestassophp_sa/photos/*.gif
 # ignorer tables_desciption.ods
 gestion/gestassophp_sa/doc/*.ods
-# ignorer fichier temporaire de smarty
-gestion/gestassophp_sa/temp/templates_c/
+# ignorer le dossier temporaire de smarty /temp/templates_c/
+# Non car si le téléchargement vient direct de GIT erreur
+# ignorer seulument les fichiers temporaire de smarty /temp/templates_c/
+gestion/gestassophp_sa/temp/templates_c/*tpl.php
 # ignorer fichier template pour connexion login.tpl avec information pour la démo free.fr
 gestion/gestassophp_sa/templates/login.tpl.free.tpl
 # ignorer fichier template pour connexion index.php avec information pour la démo free.fr

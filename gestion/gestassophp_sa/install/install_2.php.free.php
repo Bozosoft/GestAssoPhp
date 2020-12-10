@@ -25,7 +25,7 @@
 
 	// Raz de variables
 	$erreur_saisie = array(); // tableau
-	$config_bd = array();// Illegal string offset 'drop_bd'
+	$config_bd = array(); // Illegal string offset 'drop_bd'
 	$config_bd = array('drop_bd' => ''); // Illegal string offset 'drop_bd' // Vide non coché pour Effacement des tables
 	// suppression des bases type mysql - reste le choix de mysqli ou postgres
 		$T_type_bd = array('mysqli'=>'MySQLi', 'postgres'=>'PostgreSQL');
@@ -44,15 +44,15 @@
 						exit;
 			}
 
-/***** affiche la fiche la première fois */
+/*****  affichage de la fiche la première fois */
 			//$config_bd = ''; // Cannot assign an empty string to a string offset
-			$config_bd['type_bd'] = ''; //Type de base de données 	 	//$T_type_bd
-			$config_bd['serveur_bd'] = 'localhost'; //Addresse du serveur de base de données
-			$config_bd['nom_bd'] = 'gestassosimpl'; //Nom de la base de données
-			$config_bd['utilis_bd'] = 'root'; //Nom d'utilisateur
-			$config_bd['motpas_bd'] = ''; //Mot de passe
+			$config_bd['type_bd'] = ''; // Type de base de données 	 	//$T_type_bd
+			$config_bd['serveur_bd'] = 'localhost'; // Addresse du serveur de base de données
+			$config_bd['nom_bd'] = 'gestassosimpl'; // Nom de la base de données
+			$config_bd['utilis_bd'] = 'root'; // Nom d'utilisateur
+			$config_bd['motpas_bd'] = ''; // Mot de passe
 			$config_bd['prefix_bd'] = 'gsa_'; // Préfix des tables
-/***** FIN on affiche la fiche la première fois */
+/***** FIN affichage de la fiche la première fois */
 
 		} else {
 			$config_bd = '';
@@ -63,12 +63,12 @@
 
 
 /***** Si validation du Formulaire par le bouton Valider */
-	if (isset($_POST['valid2'] )) { // validation de la page 2 .tpl
+	if (isset($_POST['valid2'] )) { // on a validé la page 2 .tpl
 
 		$ok_valid2 = (get_post_variable('valid2', ''));
 // echo "DEBUG---> ". $ok_valid2 ."<br>";  // DEBUG
 		/***** Récupération des variable du formulaire */
-		$config_bd['type_bd'] = post_variable('type_bd', ''); //' MySQL ou  postgres'; //Type de base de données
+		$config_bd['type_bd'] = post_variable('type_bd', ''); // 'MySQL ou  postgres'; //Type de base de données
 // echo "DEBUG type = ". $config_bd['type_bd']."<br>";  // DEBUGG
 		$config_bd['serveur_bd'] = post_variable('serveur_bd', ''); // Addresse du serveur de base de données
 // echo "DEBUG serveur = ". $config_bd['serveur_bd']."<br>";  // DEBUGG
@@ -79,9 +79,10 @@
 		$config_bd['motpas_bd'] = post_variable('motpas_bd', ''); // Mot de passe
 // echo "DEBUG motpas = ". $config_bd['motpas_bd']."<br>";  // DEBUG
 		$config_bd['prefix_bd'] = post_variable('prefix_bd', 'gs0_'); // Préfix des table
-// echo "DEBUG prefix = ". $config_bd['prefix_bd']."<br>";  // DEBUG
+// echo "DEBUG prefix =". $config_bd['prefix_bd']."<br>";  // DEBUG
 		$config_bd['drop_bd'] = post_variable('drop_bd', ''); // drop table coché oui = on  = Effacement des tables
-// echo "DEBUG drop= ". $config_bd['drop_bd']."<br>";  // DEBUG
+// echo "DEBUG drop = ". $config_bd['drop_bd']."<br>";  // DEBUG
+
 
 
 		if ($config_bd['serveur_bd'] == '') {
@@ -98,19 +99,12 @@
 				$erreur_saisie['motpas_bd'] = 'Mot de passe';
 			}
 		}
-
-/***** cas bd =	postgres */
-		if ($config_bd['type_bd'] == 'postgres') {
-			if ($config_bd['motpas_bd'] == '') {
-				$erreur_saisie['motpas_bd'] = 'Mot de passe postgres vide';
-			}
-		}
-
 		if ( !preg_match('/^[a-zA-Z0-9_]+$/', trim($config_bd['prefix_bd'])) ) {
 			$erreur_saisie['prefix_bd'] = 'Le pr&eacute;fix des tables de base de donn&eacute;es contient des caract&egrave;res invalides !';
 		}
 
-/***** Test Connexion à la  base données */
+
+// Test Connexion à la  base données
 	// Creé une connexion sur la Base de donnée
 	$db = ADONewConnection($config_bd['type_bd']); //crée une connexion
 	$db->debug = false; // true; // false; // Mode débug ou Non
@@ -122,33 +116,32 @@
 			." user=".$config_bd['utilis_bd']." password=".$config_bd['motpas_bd']." ");
 			if ($pgsql_conn) {
 			   $dbport = pg_port($pgsql_conn) ;
+// ajout pour Free.fr pour éviter erreurs
 			}else {
-				$erreur_saisie['connexion'] = 'Connexion base de donn&eacute;es '. $config_bd['type_bd'] .' impossible !!!';
-// décommenter les 2 lignes pour Free.fr pour éviter erreurs
-// echo "S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!";
-// exit;
-// Fin de décommenter pour Free.fr pour éviter erreurs
+				echo "S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!";
+				exit;
 			}
+// Fin ajout pour Free.fr pour éviter erreurs
 
-/***** ATTENTION uniquement pour Free.fr */
-// TEST sur free.fr Supprimer les lignes suivant SINON erreur : Connexion base de données PostgreSQL impossible !!!
+//-- Free.fr
+// TEST sur free.fr Supprimer les lignes suivantes SINON erreur : Connexion base de données PostgreSQL impossible !!!
 /*
 			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'],$dbport)) {
 				$erreur_saisie['connexion'] = 'Connexion base de donn&eacute;es PostgreSQL impossible !!! ';
 				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!");
 			}
 */
-/***** Fin pour Free.fr */
+//-- / Free.fr
 		} else {
 			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'])) {
 				$erreur_saisie['connexion'] = 'Connexion base de donn&eacute;es '. $config_bd['type_bd'] .' impossible !!!';
 				// $config_bd['type_bd'] = mysqli ou postgres
 			}
 		}
-	//Fin check port BD
+	// Fin check port BD
 
-		if (count($erreur_saisie) == 0  && $ok_valid2 == 'valid2') { // si pas d'erreur Et validation de la page 2 .tpl
-		// Si Aucune erreur de saisie validation des données
+		if (count($erreur_saisie) == 0  && $ok_valid2 == 'valid2') { // si pas d'erreur Et on a validé la page 2 .tpl
+		// Si Aucune erreur de saisie validationl des données
 			$masession = new sessions(); // -->la classe session 	//session_start();
 			$_SESSION['type_bd'] = $config_bd['type_bd'];
 			$_SESSION['serveur_bd'] = $config_bd['serveur_bd'];
@@ -158,25 +151,23 @@
 			$_SESSION['prefix_bd'] = $config_bd['prefix_bd'];
 			$_SESSION['drop_bd'] = $config_bd['drop_bd'];
 			$_SESSION['valid2'] = 'valid2';
-		// Passage à la page suivante
+		// on passee à la page suivante
 			header('location: install_3.php?valid2=ok'); // passe à la page 3
 		}
 
 		// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
-		$tpl->assign('config_bd', $config_bd); // réaffiche les informations dans le formulaire de saisie
+		$tpl->assign('config_bd', $config_bd); // affichage des informations dans le formulaire de saisie
 
 /***** FIN Si validation du Formulaire par le bouton Valider */
 	}
 
-
-/***** Recherche pour savoir si  Driver postgres (PostgreSQL Support) et/ou mysql  (MySQL Support) existe */
+		// Recherche pour savoir si  Driver postgres (PostgreSQL Support) et/ou mysql  (MySQL Support) existe
 		$postgres = function_exists('pg_connect');
 		$pgsql_bd = 'PostgreSQL : '.($postgres ? 'Oui' : '<strong>Non</strong>');
 		$mysqli = function_exists('mysqli_connect');
 		$mysqli_bd = 'MySQLi  : '.($mysqli ? 'Oui' : '<strong>Non</strong>');
 		$tpl->assign('pgsql_bd', $pgsql_bd); //
 		$tpl->assign('mysql_bd', $mysqli_bd); //
-
 
 /***** ------------------------------------------------------------ */
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE

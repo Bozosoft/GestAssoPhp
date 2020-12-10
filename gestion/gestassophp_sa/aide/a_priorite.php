@@ -2,25 +2,25 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *   Fichier :
- *   Affiche l'aide des priorités d'accès Adhérents
+ *  Fichier :   a_priorite.php
+ *  Affiche l'aide des priorités d'accès Adhérents
 */
- 
-	include_once '../config/connexion.php';  
-?>  
+
+	include_once '../config/connexion.php';
+?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>
@@ -41,10 +41,10 @@
 </p>
 <div id="contenu">
 <p class="Textenoir">&nbsp;<br />
-    Cette page permet de gérer les accès des "<?php echo ADHERENT_BENE ;?>s" grâce 
+    Cette page permet de gérer les accès des "<?php echo ADHERENT_BENE ;?>s" grâce
     à un code de priorité :<br />
 <?php
- include_once 'a_codepriorite.php';  
+ include_once 'a_codepriorite.php';
  ?><br /><br /><br />
 
 Il faut sélectionner "<?php echo ADHERENT_BENE ;?>" puis. <br />
@@ -53,7 +53,7 @@ L'affichage montre les adhérents qui ont un "<?php echo _LANG_ADMIN_PRIORITE_CO
 Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_NUM.', '. _LANG_TPL_COL_NOMPRE.', '. _LANG_ADMIN_PRIORITE_COL_PRIORITE ;?></span>.
 </p>
 <p><span class="TextenoirGras">Nota :</span> il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.<br/><span class="TexterougeGras">NOTA</span> seul uniquement les Administrateurs (de Priorité 9) peuvent changer le niveau de priorité <?php echo ADHERENT_BENE ;?>.</p>
-<p>&nbsp;</p> 
+<p>&nbsp;</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>

@@ -20,22 +20,31 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 
 		<tr>
 			<th class="LignegrisRight"  style="width:25%;">Login :</th>		
-			<td><input type="text" name="login_adht" id="login_adht" title=" Le Login (entre 4 et 20 caractères autorisés A à Z, 0 à 9 et _ - ) sera créé en Majuscules automatiquement - Attention -" value="{$data_adherent.login_adht}"  size="32"  maxlength="50" tabindex="1"/>{if $erreur_saisie.login} <span class="erreur-Jaunerouge">{$erreur_saisie.login}</span>{/if}</td>
+			<td><input type="text" name="login_adht" id="login_adht" title=" Le Login (entre 4 et 20 caractères autorisés A à Z, 0 à 9 et _ - ) sera créé en Majuscules automatiquement - Attention -" value="{if !empty($data_adherent.login_adht)}{$data_adherent.login_adht}{/if}"  size="32"  maxlength="50" tabindex="1"/>
+			{if !empty($erreur_saisie.login) && $erreur_saisie.login}<span class="erreur-Jaunerouge">{$erreur_saisie.login}</span>{/if}</td>
 		</tr>
 		<tr>		
-			<td colspan ="2"><span class="TextenoirR">Le Login (entre 4 et 20 caract&egrave;res autoris&eacute;s A &agrave; Z, 0 &agrave; 9 et _ - ) sera cr&eacute;&eacute; en Majuscules automatiquement')</span></td>
+			<td colspan ="2"><span class="TextenoirR">Note : Le Login (entre 4 et 20 caract&egrave;res autoris&eacute;s A &agrave; Z, 0 &agrave; 9 et _ - ) sera cr&eacute;&eacute; en Majuscules automatiquement')</span></td>
 		</tr>
 		<tr>
-			<th class="LignegrisRight">Adresse email :</th>
-			<td><input type="text" name="email_adht" id="email_adht" title="Votre adresse email " value="{$data_adherent.email_adht}" size="32"  maxlength="50" tabindex="2"/> {if $erreur_saisie.email} <span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.email}</span>{/if}</td>
+			<th class="LignegrisRight">Adresse email :</th>	
+			<td><input type="text" name="email_adht" id="email_adht" title="Votre adresse email " 
+			value="{if !empty($data_adherent.email_adht)}{$data_adherent.email_adht}{/if}" size="32"  maxlength="50" tabindex="2"/> 
+			{if !empty($erreur_saisie.email) && $erreur_saisie.email}<span class="erreur-Jaunerouge">{$erreur_saisie.email}</span>{/if}	
+			</td>
 		</tr>
 		<tr>
 			<th class="LignegrisRight">Mot de passe :</th>		
-			<td><input type="password" name="pass_adht1" id="pass_adht1" title="Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ - " value="{$data_adherent.pass_adht1}" size="32"  maxlength="50" tabindex="3"/>{if $erreur_saisie.mdp} <span class="erreur-Jaunerouge">{$erreur_saisie.mdp}</span>{/if}</td>
+			<td><input type="password" name="pass_adht1" id="pass_adht1" title="Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ - " 
+			value="{if !empty($data_adherent.pass_adht1)}{$data_adherent.pass_adht1}{/if}" size="32"  maxlength="50" tabindex="3"/>
+			{if !empty($erreur_saisie.mdp) && $erreur_saisie.mdp}<span class="erreur-Jaunerouge">{$erreur_saisie.mdp}</span>{/if}
+			</td>
 		</tr>
 		<tr>
 			<th class="LignegrisRight">Mot de passe encore :</th>		
-			<td><input type="password" name="pass_adht2" id="pass_adht2" title="Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ -" value="{$data_adherent.pass_adht2}" size="32"  maxlength="50" tabindex="4"/>{if $erreur_saisie.mdp2} <span class="erreur-Jaunerouge">{$erreur_saisie.mdp2}</span>{/if}
+			<td><input type="password" name="pass_adht2" id="pass_adht2" title="Mot de passe entre 4 et 16 caractères autorisés a/A à z/Z, 0 à 9 et _ -" 
+			value="{if !empty($data_adherent.pass_adht2)}{$data_adherent.pass_adht2}{/if}" size="32"  maxlength="50" tabindex="4"/>
+			{if !empty($erreur_saisie.mdp2) && $erreur_saisie.mdp2}<span class="erreur-Jaunerouge">{$erreur_saisie.mdp2}</span>{/if}
 			</td>
 		</tr>
 		<tr>		
@@ -43,14 +52,20 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
 		</tr>		
 		<tr>		
 			<td colspan ="2">&nbsp;</td>
-		</tr>	
+		</tr>
 		<tr>
 			<th class="LignegrisRight">Nom :</th>		
-			<td><input type="text" name="nom_adht" id="nom_adht" title="Votre Nom" value="{$data_adherent.nom_adht}" size="32"  maxlength="50" tabindex="5" /> {if $erreur_saisie.nom != ""} <span class="erreur-Jaunerouge">{$erreur_saisie.nom}</span>{/if}</td>
+			<td><input type="text" name="nom_adht" id="nom_adht" title="Votre Nom" 
+			value="{if !empty($data_adherent.nom_adht)}{$data_adherent.nom_adht}{/if}" size="32"  maxlength="50" tabindex="5" /> 
+			{if !empty($erreur_saisie.nom) && $erreur_saisie.nom != ""}<span class="erreur-Jaunerouge">{$erreur_saisie.nom}</span>{/if}
+			</td>
 		</tr>
 		<tr>
 			<th class="LignegrisRight">Pr&eacute;nom :</th>		
-			<td><input type="text" name="prenom_adht" id="prenom_adht" title="Votre Prénon" value="{$data_adherent.prenom_adht}" size="32"  maxlength="50" tabindex="6"/> {if $erreur_saisie.pnom != ""} <span class="erreur-Jaunerouge">{$erreur_saisie.pnom}</span>{/if}</td>
+			<td><input type="text" name="prenom_adht" id="prenom_adht" title="Votre Prénon" 
+			value="{if !empty($data_adherent.prenom_adht)}{$data_adherent.prenom_adht}{/if}"  size="32"  maxlength="50" tabindex="6"/> 
+			{if !empty($erreur_saisie.pnom) && $erreur_saisie.pnom != ""}<span class="erreur-Jaunerouge">{$erreur_saisie.pnom}</span>{/if}
+			</td>
 		</tr>		
 		<tr>		
 			<td colspan="2">&nbsp;</td>

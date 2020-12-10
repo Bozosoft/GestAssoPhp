@@ -1,24 +1,34 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg] + HTML5
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
+ *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
  * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
- * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : 
+ * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE :
  *     https://github.com/smarty-php/smarty/blob/master/LICENSE
  * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
- 
 
-Version 7.6.5 - 22/11/2020  - Finale 
+
+Version 7.6.8 - 10/12/2020 - En cours (Dev1)
+-------------------------------------------
+- mise en conformité pour PHP 8.x pour rester compatible avec PHP 5.6.x et PHP 7.x
+- corrections des fichiers *.php (Undefined array key ..., Uncaught Error ..., )
+- corrections des fichiers *.tpl pour Smarty (Undefined array key ..., Uncaught TypeError ...)
+- vérification des fichiers *.tpl pour validation Html Checker
+- remise en forme et correction des commentaires *.php et *.tpl
+- version actuelle de Smarty 3.1.36 du 14/04/2020 et ADOdb 5.20.18 du 28/06/2020, en attente des nouvelles versions éventuelles de Smarty et ADOdb 
+
+
+Version 7.6.5 - 22/11/2020 - Finale
 -------------------------------------------
 - Correction sur le Changelog.txt
 - Mise à jour version
@@ -28,16 +38,16 @@ Version 7.6.5 - 22/11/2020  - Finale
 - /install/install_4.php et install_4.tpl contrôle supplémentaire des espaces (trim) sur les entrées des nom_adht, login_adht, pass_adht1, pass_adht2,
 
 * version 7.6.5 - 11/11/2020 - En cours (Dev3)
-- lang.php : Modification de define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT' .. 
+- lang.php : Modification de define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT' ..
 - lang.php : Modification/précision de define('_LANG_ADMIN_LISTE_ADHT_ATT'...
 - lang.php : Modification de define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', ..
-- remplir_cotisations_adht.tpl : Correction du bug si modification de de remplir cotisation le montant de cotisation n'est plus affiché 
+- remplir_cotisations_adht.tpl : Correction du bug si modification de de remplir cotisation le montant de cotisation n'est plus affiché
 - remplir_cotisations_adht.php : typo $cotis_adh[id_adhtasso]); == $cotis_adh['id_adhtasso']);
 
 * version 7.6.5 - 02/112020 - En cours (Dev2)
 - Début des corrections pour PHP 8.x ( Undefined array key ..., Uncaught TypeError: ...)
-  adherent/ gerer_fiche_adht.php, consulter_info_fichiermission_adht.php, remplir_infogene_adht.php 
-  admin/ remplir_preferences.php 
+  adherent/ gerer_fiche_adht.php, consulter_info_fichiermission_adht.php, remplir_infogene_adht.php
+  admin/ remplir_preferences.php
   templates/ login.tpl
   templates/ adminremplir_preferences.tpl
   install/  install_2.tpl
@@ -47,15 +57,15 @@ Version 7.6.5 - 22/11/2020  - Finale
 - Mise à jour de Smarty à la version 3.1.36 du 14/04/2020
 
 
-Version 7.6.4 - 09/04/2020 - Finale 
+Version 7.6.4 - 09/04/2020 - Finale
 --------------------------------------
 - Correction sur le Changelog.txt + lisez_moi.txt
 - Mise à jour version
 
-* version 7.6.4 - 22/03/2020 - En cours (Dev5) 
+* version 7.6.4 - 22/03/2020 - En cours (Dev5)
 - Ajout affichage de la "Priorité Accès" de l'adhérent sur la page "Visualisation et Gestion de mes informations" uniquement les Admins (Priorité 9)
 
-* version 7.6.4 - 08/03/2020 - En cours (Dev4)  
+* version 7.6.4 - 08/03/2020 - En cours (Dev4)
 - Ajout informations sur page finale installation install_5.tpl
 - Ajout sécurité sur install/index.php si après installation (donc fichier/config/connexion.cfg.php présent) le dossier /install/ n'est pas renommé ou supprimé
 - Complément d'information sur aide a_adht_remplir_infogene_adht.php (Nom Prénom, Photo, Ville, Téléphone, Tel Portable
@@ -76,22 +86,22 @@ Version 7.6.4 - 09/04/2020 - Finale
 - Modification des dates à 2020 sur @version et @copyright
 
 
-Version 7.6.3 - 10/02/2020 - Finale 
+Version 7.6.3 - 10/02/2020 - Finale
 ------------------------------
 - Correction sur le Changelog.txt
 - Test PHP 7.3.14 et PHP 7.4.2
 
-* version 7.6.3 - 28/11/2019 - En cours (Dev3) 
+* version 7.6.3 - 28/11/2019 - En cours (Dev3)
 - Mise à jour de adodb à la version 5.20.15 du 24/11/2019
 - Mise à jour de Smarty à la version 3.1.34 du 05/11/2019
 - Correction typo sur aide a_admin_tableaubord.php
 
-* version 7.6.3 - 05/10/2019 - En cours (Dev2)  
+* version 7.6.3 - 05/10/2019 - En cours (Dev2)
 - Remplacement de html5shiv.googlecode.com par js/html5shiv.min.js (code 3.7.3 pour Internet Explorer 6-9 https://github.com/aFarkas/html5shiv )
 - Et ajout des fichiers html5shiv.min.js et html5shiv-printshiv.min.js dans le dossier /js
 - Corrections HTLM (cursor:pointer)
 - Suppression des anciens fichiers obsolètes version 6 et 5
-- Modification installateur 1.3.1 
+- Modification installateur 1.3.1
 - Correction date data.sql sur installateur date_debannee_asso', '2020' + 'jma_fin_cotis','31/12/2020
 
 
@@ -99,7 +109,7 @@ Version 7.6.2 - 07/02/2019 - Finale
 -----------------------------------
 - Correction sur le Changelog.txt
 
-* version 7.6.2 - 28/01/2019 - En cours (Dev3)  
+* version 7.6.2 - 28/01/2019 - En cours (Dev3)
 - Mise à jour de adodb à la version 5.20.14 datée du 06/01/2019
 
 * version 7.6.2 - 10/12/2018 - En cours (Dev2)
@@ -111,7 +121,7 @@ Version 7.6.2 - 07/02/2019 - Finale
 - Modification de l'icône télécharger (disque32.png) et ajout disque16.png pour le tableau de bord
 - Correction javascript sur cursor: (lien vers l'aide)
 - Correction et ajouts sur le texte de l'aide Tableau de bord
- 
+
 * version 7.6.2 - 25/10/2018 - En cours (Dev)
 - Correction typo et ajout commentaires sur liste_cotisations_adht.php
 - Ajout si "xx" cotisations archivées soc_adht dans tables_description.rtf + ajout fichier tables_description.xls
@@ -125,7 +135,7 @@ Version 7.6.1 - 15/10/2018 - Finale
 - Ancienne version 6.x voir le fichier /doc/Changelog6.txt
 
 * version 7.6.1 - 7/10/2018 - En cours (Dev4)
-- Correction typo sur install_2.php 
+- Correction typo sur install_2.php
 - Suppression de la base type mysql sur install_2.php et connexion.php
 - Ajout Avant toute installation vérifier les informations sur le fichier lisez_moi.txt sur /install/index.php
 - Correction et mise à jour du fichier lisez_moi.txt
@@ -150,10 +160,10 @@ Version 7.6.1 - 15/10/2018 - Finale
 Version 7.6.0 - 17/02/2018 - Finale
 -----------------------------------
 - Passage mot de passe de 10 à 16 caractères
-- Modification function is_valid_mypasswd 
+- Modification function is_valid_mypasswd
 - Modification lang.php, install_4.tpl et php 10 caractères passe à 16 caractères
 - Modification remplir_infogene_adht.tpl (data_adherent.pass) maxlength="12" passe à 18
-- Ajout "De préférence 16 caractères en combinant des minuscules, majuscules avec les caractères _ -" sur a_adht_remplir_infogene_adht.php 
+- Ajout "De préférence 16 caractères en combinant des minuscules, majuscules avec les caractères _ -" sur a_adht_remplir_infogene_adht.php
 - Correction Warning: count() sur PHP 7.2.x
 - Correction typo sur lang.php _LANG_MESSAGE_REMPLIR_ERR_SUJET_MAIL
 
@@ -185,67 +195,67 @@ l'extension mysql étant obsolète depuis PHP 5.5 - La plupart des serveurs sont
   Version 7.3.0 - 05/04/2016  - Finale
   -----------------------
 - Ajout des fichiers pour archiver en série les fiches cotisations à une date donnée. Action réservée au priorité 7 (Trésorier) et 9 (Admin) :
-	adherent/archiverenserie_cotisations_adht.php 
-	templates/adherent/archiverenserie_cotisations_adht.tpl 
-	aide/a_archiverenserie_cotisations_adht.php 
+	adherent/archiverenserie_cotisations_adht.php
+	templates/adherent/archiverenserie_cotisations_adht.tpl
+	aide/a_archiverenserie_cotisations_adht.php
 	! Attention : ne prend en compte que les fiches dont la date de fin de cotisation est antérieure à la date Date fin cotisation du menu "Préférences/Préférence Association"
-- Modification du fichier aide/a_adht_liste_cotisation_adht.php	
+- Modification du fichier aide/a_adht_liste_cotisation_adht.php
 - Modification des fichiers adherent/liste_cotisations_adht.tpl/php par ajout d'un lien vers "Archiver en série les cotisations". La colonne "Statut" affichera "Archivée-série" (si la fiche est archivé en série)
 - Correction du fichier adherent/liste_adht_admin.php modification du contrôle de la date si suppression de la fiche
 - Ajout des chaînes dans le fichier lang.php
-	define('_LANG_TITRE_ADMIN_LISTEARCHIV_COTIS_ADHT', 'Archiver en série des cotisations'); 
-	define('_LANG_LISTE_LISTEARCHIV_ADHT_COTIS', 'avant le'); 
+	define('_LANG_TITRE_ADMIN_LISTEARCHIV_COTIS_ADHT', 'Archiver en série des cotisations');
+	define('_LANG_LISTE_LISTEARCHIV_ADHT_COTIS', 'avant le');
 	define('_LANG_MESSAGE_LISTEARCHIV_ADHT_ARCHIV', 'Archivée-Série');
 - Correction typo ou ajout de compléments sur
 	adherent/remplir_cotisations_adht.php
-	adherent/liste_cotisations_adht.php 
-	doc/tables_description.ods 
+	adherent/liste_cotisations_adht.php
+	doc/tables_description.ods
 	doc/tables_description.rtf
 	aide/a_login.php
 	aide/a_adht_gerer_fiche_adht.php
 - Ajout des titres sur les liens des menus (au survol de la souris) dans page_index.tpl
 - Correction sur l'ID de "Fiche enregistrée par" qui renvoi maintenant sur Administration - Liste des Adhérents
   Fichiers adherent/liste_adht_admin.tpl, adherent/consulter_fiche_adht.tpl adherent/consulter_fiche_adht_admin2.php, adherent/consulter_fiche_adht.php
-- Ajout message d'erreur lors de la consultation du menu Liste Adhérents 
-	
+- Ajout message d'erreur lors de la consultation du menu Liste Adhérents
+
   Version 7.2.0 - 03/03/2016  - Finale
   -----------------------
 - Modification des fichiers .htaccess en conformité Apache 2.2 ou 2.4 avec la sélection par IfModule .... plus modification dans le cas de l'hébergement pages-perso free.fr avec ifDefine Free
-- Correction sur la saisie du champ "Description du fichier" dans la page "Adhérents-Gestion fichier"  
+- Correction sur la saisie du champ "Description du fichier" dans la page "Adhérents-Gestion fichier"
 - Correction sur date "date_debannee_asso" dans install/data.sql
 - Ajout du moyen de paiement par PayPal dans /config/lang.php dans tableau $T_PAIEMENT_COTIS 'pay'=>'Paypal',
-- Mise à jour de Smarty à la version 3.1.29 datée du 21/12/2015 
+- Mise à jour de Smarty à la version 3.1.29 datée du 21/12/2015
 - Mise à jour de ADOdb à la version 5.20.3 datée du 01/01/2016
 - Possibilité de choix des CSS de couleur marron (fichiers m_style_screen.css et m_style_print.css) à renommer en style_screen.css et style_print.css dans le dossier /js
-- Correction du fichier de description des tables /doc/tables_description.rtf  
+- Correction du fichier de description des tables /doc/tables_description.rtf
 - modification du fichier /doc/lisez_moi.txt
 - modification du fichier /aide/a_admin_remplir_preferences.php
- 
- Version 7.1.2 - 03/12/2015  - Finale 
+
+ Version 7.1.2 - 03/12/2015  - Finale
   -----------------------
-- Compatiblité PHP 7.0   
+- Compatiblité PHP 7.0
 - Mise à jour de adodb en V5.20 dev (PHP 7)
 - Mise à jour de Smarty 3.1.27 (datée du 19/06/2015)
 - Installation :  par défaut MySQLi en remplacement de MySQL
 - Installation : jma_fin_cotis = 31/12/2016 dans data.sql
 
-Version 7.1.0 01/06/2015 - 
-- Mise à jour de Smarty 3.1.24 (23/05/2015) https://github.com/smarty-php/smarty 
+Version 7.1.0 01/06/2015 -
+- Mise à jour de Smarty 3.1.24 (23/05/2015) https://github.com/smarty-php/smarty
 - Mise à jour de adodb en V5.19 23-Apr-2014  https://github.com/ADOdb/ADOdb
 - Correction sur export_tadhts.php (champ18) et export_tcotis.php (champ3 et 11) 08/05/2015
 
 Version 7.0.0 - 10/10/2014 Finale
   -----------------------
 - Idem version 7.0.0-RC6 avec
-- Ajout sur Aide/Informations personnelles : la longueur login et mot de passe  
-  
+- Ajout sur Aide/Informations personnelles : la longueur login et mot de passe
+
 *  version 7.0.0-RC6  23/09/2014 - En développement- Branche v7_html5 - Utliser en production avec précaution
 - Ajout sécurité sur "SHOW TABLES"  et utf8_encode sur sortie fichier SQL dans phpmysqldump.class.php
 - Modification de 2013 en 2014 sur tous les fichiers : @version :  2014 et @copyright 2007-2014  (c) JC Etiemble
 
 *  version 7.0.0-RC5  19/07/2014 - En développement- Branche v7_html5 - ne pas utliser en production
 - Ajout d'un contrôle sur la suppression des fiches utilisateurs si la priorité n'et pas mise à 0
-- Ajout des chaînes sur la suppression des fiches utilisateurs dans lang.php 
+- Ajout des chaînes sur la suppression des fiches utilisateurs dans lang.php
 // ajout messages si suppression
 define('_LANG_LISTE_COTIS_ADHT_ARCHIV_ALERT', 'Impossible d\'archiver la fiche cotisation');
 define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE', 'Niveau de priorité : ');
@@ -257,12 +267,12 @@ define('_LANG_ADMIN_LISTE_ADHT_ALERT_PRIORITE_0', 'Impossible d\'archiver la fic
 
 * version 7.0.0-RC4  28/06/2014 - En développement- Branche v7_html5 - ne pas utliser en production
  - Ajout de la possibilité de télécharger un fichier contenu dans sa fiche personnelle, pour un utilisateur de niveau 1 ou 4
- - Mise à jour de Smarty 3.1.18 Apr 7th, 2014 
- 
+ - Mise à jour de Smarty 3.1.18 Apr 7th, 2014
+
 * version 7.0.0-RC3  13/03/2014 - En développement- Branche v7_html5 - ne pas utliser en production
  - Correction des .htaccess sur dossiers /fichiersadht /photos /photos
- - Mise à jour de Smarty 3.1.17 Mar 12th, 2014 
-   
+ - Mise à jour de Smarty 3.1.17 Mar 12th, 2014
+
 * version 7.0.0-RC2  17/02/2014 - En développement- Branche v7_html5 - ne pas utliser en production
 - Mise à jour de Smarty 3.1.16 Dec 17th, 2013
 - Ajout d'un onglet "Information version" dans Préférences pour visualiser le Changelog
@@ -277,7 +287,7 @@ une page s'affiche ... "MODIFICATION BASE DE DONNEES " , vérifier si tous les m
 - Correction installateur (Dossier /install)
 - Modification des fichiers export adhérents et cotisations
 - Remplacement du champ FAX par Tél professionnel pour "Informations personnelles"
-- Modification fichier lang.php     
+- Modification fichier lang.php
 Modification :
 define('_LANG_FICHE_ADHT_FAX' = Professionnel')
 define('_LANG_FICHE_ADHT_FAX_TITLE 'Indiquer téléphone professionnel - Entrez les chiffres sans espace ni point')
@@ -304,7 +314,7 @@ define('_LANG_...._PLACEHOLDER' pour les messages HTML5 avec message placeholder
 - Mise à jour de Smarty 3.1.15 Oct 1st, 2013
 
  Ancienne Version 6.x voir le fichier /doc/Changelog6.txt
- 
+
 -----------------------------------------------------------
 (c) JC Etiemble  2007-2020 gestassophp_At_Free_point_fr
 

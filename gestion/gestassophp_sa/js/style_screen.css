@@ -1,21 +1,22 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg HTML5
  */
- 
+
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/js/
- *   Fichier :
- *   feuille de style POUR ECRAN
+ *  Fichier :	style_screen.css
+ *  feuille de style POUR ECRAN
+ *  Couleurs employées -> vert
 */
 
 /*
@@ -23,7 +24,7 @@ Couleurs employées
 ------------------
 #000000  noir
 #000066  Bleu foncé Textenoir
-#006400  vert foncé 
+#006400  vert foncé
 #007F72  vert moyen
 #008016  vert foncé menus
 #39597D  bleu foncé
@@ -76,7 +77,7 @@ a:hover {
 /*Suprimme la bordure bleue des images */
 a img {
 	border: none;
-} 
+}
 
 
 /* Gabarit des pages*/
@@ -87,7 +88,7 @@ a img {
 	border: 2px solid #008016;
 }
 
-/* {*Header défini le bandeau haut  et éventuellement du logo*}   ****ATTENTION**** MODIFIER AUSSI le fichier  /js/style_print.css   */
+/* {*Header défini le bandeau haut  et éventuellement du logo*}   ****ATTENTION**** MODIFIER AUSSI le fichier  /js/style_print.css */
 .header_page {
 	font-size: 1em;
 	font-weight: bold;
@@ -132,7 +133,7 @@ nav h1 {
 	color : #FFFFFF;
 	background-color: #3BA44D;
 	padding-left: .3em;
-	border-color: black; 
+	border-color: black;
 		border-width: 1px;
 	border-style: solid;
 }
@@ -148,14 +149,14 @@ nav li {
 	background-color: #F4F4F4;
 	margin-bottom: .2em;
 	padding-left: .5em;
-}	
-	
-/* meu actif de la page sélectionnée*/	
+}
+
+/* meu actif de la page sélectionnée*/
 .menu_page_active a{
 	color: #006400;
 	background-color: inherit;
 	font-style: italic;
-}	
+}
 
 
 /* {*Footer défini le Footer de pied de page *}*/
@@ -189,7 +190,7 @@ nav li {
 	padding-bottom: .4em;
 }
 
-/* Fin pour template sous-page ...*/
+/* FIN pour template sous-page ...*/
 
 
 /* menu spécial navigation Préférences*/
@@ -238,7 +239,7 @@ ul#tabnav li.active a {
 	padding: 2px;
 }
 
-#tabnav a:hover { 
+#tabnav a:hover {
 	color: #0000ff;
    background: #fff;
 }
@@ -252,9 +253,9 @@ div#contenu {
 	font-style: normal;
 }
 
-/* N° des pages  */
+/* N° des pages */
 .NumPageGras {
-	color: #3BA44D; 
+	color: #3BA44D;
 	font-weight: bold;
 }
 
@@ -266,10 +267,10 @@ div#contenu {
 
 /*Texte Noir Réduit en taille */
 .TextenoirR{
-	font-size:10px; 
-	color: #000000 
+	font-size:10px;
+	color: #000000
 }
- 
+
 /*----- ROUGE ---------------*/
 .TexterougeGras {
 	color:#FF0000;
@@ -298,7 +299,7 @@ div#contenu {
 }
 
 
-/* Affichage texte EN POSITION  */
+/* Affichage texte EN POSITION */
 .centre-txt {
 	margin-left: auto;
 	margin-right: auto;
@@ -315,7 +316,7 @@ div#contenu {
 	font-size: 12px;
 	color: #000066;
 	text-align: right;
-} 
+}
 
 .contourligne {
 	border: 1px solid #008016;
@@ -331,26 +332,26 @@ div#contenu {
 	color: #000066;
 	background-color: #F4F4F4;
 	border-bottom: 1px solid #008016;
-} 
+}
 
 .LignegrisC {
 	font-size: 12px;
 	color: #000066;
 	background-color: #F4F4F4;
-} 
+}
 
 .LignegrisRight {
 	font-size: 12px;
 	color: #000066;
 	background-color: #F4F4F4;
 	text-align: right;
-} 
+}
 
 .LignegrisRight_Oblig {
 	font-size: 12px;
 	color: Red;
 	background-color: #F4F4F4;
-	text-align: right;	
+	text-align: right;
 }
 
 /* Idem mais centrée*/
@@ -359,7 +360,7 @@ div#contenu {
 	color: #000066;
 	background-color: #F4F4F4;
 	text-align: center;
-} 
+}
 
 /*Lingne gris clair TITRE de Colonne Mais Rouge saisie Obligatoire*/
 .LignegrisC_Oblig {
@@ -375,15 +376,15 @@ div#contenu {
 	font-size: 12px;
 	color: #000066;
 	background-color: #d9f2c3;
-}  
+}
 
  /* + foncé */
 .Lignegris1 {
 	font-size: 12px;
 	color: #000066;
 	background-color: #eff5f7;
-	
-} 
+
+}
 
 /* lignbe avec padding déporté de la gauche à 2em */
 .Lignegris_pad2 {
@@ -391,7 +392,7 @@ div#contenu {
 	color: #000066;
 	background-color: #eaeff0;
 	padding-left: 2em;
-} 
+}
 
 /* lignbe avec padding déporté de la gauche à 1em */
 .Lignegris_pad1 {
@@ -400,7 +401,7 @@ div#contenu {
 	color: #000066;
 	background-color: #eaeff0;
 	padding-left: 1em;
-} 
+}
 
 /* Ligne + foncée Centrée et Gras pour titre intermédiaire  genre  Maintenance BD*/
 .Lignegris_pad2_Center_Gras {
@@ -409,8 +410,8 @@ div#contenu {
 	text-align: center;
 	color: #000066;
 	background-color: #eaeff0;
-	padding: 1em 0 1em 0;	/* top right bottom left padding */ 
-} 
+	padding: 1em 0 1em 0;	/* top right bottom left padding */
+}
 
 
 /* Titre des pages */
@@ -434,7 +435,7 @@ div#contenu {
 /* Boutons */
 input.submit_ok
 {
-	background-color: #F7F7F7; 
+	background-color: #F7F7F7;
 	/*font-size: 1em;*/
 	font-size:12px;
 	font-weight: bold;
@@ -492,7 +493,7 @@ input.submit_del
 	border: 2px solid #008016;
 	cursor: pointer;
 	padding: 0 2px 0 2px;
-	text-decoration: none;	
+	text-decoration: none;
 }
 
 input.submit_del_hover
@@ -527,7 +528,7 @@ input.submit_nul
 	border: 1px solid #008016;
 	cursor: pointer;
     padding: 1px ;
-	padding: 0 2px 0 2px; 
+	padding: 0 2px 0 2px;
 	text-decoration: none;
 }
 
@@ -538,13 +539,13 @@ input.submit_nul_hover  {
 	color: Black;
 	border: 1px solid #008016;
 	margin: 1px;
-	
+
 	cursor: pointer;
 }
  /* FIN Boutons */
 
- 
- /* Position pour sélection des Priorité Accès + Préférences */ 
+
+ /* Position pour sélection des Priorité Accès + Préférences */
 .login-box_pripref {
 	font-size: 12px;
 	width: 45em;
@@ -556,11 +557,11 @@ input.submit_nul_hover  {
 	border: 1px solid #AAB6C1;
 }
 
- /* label pour sélection des Priorité Accès */ 
+ /* label pour sélection des Priorité Accès */
 .label_pripref {
-	width: 15em; 
-	display: block; 
-	float: left; 
+	width: 15em;
+	display: block;
+	float: left;
 	font-size: 12px;
 	font-weight : bold;
 	padding-right: 1em;
@@ -569,10 +570,10 @@ input.submit_nul_hover  {
 
 /* alignement input pour sélection des Priorité Accès */
 .align_pripref {
-	float: left; 
+	float: left;
 }
-/* --- */	
-	
+/* --- */
+
 /* Pour le login pass dans Index */
 .login-box {
 	font-size: 12px;
@@ -661,13 +662,13 @@ input.submit_nul_hover  {
 }
 
 
-/* les champs du formulaire*/
+/* les champs du formulaire */
 
- /* label pour sélection des préféreces */ 
+ /* label pour sélection des préféreces */
 .label_pref {
-	width: 20em; 
-	display: block; 
-	float: left; 
+	width: 20em;
+	display: block;
+	float: left;
 	text-align: right;
 	font-size: 12px;
 	font-weight : bold;
@@ -676,21 +677,21 @@ input.submit_nul_hover  {
 }
 
 
- /* label pour sélection des Fichiers */ 
+ /* label pour sélection des Fichiers */
 .label_fc {
-	width: 16em; 
-	display: block; 
-	float: left; 
+	width: 16em;
+	display: block;
+	float: left;
 	font-size: 12px;
 	font-weight : bold;
 	padding-right: 1em;
 	background-color: #eaeff0;
 }
- /* label donnée Obligatoire pour sélection des Fichiers */ 
+ /* label donnée Obligatoire pour sélection des Fichiers */
 .label_fc_Oblig  {
-	width: 16em; 
-	display: block; 
-	float: left; 
+	width: 16em;
+	display: block;
+	float: left;
 	color: Red;
 	font-size: 12px;
 	font-weight : bold;
@@ -758,11 +759,11 @@ legend {
 	padding: 0.5em 2em  0.5em 2em ;
 }
 
-/* FIN  les champs du formulaire*/
+/* FIN les champs du formulaire */
 
 
 /* Changelog, page Information Version*/
-.version { 
+.version {
 	background: #eaeff0;
 	border: 1px solid #AAB6C1;
 	margin: 15px  0;
@@ -774,7 +775,7 @@ legend {
 	text-transform: uppercase;
 	color: #000000;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 }
 
 /* pour les titres de l'installateur */

@@ -6,13 +6,13 @@
 	<br />
  {if $erreur_saisie|@count != 0}
 		<div id="erreur-box"> Erreur de saisie
-			{if $erreur_saisie.serveur_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.serveur_bd}</span>{/if}
-			{if $erreur_saisie.nom_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.nom_bd}</span>{/if}				
-			{if $erreur_saisie.utilis_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.utilis_bd}</span>{/if}	
-			{if $erreur_saisie.motpas_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.motpas_bd}</span>{/if}	
-			{if $erreur_saisie.prefix_bd} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.prefix_bd}</span>{/if}	
-			{if $erreur_saisie.connexion} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.connexion}</span>{/if}			
-		</div>
+			{if !empty($erreur_saisie.serveur_bd)} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.serveur_bd}</span>{/if}
+			{if !empty($erreur_saisie.nom_bd)} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.nom_bd}</span>{/if}				
+			{if !empty( $erreur_saisie.utilis_bd)} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.utilis_bd}</span>{/if}	
+			{if !empty($erreur_saisie.motpas_bd)} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.motpas_bd}</span>{/if}	
+			{if !empty($erreur_saisie.prefix_bd)} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.prefix_bd}</span>{/if}	
+			{if !empty($erreur_saisie.connexion)} <br /><span class='erreur-Jaunerouge'>{$erreur_saisie.connexion}</span>{/if}				
+		</div>	
  {/if}	
 	<br />
 	<span class='TextenoirGras'>Cr&eacute;er les tables dans la base de donn&eacute;es.</span><br />
@@ -30,7 +30,7 @@
 		<tr>
 			<th class="LignegrisRight" style="width:45%;">Type de base de donn&eacute;es :</th>		
 			<td>
-			{html_options name="type_bd" options=$list_type_bd selected=$config_bd.type_bd title="Choix MySQLi, ou PostgreSQL "}	
+			{html_options name = "type_bd" options = $list_type_bd selected = $config_bd.type_bd title = "Choix MySQLi, ou PostgreSQL "}	
 			</td>
 		</tr>
 		<tr>

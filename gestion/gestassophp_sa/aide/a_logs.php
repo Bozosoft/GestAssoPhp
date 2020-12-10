@@ -2,25 +2,25 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *   Fichier :
- *   Affiche l'aide pour la page consulter les logs des connexions
+ *  Fichier :   a_logs.php
+ *  Affiche l'aide pour la page consulter les logs des connexions
 */
- 
-	include_once '../config/connexion.php';  
-?>  
+
+	include_once '../config/connexion.php';
+?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>
@@ -39,17 +39,17 @@
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
 <span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_LOGS ;?></span><br />
 </p>
-<div id="contenu"> 
+<div id="contenu">
   <p class="Textenoir">&nbsp;<br />
-    Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>"s 
+    Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>"s
     ainsi que les manipulations effectuées (Cr&eacute;ations, modifications, suppressions).<br />
     <br />
-    Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br />
+    Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"> # <?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br />
     <br />
     Il est possible :<br />
-	- d'exporter la liste des logs au format XLS, avant d'effacer<br />
-	- d'effacer TOUS les logs de la base de données en cliquant 
-    sur l'icône <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" /> 
+	- d'exporter la liste des logs au format XLS en cliquant sur le lien <a href=" "><?php echo _LANG_ADMIN_LOGS_EXPORT;?></a> avant d'effacer<br />
+	- d'effacer TOUS les logs de la base de données en cliquant
+    sur l'icône <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" />
     <span class="TexterougeR">"<?php echo _LANG_ADMIN_LOGS_CLEAR_LOGS ;?>"</span> en haut à gauche. </p>
 <p>&nbsp;</p>
 

@@ -2,25 +2,25 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
- 
+
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *   Fichier :
- *   Affiche l'aide pour la maintenance de la base de données (partie Admin)
+ *  Fichier :	a_admin_maint_bd.php
+ *  Affiche l'aide pour la maintenance de la base de données (partie Admin)
 */
- 
- include_once '../config/connexion.php';  
-?>  
+
+	include_once '../config/connexion.php';
+?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>

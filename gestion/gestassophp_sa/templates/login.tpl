@@ -1,11 +1,11 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg]*}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2020  ↄ⃝  JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] *}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2020  ↄ⃝  JC Etiemble HTML5 *}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
-	{* ne pas modifier les métas *}	
-    {*<meta http-equiv="Content-Type" content="text/html; charset={language name=charset}">*}	
+	{* ne pas modifier les métas *}
+    {* <meta http-equiv="Content-Type" content="text/html; charset={language name=charset}"> *}
 	<meta charset="{language name=charset}">
-	<meta name="author" content="JCE" />
+	<meta name="author" content="JCE">
 	<meta name="Description" content="{$version}">
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">
@@ -19,45 +19,56 @@
 	<![endif]-->
 	<title>GestAssoPhp+Pg pour g&eacute;rer votre association - {$version}</title>
 </head>
+
 <body onload="document.getElementById('login').focus()">
- 	
-<div id="conteneur_page"> {*défini la page extérieure *}
-    <header class="header_page"> {*défini le bandeau haut *}
+{* défini la page extérieure *}
+<div id="conteneur_page">
+ {* défini le bandeau haut *}
+    <header class="header_page">
 			{$messagetitre} {$nom_asso_gestassophp}
-    </header> {* / défini le bandeau haut *}	
-	
-	<div class="gauche_page"> {* défini la zone gauche *}
+    {* Logo de votre asso est défini dans le fichier /js/style_screen.css avec l'image dans\images\logo\logo_asso.jpg *}
+    </header>
+ {* / défini le bandeau haut *}
+
+{* défini la zone gauche *}
+	<div class="gauche_page">
 		<nav>
-			<h1>{language name=menu_adht_membres}</h1>
+			<h1>{language name = menu_adht_membres}</h1>
 			<ul>
-{if $priorite_adht == ''} 
+{if $priorite_adht == ''}
 			<li>{language name=login_user}</li>
 {/if}
-{if $priorite_adht == '0'} 
+{if $priorite_adht == '0'}
 			<li>{language name=login_interdit}</li>
-{/if}				
-{if $priorite_adht > 0} 				
-			<li>&nbsp;&nbsp;<a href="index.php?logout=1" title="Se D&eacute;connecter">{language name=menu_exit}</a></li>	
-{/if}				
+{/if}
+{if $priorite_adht > 0}
+			<li>&nbsp;&nbsp;<a href="index.php?logout=1" title="Se D&eacute;connecter">{language name = menu_exit}</a></li>
+{/if}
 			</ul>
 
 		</nav>
 		<br /><br /><br />
-		<figure class="centre-txt">{* Logo de votre asso *}
+		<figure class="centre-txt">
 			<img src='images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+"/>
 			<br /><br />
 			<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="Syst&egrave;me mise &agrave; disposition sous un contrat Creative Commons"/></a><br /><br /><figcaption  class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></figcaption>
-		</figure>			
-	</div> {* / défini la zone gauche *}	
-	<div class="section_centre_page">{*défini les infos .. ex section *}
-	
-		<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('aide/a_login.php','popup','height=420,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name=aide}</a></header> 
+		</figure>
+	{* figure class="centre-txt *}
+	</div>
+{* / défini la zone gauche *}
+
+{* défini les informations de la page *}
+	<div class="section_centre_page">
+
+		<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('aide/a_login.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name = aide}</a></header>
 
 		<header class="header_titre">&nbsp;{language name=login_adherent}</header>
-		<div class="ligne_coul"></div> 	
-		<div id="contenu"> {*défini le contenu .. *}
-		
-			<div class="login-box"> {*défini l'accées Log MdP *}
+		<div class="ligne_coul"></div>
+ {* défini le contenu .. *}
+		<div id="contenu">
+	{* div class="centre-txt *}
+  {* défini l'accées Login MdP *}
+			<div class="login-box">
 			<br/><img src='images/icones/login.png' alt="login" title="{language name=login_adherent_title}" /><br/>
 			<form action="index.php" method="post">
 
@@ -71,23 +82,30 @@
 				<input type="submit" class="submit_ok" name="submit" value="{language name=login_button}" title="{language name=login_button_title}"/>
 				<input type="hidden" name="ident" value="1" />
 			</form>
-			</div>{* / défini l'accées Log MdP *}
+
+  {* / défini l'accées Login MdP *}
+			</div>
+	{* div class="centre-txt *}
 	<br/>
 			<footer class="centre-txt">
 				<span class="TexterougeGras">&nbsp;{$texterreurlogin}
-				{if !empty($texterreurlogin0) && $texterreurlogin0 ==1 }  {* - if $texterreurlogin0 == 1 PHP8 *}
-				{language name=mail_contacter}{mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} {language name=mail_mail}
+				{if !empty($texterreurlogin0) && $texterreurlogin0 == 1}{*  PHP8 *}
+				{language name = mail_contacter}{mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} {language name = mail_mail}
 				{/if}
 				</span><br/><br/>
 				<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br/><br/>
 			</footer>
-		</div> {* / défini le contenu .. *}	
-	</div>{* / défini les infos .. ex /section *}
+		</div> {* / défini le contenu .. *}
+	</div>
+{* / défini les informations de la page *}
 
-	<footer class="footer_pied_page"> {*défini le pied de page  ne pas modifier lces lignes *}
+ {* défini le pied de page  ne pas modifier lces lignes *}
+	<footer class="footer_pied_page">
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="Evolution" >{$version}</a>
-    </footer> {* / défini le pied de page *}
-	
-</div>  {* / défini la page extérieure *}
+    </footer>
+ {* / défini le pied de page *}
+
+</div>
+{* / défini la page extérieure *}
 </body>
 </html>

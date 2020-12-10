@@ -2,25 +2,25 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *   Fichier :
- *   Affiche l'aide pour un formulaire d'envoi d'un message par mail pour un seul destinataire
+ *  Fichier :	a_adht_remplir_message_adht.php
+ *  Affiche l'aide pour un formulaire d'envoi d'un message par mail pour un seul destinataire
 */
 
 	include_once '../config/connexion.php';
-?>  
+?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>
@@ -39,7 +39,7 @@
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
 <span class="AfficheTitre14"><?php echo _LANG_TITRE_MAILTO_ADHT  ;?></span><br />
 </p>
-<div id="contenu"> 
+<div id="contenu">
   <p class="Textenoir">&nbsp;<br />
     Cette page est un formulaire d'envoi d'un message par mail pour un seul destinataire <?php echo ADHERENT_BENE ;?>.
 	<br />Une copie sera envoyé automatiquement à l'émetteur pour information.<br />

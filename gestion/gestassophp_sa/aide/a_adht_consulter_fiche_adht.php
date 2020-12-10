@@ -2,27 +2,27 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *   Fichier :
- *   Affiche l'aide pour récapitulatif des informations Adhérent
+ *  Fichier :	a_adht_consulter_fiche_adht.php
+ *  Affiche l'aide pour récapitulatif des informations Adhérent
 */
- 
+
 	include_once '../config/connexion.php';
-	$masession = new sessions(); 
+	$masession = new sessions();
 	$priorite_adht = $_SESSION['ses_priorite_adht'];
-?>  
+?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>
@@ -42,16 +42,16 @@
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
 <span class="AfficheTitre14"><?php echo _LANG_TITRE_CONSULT_FICHE_ADHT ;?></span><br />
 </p>
-<div id="contenu"> 
+<div id="contenu">
   <p class="Textenoir">&nbsp;<br />
     Cette page montre un r&eacute;capitulatif des informations <?php echo ADHERENT_BENE ; ?><br/>
     <br />
     Plusieurs zones d&eacute;finisse cette page :<br/>
-    <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?> </span> 
+    <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?> </span>
     :<br/>
-    Le num&eacute;ro et date de cr&eacute;ation de la fiche, la date de modification 
+    Le num&eacute;ro et date de cr&eacute;ation de la fiche, la date de modification
     et les informations sur la cotisation<br/>
-    <span class="TextenoirGras">- <?php echo _LANG_GESTION_FICHE_ADHT ; ?></span> 
+    <span class="TextenoirGras">- <?php echo _LANG_GESTION_FICHE_ADHT ; ?></span>
     :<br/>
     Affiche les informations administratives.
     </p>

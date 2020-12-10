@@ -2,25 +2,25 @@
 /**
  * Projet : gestassophp_sa [GestAssoPhp+Pg]
  * ---------------------------
- * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons 
+ * Licence Creative Commons selon les termes du présent contrat appelé Contrat Public Creative Commons
  * Auteur original : Jean-Claude Etiemble
  * @link :  http://creativecommons.org/licenses/by-sa/2.0/fr/  - Paternité - Partage à l'Identique 2.0 France (CC BY-SA 2.0)
  * ---------------------------
- *	
- * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
+ *
+ * @author :  JC Etiemble - http://jc.etiemble.free.fr
+ * @version : 2020
  * @copyright 2007-2020  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
- 
+
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *   Fichier :
- *   Affiche l'aide pour la page login
+ *  Fichier :   a_login.php
+ *  Affiche l'aide pour la page login
 */
- 
-	include_once '../config/connexion.php';  
-?>  
+
+	include_once '../config/connexion.php';
+?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>
@@ -52,13 +52,11 @@ Chaque membre bénéficie de la possibilité de consulter et de modifier ses inf
 - Si vous avez oublié vos identifiants, cliquez sur le lien "<span class="TextebleuGras">J'ai oublié mon mot de passe !</span>" pour envoyer un mail à votre administrateur.<br />
 <span class="TextenoirGras">Suivant la priorité, </span> qui vous a été attribuée des menus sont accessibles ou non :<br />
 <?php
- include_once 'a_codepriorite.php';  
- ?> 
+ include_once 'a_codepriorite.php';
+ ?>
 <br />
 - !! IMPORTANT !! OBLIGATOIRE pour votre sécurité, n'oublier pas d'utiliser le bouton <img src='../images/icones16/i_stop.png' alt="out" width="16" height="16" title='<?php echo _LANG_MENU_EXIT_TITLE ;?> '/> à la fin de votre session.<br />
 </p>
-<p>&nbsp;</p>
-
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>
 </div>
