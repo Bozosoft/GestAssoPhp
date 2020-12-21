@@ -17,9 +17,11 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
-
-Version 7.6.8 - 10/12/2020 - En cours (Dev1)
+Version 7.6.8 - 20/12/2020 - En cours (Dev2)
 -------------------------------------------
+- Mise à jour de adodb à la version 5.20.19 du 13/12/2020
+
+* version 7.6.8 - 10/12/2020 - En cours (Dev1)
 - mise en conformité pour PHP 8.x pour rester compatible avec PHP 5.6.x et PHP 7.x
 - corrections des fichiers *.php (Undefined array key ..., Uncaught Error ..., )
 - corrections des fichiers *.tpl pour Smarty (Undefined array key ..., Uncaught TypeError ...)

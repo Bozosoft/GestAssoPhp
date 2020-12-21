@@ -3,6 +3,7 @@ http://adodb.org/dokuwiki/doku.php
 https://github.com/ADOdb/ADOdb
 
 
+19/12/2020 - ADOdb-5.20.19 datée du 13/12/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.19
 31/07/2020 - ADOdb-5.20.18 datée du 28/06/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.18
 		
 28/11/2019 - ADOdb 5.20.15 datée du 24/11/2019 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.15
@@ -21,7 +22,7 @@ version 5.09a
 Fichier poutr GestAssophp
 -------
 
-	\lib\adodb (13+1)
+	\lib\adodb (13+1+1)
 		adodb.inc.php 
 		adodb-csvlib.inc.php (if you use cached recordsets - CacheExecute(), etc)  Optional
 		adodb-datadict.inc.php 
@@ -35,6 +36,7 @@ Fichier poutr GestAssophp
 		LICENSE.md (for legal reasons)  remplace license.txt supprimé  
 		README.md remplace readme.txt supprimé
 		toexport.inc.php (Voir si besoin)
+		+ composer.json
 		+index.html
 
 
