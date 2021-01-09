@@ -17,8 +17,12 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
-Version 7.6.8 - 20/12/2020 - En cours (Dev2)
+
+Version 7.6.8 - 08/01/2021 - En cours (Dev3)
 -------------------------------------------
+- Mise à jour de Smarty à la version 3.1.38 du 08/01/2021
+
+* version 7.6.8 - 20/12/2020 - En cours (Dev2)
 - Mise à jour de adodb à la version 5.20.19 du 13/12/2020
 
 * version 7.6.8 - 10/12/2020 - En cours (Dev1)

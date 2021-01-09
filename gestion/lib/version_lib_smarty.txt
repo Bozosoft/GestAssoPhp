@@ -2,6 +2,11 @@
 https://github.com/smarty-php/smarty/
 
 
+08/07/21 Smarty v3.1.38	## [3.1.38] - 2021-01-08 https://github.com/smarty-php/smarty/releases/tag/v3.1.38
+- Changed error handlers and handling of undefined constants for php8-compatibility (set $errcontext argument optional) https://github.com/smarty-php/smarty/issues/605
+- Changed expected error levels in unit tests for php8-compatibility
+- Travis unit tests now run for all php versions >= 5.3, including php8
+
 16/08/20 Smarty v3.1.36 ## [3.1.36] - 2020-04-14  https://github.com/smarty-php/smarty/releases/tag/v3.1.36
 CHANGELOG.md - Smarty::SMARTY_VERSION wasn't updated in v3.1.35 https://github.com/smarty-php/smarty/issues/584
 Smarty.class.php - const SMARTY_VERSION = '3.1.34-dev-7'; => + const SMARTY_VERSION = '3.1.36';
@@ -76,6 +81,7 @@ Smarty 3.1.0  Sep 16th, 2011
 		SmartyBC.class.php
 		bootstrap.php (+ en v 3.3.31)
 		+ index.html
+		++ composer.json (+ en v 3.1.38)
 
 
 	\lib\smarty\sysplugins --->Tous les fichiers
