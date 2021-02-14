@@ -17,6 +17,10 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
+Version 7.6.8.1 - 13/02/2021 - En cours (Dev1)
+-------------------------------------------
+- Mise à jour de ADOdb à la version 5.20.20 du 31/01/2021 
+
 
 Version 7.6.8 - 24/01/2021 - Finale
 -------------------------------------------
