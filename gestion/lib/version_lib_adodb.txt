@@ -2,27 +2,9 @@ http://adodb.sourceforge.net/
 http://adodb.org/dokuwiki/doku.php
 https://github.com/ADOdb/ADOdb
 
-
-13/02/2021 - ADOdb-5.20.20 datée du 31/01/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.20 
-19/12/2020 - ADOdb-5.20.19 datée du 13/12/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.19
-31/07/2020 - ADOdb-5.20.18 datée du 28/06/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.18
-		
-28/11/2019 - ADOdb 5.20.15 datée du 24/11/2019 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.15
-28/01/2019 - ADOdb 5.20.14 datée du 06/01/2019 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.14
-10/17/2018 - ADOdb 5.20.12 datée du 30/03/2018   https://github.com/ADOdb/ADOdb/releases/tag/v5.20.12
-05/11/2016 - ADOdb 5.20.7 datée du 20/09/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.7
-22/02/2016 - ADOdb 5.20.3 datée du 01/01/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.3
-03/12/2015 - 22/11/2015 ENCOURS version to 5.20dev VOIR changelog.md
-18/10/2012 -> V5.18 3 Sep 2012  adodb518a.tgz adodb-518-for-php5 2012-09-06 
-02/07/2012 -> adodb517.tgz du 2012-05-17 adodb-517-for-php5
-30/05/2010 -> adodb511.tgz du 2010-05-10 adodb-511-for-php5
-26/11/2009 ->adodb510 du 2009-11-10 	
-version 5.09a
-
-
+--------------------------------
 Fichier poutr GestAssophp
--------
-
+--------------------------------
 	\lib\adodb (13+1+1)
 		adodb.inc.php 
 		adodb-csvlib.inc.php (if you use cached recordsets - CacheExecute(), etc)  Optional
@@ -59,10 +41,30 @@ Fichier poutr GestAssophp
 		lang\adodb-en.inc.php
 		\lang\adodb-fr.inc.php
 	+index.html
-
 ----
 Voir si besoin
 + toexport.inc.php VOIR ( Code to export recordsets in several formats)
+--------------------------------
+
+22/04/2021 - ADOdb-5.21.0  datée du 27/02/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.21.0
+13/02/2021 - ADOdb-5.20.20 datée du 31/01/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.20 
+19/12/2020 - ADOdb-5.20.19 datée du 13/12/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.19
+31/07/2020 - ADOdb-5.20.18 datée du 28/06/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.18
+		
+28/11/2019 - ADOdb 5.20.15 datée du 24/11/2019 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.15
+28/01/2019 - ADOdb 5.20.14 datée du 06/01/2019 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.14
+10/17/2018 - ADOdb 5.20.12 datée du 30/03/2018   https://github.com/ADOdb/ADOdb/releases/tag/v5.20.12
+05/11/2016 - ADOdb 5.20.7 datée du 20/09/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.7
+22/02/2016 - ADOdb 5.20.3 datée du 01/01/2016  https://github.com/ADOdb/ADOdb/releases/tag/v5.20.3
+03/12/2015 - 22/11/2015 ENCOURS version to 5.20dev VOIR changelog.md
+18/10/2012 -> V5.18 3 Sep 2012  adodb518a.tgz adodb-518-for-php5 2012-09-06 
+02/07/2012 -> adodb517.tgz du 2012-05-17 adodb-517-for-php5
+30/05/2010 -> adodb511.tgz du 2010-05-10 adodb-511-for-php5
+26/11/2009 ->adodb510 du 2009-11-10 	
+version 5.09a
+
+
+
 
 
 

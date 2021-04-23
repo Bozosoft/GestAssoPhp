@@ -1,6 +1,52 @@
 ﻿http://www.smarty.net/  - http://www.smarty.net/manual/fr/
 https://github.com/smarty-php/smarty/
 
+--------------------------------
+Fichier poutr GestAssophp
+--------------------------------
+\lib\
+	\lib\smarty\ 17 fichiers
+		CHANGELOG.md  ==>3.1.35 le change_log.txt devient CHANGELOG.md
+		COMPOSER_RELEASE_NOTES.txt
+		LICENSE  (Ex COPYING.lib)
+		INHERITANCE_RELEASE_NOTES.txt
+		NEW_FEATURES.txt
+		README
+		README.md
+		SMARTY_2_BC_NOTES
+		SMARTY_3.0_BC_NOTES.txt
+		SMARTY_3.1_NOTES.txt
+		Autoloader.php
+		debug.tpl
+		Smarty.class.php
+		SmartyBC.class.php
+		bootstrap.php (+ en v 3.3.31)
+		+ index.html
+		++ composer.json (+ en v 3.1.38)
+
+
+	\lib\smarty\sysplugins --->Tous les fichiers (153+1)
+		+index.html
+
+	\lib\smarty\plugins -->UNIQUEMENT les fichiers suivants (9+1)
+		7 + 1 + 1
+		function.cycle.php
+		function.html_options.php
+		function.mailto.php
+		modifier.debug_print_var.php
+		modifier.escape.php 
+		modifier.string_format.php (+)
+		modifier.truncate.php
+		shared.escape_special_chars.php
+		+ function.language.php -->
+			//define('_LANG_VIDE', 'texte vide de texte');    
+			sur template {language name=vide}  affiche => texte vide de texte (22/08/2008)
+		+index.html
+--------------------------------
+
+
+22/04/21 Smarty v3.1.39	## [3.1.39] - 2021-02-17 https://github.com/smarty-php/smarty/releases/tag/v3.1.39
++ modifier escape now triggers a E_USER_NOTICE when an unsupported escape type is used
 
 08/07/21 Smarty v3.1.38	## [3.1.38] - 2021-01-08 https://github.com/smarty-php/smarty/releases/tag/v3.1.38
 - Changed error handlers and handling of undefined constants for php8-compatibility (set $errcontext argument optional) https://github.com/smarty-php/smarty/issues/605
@@ -58,53 +104,6 @@ Smarty 3.1.0  Sep 16th, 2011
 15/12/2010 Smarty 3.0.6 December 13th, 2010
 21/11/2010 Smarty 3.0.5 November 20th, 2010
 13/11/2010 Smarty 3.0.4 November 13th, 2010
-
-
-
---------------------------------
-\lib\
-	\lib\smarty\ 16 fichiers
-		CHANGELOG.md  ==>3.1.35 le change_log.txt devient CHANGELOG.md
-		COMPOSER_RELEASE_NOTES.txt
-		LICENSE  (Ex COPYING.lib)
-		INHERITANCE_RELEASE_NOTES.txt
-		NEW_FEATURES.txt
-		README
-		README.md
-		SMARTY_2_BC_NOTES
-		SMARTY_3.0_BC_NOTES.txt
-		SMARTY_3.1_NOTES.txt
-
-		Autoloader.php
-		debug.tpl
-		Smarty.class.php
-		SmartyBC.class.php
-		bootstrap.php (+ en v 3.3.31)
-		+ index.html
-		++ composer.json (+ en v 3.1.38)
-
-
-	\lib\smarty\sysplugins --->Tous les fichiers
-		146+3 fichiers (+3 en v 3.3.31)
-		149+4 fichiers (+4 en v 3.3.32)
-		+index.html
-
-	\lib\smarty\plugins -->UNIQUEMENT les fichiers suivants (9+1)
-		7 + 1 + 1
-		function.cycle.php
-		function.html_options.php
-		function.mailto.php
-		modifier.debug_print_var.php
-		modifier.escape.php 
-		modifier.string_format.php (+)
-		modifier.truncate.php
-		shared.escape_special_chars.php
-		+ function.language.php -->
-			//define('_LANG_VIDE', 'texte vide de texte');    
-			sur template {language name=vide}  affiche => texte vide de texte (22/08/2008)
-		+index.html
-
-
 
 ---------------------------------
 Smarty-3.0rc3.tar.gz [14-Jul-2010] 
