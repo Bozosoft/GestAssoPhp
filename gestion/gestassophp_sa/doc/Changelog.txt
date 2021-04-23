@@ -21,7 +21,7 @@
 Version 7.6.9.2 - 22/04/2021 - En cours (Dev2)
 -------------------------------------------
 - Modification de la version en 7.6.9 
-- Mise à jour de ADOdb à la version 5.20.21 du 27/02/2021 
+- Mise à jour de ADOdb à la version 5.21.0 du 27/02/2021 
 - Mise à jour de Smarty à la version 3.1.39 du 17/02/2021
 
 Version 7.6.9.1 - 13/02/2021 - En cours (Dev1)
