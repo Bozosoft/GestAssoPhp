@@ -7,8 +7,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2021
+ * @copyright 2007-2021  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
@@ -32,6 +32,7 @@ Connaitre PHP, Smarty et adodb
 
 Pour information lire :
 http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html
+Installation détaillée en images
 http://gestassophp.free.fr/cms/index.php/home/questions-installation.html
 
 
@@ -40,6 +41,7 @@ Configuration nécessaire
 Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
  - un accès FTP pour l'installation des fichiers, 
 le support de PHP 5.6.x minimum ou supérieur avec le support des sessions,
+ - compatible version PHP 7.x et PHP 8.x avec le support des sessions, 
  - un accès à une base de données type MySQL version 5 minimum (utiliser l'extension mysqli).
 ou
  - un accès à une base de données PostgreSQL version 7 ou plus.
@@ -54,6 +56,10 @@ Vous devez connaître les données de votre connexion MySQL ou PostgreSQL :
 - un préfix est prévu lors de l'installation de la base de données (par défaut = gs_)
 Si vous utilisez une base de données type MySQL, attention en fonction des versions PHP il faut sélectionner en étape 2 Mysqli. 
 Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL.
+
+NOTE : Depuis PHP 5.5, l'extension MySQL originale est obsolète, il faut donc vérifier dans le fichier connexion.cfg.php l’extension : define("TYPE_BD", "mysqli");
+- Attention 'magic_quotes_gpc' Cette fonctionnalité est devenue OBSOLÈTE depuis PHP 5.3.0 et a été SUPPRIMÉE depuis PHP 5.4.0.
+Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien à OFF
 
 NOTA installation en local sous WAMP ou EsayPhp ou ...
 Vérifier ou modifier la configuration dans le php.ini
@@ -201,6 +207,7 @@ en modifiant les feuilles de Styles style_print.css (pour impression) et style_s
 - Par défaut le style est de couleur verte. Dans le dossier /js/ deux fichiers m_style_print.css et m_style_screen.css sont configurés pour une couleur marron. Pour utiliser cette couleur marron, vous devez donc renommer ces fichiers en style_screen.css et style_print.css.
 - La priorité par défaut est à 1 (définie en base de données champ "priorite_adht") pour un accès aux nouveaux inscrits.
 - D'autre part vous pouvez modifier le fichier lang.php contenu dans le dossier /config/ pour adapter vos textes. Nota ce fichier doit impérativement être sauvegardé en utf-8.
+Télécharger le fichier PDF correspondance des textes du fichier lang.php (http://gestassophp.free.fr/cms/uploads/File/gestassophp_textes-champs.pdf)
 
 Merci de faire apparaître le contrat de licence et d'afficher un lien vers http://gestassophp.free.fr/  comme prévu dans la licence.
 
@@ -223,5 +230,5 @@ https://github.com/Bozosoft/GestAssoPhp
 - SmartGit can be used free of charge by Open Source developers (Non commercial licence) https://www.syntevo.com/smartgit/
   
 ----------------------
-Mise à jour de cette page : 09/04/2020
+Mise à jour de cette page : 22/05/2020
 
