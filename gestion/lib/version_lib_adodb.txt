@@ -46,6 +46,8 @@ Voir si besoin
 + toexport.inc.php VOIR ( Code to export recordsets in several formats)
 --------------------------------
 
+21/11/2021 - ADOdb-5.21.3  datée du 31/10/2021  https://github.com/ADOdb/ADOdb/releases/tag/v5.21.3
+
 22/04/2021 - ADOdb-5.21.0  datée du 27/02/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.21.0
 13/02/2021 - ADOdb-5.20.20 datée du 31/01/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.20 
 19/12/2020 - ADOdb-5.20.19 datée du 13/12/2020 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.19

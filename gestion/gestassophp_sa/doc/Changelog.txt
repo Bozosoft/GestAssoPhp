@@ -18,6 +18,12 @@
  */
 
 
+Version 7.6.10 - 21/11/2021 - Finale
+-------------------------------------------
+- Mise à jour de ADOdb à la version 5.21.3 du 31/10/2021 
+- Mise à jour de Smarty à la version 3.1.40 du 13/10/2021
+ATTENTION version valable pour PHP 7.4 maxi à cause de Smarty
+
 Version 7.6.9 - 22/05/2021 - Finale
 -------------------------------------------
 - Correction sur le Changelog.txt

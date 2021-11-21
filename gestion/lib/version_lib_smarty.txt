@@ -23,6 +23,7 @@ Fichier poutr GestAssophp
 		bootstrap.php (+ en v 3.3.31)
 		+ index.html
 		++ composer.json (+ en v 3.1.38)
+		+++ SECURITY.md (+ en v 3.1.40)
 
 
 	\lib\smarty\sysplugins --->Tous les fichiers (153+1)
@@ -44,10 +45,11 @@ Fichier poutr GestAssophp
 		+index.html
 --------------------------------
 
+21/11/2021 Smarty v3.1.40  ## [3.1.40] - 2021-10-13 https://github.com/smarty-php/smarty/releases/tag/v3.1.40
+valable pour PHP 7.4 maxi 
 
 22/04/21 Smarty v3.1.39	## [3.1.39] - 2021-02-17 https://github.com/smarty-php/smarty/releases/tag/v3.1.39
 + modifier escape now triggers a E_USER_NOTICE when an unsupported escape type is used
-
 08/07/21 Smarty v3.1.38	## [3.1.38] - 2021-01-08 https://github.com/smarty-php/smarty/releases/tag/v3.1.38
 - Changed error handlers and handling of undefined constants for php8-compatibility (set $errcontext argument optional) https://github.com/smarty-php/smarty/issues/605
 - Changed expected error levels in unit tests for php8-compatibility
@@ -56,12 +58,12 @@ Fichier poutr GestAssophp
 16/08/20 Smarty v3.1.36 ## [3.1.36] - 2020-04-14  https://github.com/smarty-php/smarty/releases/tag/v3.1.36
 CHANGELOG.md - Smarty::SMARTY_VERSION wasn't updated in v3.1.35 https://github.com/smarty-php/smarty/issues/584
 Smarty.class.php - const SMARTY_VERSION = '3.1.34-dev-7'; => + const SMARTY_VERSION = '3.1.36';
-
 31/07/2020 Smarty 3.1.35 ([3.1.35] - 2020-04-14) https://github.com/smarty-php/smarty/releases/tag/v3.1.35
 NOTA le change_log.txt devient CHANGELOG.md
 
 28/11/2019 Smarty 3.1.34 (05/11/2019 3.1.34-dev-6) https://github.com/smarty-php/smarty/releases/tag/v3.1.34 
-			+  https://www.smarty.net/forums/viewtopic.php?t=27859			  
+			+  https://www.smarty.net/forums/viewtopic.php?t=27859	
+		  
 02/10/2018 Smarty 3.1.33 (12.09.2018)
 10/07/2018 Smarty 3.1.32 (24.04.2018)
 17/01/2017 Smarty 3.1.31 (14.12.2016)
