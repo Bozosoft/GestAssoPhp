@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2021 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -57,7 +57,7 @@
   <p class="Textenoir">Il est possible :<br/>
     <br/>
     - d'ajouter depuis votre ordinateur vers le serveur (Upload) un nouveau fichier
-    gr&acirc;ce au bouton <span class="submit_ok" title="<?php echo _LANG_LISTE_FICHIERS_ADHT_ADFILE_BUTTON_TITLE ;?>">&nbsp;<?php echo _LANG_LISTE_FICHIERS_ADHT_ADFILE_BUTTON ;?>&nbsp;</span><br/>
+    gr&acirc;ce au bouton <br/><span class="submit_ok" title="<?php echo _LANG_LISTE_FICHIERS_ADHT_ADFILE_BUTTON_TITLE ;?>">&nbsp;<?php echo _LANG_LISTE_FICHIERS_ADHT_ADFILE_BUTTON ;?>&nbsp;</span><br/>
     <br/>
     <span class="TextenoirGras">Note importante</span> : Attention &agrave; la
     charte de nommage des fichiers.<br/>

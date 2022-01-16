@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2021  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
  *  Fichier :	export_tadhts.php
  *  Export au format texte XLS de la table adherent
+ *  Modification 8.1 Deprecated utf8_decode(): Passing null to parameter #1 ($string)
 */
 
 include_once '../config/connexion.php';
@@ -104,8 +105,10 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 			}
 		$champ22 = $row['tranche_age'];
 
-		$champ23 = $row['promotion_adht']; // N° adhésion
-		$champ23 = utf8_decode(($champ23)); // Convertira les guillemets et les apostrophes
+		$champ23 = $row['promotion_adht']; // N° adhésion 
+			if ($champ23 != ''){  // Modification php 8.1
+				$champ23 = utf8_decode(($champ23)); // Convertira les guillemets et les apostrophes
+			} 
 		/*
 		$champ24 = $row['situation_socialv;
 		$champ25 = $row['profession'];
@@ -133,9 +136,15 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 			$champ34 = substr($row['disponib_adht'],0,510)."...";
 			$champ34 = html_entity_decode(utf8_decode($champ34),ENT_QUOTES);
 		}
-		$champ35 = html_entity_decode(utf8_decode($row['profession_adht']),ENT_QUOTES); // ajout V 7
-		$champ36 = html_entity_decode(utf8_decode($row['autres_info_adht']),ENT_QUOTES); // ajout V 7
-
+		$champ35 = $row['profession_adht'];  // Modification php 8.1
+			if ($champ35 != ''){
+				$champ35 = html_entity_decode(utf8_decode($champ35),ENT_QUOTES); // ajout V 7
+			}
+		$champ36 = $row['autres_info_adht']; // Modification php 8.1
+			if ($champ36 != ''){		
+				$champ36 = html_entity_decode(utf8_decode($champ36),ENT_QUOTES); // ajout V 7
+			}
+			
 		// écriture de la ligne
         print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t $champ8\t $champ9\t $champ10\t $champ11\t  $champ13\t $champ14\t $champ15\t $champ16\t $champ17\t $champ18\t $champ19\t  $champ20\t $champ21\t $champ22\t $champ23\t $champ32\t $champ35\t $champ36\t $champ34\n");
 

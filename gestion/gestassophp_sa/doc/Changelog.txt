@@ -7,8 +7,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2021  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE :
@@ -17,6 +17,14 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
+Version 7.6.11 - 15/01/2022 - Finale
+-------------------------------------------
+- Correction sur export_tadhts.php ($champ23 $champ35 $champ3) si champs vide. Modification 8.1 Deprecated utf8_decode()
+- Typo sur aide a_admin_tableaubord.php
+- Typo sur aide a_logs.php
+- Ajout retour à la ligne sur Aide/Gestion des fichiers Adhérents
+- Correction date install/data.sql sur installateur date_debannee_asso', '2022' + 'jma_fin_cotis','31/12/2022
+ATTENTION version valable pour PHP 7.4 maxi à cause de Smarty
 
 Version 7.6.10 - 21/11/2021 - Finale
 -------------------------------------------
@@ -103,7 +111,7 @@ Version 7.6.4 - 09/04/2020 - Finale
 
 * version 7.6.4 - 02/03/2020 - En cours (Dev2)
 - Ajout information de déconnexion sur page_index.tpl
-- Ajout information de déconnexion sur aide a_login.php + aide/a_adht_remplir_infogene_adht.php + a_adht_gerer_fiche_adht.php
+- Ajout information de déconnexion sur aide a_login.php + aide/adata.sql_adht_remplir_infogene_adht.php + a_adht_gerer_fiche_adht.php
 - Modification .gitignore
 
 * version 7.6.4 - 27/02/2020 - En cours (Dev1)

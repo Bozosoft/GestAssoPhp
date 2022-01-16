@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2021  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -41,7 +41,7 @@
 </p>
 <div id="contenu">
   <p class="Textenoir">&nbsp;<br />
-    Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>"s
+    Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>s"
     ainsi que les manipulations effectuées (Cr&eacute;ations, modifications, suppressions).<br />
     <br />
     Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"> # <?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br />

@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2021  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -49,7 +49,7 @@
     nombre de cotisants ainsi que le montant cotisations. En cliquant sur le nombre,
     une fiche donne les détails.<br />
 
-      - la ligne <span class="TextenoirGras">"<?php echo _LANG_TITRE_ADMIN_LISTE_COTIS_ADHT ;?>s"</span>
+      - la ligne <span class="TextenoirGras">"<?php echo _LANG_TITRE_ADMIN_LISTE_COTIS_ADHT ;?>"</span>
     donne le montant des <?php echo _LANG_LISTE_COTIS_ADHT_COTISS;?>  depuis <?php echo DATE_DEBANNEE_ASSO ;?> et le montant des <?php echo _LANG_LISTE_COTIS_ADHT_COTISS;?> en cours.<br />
 
     - la ligne <span class="TextenoirGras">"<?php echo _LANG_LISTE_FICHIERS_ADHT_DOWNLOAD_FILE_ICON_TITLE;?> <?php echo ADHERENT_BENE ;?>s"</span> permet de télécharger une liste <?php echo _LANG_MESSAGE_FICHE_COT_ECHUE;?> et <?php echo _LANG_MESSAGE_FICHE_COT_NONOK;?> à la date du <?php echo date('d/m/Y');?> (Date du jour).
