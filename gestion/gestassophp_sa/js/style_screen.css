@@ -8,7 +8,7 @@
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
  * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg HTML5
  */
 
@@ -319,7 +319,7 @@ div#contenu {
 }
 
 .contourligne {
-	border: 1px solid #008016;
+	border: 2px solid #FF0000;  /* border: 1px solid #008016;  */
 }
 
 .Ligne_top{

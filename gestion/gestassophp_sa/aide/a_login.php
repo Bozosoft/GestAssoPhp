@@ -9,7 +9,7 @@
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
  * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -55,7 +55,7 @@ Chaque membre bénéficie de la possibilité de consulter et de modifier ses inf
  include_once 'a_codepriorite.php';
  ?>
 <br />
-- !! IMPORTANT !! OBLIGATOIRE pour votre sécurité, n'oublier pas d'utiliser le bouton <img src='../images/icones16/i_stop.png' alt="out" width="16" height="16" title='<?php echo _LANG_MENU_EXIT_TITLE ;?> '/> à la fin de votre session.<br />
+- !! IMPORTANT !! OBLIGATOIRE pour votre sécurité, n'oublier pas d'utiliser le bouton <img src='../images/icones16/i_stop.png' alt="out" width="16" height="18" title='<?php echo _LANG_MENU_EXIT_TITLE ;?> '/> à la fin de votre session.<br />
 </p>
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>

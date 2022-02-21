@@ -8,7 +8,7 @@
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
  * @version : 2022
- * @copyright 2007-2021  (c) JC Etiemble
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE :
@@ -16,6 +16,16 @@
  * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
+
+Version 7.6.12 - 20/02/2022 - En cours  (Dev1)
+-------------------------------------------
+- Mise à jour de Smarty à la version 3.1.44 du 18/01/2022
+ATTENTION version valable pour PHP 7.4 maxi à cause de Smarty  (OK en PHP 5.6.34)
+- Mise à jour de ADOdb à la version 5.22.0 du 08/02/2022
+ ATTENTION version valable pour PHP < 7.2  à cause de ADOdb (OK en PHP 7.4.28 et PHP 5.6.34)
+- Modification de l'icône i_stop.png pour la déconnexion (height=18 )
+- Correction pour l'icône i_stop.png sur page_index.tpl, a_login.php,  a_adht_remplir_infogene_adht.php,  a_adht_gerer_fiche_adht.php
+- Modification des feuilles de style style_screen.css et m_style_screen.css pour la bordure .contourligne
 
 Version 7.6.11 - 15/01/2022 - Finale
 -------------------------------------------
@@ -111,7 +121,7 @@ Version 7.6.4 - 09/04/2020 - Finale
 
 * version 7.6.4 - 02/03/2020 - En cours (Dev2)
 - Ajout information de déconnexion sur page_index.tpl
-- Ajout information de déconnexion sur aide a_login.php + aide/adata.sql_adht_remplir_infogene_adht.php + a_adht_gerer_fiche_adht.php
+- Ajout information de déconnexion sur aide a_login.php + aide/a_adht_remplir_infogene_adht.php + a_adht_gerer_fiche_adht.php
 - Modification .gitignore
 
 * version 7.6.4 - 27/02/2020 - En cours (Dev1)
