@@ -35,7 +35,7 @@
  * {mailto address="me@domain.com" subject="Hello to you!"}
  * {mailto address="me@domain.com" cc="you@domain.com,they@domain.com"}
  * {mailto address="me@domain.com" extra='class="mailto"'}
- *
+ *  Warning: The type attribute is unnecessary for JavaScript resources. SO <script type="text/javascript"> = Warning <script> = OK 
  * @link    http://www.smarty.net/manual/en/language.function.mailto.php {mailto}
  *           (Smarty online manual)
  * @version 1.2
@@ -106,7 +106,7 @@ function smarty_function_mailto($params)
         for ($x = 0, $_length = strlen($string); $x < $_length; $x++) {
             $ord[] = ord($string[ $x ]);
         }
-	    return '<script type="text/javascript">document.write(String.fromCharCode(' . implode(',', $ord) . '))</script>';
+	    return '<script>document.write(String.fromCharCode(' . implode(',', $ord) . '))</script>'; // Modification V3.1.44 JCE 21/02/22 // EX return '<script type="text/javascript">document ...
     } elseif ($encode === 'hex') {
         preg_match('!^(.*)(\?.*)$!', $address, $match);
         if (!empty($match[ 2 ])) {
