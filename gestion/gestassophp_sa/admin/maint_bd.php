@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -72,7 +72,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				while (($row = $dbresult_tables_pg->FetchRow())) {
 					$dbresult_vacum_pg = $db->Execute('VACUUM FULL '.($row[0]));
 					$tpl->assign('optimisation', '<span class="TextevertGras">'._LANG_MESSAGE_TABLES_OPT.'</span>');
-	//				echo $mes_tables_pg .'<br />';
+	//				echo $mes_tables_pg .'<br>';
 				}
 				$dbresult_tables_pg->Close() ; // ferme les connexions
 			} //FIN si postgres OPTIMIZE
@@ -89,7 +89,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 							// et on l'inclut si elle comporte des pertes
 							$sql .= '`'.$row['Name'].'`, ';
 							// liste des tables avec pertes
-	//						echo 'Table : <strong>'. $row['Name'].'</strong> Pertes : <strong>'.$row['Data_free']."</strong><br />\n\n";
+	//						echo 'Table : <strong>'. $row['Name'].'</strong> Pertes : <strong>'.$row['Data_free']."</strong><br>\n\n";
 					}
 				}
 				// on enlève le ', ' de trop

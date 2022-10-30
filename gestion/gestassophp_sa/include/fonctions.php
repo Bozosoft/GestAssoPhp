@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -95,7 +95,7 @@ function switch_date_heure($date)
 
 /**
 * Fonction Comparer 2 dates  Description : Retourne vrai si la date 1 est inférieure ou égale à la date 2,
-* sinon retourne faux. <br /> <br /> Format des dates : aaaa-mm-jj www.nexen.net/index.php?option=com_nexen_v2&Itemid=119&lang=FR&nexen_url_type=intern&nexen_path=%252Fscripts%252Fdetails.php%253Fscripts%253D1133
+* sinon retourne faux. <br> <br> Format des dates : aaaa-mm-jj www.nexen.net/index.php?option=com_nexen_v2&Itemid=119&lang=FR&nexen_url_type=intern&nexen_path=%252Fscripts%252Fdetails.php%253Fscripts%253D1133
 *  modifié par fonction  explode  le 15/10/2009 ->date1= 2009-10-15 date2= 2009-12-31  date1explode $a1.'#'. $m1.'#'.  $j1  = 2009#10#15 date2ex= 2009#12#31
 */
 function compare_date($d1 , $d2)

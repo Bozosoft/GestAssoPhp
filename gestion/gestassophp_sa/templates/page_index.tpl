@@ -72,10 +72,10 @@
 			</ul>
 
 {/if}
-			<br/>
-			<div class="contourligne">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.php?logout=1" title="{language name = menu_exit_title} - !! IMPORTANT !! OBLIGATOIRE pour votre sécurité"><img src='../images/icones16/i_stop.png' alt="out" width="16" height="18" title="{language name = menu_exit_title}"/>&nbsp;{language name = menu_exit}&nbsp;</a></div>
+			<br>
+			<div class="contourligne">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.php?logout=1" title="{language name = menu_exit_title} - !! IMPORTANT !! OBLIGATOIRE pour votre sécurité"><img src='../images/icones16/i_stop.png' alt="out" width="16" height="18" title="{language name = menu_exit_title}">&nbsp;{language name = menu_exit}&nbsp;</a></div>
 		</nav>
-		<figure class="centre-txt">{* Logo GestAssoPhp+ *}<img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+"/></figure>
+		<figure class="centre-txt">{* Logo GestAssoPhp+ *}<img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+"></figure>
 
 	</div>
 {* / défini la zone gauche *}

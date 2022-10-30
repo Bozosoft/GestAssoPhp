@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -26,14 +26,14 @@ $_SESSION['tri'] = 0; // par pour avoir colone 1 = Nom adherents sur liste // Pa
 $_SESSION['tri_sens'] = 0; // pour avoir liste triée par 1--> 100 ou a-->z;
 
 $sessionadherent = (empty($_SESSION['ses_id_adht'])) ? $sessionadherent = '' : $sessionadherent = $_SESSION['ses_id_adht'];
-// echo 'super ICI tab bord = '.$log .'<br/>';
+// echo 'super ICI tab bord = '.$log .'<br>';
 
 // récupération du login et le password correspondant au numéro de session en cours
 $logpass = $masession->verifie_LogingPaswd_bd($sessionadherent);
 $log = $logpass[0];
 $pas = $logpass[1];
-// echo 'DEBUG LOG = '.$log .'<br/>';
-// echo 'DEBUG PASS = '.$pas .'<br/>';
+// echo 'DEBUG LOG = '.$log .'<br>';
+// echo 'DEBUG PASS = '.$pas .'<br>';
 
 // vérification de l'authenticité du visiteur
 if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SESSION['ses_paswd_adht'])) {
@@ -55,7 +55,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$nb_adherent_soc_asso = '' ;
 	// la date du jour
 	$date_du_jour=date('Y-m-d'); // Pour définir la différence entre 2 dates
-// echo 'DEBUG date_du_jour=date = '.$date_du_jour .'<br/>';
+// echo 'DEBUG date_du_jour=date = '.$date_du_jour .'<br>';
 
 /***** ADHERENTS */
 	// 1- on met à jour pour les cotisations  avec Soc_Adh= "s"  en vérifiant la date du jour datefin_cotisation

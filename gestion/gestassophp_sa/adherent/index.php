@@ -23,8 +23,8 @@
  *
  * @link :  http://   pour test
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -60,7 +60,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Envoi vers la page en fonction de priorite_adht	>=4  -->4 = admin en consultation tableau de bord
 		if ($priorite_adht >=4) {
 			header('location: ../admin/tableau_bord.php');
-// echo 'DEBUG  Ok pour tabbord adht/index<br/>';
+// echo 'DEBUG  Ok pour tabbord adht/index<br>';
 		} else {
 			header('location: ../adherent/gerer_fiche_adht.php');
 		}

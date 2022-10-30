@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -202,7 +202,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 						$erreur_saisie['caract_sup_x'] = _LANG_MESSAGE_FILE_FILE_ERROR.' '. $lefile.' est trop long';
 					}
 				} else { 
-// echo "DEBUG " <br/>carractéres Non valides";
+// echo "DEBUG " <br>carractéres Non valides";
 					$erreur_saisie['nonvalide_caract'] = _LANG_MESSAGE_FILE_FILE_ERROR.' '. $lefile.' contient
 					des caractères NON valides ';
 				}

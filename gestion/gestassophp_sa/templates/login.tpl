@@ -1,4 +1,4 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] *}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2020  ↄ⃝  JC Etiemble HTML5 *}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] *}{* Affichage de la page Acccés avec Login et mot de passe  login.tpl copyright 2007-2022  ↄ⃝  JC Etiemble HTML5 *}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -47,11 +47,11 @@
 			</ul>
 
 		</nav>
-		<br /><br /><br />
+		<br><br><br>
 		<figure class="centre-txt">
-			<img src='images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+"/>
-			<br /><br />
-			<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="Syst&egrave;me mise &agrave; disposition sous un contrat Creative Commons"/></a><br /><br /><figcaption  class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></figcaption>
+			<img src='images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp+">
+			<br><br>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="Syst&egrave;me mise &agrave; disposition sous un contrat Creative Commons"></a><br><br><figcaption  class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></figcaption>
 		</figure>
 	{* figure class="centre-txt *}
 	</div>
@@ -60,7 +60,7 @@
 {* défini les informations de la page *}
 	<div class="section_centre_page">
 
-		<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('aide/a_login.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name = aide}</a></header>
+		<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('aide/a_login.php','popup','height=450,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name=title_aide}"><img src='images/icones/help.gif' alt="Aide" width="20" height="20">{language name = aide}</a></header>
 
 		<header class="header_titre">&nbsp;{language name=login_adherent}</header>
 		<div class="ligne_coul"></div>
@@ -69,31 +69,31 @@
 	{* div class="centre-txt *}
   {* défini l'accées Login MdP *}
 			<div class="login-box">
-			<br/><img src='images/icones/login.png' alt="login" title="{language name=login_adherent_title}" /><br/>
+			<br><img src='images/icones/login.png' alt="login" title="{language name=login_adherent_title}"><br>
 			<form action="index.php" method="post">
 
 						<label class="label_login" for="login">{language name=login_my_login}</label>
-						<input type="text" name="login" id="login" title="{language name=login_enter_login}" value="" size="32" tabindex="1" onfocus="this.className='focus';" onblur="this.className='normal';" onchange="javascript:this.value=this.value.toUpperCase();" />
-	<br/>
+						<input type="text" name="login" id="login" title="{language name=login_enter_login}" value="" size="32" tabindex="1" onfocus="this.className='focus';" onblur="this.className='normal';" onchange="javascript:this.value=this.value.toUpperCase();">
+	<br>
 						<label class="label_login" for="password">{language name=login_my_passwd}</label>
-						<input  type="password" name="password" id="password" title="{language name=login_enter_passwd}" value="" size="32" tabindex="2" onfocus="this.className='focus';" onblur="this.className='normal';" />
+						<input  type="password" name="password" id="password" title="{language name=login_enter_passwd}" value="" size="32" tabindex="2" onfocus="this.className='focus';" onblur="this.className='normal';">
 
-				<br/><br/><br/>
-				<input type="submit" class="submit_ok" name="submit" value="{language name=login_button}" title="{language name=login_button_title}"/>
-				<input type="hidden" name="ident" value="1" />
+				<br><br><br>
+				<input type="submit" class="submit_ok" name="submit" value="{language name=login_button}" title="{language name=login_button_title}">
+				<input type="hidden" name="ident" value="1">
 			</form>
 
   {* / défini l'accées Login MdP *}
 			</div>
 	{* div class="centre-txt *}
-	<br/>
+	<br>
 			<footer class="centre-txt">
 				<span class="TexterougeGras">&nbsp;{$texterreurlogin}
 				{if !empty($texterreurlogin0) && $texterreurlogin0 == 1}{*  PHP8 *}
 				{language name = mail_contacter}{mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} {language name = mail_mail}
 				{/if}
-				</span><br/><br/>
-				<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br/><br/>
+				</span><br><br>
+				<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br><br>
 			</footer>
 		</div> {* / défini le contenu .. *}
 	</div>

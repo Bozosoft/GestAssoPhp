@@ -1,21 +1,21 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5*}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2022 (c) JC Etiemble HTML5*}
 {* Affiche pour sauvegarde BD *}
 {* Affichage du CONTENU avec AIDE *}
-	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_admin_maint_bd.php','popup','height=350,toolbar=no,location=no,directories=no,status=yes,width=700,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name = title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20"/>{language name = aide}</a></header>
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_admin_maint_bd.php','popup','height=350,toolbar=no,location=no,directories=no,status=yes,width=700,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name = title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20">{language name = aide}</a></header>
 
     <header class="header_titre">&nbsp;{language name = titre_admin_maint_bd}</header>
 	<div class="ligne_coul"></div>
 
 {* défini le contenu .. *}
 	<div id="contenu">
- 	<br /><br/><br/>
+ 	<br><br><br>
  	{* Optimiser *}
 		<div class="Lignegris_pad2_Center_Gras">{language name=stitre_admin_maint_bd}</div>
 		<div>{language name=admin_maint_bd_optim}<a href="maint_bd.php?opt_bd=Ok"><span class="submit_ok" title="{language name=admin_maint_bd_optim_button}">&nbsp;{language name=admin_maint_bd_optim_button}&nbsp;</span></a></div>
 		<div>{if !empty($optimisation)}{$optimisation}{/if}</div>
 
-	<br/>
-	<br/><br/>
+	<br>
+	<br><br>
 	{* Sauvegarder les données *}
 	{if $typebdmysql == mysqli || $typebdmysql == postgres}
 	{* si la BD est de type mysqli ou postgres *}
@@ -25,14 +25,14 @@
 				<span class="Textenoir">&nbsp;{language name=admin_maint_bd_sav_struct}</span></div>
 			<div>{html_options name = "data" options = $list_structbd_on selected = 'Oui'}
 				<span class="TextenoirGras">&nbsp;{language name = admin_maint_bd_sav_data}</span></div>
-			<br />
+			<br>
 			<div class="centre-txt">
-			<input type="submit" class="submit_ok" name="Valider" value="{language name = tpl_sav_button}" title="{language name=admin_maint_bd_button_title}"/><br/>
-			<input type="hidden" name="valid_sav" value="savbdok"/>
+			<input type="submit" class="submit_ok" name="Valider" value="{language name = tpl_sav_button}" title="{language name=admin_maint_bd_button_title}"><br>
+			<input type="hidden" name="valid_sav" value="savbdok">
 			</div>
 		</form>
 	{/if}
-	<br /><br />
+	<br><br>
 
 	</div>
 {* FIN défini le contenu .. *}

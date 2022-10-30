@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -386,7 +386,7 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r√
 
 		  }
 		}
-		$changelog = implode("<br />", $changelog);
+		$changelog = implode("<br>", $changelog);
 		$tpl->assign("changelog",$changelog);
 		$tpl->assign("changelogfilename",$ch_filename);
 

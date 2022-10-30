@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -30,29 +30,29 @@
 	<meta name="Description" content="GestAssoPhp+Pg">
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp">
-	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
-	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
+	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
 	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_GERER_PRIORITE_ADHERENTS ;?></title>
 </head>
 <body>
 
-<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_GERER_PRIORITE_ADHERENTS ;?></span><br />
+<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi">
+<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_GERER_PRIORITE_ADHERENTS ;?></span><br>
 </p>
 <div id="contenu">
-<p class="Textenoir">&nbsp;<br />
+<p class="Textenoir">&nbsp;<br>
     Cette page permet de gérer les accès des "<?php echo ADHERENT_BENE ;?>s" grâce
-    à un code de priorité :<br />
+    à un code de priorité :<br>
 <?php
  include_once 'a_codepriorite.php';
- ?><br /><br /><br />
+ ?><br><br><br>
 
-Il faut sélectionner "<?php echo ADHERENT_BENE ;?>" puis. <br />
-choisir le "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>", puis <span class="submit_ok"><?php echo _LANG_TPL_VALID_BUTTON ;?></span><br />
-L'affichage montre les adhérents qui ont un "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>" <span class="TextenoirGras">autre que 1</span>.<br /><br />
+Il faut sélectionner "<?php echo ADHERENT_BENE ;?>" puis. <br>
+choisir le "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>", puis <span class="submit_ok"><?php echo _LANG_TPL_VALID_BUTTON ;?></span><br>
+L'affichage montre les adhérents qui ont un "<?php echo _LANG_ADMIN_PRIORITE_CODE_PRIORITE ;?>" <span class="TextenoirGras">autre que 1</span>.<br><br>
 Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"><?php echo _LANG_TPL_COL_NUM.', '. _LANG_TPL_COL_NOMPRE.', '. _LANG_ADMIN_PRIORITE_COL_PRIORITE ;?></span>.
 </p>
-<p><span class="TextenoirGras">Nota :</span> il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.<br/><span class="TexterougeGras">NOTA</span> seul uniquement les Administrateurs (de Priorité 9) peuvent changer le niveau de priorité <?php echo ADHERENT_BENE ;?>.</p>
+<p><span class="TextenoirGras">Nota :</span> il est <span class="TexterougeGras">obligatoire changer le niveau de priorité à 0</span> avant de supprimer une fiche <?php echo ADHERENT_BENE ;?>. Sinon un message d'erreur est affiché.<br><span class="TexterougeGras">NOTA</span> seul uniquement les Administrateurs (de Priorité 9) peuvent changer le niveau de priorité <?php echo ADHERENT_BENE ;?>.</p>
 <p>&nbsp;</p>
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -30,27 +30,27 @@
 	<meta name="Description" content="GestAssoPhp+Pg">
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp">
-	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
-	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
+	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
 	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></title>
 </head>
 <body>
 
-<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></span><br />
+<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi">
+<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></span><br>
 </p>
 <div id="contenu">
-<p class="Textenoir">&nbsp;<br />
-Cette page permet la maintenance de la base de données et donc :<br />
-<br />
-- D'effectuer une optimisation de toutes les tables afin d'avoir une meilleure performance.<br />A faire une fois tous les 15 jours environ<br /><br />
+<p class="Textenoir">&nbsp;<br>
+Cette page permet la maintenance de la base de données et donc :<br>
+<br>
+- D'effectuer une optimisation de toutes les tables afin d'avoir une meilleure performance.<br>A faire une fois tous les 15 jours environ<br><br>
 
-- De sauvegarder de la base de données en cas de problème d'hébergement.<br />
-<br />
-<span class="TextenoirGras">Il existe donc 2 possibilités</span> :<br />
-<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (à faire une fois ou si des modifications sont apportées sur les tables<br />
+- De sauvegarder de la base de données en cas de problème d'hébergement.<br>
+<br>
+<span class="TextenoirGras">Il existe donc 2 possibilités</span> :<br>
+<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (à faire une fois ou si des modifications sont apportées sur les tables<br>
 <span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables (à faire en fonction de la fiabilité de l'hébergement )
-<br />
+<br>
 
 </p>
 <p>&nbsp;</p>

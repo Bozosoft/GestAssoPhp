@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
 
  * basé sur le système d'installation de CMS made simple
@@ -102,9 +102,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 // echo 	"DEBUG ".$_return; // 2 = Ok   1 = erreur
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
@@ -131,9 +131,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
@@ -155,9 +155,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
@@ -176,9 +176,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
@@ -195,9 +195,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
@@ -214,9 +214,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
@@ -232,9 +232,9 @@ $erreur_saisie = array() ;
 	$_return = $dbdict->ExecuteSQLArray($_sqlarray);
 
 		if ($_return == 2) {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  OK <br>';
 		} else {
-		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br />';
+		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 

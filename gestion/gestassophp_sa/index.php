@@ -19,8 +19,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -39,8 +39,8 @@
 		if (file_exists('install/index.php')) {
 			header('location: install/index.php');
 		} else {
-			echo '<br /><br /><span style="color:#FF0000; font-weight : bold">Fichier config/connexion.cfg.php absent !  STOP !</span>
-			<br /><br /> Vérifiez ou connectez-vous sur '.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'/install/ <br />
+			echo '<br><br><span style="color:#FF0000; font-weight : bold">Fichier config/connexion.cfg.php absent !  STOP !</span>
+			<br><br> Vérifiez ou connectez-vous sur '.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'/install/ <br>
 			Si vous êtes autorisé à effectuer cette opération';
 		}
 		exit;
@@ -124,7 +124,7 @@ if (isset($_POST['ident'])) {
 		$texterreurlogin = _LANG_TEXTERREURLOGIN2;
 		// AJOUT TEST pour étourdis pour demo FREE.fr
 		/*	if ( $mylogin == 'DEMO' || $mylogin == 'ADMIN'  || $mylogin == 'ASSO'  || $mylogin == 'TEST') {
-				$texterreurlogin = $texterreurlogin .'<h2>Houllla ! Probl&egrave;me de lecture ou de lunettes ! <br />Inutile d\'insister Login non conforme !</h2>';
+				$texterreurlogin = $texterreurlogin .'<h2>Houllla ! Probl&egrave;me de lecture ou de lunettes ! <br>Inutile d\'insister Login non conforme !</h2>';
 		} */
 	}
 	/***** FIN vérification de l'autorisation */

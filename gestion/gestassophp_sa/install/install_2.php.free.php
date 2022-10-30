@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -63,7 +63,7 @@
 
 
 /***** Si validation du Formulaire par le bouton Valider */
-	if (isset($_POST['valid2'] )) { // on a validé la page 2 .tpl
+	if (isset($_POST['valid2'] )) { // validation de la page 2 .tpl
 
 		$ok_valid2 = (get_post_variable('valid2', ''));
 // echo "DEBUG---> ". $ok_valid2 ."<br>";  // DEBUG
@@ -79,10 +79,9 @@
 		$config_bd['motpas_bd'] = post_variable('motpas_bd', ''); // Mot de passe
 // echo "DEBUG motpas = ". $config_bd['motpas_bd']."<br>";  // DEBUG
 		$config_bd['prefix_bd'] = post_variable('prefix_bd', 'gs0_'); // Préfix des table
-// echo "DEBUG prefix =". $config_bd['prefix_bd']."<br>";  // DEBUG
+// echo "DEBUG prefix = ". $config_bd['prefix_bd']."<br>";  // DEBUG
 		$config_bd['drop_bd'] = post_variable('drop_bd', ''); // drop table coché oui = on  = Effacement des tables
 // echo "DEBUG drop = ". $config_bd['drop_bd']."<br>";  // DEBUG
-
 
 
 		if ($config_bd['serveur_bd'] == '') {
@@ -103,8 +102,7 @@
 			$erreur_saisie['prefix_bd'] = 'Le pr&eacute;fix des tables de base de donn&eacute;es contient des caract&egrave;res invalides !';
 		}
 
-
-// Test Connexion à la  base données
+/***** Test Connexion à la  base données */
 	// Creé une connexion sur la Base de donnée
 	$db = ADONewConnection($config_bd['type_bd']); //crée une connexion
 	$db->debug = false; // true; // false; // Mode débug ou Non
@@ -120,10 +118,10 @@
 			}else {
 				echo "S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!";
 				exit;
-			}
+		}
 // Fin ajout pour Free.fr pour éviter erreurs
 
-//-- Free.fr
+/***** ATTENTION uniquement pour Free.fr */
 // TEST sur free.fr Supprimer les lignes suivantes SINON erreur : Connexion base de données PostgreSQL impossible !!!
 /*
 			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'],$dbport)) {
@@ -131,7 +129,7 @@
 				if(!@$db->Connect(SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD)) die("S&eacute;lection de la base de donn&eacute;es PostgreSQL impossible !!!");
 			}
 */
-//-- / Free.fr
+/***** Fin pour Free.fr */
 		} else {
 			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'])) {
 				$erreur_saisie['connexion'] = 'Connexion base de donn&eacute;es '. $config_bd['type_bd'] .' impossible !!!';
@@ -140,8 +138,8 @@
 		}
 	// Fin check port BD
 
-		if (count($erreur_saisie) == 0  && $ok_valid2 == 'valid2') { // si pas d'erreur Et on a validé la page 2 .tpl
-		// Si Aucune erreur de saisie validationl des données
+		if (count($erreur_saisie) == 0  && $ok_valid2 == 'valid2') { // si pas d'erreur Et validation de la page 2 .tpl
+		// Si Aucune erreur de saisie validation des données
 			$masession = new sessions(); // -->la classe session 	//session_start();
 			$_SESSION['type_bd'] = $config_bd['type_bd'];
 			$_SESSION['serveur_bd'] = $config_bd['serveur_bd'];
@@ -151,23 +149,25 @@
 			$_SESSION['prefix_bd'] = $config_bd['prefix_bd'];
 			$_SESSION['drop_bd'] = $config_bd['drop_bd'];
 			$_SESSION['valid2'] = 'valid2';
-		// on passee à la page suivante
+		// Passage à la page suivante
 			header('location: install_3.php?valid2=ok'); // passe à la page 3
 		}
 
 		// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
-		$tpl->assign('config_bd', $config_bd); // affichage des informations dans le formulaire de saisie
+		$tpl->assign('config_bd', $config_bd); // réaffiche les informations dans le formulaire de saisie
 
 /***** FIN Si validation du Formulaire par le bouton Valider */
 	}
 
-		// Recherche pour savoir si  Driver postgres (PostgreSQL Support) et/ou mysql  (MySQL Support) existe
+
+/***** Recherche pour savoir si  Driver postgres (PostgreSQL Support) et/ou mysql  (MySQL Support) existe */
 		$postgres = function_exists('pg_connect');
 		$pgsql_bd = 'PostgreSQL : '.($postgres ? 'Oui' : '<strong>Non</strong>');
 		$mysqli = function_exists('mysqli_connect');
 		$mysqli_bd = 'MySQLi  : '.($mysqli ? 'Oui' : '<strong>Non</strong>');
 		$tpl->assign('pgsql_bd', $pgsql_bd); //
 		$tpl->assign('mysql_bd', $mysqli_bd); //
+
 
 /***** ------------------------------------------------------------ */
 	// Préparation pour Affichage partie Fixe VERS TEMPLATE

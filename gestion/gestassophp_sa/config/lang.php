@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -138,8 +138,8 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 /**
 * Messages PHP
 */
-	define('_LANG_TEXTERREURLOGIN1' , 'Attention Vous n\'avez pas l\'autorisation pour vous connecter !<br/>');
-	define('_LANG_TEXTERREURLOGIN2' , 'Attention ! Login ou Mot de Passe Invalide !<br/>');
+	define('_LANG_TEXTERREURLOGIN1' , 'Attention Vous n\'avez pas l\'autorisation pour vous connecter !<br>');
+	define('_LANG_TEXTERREURLOGIN2' , 'Attention ! Login ou Mot de Passe Invalide !<br>');
 
 
 /**

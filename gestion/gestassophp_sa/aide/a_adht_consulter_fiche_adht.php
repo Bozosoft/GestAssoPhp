@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -32,27 +32,27 @@
 	<meta name="Description" content="GestAssoPhp+Pg">
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp">
-	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
-	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
+	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
 	<title>GestAssoPhp Aide - <?php echo _LANG_TITRE_VISU_FICHE_ADHT ;?></title>
 </head>
 <body>
 <body>
 
-<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_CONSULT_FICHE_ADHT ;?></span><br />
+<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi">
+<span class="AfficheTitre14"><?php echo _LANG_TITRE_CONSULT_FICHE_ADHT ;?></span><br>
 </p>
 <div id="contenu">
-  <p class="Textenoir">&nbsp;<br />
-    Cette page montre un r&eacute;capitulatif des informations <?php echo ADHERENT_BENE ; ?><br/>
-    <br />
-    Plusieurs zones d&eacute;finisse cette page :<br/>
+  <p class="Textenoir">&nbsp;<br>
+    Cette page montre un r&eacute;capitulatif des informations <?php echo ADHERENT_BENE ; ?><br>
+    <br>
+    Plusieurs zones d&eacute;finisse cette page :<br>
     <span class="TextenoirGras">- <?php echo _LANG_VISU_FICHE_ADHT_RECAP ; ?> </span>
-    :<br/>
+    :<br>
     Le num&eacute;ro et date de cr&eacute;ation de la fiche, la date de modification
-    et les informations sur la cotisation<br/>
+    et les informations sur la cotisation<br>
     <span class="TextenoirGras">- <?php echo _LANG_GESTION_FICHE_ADHT ; ?></span>
-    :<br/>
+    :<br>
     Affiche les informations administratives.
     </p>
   <p>&nbsp;</p>

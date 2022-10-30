@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -25,7 +25,7 @@
 
 	// Raz de variables
 	$erreur_saisie = array(); // tableau
-	$config_bd = array();// Illegal string offset 'drop_bd'
+	$config_bd = array(); // Illegal string offset 'drop_bd'
 	$config_bd = array('drop_bd' => ''); // Illegal string offset 'drop_bd' // Vide non coché pour Effacement des tables
 	// suppression des bases type mysql - reste le choix de mysqli ou postgres
 		$T_type_bd = array('mysqli'=>'MySQLi', 'postgres'=>'PostgreSQL');
@@ -44,15 +44,15 @@
 						exit;
 			}
 
-/***** affiche la fiche la première fois */
+/*****  affichage de la fiche la première fois */
 			//$config_bd = ''; // Cannot assign an empty string to a string offset
-			$config_bd['type_bd'] = ''; //Type de base de données 	 	//$T_type_bd
-			$config_bd['serveur_bd'] = 'localhost'; //Addresse du serveur de base de données
-			$config_bd['nom_bd'] = 'gestassosimpl'; //Nom de la base de données
-			$config_bd['utilis_bd'] = 'root'; //Nom d'utilisateur
-			$config_bd['motpas_bd'] = ''; //Mot de passe
+			$config_bd['type_bd'] = ''; // Type de base de données 	 	//$T_type_bd
+			$config_bd['serveur_bd'] = 'localhost'; // Addresse du serveur de base de données
+			$config_bd['nom_bd'] = 'gestassosimpl'; // Nom de la base de données
+			$config_bd['utilis_bd'] = 'root'; // Nom d'utilisateur
+			$config_bd['motpas_bd'] = ''; // Mot de passe
 			$config_bd['prefix_bd'] = 'gsa_'; // Préfix des tables
-/***** FIN on affiche la fiche la première fois */
+/***** FIN affichage de la fiche la première fois */
 
 		} else {
 			$config_bd = '';
@@ -68,7 +68,7 @@
 		$ok_valid2 = (get_post_variable('valid2', ''));
 // echo "DEBUG---> ". $ok_valid2 ."<br>";  // DEBUG
 		/***** Récupération des variable du formulaire */
-		$config_bd['type_bd'] = post_variable('type_bd', ''); //' MySQL ou  postgres'; //Type de base de données
+		$config_bd['type_bd'] = post_variable('type_bd', ''); // 'MySQL ou  postgres'; //Type de base de données
 // echo "DEBUG type = ". $config_bd['type_bd']."<br>";  // DEBUGG
 		$config_bd['serveur_bd'] = post_variable('serveur_bd', ''); // Addresse du serveur de base de données
 // echo "DEBUG serveur = ". $config_bd['serveur_bd']."<br>";  // DEBUGG
@@ -81,7 +81,7 @@
 		$config_bd['prefix_bd'] = post_variable('prefix_bd', 'gs0_'); // Préfix des table
 // echo "DEBUG prefix = ". $config_bd['prefix_bd']."<br>";  // DEBUG
 		$config_bd['drop_bd'] = post_variable('drop_bd', ''); // drop table coché oui = on  = Effacement des tables
-// echo "DEBUG drop= ". $config_bd['drop_bd']."<br>";  // DEBUG
+// echo "DEBUG drop = ". $config_bd['drop_bd']."<br>";  // DEBUG
 
 
 		if ($config_bd['serveur_bd'] == '') {
@@ -122,6 +122,7 @@
 			." user=".$config_bd['utilis_bd']." password=".$config_bd['motpas_bd']." ");
 			if ($pgsql_conn) {
 			   $dbport = pg_port($pgsql_conn) ;
+
 			}else {
 				$erreur_saisie['connexion'] = 'Connexion base de donn&eacute;es '. $config_bd['type_bd'] .' impossible !!!';
 // décommenter les 2 lignes pour Free.fr pour éviter erreurs
@@ -131,7 +132,7 @@
 			}
 
 /***** ATTENTION uniquement pour Free.fr */
-// TEST sur free.fr Supprimer les lignes suivant SINON erreur : Connexion base de données PostgreSQL impossible !!!
+// TEST sur free.fr Supprimer les lignes suivantes SINON erreur : Connexion base de données PostgreSQL impossible !!!
 /*
 			if(!@$db->Connect($config_bd['serveur_bd'], $config_bd['utilis_bd'], $config_bd['motpas_bd'], $config_bd['nom_bd'],$dbport)) {
 				$erreur_saisie['connexion'] = 'Connexion base de donn&eacute;es PostgreSQL impossible !!! ';
@@ -145,7 +146,7 @@
 				// $config_bd['type_bd'] = mysqli ou postgres
 			}
 		}
-	//Fin check port BD
+	// Fin check port BD
 
 		if (count($erreur_saisie) == 0  && $ok_valid2 == 'valid2') { // si pas d'erreur Et validation de la page 2 .tpl
 		// Si Aucune erreur de saisie validation des données

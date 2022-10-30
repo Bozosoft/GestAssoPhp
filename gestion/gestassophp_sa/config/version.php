@@ -21,7 +21,7 @@
 */
 
 /***** La version de GestAsssoPhp  V X.X ou dev V X.X-devx */
-$VERSION = "GestAssoPhp+Pg V 7.6.12"; //  Old 15/01/2022 - Finale 7.6.11
+$VERSION = "GestAssoPhp+Pg V 7.6.13"; // 29/10/22
 define('VERSION', $VERSION);
 
 ?>

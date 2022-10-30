@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -76,8 +76,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$email_message  = (get_post_variablehtml ('email_message', ''));
 		$pnom_admin = get_post_variable ('pnom_admin', '');
 		$id_adht = get_post_variable ('id_adht', '');
-// echo "DEBUG id_adht=".$id_adht."<br />";	  // DEBUG
-// echo "DEBUG " email_adht=".$adherent[email_adht]."<br />email_emmet=".$email_emmet."<br />email_sujet=".$email_sujet."<br />email_message=".$email_message."<br />pnom_admin=".$pnom_admin;  // DEBUG
+// echo "DEBUG id_adht=".$id_adht."<br>";	  // DEBUG
+// echo "DEBUG " email_adht=".$adherent[email_adht]."<br>email_emmet=".$email_emmet."<br>email_sujet=".$email_sujet."<br>email_message=".$email_message."<br>pnom_admin=".$pnom_admin;  // DEBUG
 
 		if 	($email_sujet == '') {
 				$erreur_saisie['email_sujet'] = _LANG_MESSAGE_REMPLIR_ERR_SUJET_MAIL ;

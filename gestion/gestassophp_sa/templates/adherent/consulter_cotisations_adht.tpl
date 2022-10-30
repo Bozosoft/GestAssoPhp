@@ -1,11 +1,11 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2020 (c) JC Etiemble HTML5 *}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2022 (c) JC Etiemble HTML5 *}
 {* Affichage du CONTENU Visualisation cotisation adhérent pour le Reçu cotisation ... *}
 
     <header class="header_titre">&nbsp;{language name = titre_admin_fiche_visu_cotis_adht} {$affiche_message}</header>
 	<div class="ligne_coul"></div>
 	<div id="contenu">
 {* défini le contenu .. *}
- 	<br />
+ 	<br>
 	<table style="width:100%;">
 		<tr>
 			<td>&nbsp;</td><td>&nbsp;</td>
@@ -21,13 +21,13 @@
 		<tr>
 		{* Adhérent N° *}
 			<th class="LignegrisRight">  {$adherent_bene} {language name = tpl_col_num} :</th>
-			<td>{$data_cotis_adh.id_adhtasso}<br/>
+			<td>{$data_cotis_adh.id_adhtasso}<br>
 			</td>
         </tr>
 		<tr>
 			<th class="LignegrisRight">&nbsp;</th>
-			<td>{$data_cotis_adh.np_adht}<br/>
-			{$data_cotis_adh.adr_adht}<br/>
+			<td>{$data_cotis_adh.np_adht}<br>
+			{$data_cotis_adh.adr_adht}<br>
 			{$data_cotis_adh.cpv_adht}
 			</td>
         </tr>

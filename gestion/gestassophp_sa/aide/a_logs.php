@@ -9,7 +9,7 @@
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
  * @version : 2022
- * @copyright 2007-2021  (c) JC Etiemble
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -30,26 +30,26 @@
 	<meta name="Description" content="GestAssoPhp+Pg">
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp">
-	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/>
-	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css"/>
+	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
+	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
 	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_LOGS ;?></title>
 </head>
 <body>
 
-<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi"/>
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_LOGS ;?></span><br />
+<p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi">
+<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_LOGS ;?></span><br>
 </p>
 <div id="contenu">
-  <p class="Textenoir">&nbsp;<br />
+  <p class="Textenoir">&nbsp;<br>
     Cette page permet de consulter les connexions à l'espace des "<?php echo ADHERENT_BENE ;?>s"
-    ainsi que les manipulations effectuées (Cr&eacute;ations, modifications, suppressions).<br />
-    <br />
-    Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"> # <?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br />
-    <br />
-    Il est possible :<br />
-	- d'exporter la liste des logs au format XLS en cliquant sur le lien <a href=" "><?php echo _LANG_ADMIN_LOGS_EXPORT;?></a> avant d'effacer<br />
+    ainsi que les manipulations effectuées (Cr&eacute;ations, modifications, suppressions).<br>
+    <br>
+    Il est possible d'effectuer un tri en cliquant sur les colonnes : <span class="TextebleuGras"> # <?php echo _LANG_TPL_COL_DATE.', '._LANG_ADMIN_LOGS_COL_UTILISATEUR.', '._LANG_TPL_COL_DESCRIPTION ;?></span>.<br>
+    <br>
+    Il est possible :<br>
+	- d'exporter la liste des logs au format XLS en cliquant sur le lien <a href=" "><?php echo _LANG_ADMIN_LOGS_EXPORT;?></a> avant d'effacer<br>
 	- d'effacer TOUS les logs de la base de données en cliquant
-    sur l'icône <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>" />
+    sur l'icône <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="<?php echo _LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS ;?>">
     <span class="TexterougeR">"<?php echo _LANG_ADMIN_LOGS_CLEAR_LOGS ;?>"</span> en haut à gauche. </p>
 <p>&nbsp;</p>
 

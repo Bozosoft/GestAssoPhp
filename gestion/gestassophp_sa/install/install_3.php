@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -105,7 +105,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 				$message_file_config = '<span class="TextevertGras">Fichier de configuration cr&eacute;&eacute; ... OK</span>';
 				$valid_file_config = 'oui';
 			} else {
-				$message_file_config = 'Erreur : Impossible de cr&eacute;er le fichier de configuration ...<br />'.CONFIG_FILE;
+				$message_file_config = 'Erreur : Impossible de cr&eacute;er le fichier de configuration ...<br>'.CONFIG_FILE;
 				$valid_file_config = 'non';
 			}
 
@@ -127,7 +127,7 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 
 
 // Insertion des DONNéES dans la base de données
-				$message_bd['data'] = '<span class="TextenoirGras">Insertion des donn&eacute;es .... : </span><br />';
+				$message_bd['data'] = '<span class="TextenoirGras">Insertion des donn&eacute;es .... : </span><br>';
 				define('FILE_SQL', join_path(ROOT_DIR_GESTASSO,'install', 'data.sql')); //
 				include 'sql_parse.php';
 				// on lit le fichier SQL
@@ -147,10 +147,10 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 						if (!$dbresult) {
 							$valid_bd_sql = 'non';
 // echo "DEBUG ".$dbresult;
-							$message_bd[$i] = 'erreurs lors de la cr&eacute;ation .... : '.($db->ErrorMsg()). '<br />';
+							$message_bd[$i] = 'erreurs lors de la cr&eacute;ation .... : '.($db->ErrorMsg()). '<br>';
 						} else {
 							$valid_bd_sql = 'oui';
-							$message_bd[$i] = 'Requette '.$i.' -> '.$req.' => Ok <br />';
+							$message_bd[$i] = 'Requette '.$i.' -> '.$req.' => Ok <br>';
 						}
 					}
 				}
