@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -35,7 +35,7 @@
 	define("TYPE_BD_AODB", strtolower(TYPE_BD) ); // pour comptabilité version antérieure si  TYPE_BD = MySql MySqli
 // echo "DEBUG ".TYPE_BD ." ++ ". strtolower(TYPE_BD) ." PHP = ". phpversion(); // test si PHP >= 7 et mysql
 	if (phpversion() > 5.6 && TYPE_BD_AODB == 'mysql') {
-	echo "Attention utlisation de mysql avec PHP ". phpversion()." - Cette extension &eacute;tait obsol&egrave;te en PHP 5.5.0, et a &eacute;t&eacute; supprim&eacute;e en PHP 7.0.0";
+	echo "Attention utlisation de mysql avec PHP ". phpversion()." - Cette extension &eacute;tait obsol&egrave;te en PHP 5.5.0, et a &eacute;t&eacute; supprim&eacute;e en PHP 7.0.0. Modifier TYPE_BD dans le fichier  /config/connexion.cfg.php";
 	exit;
 	}
 
@@ -50,5 +50,3 @@
 		include_once '../'.$file_loc;  // Si passage par index.php de la racine
 	}
 	include_once 'include.php';
-
-?>

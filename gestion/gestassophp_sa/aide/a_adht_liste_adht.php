@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_liste_adht.php
- *  Affiche l'aide pour la liste des Adhérents souhaitant afficher leurs coordonnées
+ *  Affiche l'aide pour la liste des Adhérents souhaitant afficher leurs coordonnées - Gestion Membres
 */
 
 	include_once '../config/connexion.php';

@@ -13,10 +13,10 @@
 			<th class="LignegrisTC" colspan ="4">{language name = tableaubord_recap}</th>
 		</tr>
 		<tr>
-			{* Adhérents *}
+{* Adhérents *}
 			<td style="width:25%;" class="Lignegris_pad2"><span class="TextenoirGras">{$adherent_bene}s</span></td>
-{if $priorite_adht > 4}
-{* Affiche Tableau de bord Adhérents pour Membre du CA+Secrétaire+Trésorier+Admin *}
+	{if $priorite_adht > 4}
+{* Affiche Tableau de bord Adhérents pour Secrétaire+Trésorier+Admin *}
 			{* inscrits depuis le début *}
 			<td style="width:30%;" class="Lignegris_pad2">{language name = tableaubord_inscrit} {$date_debannee_asso} :&nbsp;
 			<span class="TextenoirGras"><a href='../adherent/liste_adht_admin.php?filtre_nom=&amp;filtre_membre=4' title="{language name = tableaubord_nbadhts_title}">{$nb_adherent}</a></span></td>
@@ -26,7 +26,7 @@
 			<td style="width:5%;">&nbsp;<a href='../adherent/export_tadhts.php'  title="{language name = tableaubord_tadhts_icon_title}"><img src="../images/icones/disque32.png" alt="tadhts XLS" width="32" height="30"></a></td>
 		</tr>
 		<tr>
-			{* Cotisations *}
+{* Cotisations *}
 			<td style="width:25%;" class="Lignegris_pad1"><span class="TextenoirGras">{language name = tableaubord_cotisation} {$adherent_bene}s</span></td>
 			{* Cotisations Adhérents depuis le début *}
 			<td style="width:30%;" class="Lignegris_pad1">&nbsp;&nbsp;{language name = tableaubord_depuis} {$date_debannee_asso} : {$montant_cotisation_adh} &euro;</td>
@@ -52,7 +52,7 @@
 			{* lien téléchargement *}
 			<td style="width:5%;">&nbsp;<a href='../adherent/export_tadhts_cotisechue.php'  title="{language name = message_fiche_cot_echue} {$date_du_jour} et {language name = message_fiche_cot_nonok} "><img src="../images/icones/disque32.png" alt="tadhts_cotisechue XLS" width="32" height="30"></a></td>
 
-{else if $priorite_adht == 4}
+	{else if $priorite_adht == 4}
 {* Sinon pour 4 = Membre du CA Seulement *}
 			<td style="width:30%;" class="Lignegris_pad2">{language name = tableaubord_inscrit} {$date_debannee_asso} :&nbsp;
 			<span class="TextenoirGras">{$nb_adherent}</span></td>
@@ -67,15 +67,13 @@
 		</tr>
 		<tr>
 			<th class="LignegrisTC" colspan ="4">&nbsp;</th>
-{else}
+	{else}
 {* sécurité *}
 		<td  colspan ="4"><span class="TexterougeGras">INTERDIT</span></td>
-{/if}
+	{/if}
 		</tr>
-
 	</table>
 	<br><br>
-
 
 	</div>
 {* FIN défini le contenu .. *}

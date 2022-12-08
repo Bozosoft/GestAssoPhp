@@ -412,4 +412,3 @@ class phpmysqldump
 		return $message[$numero][$lang];
 	}
 }
-?>

@@ -1,0 +1,139 @@
+https://github.com/smarty-php/smarty/commits/master
+
+https://github.com/smarty-php/smarty/blob/master/CHANGELOG.md
+## [4.3.0] - 2022-11-22
+    PHP8.2 compatibility #775
+Changed
+    Include docs and demo in the releases #799
+    Using PHP functions as modifiers now triggers a deprecation notice because we will drop support for this in the next major release #813
+    Dropped remaining references to removed PHP-support in Smarty 4 from docs, lexer and security class. #816
+    Support umask when writing (template) files and set dir permissions to 777 #548 #819
+Fixed
+    Output buffer is now cleaned for internal PHP errors as well, not just for Exceptions #514
+    Fixed recursion and out of memory errors when caching in complicated template set-ups using inheritance and includes #801
+    Fixed PHP8.1 deprecation errors in strip_tags
+    Fix Variable Usage in Exception message when unable to load subtemplate #808
+    Fixed PHP8.1 deprecation notices for strftime #672
+    Fixed PHP8.1 deprecation errors passing null to parameter in trim #807
+    Adapt Smarty upper/lower functions to be codesafe (e.g. for Turkish locale) #586
+    Bug fix for underscore and limited length in template name in custom resources #581
+
+
+-- Modifications ajouts/supressions fichiers 3.1.47 / 4.3.0 --
+--------------------------------------------------------------
+Autoloader.php
+bootstrap.php
+CHANGELOG.md
+composer.json
+debug.tpl
++ functions.php
+README.md
+SECURITY.md
+Smarty.class.php 
+- SmartyBC.class.php fichier vide
+  Dropped deprecated API calls that where only accessible through SmartyBC [4.0.0-rc.0] - 2021-10-13
++ SMARTY_VERSION_4.3.0
+- COMPOSER_RELEASE_NOTES.txt
+- INHERITANCE_RELEASE_NOTES.txt
+- NEW_FEATURES.txt
+- README
+- SMARTY_2_BC_NOTES.txt
+- SMARTY_3.0_BC_NOTES.txt
+- SMARTY_3.1_NOTES.txt
+- 3.1.47_190922
+
+
+/plugins
+-----------
+ function.cycle.php
+ function.html_options.php
+ function.mailto.php  ((m) Modif <script type="text/javascript"> => Warning => <script>)
+ + modifier.count.php (ajout V 4.3.0)
+ modifier.escape.php 
+ modifier.string_format.php (@link  corrigé 30/11/22)
+ modifier.truncate.php
+ shared.escape_special_chars.php
+
+
+
+/sysplugins +62 -3
+--------------
+ smarty_cacheresource.php
+ smarty_cacheresource_keyvaluestore.php
+ smartycompilerexception.php
+ smarty_internal_cacheresource_file.php
+ smarty_internal_compile_for.php
+ smarty_internal_compile_foreach.php
+ smarty_internal_compile_function.php
+- smarty_internal_compile_include_php.php fichier vide =>  This file was deleted. v4.0.0-v3.1.40
+ smarty_internal_compile_insert.php
+ smarty_internal_compile_private_foreachsection.php
+ smarty_internal_compile_private_modifier.php
+- smarty_internal_compile_private_php.php  fichier vide =>  This file was deleted. v4.0.0-v3.1.40 
+ smarty_internal_compile_private_print_expression.php
+ smarty_internal_compile_private_special_variable.php
+ smarty_internal_data.php
+ smarty_internal_debug.php
+ smarty_internal_errorhandler.php
+ smarty_internal_extension_handler.php
+ smarty_internal_method_append.php
+ smarty_internal_method_appendbyref.php
+ smarty_internal_method_clearallassign.php
+ smarty_internal_method_clearallcache.php
+ smarty_internal_method_clearassign.php
+ smarty_internal_method_clearcache.php
+ smarty_internal_method_clearcompiledtemplate.php
+ smarty_internal_method_clearconfig.php
+ smarty_internal_method_configload.php
+ smarty_internal_method_createdata.php
+ smarty_internal_method_getconfigvars.php
+ smarty_internal_method_getregisteredobject.php
+ smarty_internal_method_gettags.php
+ smarty_internal_method_gettemplatevars.php
+ smarty_internal_method_loadfilter.php
+ smarty_internal_method_loadplugin.php
+ smarty_internal_method_mustcompile.php
+ smarty_internal_method_registercacheresource.php
+ smarty_internal_method_registerclass.php
+ smarty_internal_method_registerdefaultpluginhandler.php
+ smarty_internal_method_registerfilter.php
+ smarty_internal_method_registerobject.php
+ smarty_internal_method_registerplugin.php
+ smarty_internal_method_registerresource.php
+ smarty_internal_method_unloadfilter.php
+ smarty_internal_method_unregistercacheresource.php
+ smarty_internal_method_unregisterfilter.php
+ smarty_internal_method_unregisterobject.php
+ smarty_internal_method_unregisterplugin.php
+ smarty_internal_method_unregisterresource.php
+ smarty_internal_parsetree_template.php
+ smarty_internal_parsetree_text.php
+- smarty_internal_resource_registered.php fichier vide =>  This file was deleted  v4.0.0-v3.1.40
+ smarty_internal_resource_stream.php
+ smarty_internal_runtime_codeframe.php
+ smarty_internal_runtime_make_nocache.php
+ smarty_internal_runtime_writefile.php
+ smarty_internal_template.php
+ smarty_internal_templatebase.php
+ smarty_internal_templatecompilerbase.php
+ smarty_internal_templatelexer.php
+ smarty_internal_templateparser.php
+ smarty_internal_testinstall.php
+ smarty_resource.php
+ smarty_resource_custom.php
+ smarty_security.php
+ smarty_variable.php
+
+
+
+NOTE corrections/modifications JCE  (m)
+--------------------
+--- /lib/Smarty/plugins/function.mailto.php
++++ /lib/Smarty/lib/smarty/plugins/function.mailto.php
++  Warning: The type attribute is unnecessary for JavaScript resources. SO <script type="text/javascript"> = Warning <script> = OK 
+-        return '<script type="text/javascript">document.write(unescape(\'' . $js_encode . '\'))</script>';
++        return '<script>document.write(unescape(\'' . $js_encode . '\'))</script>'; // Modification JCE 
+
+-        return '<script type="text/javascript">document.write(String.fromCharCode(' . implode(',', $ord) . '))</script>';
++	    	    return '<script>document.write(String.fromCharCode(' . implode(',', $ord) . '))</script>'; // Modification JCE
+

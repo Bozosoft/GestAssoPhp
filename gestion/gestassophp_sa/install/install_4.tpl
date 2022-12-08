@@ -80,5 +80,3 @@ Choisissez le Login, l'adresse email et le mot de passe pour votre compte d'admi
      </table></form>
 
 </div>{* Fin défini le contenu .. *}
-
-    

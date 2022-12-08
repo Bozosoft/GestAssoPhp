@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -528,5 +528,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

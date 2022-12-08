@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_codepriorite.php
- *  Affiche l'aide pour les priorités
+ *  Affiche l'aide pour les priorités - inclus dans les fichiers /aide/a_login.php et /aide/a_priorite.php
 */
 
 	//include_once '../config/connexion.php';

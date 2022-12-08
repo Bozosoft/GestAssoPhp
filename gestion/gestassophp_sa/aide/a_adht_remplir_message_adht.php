@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_remplir_message_adht.php
- *  Affiche l'aide pour un formulaire d'envoi d'un message par mail pour un seul destinataire
+ *  Affiche l'aide pour un formulaire d'envoi d'un message par mail pour un seul destinataire - Adhérents
 */
 
 	include_once '../config/connexion.php';

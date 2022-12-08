@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -17,6 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
  *  Fichier :	export_tadhts_cotisechue.php
  *  Export au format texte XLS de la table adherent
+ *  Modification PHP 8.2.x mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');  REMPLACE  utf8_decode($string);  CAUSE Function utf8_decode() is deprecated en PHP 8.2  // MODIFICATION DU 27/11/22
 */
 
 include_once '../config/connexion.php';
@@ -59,10 +60,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	." AND soc_adht <>'999'"  // si suppression ou archivage fiche soc_adht=999
 	." AND date_echeance_cotis <= '".$date_du_jour."'";	// test sur la date du jour
 
-
-
 // 1ere ligne
-print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE_ADHT_PRENOM."\t "._LANG_TPL_COL_ADHT_NOM."\t "._LANG_FICHE_ADHT_ADRESS."\t "._LANG_FICHE_ADHT_CP."\t "._LANG_TPL_COL_ADHT_VILLE."\t "._LANG_TPL_COL_ADHT_TELEPH."\t "._LANG_TPL_COL_ADHT_PORTABLE."\t "._LANG_FICHE_ADHT_FAX."\t "._LANG_FICHE_ADHT_MAIL."\t DateCreationFiche\t "._LANG_FICHE_ADHT_ANT."\t "._LANG_FICHE_COTIS_ADHT_DATE_FIN."\n");
+print mb_convert_encoding(("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE_ADHT_PRENOM."\t "._LANG_TPL_COL_ADHT_NOM."\t "._LANG_FICHE_ADHT_ADRESS."\t "._LANG_FICHE_ADHT_CP."\t "._LANG_TPL_COL_ADHT_VILLE."\t "._LANG_TPL_COL_ADHT_TELEPH."\t "._LANG_TPL_COL_ADHT_PORTABLE."\t "._LANG_FICHE_ADHT_FAX."\t "._LANG_FICHE_ADHT_MAIL."\t DateCreationFiche\t "._LANG_FICHE_ADHT_ANT."\t "._LANG_FICHE_COTIS_ADHT_DATE_FIN."\n") , 'ISO-8859-1', 'UTF-8');
+
 
 // Boucle préparation écriture de la ligne
 	$dbresult = $db->Execute($req_lire_table_adht);
@@ -71,27 +71,27 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 		$champ0 = $row['id_adht'];
 		$champ1 = $row['soc_adht'];
 		$champ2 = $row['civilite_adht'];
-		$champ3 = utf8_decode($row['prenom_adht']);
+		$champ3 = mb_convert_encoding($row['prenom_adht'], 'ISO-8859-1', 'UTF-8');		
 		$champ4 = $row['nom_adht'];
-		$champ5 = html_entity_decode(utf8_decode($row['adresse_adht']),ENT_QUOTES);
+		$champ5 = html_entity_decode(mb_convert_encoding($row['adresse_adht'], 'ISO-8859-1', 'UTF-8'),ENT_QUOTES);	 // mb_convert_encoding
 		$champ6 = $row['cp_adht'];
 		$champ7 = $row['ville_adht'];
-		$champ7 = html_entity_decode(utf8_decode($champ7),ENT_QUOTES); // Convertira les guillemets et les apostrophes + utf8_decode accents
+		$champ7 = html_entity_decode(mb_convert_encoding($champ7, 'ISO-8859-1', 'UTF-8'),ENT_QUOTES);  // mb_convert_encoding
 		$champ8 = $row['telephonef_adht'];
 		$champ9 = $row['telephonep_adht'];
 		$champ10 = $row['telecopie_adht'];
 		$champ11 = $row['email_adht'];
 		$champ13 = switch_sqlFr_date($row['datecreationfiche_adht']);
 		$champ14 = $row['nom_type_antenne']; // + antenne
-		$champ14 = utf8_decode(($champ14)); // Convertira les guillemets et les apostrophes
-
+		$champ14 = mb_convert_encoding($champ14, 'ISO-8859-1', 'UTF-8');  // mb_convert_encoding
+		
 		$champ20 = switch_sqlFr_date($row['date_echeance_cotis']);
 			if ($champ20 == '00/00/0000'){
-				$champ20 = html_entity_decode(utf8_decode("NON règlée"),ENT_QUOTES); // "NON règlée";
+				$champ20 = html_entity_decode(mb_convert_encoding("NON règlée", 'ISO-8859-1', 'UTF-8'),ENT_QUOTES); // "NON règlée				
 			}
 
 		// écriture de la ligne
-		//Num	 Societaire	 Civilité	 Prénom	 Nom	 Adresse	 Code Postal	 Ville	 Téléphone	 Tel Portable	 Tel Professionnel	 Email	 DateCreationFiche	 Section	 Date fin cotisation
+		// Num	 Societaire	 Civilité	 Prénom	 Nom	 Adresse	 Code Postal	 Ville	 Téléphone	 Tel Portable	 Tel Professionnel	 Email	 DateCreationFiche	 Section	 Date fin cotisation
         print ("$champ0\t $champ1\t $champ2\t $champ3\t $champ4\t $champ5\t $champ6\t $champ7\t $champ8\t $champ9\t $champ10\t $champ11\t  $champ13\t $champ14\t $champ20 \n");
 	}
 
@@ -100,5 +100,3 @@ print utf8_decode("Num\t Societaire\t "._LANG_FICHE_ADHT_CIVIL."\t "._LANG_FICHE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

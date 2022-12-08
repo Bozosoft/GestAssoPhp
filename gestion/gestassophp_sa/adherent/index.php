@@ -31,7 +31,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
  *  Fichier :	index.php
- *  Redirige sur Fiche adherent OU Tableau de bord Admin
+ *  Redirige sur Fiche adhérent OU Tableau de bord Admin
 */
 
 include_once '../config/connexion.php';
@@ -57,11 +57,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$nom_adht = $_SESSION['ses_nom_adht'] ; // pour affichage
 
 
-	// Envoi vers la page en fonction de priorite_adht	>=4  -->4 = admin en consultation tableau de bord
-		if ($priorite_adht >=4) {
+	// Envoi vers la page en fonction de priorite_adht  si  priorité = 4 = admin en consultation tableau de bord uniquement
+		if ($priorite_adht >=4) {  // Si  priorité >=5 : 5 = Secrétaire, 7 = Trésorier, 9 = Admin 
 			header('location: ../admin/tableau_bord.php');
 // echo 'DEBUG  Ok pour tabbord adht/index<br>';
-		} else {
+		} else {  // sinon  1 = Membre - NOTA 0 = accès interdit, 
 			header('location: ../adherent/gerer_fiche_adht.php');
 		}
 
@@ -70,5 +70,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur=Erreur... Identifiez-vous de nouveau !!');
 }
-
-?>

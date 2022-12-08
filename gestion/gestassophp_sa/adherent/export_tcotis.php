@@ -8,15 +8,16 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/adherent/
  *  Fichier :	export_tcotis.php
- *  Export au format texte (extension XLS   -> pour Excel) de la table cotisation adherent bénévole
+ *  Export au format texte (extension XLS   -> pour Excel) de la table cotisation adhérent bénévole
+ *  Modification PHP 8.2.x mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');  REMPLACE  utf8_decode($string);  CAUSE Function utf8_decode() is deprecated en PHP 8.2  // MODIFICATION DU 27/11/22
 */
 
 include_once '../config/connexion.php';
@@ -67,14 +68,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
     print("Num\t Nom Prenom\t type\t montant\t information\t date_enregist\t date_debut\t date_fin\t archive\t paiement\t info_archiv\t date_modif_fiche\n");
 
 	$dbresult = $db->Execute($req_lire_table_cotis);
-
 	while ($dbresult && $row = $dbresult->FetchRow()) {
 		$champ0 = $row['id_cotis'];
-		// $champ1 = $row['id_adhtasso'];
-		$champ2 = html_entity_decode(utf8_decode($row['nom_adht']." ".$row['prenom_adht']),ENT_QUOTES);
-		$champ3 = utf8_decode($row['nom_type_cotisation']);  //modif pour éviter les  rÃ©duite
+		// $champ1 = $row['id_adhtasso'];	
+		$champ2 = html_entity_decode( mb_convert_encoding($row['nom_adht'], 'ISO-8859-1', 'UTF-8')." ".mb_convert_encoding($row['prenom_adht'], 'ISO-8859-1', 'UTF-8') , ENT_QUOTES ); // Nom Prenom // mb_convert_encoding
+		$champ3 = mb_convert_encoding($row['nom_type_cotisation'], 'ISO-8859-1', 'UTF-8'); // type // mb_convert_encoding
 		$champ4 = $row['montant_cotis']; //
-		$champ5	= html_entity_decode(utf8_decode($row['info_cotis']),ENT_QUOTES); // Convertira les guillemets et les apostrophes + utf8_decode accents
+		$champ5	= html_entity_decode(mb_convert_encoding($row['info_cotis'], 'ISO-8859-1', 'UTF-8'),ENT_QUOTES); // information // mb_convert_encoding
 		$champ6 = switch_sqlFr_date($row['date_enregist_cotis']);
 		$champ7 = switch_sqlFr_date($row['date_debut_cotis']);
 		$champ8 = switch_sqlFr_date($row['date_fin_cotis']);
@@ -83,7 +83,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			$champ9 = 'Archive'; // Affichage du statut Archivée
 		}
 		$champ10 = $row['paiement_cotis']; // + Ajout Zone PAIEMENT
-		$champ11 = utf8_decode($row['info_archiv_cotis']);  // modification pour éviter les annÃ©e Ã©coulÃ©e
+		$champ11 = mb_convert_encoding($row['info_archiv_cotis'], 'ISO-8859-1', 'UTF-8'); 	// info_archiv // mb_convert_encoding
 		$champ12 = switch_sqlFr_date($row['datemodiffiche_cotis']);
 		if ($champ12 == '00/00/0000'){
 			$champ12 = '';
@@ -96,11 +96,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	}
 
 
-
-
 } else {
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

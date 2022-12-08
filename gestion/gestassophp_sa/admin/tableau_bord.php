@@ -22,7 +22,7 @@
 include_once '../config/connexion.php';
 $masession = new sessions(); // -->la classe session //
 // Raz  du tri
-$_SESSION['tri'] = 0; // par pour avoir colone 1 = Nom adherents sur liste // Par défaut =0
+$_SESSION['tri'] = 0; // par pour avoir colone 1 = Noms adhérents sur liste // Par défaut =0
 $_SESSION['tri_sens'] = 0; // pour avoir liste triée par 1--> 100 ou a-->z;
 
 $sessionadherent = (empty($_SESSION['ses_id_adht'])) ? $sessionadherent = '' : $sessionadherent = $_SESSION['ses_id_adht'];
@@ -137,5 +137,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

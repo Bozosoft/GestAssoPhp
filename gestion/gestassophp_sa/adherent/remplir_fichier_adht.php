@@ -265,5 +265,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

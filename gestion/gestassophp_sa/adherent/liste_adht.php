@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -208,7 +208,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('membres', $membres); // tableau $membres[$indice]['xx_adht']
 	$tpl->assign('nb_lines', $nb_lines); // Nb de ligne de requête
-	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totale
+	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totales
 	$tpl->assign('numpage', $numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_adht', $affiche_nb_lines); // NB lignes par select
 	$tpl->assign('affiche_nb_inscrits', $nb_inscrits); // NB adhérents inscrits
@@ -224,5 +224,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

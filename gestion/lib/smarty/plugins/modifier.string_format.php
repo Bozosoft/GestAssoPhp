@@ -12,8 +12,9 @@
 * Type:     modifier<br>
 * Name:     string_format<br>
 * Purpose:  format strings via sprintf
+* Origine version 2.x (dernière version 2.6.33)
 * 
-* @link http://smarty.php.net/manual/en/language.modifier.string.format.php string_format (Smarty online manual)
+* @link  https://smarty-php.github.io/smarty/designers/language-modifiers/language-modifier-string-format.html
 * @author Monte Ohrt <monte at ohrt dot com> 
 * @param string $string input string 
 * @param string $format format string 

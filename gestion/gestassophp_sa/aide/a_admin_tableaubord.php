@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_admin_tableaubord.php
- *  Affiche l'aide pour le Tableau de bord
+ *  Affiche l'aide pour le Tableau de bord - Administration
 */
 
 	include_once '../config/connexion.php';

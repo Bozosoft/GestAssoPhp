@@ -7,7 +7,7 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
+ * @version : 2022
  * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg HTML5
  */
@@ -51,7 +51,6 @@ Maroon
 Red
 White
 Yellow
-
 */
 
 
@@ -134,7 +133,19 @@ nav h1 {
 	background-color: #3BA44D;
 	padding-left: .3em;
 	border-color: black;
-		border-width: 1px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+/* Affichage Gestion Membres pour  Identification sur  login.tpl  conformiité HTML5*/
+nav h4 {
+	margin: .3em;
+	font-size: .9em;
+	color : #FFFFFF;
+	background-color: #3BA44D;
+	padding-left: .3em;
+	border-color: black;
+	border-width: 1px;
 	border-style: solid;
 }
 

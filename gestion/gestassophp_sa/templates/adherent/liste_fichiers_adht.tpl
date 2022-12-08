@@ -23,7 +23,7 @@
 
 		</div>
 
-{* Affichage NB adherents -  - NB pages *}
+{* Affichage NB adhérents -  - NB pages *}
 	<table style="width:100%;">
 		<tr>
 			<td>{$nb_lines}
@@ -50,7 +50,7 @@
 			</td>
 		</tr>
 	</table>
-{* FIN Affichage NB adherents -  - NB pages *}
+{* FIN Affichage NB adhérents -  - NB pages *}
 	</form>
 {* FIN Affichage  Recherche *}
 

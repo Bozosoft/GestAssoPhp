@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_admin_remplir_preferences.php
- *  Affiche l'aide pour l'affichage de l'association et une information sur l'évolution de la version (partie Admin)
+ *  Affiche l'aide pour l'affichage de l'association et une information sur l'évolution de la version - Administration
 */
 
 	include_once '../config/connexion.php';

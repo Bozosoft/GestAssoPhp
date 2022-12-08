@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -160,5 +160,3 @@
 	$content = $tpl->fetch('install_4.tpl'); // affichage ...
 	$tpl->assign('content', $content);
 	$tpl->display('index_instal.tpl');
-
-?>

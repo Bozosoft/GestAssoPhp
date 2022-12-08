@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_gerer_fiche_adht.php
- *  Affiche l'aide pour récapitulatif des informations Adhérent
+ *  Affiche l'aide pour récapitulatif des informations Adhérent - Gestion Membres
 */
 
 	include_once '../config/connexion.php';

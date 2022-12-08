@@ -1,4 +1,5 @@
 # Ce fichier htaccess.txt est a renommer en .htaccess APRES l'installation
+## Projet : gestassophp_sa [GestAssoPhp+Pg]
 
 # Empêcher de lire ou accéder au fichier .htaccess
 # Voir le fichier .htaccess à la racine

@@ -9,7 +9,6 @@
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/{$style_i}">
-	<!-- link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/ -->
 	<title>GestAssoPhp+Pg - Installation</title>
 </head>
 <body>

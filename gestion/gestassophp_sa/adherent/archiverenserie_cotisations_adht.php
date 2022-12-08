@@ -367,14 +367,14 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('id_adht', $id_adht_cotis);	// On passe l'Id adhérent qui a déclencher l'opération
 	$tpl->assign('nb_lines', $nb_lines); // Nb de ligne de requête
-	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totale
+	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totales
 	$tpl->assign('numpage', $numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_liste_complete', $affiche_liste_complete); // Affichage liste pour seulement 1 seul adhérent si vide
 	$tpl->assign('affiche_nb_adht', $affiche_nb_lines); // NB lignes par select
-	$tpl->assign('filtre_datedeb', $filtre_datedeb); // Filtrage par Rechercher les dates début
-	$tpl->assign('filtre_datefin', $filtre_datefin); // Filtrage par Rechercher les dates  fin
+	$tpl->assign('filtre_datedeb', $filtre_datedeb); // Filtrage par Rechercher les dates de début
+	$tpl->assign('filtre_datefin', $filtre_datefin); // Filtrage par Rechercher les dates de fin
 	$tpl->assign('filtre_fiche', $filtre_fiche); // Filtrage par  parmi  0 Les fiches actives  1 Les fiches achivées 2 Toutes les fiches
-	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_COTISATIONS); // la litse des options  membres actifs, à jour,...
+	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_COTISATIONS); // la liste des options  membres actifs, à jour,...
 	$tpl->assign('affichenb_adht_options', $T_AFFICHE_NB_PAGE); // Nb de lignes par page
 	$tpl->assign('erreur_saisie', $erreur_saisie); // Erreur de saisie sur champs Dates
 	$tpl->assign('date_3112', JMA_FIN_COTIS); // date pour fin de cotisation

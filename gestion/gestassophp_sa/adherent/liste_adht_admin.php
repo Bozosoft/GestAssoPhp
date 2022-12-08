@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -135,7 +135,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$filtre_adht_nom1 = addslashes(trim($_GET['filtre_nom'])); // pour les problème d' apostrosphe
 	}
 
-	// filtre d'affichage des adherents par  0 => 'Les membres inscrits' 1 => 'Les membres à jour', 2 => 'Les membres en retard',  3 => Les fiches supprimées + Toutes les fiches
+	// filtre d'affichage des adhérents par  0 => 'Les membres inscrits' 1 => 'Les membres à jour', 2 => 'Les membres en retard',  3 => Les fiches supprimées + Toutes les fiches
 	$filtremembre_adht = '0'; // affiche par défaut que les membres inscrits
 
 	if (isset($_GET['filtre_membre'])) {
@@ -172,13 +172,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		*/
 	}
 
-	// filtre d'affichage des adherents par  0 => 'Les membres inscrits' 1 => 'Les membres à jour', 2 => 'Les membres en retard',  3 => Les fiches supprimées
+	// filtre d'affichage des adhérents par  0 => 'Les membres inscrits' 1 => 'Les membres à jour', 2 => 'Les membres en retard',  3 => Les fiches supprimées
 	if ($filtremembre_adht == '0') { // Les membres inscrits
 		$req_lire_info_adht .= "AND soc_adht <>'999' ";
 		$reqcompt_info_adht .= "AND soc_adht <>'999' ";
 	}
 
-	if ($filtremembre_adht == '1') { //Les membres à jour
+	if ($filtremembre_adht == '1') { // Les membres à jour
 		$req_lire_info_adht .= "AND soc_adht ='s' ";
 		$reqcompt_info_adht .= "AND soc_adht ='s' ";
 	}
@@ -292,7 +292,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				//Retourne vrai si la date 1 est inférieure ou égale à la date 2, sinon retourne faux.
 				if ($membres[$indice]['fin_cotisation'] == '00/00/0000' || $membres[$indice]['fin_cotisation'] == '') { // pas de date ou date NULL
 					$membres[$indice]['fin_cotisation'] = '<span class="Texterouge">'
-					._LANG_MESSAGE_ADMIN_LISTE_ADHT_.'</span>'; //Cotisation "NON règlée"
+					._LANG_MESSAGE_ADMIN_LISTE_ADHT_.'</span>'; // Cotisation "NON règlée"
 				} else {	// Si date échue
 					$membres[$indice]['fin_cotisation'] = '<span class="Texterouge">'
 					.$membres[$indice]['fin_cotisation'].'</span>';
@@ -326,13 +326,13 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('membres', $membres); // tableau $membres[$indice]['xx_adht']
 	$tpl->assign('nb_lines', $nb_lines); // Nb de ligne de requête
-	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totale
+	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totales
 	$tpl->assign('numpage', $numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_adht', $affiche_nb_lines); // NB lignes par select
 	// $tpl->assign('affiche_nb_lines', $affiche_nb_lines);
 	$tpl->assign('filtre_adht_nom', $filtre_adht_nom); // Filtrage par Rechercher ...
 	$tpl->assign('filtremembre_adht', $filtremembre_adht); // Filtrage par  parmi ...
-	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_MEMBRES); // la litse des options  membres actifs, à jour,...
+	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_MEMBRES); // la liste des options  membres actifs, à jour,...
 	$tpl->assign('affichenb_adht_options', $T_AFFICHE_NB_PAGE); // Nb de lignes par page
 	// POUR AFFICHAGE VERS TEMPLATE
 	$content = $tpl->fetch('adherent/liste_adht_admin.tpl'); // affichage ...
@@ -344,5 +344,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

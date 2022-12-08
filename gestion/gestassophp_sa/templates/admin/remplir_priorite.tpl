@@ -8,7 +8,7 @@
 	<div id="contenu">
 {*défini le contenu .. *}
 
-	{* Ajout adherent avec priorité *}
+{* Ajout adhérent avec priorité *}
 	<div class="login-box_pripref">
 		<form method="post" name="maform" action="remplir_priorite.php">
 		<br>
@@ -25,10 +25,9 @@
 		<div class="centre-txt">
 			<input type="submit" class="submit_ok" name="Valider" value="{language name = tpl_valid_button}"  title="{language name = tpl_valid_button_title}">
 			<input type="hidden" name="valid" value="validation"></div>
-
 		</form>
 	</div>
-	{* FIN Ajout adherent avec priorité *}
+{* FIN Ajout adhérent avec priorité *}
 
 {* Affichage du NB pages *}
 	<div class="aff_droite-txt">{language name = tpl_pages}<span class="NumPageGras">
@@ -44,7 +43,6 @@
 
 {* Affichage de la liste *}
  	<table style="width:60%;" class="centre-txt">
-
 		<tr>
 		{* # *}
 			<th class="LignegrisTC" style="width:10%;">
@@ -59,7 +57,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
 				{/if}
 			</th>
-		{* Nom Prénom *}
+{* Nom Prénom *}
 			<th class="LignegrisTC" style="width:40%;">
 				<a href="remplir_priorite.php?tri=1" title="{language name = tpl_title_clictri}">{language name = tpl_col_nompre}</a>
 				{if $smarty.session.tri eq 1}
@@ -72,7 +70,7 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
 				{/if}
 			</th>
-		{* Priorité *}
+{* Priorité *}
 			<th class="LignegrisTC" style="width:10%;">[0-4,5,7,9]
 				<a href="remplir_priorite.php?tri=2" title="{language name = tpl_title_clictri}">{language name=admin_priorite_col_priorite} </a>
 				{if $smarty.session.tri eq 2}
@@ -85,7 +83,6 @@
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
 				{/if}
 			</th>
-
 		</tr>
 {foreach from = $priorite item = item_priorite key = ordre}
 		<tr class="Lignegris{$item_priorite.coul}">
@@ -110,7 +107,6 @@
 		{/section}</span>
 	</div>
 {* FIN Affichage du NB pages *}
-
 
 	</div>
 {* FIN défini le contenu .. *}

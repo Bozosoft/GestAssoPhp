@@ -198,7 +198,7 @@ if (!defined('_ADODB_LAYER')) {
 		/**
 		 * ADODB version as a string.
 		 */
-		$ADODB_vers = 'v5.22.0  2022-02-08';
+		$ADODB_vers = 'v5.23.0-dev  Unreleased';
 
 		/**
 		 * Determines whether recordset->RecordCount() is used.
@@ -224,19 +224,45 @@ if (!defined('_ADODB_LAYER')) {
 	 * Helper class for FetchFields -- holds info on a column
 	 */
 	class ADOFieldObject {
-		var $name = '';
-		var $max_length=0;
-		var $type="";
-/*
-		// additional fields by dannym... (danny_milo@yahoo.com)
-		var $not_null = false;
-		// actually, this has already been built-in in the postgres, fbsql AND mysql module? ^-^
-		// so we can as well make not_null standard (leaving it at "false" does not harm anyways)
+		/**
+		 * @var string Field name
+		 */
+		public $name = '';
 
-		var $has_default = false; // this one I have done only in mysql and postgres for now ...
-			// others to come (dannym)
-		var $default_value; // default, if any, and supported. Check has_default first.
-*/
+		/**
+		 * @var int Field size
+		 */
+		public $max_length = 0;
+
+		/**
+		 * @var string Field type.
+		 */
+		public $type = '';
+
+		/**
+		 * @var bool True if field can be NULL
+		 */
+		public $not_null = false;
+
+		/**
+		 * @var bool True if field is a primary key
+		 */
+		public $primary_key = false;
+
+		/**
+		 * @var bool True if field is unique key
+		 */
+		public $unique = false;
+
+		/**
+		 * @var bool True if field has a default value
+		 */
+		public $has_default = false;
+
+		/**
+		 * @var mixed Default value, if any and supported; check {@see $has_default} first.
+		 */
+		public $default_value;
 	}
 
 
@@ -512,35 +538,44 @@ if (!defined('_ADODB_LAYER')) {
 	/*****************************************
 	* memcached server options
 	******************************************/
-	/*
-	 * Should we use memCache instead of caching in files
+
+	/**
+	 * Use memCache library instead of caching in files.
+	 * @var bool $memCache
 	 */
 	public $memCache = false;
-	/*
-	 * A string, array of hosts or array of memcache connection
-	 * options (see adodb.org)
+
+	/**
+	 * The memcache server(s) to connect to. Can be defined as:
+	 * - a single host name/ip address
+	 * - a list of hosts/ip addresses
+	 * - an array of server connection data (weighted server groups).
+	 * @link https://adodb.org/dokuwiki/doku.php?id=v5:userguide:memcached
+	 * @var string|array $memCacheHost
 	 */
 	public $memCacheHost;
 
-	/*
-	 * Default port, may be ignored if connection object array
-	 * is set
+	/**
+	 * Default port number.
+	 * The default port can be overridden if memcache server connection data
+	 * is provided as an array {@see $memCacheHost}.
+	 * @var int $memCachePort
 	 */
 	public $memCachePort = 11211;
 
-	/*
-	 * Use 'true' to store the item compressed
-	 * uses zlib, Direct option for memcache, else
-	 * For memcached, use the memcacheOptions feature
+	/**
+	 * Enable compression of stored items.
+	 * @var bool $memCacheCompress
 	 */
 	public $memCacheCompress = false;
 
-	/*
-	 * If using mecached, an array of options
+	/**
+	 * An array of memcached options.
+	 * Only used with memcached; memcache ignores this setting.
 	 * @link https://www.php.net/manual/en/memcached.constants.php
+	 * @var array $memCacheOptions
 	 */
 	public $memCacheOptions = array();
-
 
 	var $sysDate = false; /// name of function that returns the current date
 	var $sysTimeStamp = false; /// name of function that returns the current timestamp
@@ -1022,6 +1057,8 @@ if (!defined('_ADODB_LAYER')) {
 	 *
 	 * @param string $fmt Format string
 	 * @param string $col Date column; use system date if not specified.
+	 *
+	 * @return string
 	 */
 	function SQLDate($fmt, $col = '') {
 		if (!$col) {
@@ -1545,9 +1582,6 @@ if (!defined('_ADODB_LAYER')) {
 
 		// error handling if query fails
 		if ($this->_queryID === false) {
-			if ($this->debug == 99) {
-				adodb_backtrace(true,5);
-			}
 			$fn = $this->raiseErrorFn;
 			if ($fn) {
 				$fn($this->databaseType,'EXECUTE',$this->ErrorNo(),$this->ErrorMsg(),$sql,$inputarr,$this);
@@ -3864,6 +3898,10 @@ http://www.stanford.edu/dept/itss/docs/oracle/10g/server.101/b10759/statements_1
  * means recordcount not known).
  */
 class ADORecordSet implements IteratorAggregate {
+	/**
+	 * Used for cases when a recordset object is not created by executing a query.
+	 */
+	const DUMMY_QUERY_ID = -1;
 
 	/**
 	 * public variables
@@ -3891,8 +3929,12 @@ class ADORecordSet implements IteratorAggregate {
 	 */
 	var $_numOfRows = -1;	/** number of rows, or -1 */
 	var $_numOfFields = -1;	/** number of fields in recordset */
-	/** @var resource result link identifier */
-	var $_queryID = -1;
+
+	/**
+	 * @var resource|int|false result link identifier
+	 */
+	var $_queryID = self::DUMMY_QUERY_ID;
+
 	var $_currentRow = -1;	/** This variable keeps the current row in the Recordset.	*/
 	var $_closed = false;	/** has recordset been closed */
 	var $_inited = false;	/** Init() should only be called once */
@@ -3911,10 +3953,21 @@ class ADORecordSet implements IteratorAggregate {
 
 
 	/**
-	 * @var ADOFieldObject[] Field metadata cache
-	 * @see fieldTypesArray()
+	* @var ADOFieldObject[] Field metadata cache
+	* @see fieldTypesArray()
 	 */
 	protected $fieldObjectsCache;
+	
+	/**
+	* @var bool True if we have retrieved the fields metadata
+	*/
+	protected $fieldObjectsRetrieved = false;
+
+	/*
+	* Cross-reference the objects by name for easy access
+	*/
+	protected $fieldObjectsIndex = array();
+
 
 	/**
 	 * Constructor
@@ -4257,9 +4310,7 @@ class ADORecordSet implements IteratorAggregate {
 			switch ($showArrayMethod) {
 			case 0:
 
-				if ($fetchMode == ADODB_FETCH_ASSOC
-				||  $fetchMode == ADODB_FETCH_BOTH)
-				{
+				if ($fetchMode != ADODB_FETCH_NUM) {
 					/*
 					* The driver should have already handled the key
 					* casing, but in case it did not. We will check and force
@@ -5365,12 +5416,8 @@ class ADORecordSet implements IteratorAggregate {
 				break;
 
 			case 'mysql':
-				// mysql driver deprecated since 5.5, removed in 7.0
-				// automatically switch to mysqli
-				if(version_compare(PHP_VERSION, '7.0.0', '>=')) {
-					$db = 'mysqli';
-				}
-				$class = $db;
+				// mysql extension removed in PHP 7.0 - automatically switch to mysqli
+				$class = $db = 'mysqli';
 				break;
 
 			default:

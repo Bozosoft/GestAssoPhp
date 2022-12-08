@@ -18,6 +18,7 @@
  *  Fichier :   index.php
  *  Installation du système
  *  ENCODAGE UTF-8 sans BOM
+ *  ATTENTION PHP MINI = 7.4
 */
 
 
@@ -46,7 +47,7 @@
 
 /***** TEST sur la version de PHP */
 
-			$minPHPVersion = "5.6.0"; // ATTENTION PHP MINI = 5.6.0
+			$minPHPVersion = "7.4"; // ATTENTION PHP MINI = 7.4
 			$PHPVersion = phpversion();
 			if (phpversion() < $minPHPVersion) {
 				echo "<br><br>Votre version PHP : $PHPVersion&nbsp;&nbsp;<span class='TexterougeGras'>- Donc Erreur : PHP $minPHPVersion minimum pour une fonctionnement normal.</span>";
@@ -85,7 +86,6 @@
 	<meta name="ROBOTS" content="noindex, nofollow">
 	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/<?php echo STYLE_I ?>">
-	<!-- link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css"/ -->
 	<title>GestAssoPhp+Pg - Installation</title>
 </head>
 <body>
@@ -108,7 +108,7 @@
 	<div class="centre-txt"><img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp"><br><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='../images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise à disposition sous un contrat Creative Commons"></a><br><br><span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span><br><br></div>
 		</div> <!-- gauche_page -->
 
-<section class="section_centre_page">
+<div class="section_centre_page"> <!-- centre_page -->
 
     <div id="titre">&nbsp;V&eacute;rification de la configuration PHP et des permissions r&eacute;pertoires</div>
 	<div class="ligne_coul"></div>
@@ -116,12 +116,10 @@
 
 	<br><span class='TexterougeGras'>* Avant toute installation v&eacute;rifier les informations sur le fichier <a href="../doc/lisez_moi.txt">lisez_moi.txt</a></span>
 	<br><br><br>
-	<span class='TextenoirGras'>V&eacute;rification version PHP minimum (PHP 5.6.x):</span>
+	<span class='TextenoirGras'>V&eacute;rification version PHP minimum (PHP 7.4.x):</span>
 	<br>
 <?php
-// Version de PHP
-			//$minPHPVersion = "5.6.0"; // ATTENTION PHP mini
-			// $PHPVersion = phpversion();
+// Version de PHP // ATTENTION PHP MINI = 7.4
 			if (phpversion() >= $minPHPVersion) {
 				echo "Votre version : (PHP $PHPVersion) est <span class='TextevertGras'>OK</span>";
 				$miniPHPVer = false;
@@ -214,7 +212,7 @@
 
 </div>	<!--  / contenu  -->
 
-</section>	<!-- / centre_page -->
+</div>	<!-- / centre_page -->
 	<footer class="footer_pied_page">
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html" target="_blank" title="Gestion des associations - Installation">Version : <?php echo VERSION_I ?></a>
     </footer>

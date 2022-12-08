@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -97,7 +97,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('priorite_adht', $priorite_adht);
 	$tpl->assign('nomprenom_adht', $prenom_adht.' '.$nom_adht);
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
-	$tpl->assign('date_dujour', switch_sqlFr_date($date_du_jour)); // date du jour pour  Date d'inscription
+	$tpl->assign('date_dujour', switch_sqlFr_date($date_du_jour)); // date du jour pour Date d'inscription
 	$tpl->assign('affiche_message', $affiche_message); // pour afficher
 	// POUR AFFICHAGE VERS TEMPLATE
 	$content = $tpl->fetch('adherent/consulter_cotisations_adht.tpl'); // affichage ...
@@ -108,5 +108,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

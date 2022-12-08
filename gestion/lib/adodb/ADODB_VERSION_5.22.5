@@ -1,0 +1,75 @@
+
+https://github.com/ADOdb/ADOdb
+https://github.com/ADOdb/ADOdb/blob/master/docs/changelog.md
+
+5.22.5 - Unreleased
+Fixed
+    ADODB_FETCH_DEFAULT should be treated as ASSOC in getAssoc() #886
+
+
+5.22.4 - 2022-10-28
+Fixed
+    adodb_strip_order_by() throws deprecated warnings on PHP 8.1 #869
+    adodb_strip_order_by() shouldn't strip clause from subqueries #870
+    mssql: Affected_Rows() not returning correct value #895
+    mysqli: Fix mysqli_result could not be converted to int #867
+    mysqli: regression on errorMsg()/errorCode() #872
+
+5.22.3 - 2022-09-06
+Fixed
+    alterColumnSql() and changeTableSQL() produce different SQL #124 #383 #865
+    Fix PHP 8.1 deprecated warning in GetUpdateSQL() #844
+    Fix PHP 8.1 deprecated warning in tohtml.inc.php #850
+    Fix str_repeat() error in _adodb_backtrace() #852
+    firebird/ibase: Fix uncaught TypeError #858
+    mssql: Fix undefined variable when closing connection #835
+    mssql: insert_id returns false if value is out of range #853
+    mysql: Fix regression with portable bind arrays #838
+    mysql: Fix errorMsg() / errorNo() on MySQL 8 #842
+    oci8po: Replace deprecated functions aliases #862
+    pdo: Fix uncaught TypeError on PHP 8 #840
+    pgsql: check for dummy query Id before closing recordset #848
+    active record: fix changing case of class properties in Native mode #837
+
+5.22.2 - 2022-05-08
+Fixed
+    mssql: Automatic conversion of false to array is deprecated in PHP 8.1 #829
+    mysql: Affected_Rows() not returning correct value #820
+    mysql: uncaught ValueError exception calling execute() with an empty array #832
+    pgsql: Affected_Rows() always returns false on PHP 8.1 #833
+
+5.22.1 - 2022-03-30
+Removed
+    Legacy mysql, mysqlpo and mysqlt drivers #804
+Fixed
+    firebird: undefined offset PHP notice in _fetchField() #808
+    firebird: PHP deprecation warning in _blobDecode() #811
+    firebird: PHP notice when executing query with empty array #812
+    firebird: undefined array key with uppercase columns #813
+    mysql: regression on setConnectionParameter() #803
+    mysql: regression on bulk binding #806
+    oci8: fix PHP 8.1 array deprecation warning #817
+    memcache: weighted servers not connecting #807
+    memcache: $memCacheCompress option ignored by memcached #823
+    memcache: use default port in server controller template #824
+    xml PHP Notice in dbData::create() #822
+
+
+-- Modifications ajouts/supressions fichiers 5.22.0 / 5.22.5 --
+--------------------------------------------------------------
+
+/lib/adodb
+	README.md
+	adodb-csvlib.inc.php
+	adodb-datadict.inc.php 
+	adodb-lib.inc.php 
+	* adodb-iterator.inc.php (SUPPRIMé en  5.21.2 php5 functionality)
+	adodb.inc.php
+	changelog.md
+
+
+/lib/adodb/drivers
+	* adodb-mysql.inc.php (SUPPRIMé en v5.22.1)
+	adodb-mysqli.inc.php
+	adodb-postgres64.inc.php
+	adodb-postgres7.inc.php

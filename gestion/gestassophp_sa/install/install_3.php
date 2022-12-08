@@ -78,8 +78,8 @@ echo 'prefix_bd='.$prefix_bd.'-';
  * Fichier : config.cfg.php
  * Page connexion - configuation
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -93,8 +93,7 @@ define(\"SERVEUR_BD\", \"".$serveur_bd."\"); // Serveur de la BD
 define(\"NOM_BD\", \"".$nom_bd."\"); // Nom de la BD
 
 define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
-
-?>";
+";
 // Fin Modèle Fichier de config
 
 
@@ -207,5 +206,3 @@ define(\"DB_PREFIX\", \"".$prefix_bd."\"); // Modifiable pour la BD
 	$content = $tpl->fetch('install_3.tpl'); // affichage ...
 	$tpl->assign('content', $content);
 	$tpl->display('index_instal.tpl');
-
-?>

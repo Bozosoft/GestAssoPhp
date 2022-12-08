@@ -183,5 +183,3 @@ Content-Transfer-Encoding : cet en-tête permet de spécifier l'encodage du mail
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

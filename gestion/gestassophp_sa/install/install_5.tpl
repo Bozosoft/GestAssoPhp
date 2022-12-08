@@ -35,7 +35,7 @@
 
 		<br><br>
 		Vous pouvez vous connectez &agrave; votre espace <a href="../index.php" title="Connexion">GestAssoPhp</a>, et mettre votre fiche personnelle &agrave; jour (Gestion Membres / Mes informations)
-	<br><br><br><br>
+	   <br><br><br><br>
 
 	 {/if}
 	<br><br>

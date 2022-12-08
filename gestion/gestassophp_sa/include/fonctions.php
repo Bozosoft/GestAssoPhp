@@ -431,5 +431,3 @@ function age($date)
 /**
 * FIN Fonctions
 */
-
-?>

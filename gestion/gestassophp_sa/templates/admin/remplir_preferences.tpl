@@ -21,12 +21,12 @@
 	</ul>
 	<div id="tab1_table">
 		<br>
-{if !empty($erreur_saisie.champ)}
-	{* if $erreur_saisie.champ|@count != 0 *}
-		<div id="erreur-box">{language name = tpl_texte_err_saisie} ...<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.champ}</span>
-		</div>
-	{* /if *}
-{/if}
+	{if !empty($erreur_saisie.champ)}
+		{* if $erreur_saisie.champ|@count != 0 *}
+			<div id="erreur-box">{language name = tpl_texte_err_saisie} ...<span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.champ}</span>
+			</div>
+		{* /if *}
+	{/if}
 <form action="remplir_preferences.php" method="post" name="ma_form_tab1">
 {* Nom de l'espace *}
 	<label class="label_pref">{language name = pref_messagetitre}</label>
@@ -53,12 +53,10 @@
 	<label class="label_pref">{language name = pref_adherent_bene}</label>
 		<input type="text" name="adherent_bene" id="adherent_bene" title="{language name = pref_adherent_bene_title}" value="{$preference_asso.adherent_bene}" size="30"  maxlength="40" tabindex="5"><br><br>
 
-
 	<div>&nbsp;&nbsp;&nbsp;{language name = pref_lang_fiche_adht_ant_info}</div>
 {* Nom définissant les activité Ex : Section *}
 	<label class="label_pref">{language name = pref_lang_fiche_adht_ant}</label>
 		<input type="text" name="_lang_fiche_adht_ant" id="_lang_fiche_adht_ant" title="{language name = pref_lang_fiche_adht_ant_title}" value="{$preference_asso._lang_fiche_adht_ant}" size="30"  maxlength="40" tabindex="5"><br><br>
-
 
 	<div>&nbsp;&nbsp;&nbsp;{language name = pref_lang_jma_fin_cotis_info}</div>
 {* Date fin cotisation EX : 31/12/2021 *}
@@ -94,7 +92,7 @@
 		<form action="remplir_preferences.php" method="post" name="ma_form_tab2">
 			<br>
 			<label class="label_pripref">{language name = pref_new_designation}&nbsp;&nbsp; </label>
-		{* Ici entrer la désignation activité *}
+{* Ici entrer la désignation activité *}
 				<input type="text" name="new_nom_type_antenne" id="new_nom_type_antenne" title="{language name = pref_new_designation_title}" value=
 				"{if !empty($new_antenne.nom_type_antenne)}{$new_antenne.nom_type_antenne}{/if}"
 				size="40"  maxlength="30" tabindex="1" placeholder="{language name = pref_new_designation_placeholder}">
@@ -193,7 +191,7 @@
 	<br>
 	<form action="remplir_preferences.php" method="post" name="ma_form_tab3">
 		<label class="label_pripref">{language name = pref_new_designation}&nbsp;&nbsp; </label>
-	{* Ici entrer la désignation cotisation *}
+{* Ici entrer la désignation cotisation *}
 			<input type="text" name="new_nom_type_cotisation" id="new_nom_type_cotisation" title="{language name = pref_col_designation_cotis_placeholder}" value=
 			"{if !empty($new_type_cotisation.nom_type_cotisation)}{$new_type_cotisation.nom_type_cotisation}{/if}"
 			size="40"  maxlength="60" tabindex="1" placeholder="{language name = pref_col_designation_cotis_placeholder}">
@@ -202,7 +200,7 @@
 			{/if}
 			<br>
 		<label class="label_pripref">{language name = pref_new_mont_cotisation}&nbsp;&nbsp; </label>
-	{* Ici entrer le montant cotisation en chiffres *}
+{* Ici entrer le montant cotisation en chiffres *}
 			<input type="text" name="new_montant_cotisation" id="new_montant_cotisation" title="{language name = pref_new_mont_cotisation_title}" value=
 			"{if !empty($new_type_cotisation.montant_cotisation)}{$new_type_cotisation.montant_cotisation}{/if}"
 			size="35"  maxlength="10" tabindex="2" placeholder="{language name = pref_new_mont_cotisation_placeholder}">
@@ -318,7 +316,6 @@
 {* -------------------------------------- FIN TAB 4 Affichage Changelog ----------------------------- *}
 
 {/if}
-
 
 	</div>
 {* FIN défini le contenu .. *}

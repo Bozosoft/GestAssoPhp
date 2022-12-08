@@ -439,8 +439,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 					$adherent['datenaisance_adht'] = switch_sqlFr_date($adherent['datenaisance_adht']);
 					// Préparation pour Affichage partie variable en fonction des données
 					$adherent['ville_adht'] = stripslashes($adherent['ville_adht']);
-					$adherent['adresse_adht'] = stripslashes($adherent['adresse_adht']);
-					$adherent['disponib_adht'] = stripslashes($adherent['disponib_adht']);
+					$adherent['adresse_adht'] = stripslashes($adherent['adresse_adht'] ?? '' ); // PHP8.2-Passing null to parameter #1 ($string)
+					$adherent['disponib_adht'] = stripslashes($adherent['disponib_adht'] ?? '' ); // PHP8.2-Passing null to parameter #1 ($string)
 					$qui_enrg_adht = $adherent['qui_enrg_adht'] ; //+ qui a enrregistré la fiche
 					// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 					$tpl->assign('data_adherent', $adherent);
@@ -518,7 +518,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('list_antenne_adht', $tab_antenne);
 	$tpl->assign('list_tranche_age_adht', $T_TRANCHE_AGE); // ESSAI  html_options name="tranche_age_adht"
 	$tpl->assign('list_oui_non', $T_OUI_NON); // selection Oui / Non
-	$tpl->assign('date_dujour', switch_sqlFr_date($date_du_jour)); // date du jour pour  Date d'inscription
+	$tpl->assign('date_dujour', switch_sqlFr_date($date_du_jour)); // date du jour pour Date d'inscription
 	$tpl->assign('required', $required); // Variables Obligatoires
 	$tpl->assign('erreur_saisie', $erreur_saisie); // Erreur de saisie sur champs Obligatoires
 	$tpl->assign('disabled', $disabled); // pour afficher "disabled" les zones non modifiables du formulaire
@@ -535,5 +535,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

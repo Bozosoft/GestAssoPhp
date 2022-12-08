@@ -1,50 +1,55 @@
 ﻿http://www.smarty.net/  - http://www.smarty.net/manual/fr/
-https://github.com/smarty-php/smarty/
+
+https://smarty-php.github.io/smarty/  	Smarty 4 Documentation
+https://github.com/smarty-php/smarty/  	Smarty PHP Template Engine 
 
 --------------------------------
-Fichier poutr GestAssophp
+Fichier pour GestAssophp
 --------------------------------
-\lib\
-	\lib\smarty\ 17 fichiers
-		CHANGELOG.md  ==>3.1.35 le change_log.txt devient CHANGELOG.md
-		COMPOSER_RELEASE_NOTES.txt
-		LICENSE  (Ex COPYING.lib)
-		INHERITANCE_RELEASE_NOTES.txt
-		NEW_FEATURES.txt
-		README
-		README.md
-		SMARTY_2_BC_NOTES
-		SMARTY_3.0_BC_NOTES.txt
-		SMARTY_3.1_NOTES.txt
+/lib/
+	/lib/smarty/ 11 + 1 fichiers
 		Autoloader.php
-		debug.tpl
-		Smarty.class.php
-		SmartyBC.class.php
 		bootstrap.php (+ en v 3.3.31)
+		CHANGELOG.md
+		composer.json (+ en v 3.1.38)
+		debug.tpl
+		functions.php (+ ajout V 4.3.0)
+		LICENSE
+		README.md
+		SECURITY.md (+ en v 3.1.40)
+		Smarty.class.php
+		** SmartyBC.class.php (fichier vide)
 		+ index.html
-		++ composer.json (+ en v 3.1.38)
-		+++ SECURITY.md (+ en v 3.1.40)
+		+ SMARTY_VERSION_4.3.0 (modifications 3.1.47-4.3.0)
 
-
-	\lib\smarty\sysplugins --->Tous les fichiers (153+1)
+	/lib/smarty/sysplugins --->Tous les fichiers (154 + 1)
+		** (dont 3 fichiers vides)
 		+index.html
 
-	\lib\smarty\plugins -->UNIQUEMENT les fichiers suivants (9+1)
-		7 + 1 + 1
+	/lib/smarty/plugins -->UNIQUEMENT les fichiers suivants (10 + 1 )
 		function.cycle.php
 		function.html_options.php
+		function.language.php  //define('_LANG_VIDE', 'texte vide de texte'); 
 		function.mailto.php
+		modifier.count.php (+ ajout V 4.3.0)
 		modifier.debug_print_var.php
 		modifier.escape.php 
-		modifier.string_format.php (+)
+		modifier.string_format.php (@link  corrigé 30/11/22)
 		modifier.truncate.php
 		shared.escape_special_chars.php
-		+ function.language.php -->
-			//define('_LANG_VIDE', 'texte vide de texte');    
-			sur template {language name=vide}  affiche => texte vide de texte (22/08/2008)
 		+index.html
+
 --------------------------------
 
+27/11/2022 Smarty v4.3.0   ## [4.3.0] - 2022-11-22 https://github.com/smarty-php/smarty/releases/tag/v4.3.0
+** fichiers vides
+- SmartyBC.class.php Dropped deprecated API calls that where only accessible through SmartyBC [4.0.0-rc.0] - 2021-10-13
+ /sysplugins/
+- smarty_internal_resource_registered.php =>  This file was deleted  v4.0.0-v3.1.40
+- smarty_internal_compile_private_php.php =>  This file was deleted. v4.0.0-v3.1.40 
+- smarty_internal_compile_include_php.php =>  This file was deleted. v4.0.0-v3.1.40
+
+================================
 29/10/2022 Smarty v3.1.47  ## [3.1.47] - 2022-09-14 https://github.com/smarty-php/smarty/releases/tag/v3.1.47
 
 25/05/2022 Smarty v3.1.45  ## [3.1.45] - 2022-05-17 https://github.com/smarty-php/smarty/releases/tag/v3.1.45

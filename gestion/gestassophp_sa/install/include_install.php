@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -30,7 +30,7 @@
 * --------------------------------------------------------------------
 */
 
-	define('VERSION_I', 'Installateur_Php+Pg V 1.4.0'); // version installateur
+	define('VERSION_I', 'Installateur_Php+Pg V 1.5.0'); // version installateur
 	define('STYLE_I', 'style_screen.css'); // Feuille de syle  style_screen.css ou m_style_screen.css
 	$file_loc = 'fileloc_gestasso_sa.php';  // le repertoire de gestasso = ROOT_DIR_GESTASSO voir le fichier fileloc_gestasso_sa.php
 	include_once '../../'.$file_loc; // défintion du fichier pour définir  ROOT_DIR
@@ -78,5 +78,3 @@
 /***** Les chemins des répertoires utilisés en interne contrôle permissions répertoires pour Etape 1 */
 	define('DIR_PHOTOS', join_path(ROOT_DIR_GESTASSO,'photos')); // répertoire photo
 	define('DIR_FILES_ADHTS', join_path(ROOT_DIR_GESTASSO,'fichiersadht').DIRECTORY_SEPARATOR); // répertoire Fichiers pour les adhts
-
-?>

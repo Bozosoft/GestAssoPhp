@@ -27,7 +27,7 @@ Options -Indexes
 </Files>
 </IfDefine>
 
-#
+## Refuser l'accès aux dossiers
 RedirectMatch 403 ^/.*\.htaccess$
 RedirectMatch 403 ^.*/config/.*\.php$
 RedirectMatch 403 ^.*/doc/.*\.php$

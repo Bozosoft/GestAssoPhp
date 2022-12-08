@@ -8,15 +8,15 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/admin/
  *  Fichier :	liste_logs.php
- *  Affiche la liste des logs + Possibiliter de supprimer TOUS les logs
+ *  Affiche la liste des logs + Possibilité de supprimer TOUS les logs
  *  Inspiré pour la partie tri de GALLETTE  v0.63 Copyright (c) 2003 Frédéric Jaqcuot
 */
 
@@ -45,10 +45,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$logs = array();
 	// initialisation
 
-	/***** Si ADMINISTRATEUR donc $priorite_adht >4 DROIT DE CONSUTER ET MODIFIER (4 , 5 , 7  n'a PAS le droit) */
+	/***** Si ADMINISTRATEUR donc $priorite_adht = 9  Tous les droits */
 	if ($priorite_adht < 8 ) {  // INTERDIT
 		$id_adht = $sessionadherent;
-		// Message erreur PAS LE DROIT
+		// Renvoi vers Visualisation et Gestion des informations Adhérent
 		header('location: ../adherent/gerer_fiche_adht.php');
 	}
 
@@ -82,7 +82,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	// préparation de l'affichage
 	$affiche_nb_lines = NB_LIGNES_PAGE;
-	// si modification du nb de ligne par page par selecteur Afficher par :
+	// si modification du nb de lignes par page par selecteur Afficher par :
 	if (isset($_GET['affiche_nb_fich'])) {
 		$affiche_nb_lines = get_post_variable_numeric('affiche_nb_fich',NB_LIGNES_PAGE); // par défaut
 	}
@@ -134,7 +134,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	// comptage des fiches
 	$dbresult = $db->Execute($reqcompt_logs); // Pour compter le NB d'enregistrements
-	$nb_lines= $dbresult->RecordCount() ; // le NB de ligne totales
+	$nb_lines= $dbresult->RecordCount() ; // le NB de lignes totales
 
 	if ($affiche_nb_lines == 0) {
 		$nbpages = 1;
@@ -151,11 +151,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	$dbresult = $db->Execute($req_lire_logs);
 
-	// pour afficher le Nb de ligne par page
+	// pour afficher le Nb de lignes par page
 	if ($affiche_nb_lines == 0) {
 		$dbresult = $db->Execute($req_lire_logs);
 	} else {
-	// pour afficher le Nb de ligne par page
+	// pour afficher le Nb de lignes par page
 		$dbresult = $db->SelectLimit($req_lire_logs,$affiche_nb_lines,  (($numpage_affiche-1)*$affiche_nb_lines) );
 	}
 
@@ -179,8 +179,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('nomprenom_adht', $prenom_adht.' '.$nom_adht);
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('logs', $logs);	// tableau $logs[$indice]['xxx']
-	$tpl->assign('nb_lines', $nb_lines); // Nb de ligne de requête
-	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totale
+	$tpl->assign('nb_lines', $nb_lines); // Nb de lignes de requête
+	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totales
 	$tpl->assign('numpage', $numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_fich', $affiche_nb_lines); // NB lignes par select
 	$tpl->assign('affichenb_log_options', $T_AFFICHE_NB_PAGE); // Nb de lignes par page
@@ -194,5 +194,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

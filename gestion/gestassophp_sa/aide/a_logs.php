@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :   a_logs.php
- *  Affiche l'aide pour la page consulter les logs des connexions
+ *  Affiche l'aide pour la page consulter les logs des connexions - Administration
 */
 
 	include_once '../config/connexion.php';

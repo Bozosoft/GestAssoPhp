@@ -19,7 +19,7 @@
 			{* Enregistrement N° ... du xx/xx/xxxx *}
 			<td class="Lignegris_pad1" style="width:50%;">{language name = visu_fiche_adht_enr}&nbsp;{$id_adht}&nbsp;{language name = visu_fiche_adht_enrdu}{$data_adherent.datecreationfiche_adht}
 		{if $priorite_adht == 9}
-			{* affiche priorité adherent - Uniquement si consultation par admin 9 *}
+			{* affiche priorité adhérent - Uniquement si consultation par admin 9 *}
 			| {language name = menu_admin_gestion_pa}
 			: {$data_adherent.priorite_adht}
 		{/if}
@@ -53,7 +53,7 @@
 	<table style="width:65%;">
 
 	{if $data_adherent.soc_adht != '999'}
-	{* Donc si fiche adherent non supprimée * }
+	{* Donc si fiche adhérent non supprimée * }
 		{* $data_adherent.date_echeance_cotis soit une date '2012-09-30' soit '0000-00-00' soit '' (NULL) *}
 		{if $data_adherent.date_echeance_cotis == '0000-00-00' || $data_adherent.date_echeance_cotis == ''}
 			{* Si pas de date de Cotisation ou Cotisation NON réglée *}

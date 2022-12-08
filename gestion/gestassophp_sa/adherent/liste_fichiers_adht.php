@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -47,7 +47,7 @@ $pas = $logpass[1];
 	// Tableau pour affichage
 	$fichier = array();
 	// initialisation
-	$date_du_jour=date('Y-m-d'); // Pour définir la date du jour et la différence entre 2  dates
+	$date_du_jour=date('Y-m-d'); // Pour définir la date du jour et la différence entre 2 dates
 
 
 
@@ -292,13 +292,13 @@ $pas = $logpass[1];
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('fichier', $fichier); // tableau $fichier[$indice]['xx_xx']
 	$tpl->assign('nb_lines', $nb_lines); // Nb de ligne de requête
-	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totale
+	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totales
 	$tpl->assign('numpage', $numpage_affiche); // le N° de la page courrante
 	$tpl->assign('affiche_nb_fich', $affiche_nb_lines); // NB lignes par select
 	//$tpl->assign('affiche_nb_lines', $affiche_nb_lines);
 	$tpl->assign('filtre_adht_nom', $filtre_adht_nom); // Filtrage par Rechercher ...
 	$tpl->assign('filtrefichier_ou', $filtrefichier_ou); // Filtrage parmi .les fichiers actifs, supprimés
-	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_FICHIERS); // la litse des options  fichier actifs ou supprimés..
+	$tpl->assign('filtre_options', $T_AFFICHE_FILTRE_FICHIERS); // la liste des options  fichier actifs ou supprimés..
 	$tpl->assign('affichenb_adht_options', $T_AFFICHE_NB_PAGE); // Nb de lignes par page
 	// POUR AFFICHAGE VERS TEMPLATE
 	$content = $tpl->fetch('adherent/liste_fichiers_adht.tpl'); // affichage ...
@@ -310,5 +310,3 @@ $pas = $logpass[1];
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

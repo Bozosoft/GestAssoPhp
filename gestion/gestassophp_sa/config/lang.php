@@ -17,7 +17,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/lang/
  *  Fichier : 	lang.php
  *  Fichier de langue
- *  ENCODAGE entitiés pour UTF8  é = &eacute; à = &agrave; è = &egrave;  î = &icirc; ê = &ecirc;
+ *  ENCODAGE entitiés si besoin é = &eacute; à = &agrave; è = &egrave;  î = &icirc; ê = &ecirc;
 
  *  Textes et messages pour affichage
  *  define('_LANG_VIDE', 'le texte de votre langue ici');
@@ -184,7 +184,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 * Informations sur mes fichiers et mes missions  OPTION  -> Module  INFO_FICHIER_MISSIONS Affiche si un adhérent a des fichiers
 * Informations complémentaires OPTION  -> Module  INFO_COMPLEMENTAIRES
 * INFO_FICHIER_MISSIONS Affiche si un adhérent a des fichiers  -- Possibilité de supprimer la gestion des fichiers
-* MODIFIER LE FICHIER    \adherent\gerer_fiche_adht.php
+* MODIFIER LE FICHIER    /adherent/gerer_fiche_adht.php
 * fichier /adherent/consulter_info_fichiermission_adht.php
 */
 	define('INFO_FICHIER_MISSIONS', '1'); //MODIFICATION possible  1 visible 0 Non visible
@@ -278,8 +278,8 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 /**
 * MODIFICATION Version 4.1 AJOUT
 * ajout d'une zone .... Note
-* MODIFIER LE FICHIER    \adherent\gerer_fiche_adht.php +tpl
-* MODIFIER LE FICHIER    \adherent\ remplir_infogene_adh.php  + tpl
+* MODIFIER LE FICHIER   /adherent/gerer_fiche_adht.php +tpl
+* MODIFIER LE FICHIER    /adherent/remplir_infogene_adh.php  + tpl
 * Modifier la BD ajout de :    disponib_adht	varchar(250)  // compatibilité avec GesassoPhp spécial FB
 */
 	define('_LANG_FICHE_ADHT_COMPL', 'Observations'); // Note, Commentaire, observation  ...  {language name = fiche_adht_compl}
@@ -658,5 +658,8 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 // Ajout Zone PAIEMENT Gestion Cotisations	html_options name="paiement_cotis"  remplir_cotisations_adht //+21/02/2016 Paypal
 	$T_PAIEMENT_COTIS = array('chq'=>'Chèque', 'esp'=>'Espèces', 'c_b'=>'Carte bancaire', 'pay'=>'Paypal', 'aut'=>'Autre');
 
-
-?>
+/**
+* --------------------------------------------------------------------
+* FIN lang.php
+* --------------------------------------------------------------------
+*/

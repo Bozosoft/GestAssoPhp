@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020 (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -85,7 +85,7 @@
 /***** Les chemins des répertoires pour SMARTY */
 	define('TEMPLATES_LOCATION', join_path(ROOT_DIR_GESTASSO, 'templates' ) ); // répertoire Fichiers des templates
 	define('TMP_LOCATION', join_path(ROOT_DIR_GESTASSO, 'temp'));  // répertoire  des Fichiers temporaires
-	define('TMP_TEMPLATES_C_LOCATION', join_path(ROOT_DIR_GESTASSO, 'temp', 'templates_c')); // répertoire  des Fichiers temporaires de templates
+	define('TMP_TEMPLATES_C_LOCATION', join_path(ROOT_DIR_GESTASSO, 'temp', 'templates_c')); // répertoire des Fichiers temporaires de templates
 // OPTIONS
 
 
@@ -94,12 +94,12 @@
 	define('SMARTY_DIR', join_path(ROOT_LIB ,'smarty'). DIRECTORY_SEPARATOR );
 	require (SMARTY_DIR.'Smarty.class.php'); // la classe
 
-	$tpl = new Smarty; //instance de Smarty pour scripts PHP
+	$tpl = new Smarty; // instance de Smarty pour scripts PHP
 	// $tpl->compile_dir = TMP_TEMPLATES_C_LOCATION ; // répertoire par défaut de compilation = templates_c // Smarty version 2x
 	// $tpl->template_dir = TEMPLATES_LOCATION; // répertoire par défaut des templates = templates // Smarty version 2x
-	// Pour verson 3.x
-	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ; // répertoire par défaut de compilation = templates_c // Smarty version 3.x
-	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates = templates // Smarty version 3.x
+	// Pour verson 3.x  et 4.x
+	$tpl->setCompileDir (TMP_TEMPLATES_C_LOCATION) ; // répertoire par défaut de compilation = /gestassophp_sa/temp/templates_c
+	$tpl->setTemplateDir (TEMPLATES_LOCATION); // répertoire par défaut des templates =  /gestassophp_sa/templates/
 
 /***** OPTIONS */
 	//$tpl->debugging = true;
@@ -125,6 +125,3 @@
 /*****  Affichage en template */
 	$tpl->assign('adherent_bene',ADHERENT_BENE); // adhérent ou  Bénévole au singulier
 	$tpl->assign('nomlienpage', basename($_SERVER['SCRIPT_NAME']));
-
-
-?>

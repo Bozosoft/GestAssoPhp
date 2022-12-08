@@ -16,7 +16,7 @@
 	</td>
 	</tr>
 
-		{foreach from = $fichier item = item_fichier key = ordre}
+{foreach from = $fichier item = item_fichier key = ordre}
 		{if $priorite_adht > 4}
 			<tr class="Lignegris{$item_fichier.coul}">
 			<td style="width:40%;">

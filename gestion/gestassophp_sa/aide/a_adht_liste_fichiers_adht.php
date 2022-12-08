@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_liste_fichiers_adht.php
- *  Affiche l'aide pour liste des fichiers des Adhérent
+ *  Affiche l'aide pour liste des fichiers des Adhérent - Adhérents
 */
 
 	include_once '../config/connexion.php';

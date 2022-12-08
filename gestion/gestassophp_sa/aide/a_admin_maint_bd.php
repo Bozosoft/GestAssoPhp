@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_admin_maint_bd.php
- *  Affiche l'aide pour la maintenance de la base de données (partie Admin)
+ *  Affiche l'aide pour la maintenance de la base de données - Administration
 */
 
 	include_once '../config/connexion.php';

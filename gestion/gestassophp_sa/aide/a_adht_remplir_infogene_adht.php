@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_remplir_infogene_adht.php
- *  Affiche l'aide pour créer une fiche Informations personnelles
+ *  Affiche l'aide pour créer une fiche Informations personnelles - Gestion Membres - Adhérents
 */
 
 	include_once '../config/connexion.php';

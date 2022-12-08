@@ -28,6 +28,7 @@
  *  Directory :  /ROOT_DIR_GESTASSO/
  *  Fichier :   index.php
  *  Fichier Index contrôle l’authentification et redirige vers /adherent/index.php
+ * 
 */
 
 // Test si l'installation est existante par le fichier config/connexion.cfg.php
@@ -35,7 +36,7 @@
 		define('INDEX0', 'OK'); // pour inclusion de fileloc_gestasso dans la suite du programme
 		include_once 'config/connexion.php';
 	}else {
-		// sinon vers install
+		// sinon vers dossier /install
 		if (file_exists('install/index.php')) {
 			header('location: install/index.php');
 		} else {
@@ -50,7 +51,7 @@
 	$dbresult = '' ;
 	$nom_adht = $prenom_adht = '' ;
 
-// Il faut renommer le dossier /install !!
+// Il faut renommer ou supprimer le dossier /install !!
 
 $masession = new sessions(); // -->la classe session //session_start();
 
@@ -122,7 +123,7 @@ if (isset($_POST['ident'])) {
 		// LOGIN ou MDP NON Valide
 		$ecritlog = $masession->write_log('ErreurLogin', $mylogin); //écrit qui s'est connecté
 		$texterreurlogin = _LANG_TEXTERREURLOGIN2;
-		// AJOUT TEST pour étourdis pour demo FREE.fr
+		// AJOUT des lignes suivantes pour étourdis SI demo  !! Modifier aussi le fichier /templates/login.tpl
 		/*	if ( $mylogin == 'DEMO' || $mylogin == 'ADMIN'  || $mylogin == 'ASSO'  || $mylogin == 'TEST') {
 				$texterreurlogin = $texterreurlogin .'<h2>Houllla ! Probl&egrave;me de lecture ou de lunettes ! <br>Inutile d\'insister Login non conforme !</h2>';
 		} */
@@ -162,5 +163,3 @@ if (isset($_REQUEST['logout'])) {
 	$tpl->assign('email_adresse', EMAIL_ADRESSE); // message Oubli mot de passe ...
 	// POUR AFFICHAGE VERS TEMPLATE
 	$tpl->display('login.tpl');
-
-?>

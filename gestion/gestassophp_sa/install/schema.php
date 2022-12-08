@@ -54,7 +54,7 @@
 $erreur_saisie = array() ;
 	// Choix de mysql ou mysqli // ATTENTION suivant la version PHP
 	$type_bd = $_SESSION['type_bd']; // récupération du choix mysql ou mysqli
-	if ($type_bd == 'mysql' || $type_bd == 'mysqli')
+	if ($type_bd == 'mysql' || $type_bd == 'mysqli')  // 'mysql'  cette extension est obsolète depuis PHP 5.5.0 
 		@$db->Execute("ALTER DATABASE `" . $db->database . "` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci");
 	// force utf8
 	$dbdict = NewDataDictionary($db);
@@ -237,5 +237,4 @@ $erreur_saisie = array() ;
 		$message_bd[$table_num] = 'Ajout .... : '.$table.' =>  Erreur -> '.$db->ErrorMsg().'<br>';
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
-
-?>
+/***** Fin Structure des tables */

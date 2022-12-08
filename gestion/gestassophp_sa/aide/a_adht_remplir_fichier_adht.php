@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_remplir_fichier_adht.php
- *  Affiche l'aide pour ajouter un nouveau fichier depuis votre ordinateur vers le serveur
+ *  Affiche l'aide pour ajouter un nouveau fichier depuis votre ordinateur vers le serveur - Adhérents
 */
 
 	include_once '../config/connexion.php';

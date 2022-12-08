@@ -17,7 +17,7 @@
 			<input type="text" name="filtre_nom" id="filtre_nom" value="{$filtre_adht_nom}" title="{language name = tpl_liste_adht_parmi_title}">
 		</div>
 
-{* Affichage NB adherents -  - NB pages *}
+{* Affichage NB adhérents -  - NB pages *}
 	<table style="width:100%;">
 		<tr>
 		{* $affiche_nb_inscrits *}
@@ -45,7 +45,7 @@
 			</td>
 		</tr>
 	</table>
-{* FIN Affichage NB adherents -  - NB pages *}
+{* FIN Affichage NB adhérents -  - NB pages *}
 </form>
 {* FIN Affichage  Recherche *}
 

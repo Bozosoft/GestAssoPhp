@@ -31,7 +31,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/admin/
  *  Fichier :	index.php
- *  Redirige  sur  Fiche adherent OU Tableau de bord Admin
+ *  Redirige  sur  Fiche adhérent OU Tableau de bord Admin
 */
 
 
@@ -57,10 +57,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; // pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; // pour affichage
 
-	// Envoi vers la page en fonction de priorite_adht
-		if ($priorite_adht >5) {
+	// Envoi vers la page en fonction de priorite_adht 
+		if ($priorite_adht >=5) {	// Si  >=5 : 5 = Secrétaire, 7 = Trésorier, 9 = Admin 
 			header('location: ../admin/tableau_bord.php');
-		} else {
+		} else {	// sinon 4 = Membre du CA ou 1 = Membre - NOTA 0 = accès interdit, 
 			header('location: ../adherent/gerer_fiche_adht.php');
 		}
 
@@ -68,5 +68,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

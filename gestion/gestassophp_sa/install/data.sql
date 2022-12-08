@@ -3,7 +3,7 @@
 #-- Fichier :   data.sql
 #-- Installation du système
 #-- données des tables   * ENCODAGE UTF-8 sans BOM
-#-- version : 2022
+#-- version : 2023
 #--
 
 #--
@@ -26,7 +26,7 @@ INSERT INTO gs_preference_asso (id_pref, design_pref, val_pref) VALUES
 (6, 'adherent_bene', 'Utilisateur'),
 (7, '_lang_fiche_adht_ant', 'Section'),
 #-- 8, réservé
-(9, 'jma_fin_cotis','31/12/2022');
+(9, 'jma_fin_cotis','31/12/2023');
 
 
 #--
@@ -34,5 +34,4 @@ INSERT INTO gs_preference_asso (id_pref, design_pref, val_pref) VALUES
 #--
 INSERT INTO gs_types_antennes (nom_type_antenne) VALUES
 ( 'sans');
-
 

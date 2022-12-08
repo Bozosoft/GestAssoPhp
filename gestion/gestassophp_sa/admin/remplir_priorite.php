@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version :  2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -18,7 +18,7 @@
  *  Fichier :	remplir_priorite.php
  *  Définir les priorité des adhérents en fonction de
  *   0 = accés interdit,
- *   1 = Par défaut (créé lors de l'inscrition) seul accés -> Votre Fiche et Annuaire
+ *   1 = Par défaut (créé lors de l'inscription) seul accés -> Votre Fiche et Annuaire
  *   4 = Membre du CA (idem 1 + Administration : Tableau bord)
  *   5 = Secrétaire (idem 1 + Administration : Tableau bord Adhérents Associations Besoins Asso Missions )
  *   7 = Trésorier (idem 5 + Cotis Adhts + Réactivation : adhérents, Assocations, Missions et Voir les Archives des Cotisations)
@@ -44,10 +44,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; // pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; // pour affichage
 
-	/***** Si ADMINISTRATEUR donc $priorite_adht >4 DROIT DE CONSUTER ET MODIFIER 4 , 5 , 7  n'a PAS le droit) */
+	/***** Si ADMINISTRATEUR donc $priorite_adht = 9  Tous les droits */
 	if ($priorite_adht < 8 ) {  // INTERDIT
 		$id_adht = $sessionadherent;
-		// Message erreur PAS LE DROIT
+		// Renvoi vers Visualisation et Gestion des informations Adhérent
 		header('location: ../adherent/gerer_fiche_adht.php');
 	}
 
@@ -150,9 +150,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	// comptage des fiches
 	$dbresult = $db->Execute($reqcompt_priorite); // Pour compter le NB d'enregistrements
-	$nb_lines= $dbresult->RecordCount() ; // le NB de ligne totales
+	$nb_lines= $dbresult->RecordCount() ; // le NB de lignes totales
 
-	// pour afficher le Nb de ligne par page
+	// pour afficher le Nb de lignes par page
 	if ($affiche_nb_lines == 0) {
 		$nbpages = 1;
 	} else if ($nb_lines % $affiche_nb_lines == 0) { // si modulo = reste donc prévoir 1 page de +
@@ -169,11 +169,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 	$dbresult = $db->Execute($req_lire_priorite);
 
-			// pour afficher le Nb de ligne par page
+			// pour afficher le Nb de lignes par page
 	if ($affiche_nb_lines == 0) {
 		$dbresult = $db->Execute($req_lire_priorite);
 	} else {
-	// pour afficher le Nb de ligne par page
+	// pour afficher le Nb de lignes par page
 		$dbresult = $db->SelectLimit($req_lire_priorite,$affiche_nb_lines,  (($numpage_affiche-1)*$affiche_nb_lines) );
 	}
 // echo "DEBUG indice =".$indice."<br>"; // DEBUG
@@ -202,8 +202,8 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('listnoms', $tab_benevol); // la liste des noms des adhérents
 	$tpl->assign('list_priorite_adht', $T_PRIORITE_ACCESS);	// la liste des priorités
 	$tpl->assign('priorite', $priorite);	// tableau $priorite[$indice]['xxx']
-	$tpl->assign('nb_lines', $nb_lines); // Nb de ligne de requête
-	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totale
+	$tpl->assign('nb_lines', $nb_lines); // Nb de lignes de requête
+	$tpl->assign('nb_pages', $nbpages); // le Nombre de pages totales
 	$tpl->assign('numpage', $numpage_affiche); // le N° de la page courrante
 	// POUR  AFFICHAGE VERS TEMPLATE
 	$content = $tpl->fetch('admin/remplir_priorite.tpl'); // affichage ...
@@ -215,5 +215,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

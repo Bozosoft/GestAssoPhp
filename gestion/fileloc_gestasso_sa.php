@@ -8,12 +8,12 @@
  * ---------------------------
  *	
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2020
- * @copyright 2007-2020  (c) JC Etiemble
+ * @version : 2022
+ * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  * 
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
- * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : 
+ * @ Smarty 4.x  GNU LESSER GENERAL PUBLIC LICENSE : 
  *  	https://github.com/smarty-php/smarty/blob/master/LICENSE
  * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE :
  *   	https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
@@ -28,17 +28,17 @@
 
 /** 
  * Exemple d'installation dans un dossier hébergement nommé /gestion/
- * /gestion/						= la racine
+ * /gestion/									= la racine
  * /gestion/gestassophp_sa/			= dossier ou se trouve les fichiers du programme
- * /gestion/lib 					= les libs 	- smarty (système de template) et adodb 
- * /gestion/.htaccess		 		= sécurité
+ * /gestion/lib 								= les libs 	- smarty (système de template) et adodb 
+ * /gestion/.htaccess		 				= sécurité
  * /gestion/fileloc_gestasso_sa.php	= ce fichier
- * /gestion/index.html				= fichier HTML lien direct vers /gestion/gestassophp_sa/	
+ * /gestion/index.html					= fichier HTML lien direct vers /gestion/gestassophp_sa/	
 */
 
 /**
  * Définir le chemin initial
- * ROOT_DIR = la racine pour l'hébergement des dossiers où se trouve les fichiers du programme GestAssoPh
+ * ROOT_DIR = la racine pour l'hébergement des dossiers où se trouve les fichiers du programme GestAssoPhp
 */
 	$dirname = dirname(__FILE__); 
 	define('ROOT_DIR', $dirname);  
@@ -46,9 +46,6 @@
 /**
  * le dossier de gestassophp = ROOT_DIR_GESTASSO
  * Peut etre modifié en modifiant le mot 'gestassophp_sa' par 'votre dossier où se trouve les fichiers du programme
- * Si vous remplacer gestassophp_sa par gestassophp_xx votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/
+ * Si vous remplacer gestassophp_sa par gestassophp_xx votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/ . NOTA modifier aussi la ligne du fichier /config/connexion.php $file_loc = 'fileloc_gestasso_sa.php';
 */
 	define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');	 //dossier du programme
-
-
-?>

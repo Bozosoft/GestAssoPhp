@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_adht_liste_adht_admin2.php
- *  Affiche l'aide pour uniquement la liste des Adhérents actifs (partie Admin)
+ *  Affiche l'aide pour uniquement la liste des Adhérents actifs - Adhérents
 */
 
 	include_once '../config/connexion.php';

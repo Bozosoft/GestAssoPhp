@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
 	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
 	<title>GestAssoPhp+Pg - {$nomprenom_adht}</title>
-	{*  IE est non conforme aux standards *}
+{*  IE est non conforme aux standards - Ici IE version inférieure à 9 *}
 	<!--[if lt IE 9]>
 	{literal}
 	<script src="../js/html5shiv.min.js"></script>
@@ -22,11 +22,11 @@
 <body>
 {* défini la page extérieure *}
 <div id="conteneur_page">
- {* défini le bandeau haut *}
+{* défini le bandeau haut *}
       <header class="header_page">
 			{$messagetitre} {$nom_asso_gestassophp}
       </header>
- {* / défini le bandeau haut *}
+{* / défini le bandeau haut *}
 
 {* défini la zone gauche *}
 	<div class="gauche_page">
@@ -86,11 +86,11 @@
 	</div>
 {* / défini les informations de la page *}
 
- {* défini le pied de page  ne pas modifier lces lignes *}
+{* défini le pied de page  ne pas modifier lces lignes *}
 	<footer class="footer_pied_page">
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="Evolution" >{$version}</a>&nbsp;&nbsp;&nbsp;&nbsp; <span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span>
     </footer>
-  {* / défini le pied de page *}
+{* / défini le pied de page *}
 
 </div>
 {* / défini la page extérieure *}

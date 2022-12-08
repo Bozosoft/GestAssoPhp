@@ -215,10 +215,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 		$req_lire_ant .= "id_type_antenne ".$tri_sens_txt;
 
-		// pour afficher le Nb de ligne par page
+		// pour afficher le Nb de lignes par page
 		// comptage des fiches
 		$dbresult = $db->Execute($reqcompt_ant); // Pour compter le NB d'enregistrements
-		$nb_lines= $dbresult->RecordCount() ; // le NB de ligne totales
+		$nb_lines= $dbresult->RecordCount() ; // le NB de lignes totales
 		$dbresult = $db->Execute($req_lire_ant);
 
 		// préparation des données
@@ -349,10 +349,10 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 
 		$req_lire_cotis .= "id_type_cotisation ".$tri_sens_txt;
 
-		// pour afficher le Nb de ligne par page
+		// pour afficher le Nb de lignes par page
 		// comptage des fiches
 		$dbresult = $db->Execute($reqcompt_cotis); // Pour compter le NB d'enregistrements
-		$nb_lines= $dbresult->RecordCount() ; // le NB de ligne totales
+		$nb_lines= $dbresult->RecordCount() ; // le NB de lignes totales
 		$dbresult = $db->Execute($req_lire_cotis);
 
 		// préparation des données
@@ -413,11 +413,11 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	$tpl->assign('tab', $tab); // pour afficher l'onglet
 	$tpl->assign('preference_asso', $preference_asso); // tableau original pour affichage
-	$tpl->assign('new_antenne', $new_antenne); // tableau modification nom
-	$tpl->assign('antenne', $antenne); // tableau original pour affichage
+	$tpl->assign('new_antenne', $new_antenne); // tableau modification désignation des activités
+	$tpl->assign('antenne', $antenne); // tableau original pour affichage des Nom des activités
 	$tpl->assign('PHPVersion', phpversion()); // ajout 03/10/18 Version PHP
-	$tpl->assign('new_type_cotisation', $new_type_cotisation); // tableau modification nom
-	$tpl->assign('type_cotisation', $type_cotisation); // tableau original pour affichage
+	$tpl->assign('new_type_cotisation', $new_type_cotisation); // tableau modification types de cotisations
+	$tpl->assign('type_cotisation', $type_cotisation); // tableau original pour affichage des types de cotisation 
 	$tpl->assign('erreur_saisie', $erreur_saisie); // Erreur de saisie sur champs Obligatoires
 	// POUR  AFFICHAGE VERS TEMPLATE
 	$content = $tpl->fetch('admin/remplir_preferences.tpl'); // affichage ...
@@ -429,5 +429,3 @@ $new_type_cotisation['nom_type_cotisation'] = $new_nom_type_cotisation ; // + r�
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

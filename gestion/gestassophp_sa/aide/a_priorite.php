@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :   a_priorite.php
- *  Affiche l'aide des priorités d'accès Adhérents
+ *  Affiche l'aide des priorités d'accès Adhérents - Administration
 */
 
 	include_once '../config/connexion.php';

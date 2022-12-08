@@ -5,11 +5,11 @@
 	<div id="contenu">  {* défini le contenu .. *}
 	<br><br>
   
-   {* message erreur création Fichier de configuration *}
+{* message erreur création Fichier de configuration *}
 	{if $valid_file_config == "non"}<span class='erreur-Jaunerouge'> {$message_file_config} </span>
   	<br><br><br>
 	{/if}
-   {* Fin message erreur création Fichier de configuration STOP *}	
+{* Fin message erreur création Fichier de configuration STOP *}	
  
    	{if $valid_file_config == "oui"}
 	<span class='TextenoirGras'>{$message_file_config}</span> {* message OK création Fichier de configuration *}
@@ -22,7 +22,7 @@
 	<br><br><br>
 	<div class='login-box'><a href='index.php'><span class='submit_nul' title='Annuler'>Annuler</span></a></div>
 	{/if}
-   {* Fin message erreur création BD STOP *}
+{* Fin message erreur création BD STOP *}
 
 	{if $valid_bd_sql == "non"}<span class='erreur-Jaunerouge'>{$message_bd_config}</span><br>
 	{* affichage des erreurs si Erreur : Base de données *}
@@ -34,7 +34,7 @@
 	<br><br>	
 	<div class="centre-txt"><br><a href='index.php'><span class='submit_nul' title='Annuler'>Annuler</span></a><br><br></div>			
 	{/if}	
-   {* Fin message erreur création BD STOP *}	
+{* Fin message erreur création BD STOP *}	
 
 
 	{if $valid_bd_sql == 'oui'}  {* message OK création Base de données *}
@@ -53,5 +53,3 @@
 	{/if}	 
 
 </div>{* Fin défini le contenu .. *}
-
-    

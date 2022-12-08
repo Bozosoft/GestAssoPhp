@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :   a_remplir_cotisation.php
- *  Affiche l'aide pour créer une fiche cotisation (partie Admin)
+ *  Affiche l'aide pour créer une fiche cotisation - Adhérents
 */
 
 	include_once '../config/connexion.php';

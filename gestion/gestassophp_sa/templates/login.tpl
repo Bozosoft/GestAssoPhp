@@ -2,8 +2,7 @@
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
-	{* ne pas modifier les métas *}
-    {* <meta http-equiv="Content-Type" content="text/html; charset={language name=charset}"> *}
+{* ne pas modifier les métas *}
 	<meta charset="{language name=charset}">
 	<meta name="author" content="JCE">
 	<meta name="Description" content="{$version}">
@@ -11,7 +10,7 @@
 	<meta name="keywords" lang="fr" content="GestAssoPhp, gestion, association">
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="stylesheet" type="text/css" media="screen"  href="js/style_screen.css">
-	{*  IE est non conforme aux standards *}
+{*  IE est non conforme aux standards - Ici IE version inférieure à 9 *}
 	<!--[if lt IE 9]>
 	{literal}
 	<script src="js/html5shiv.min.js"></script>
@@ -23,17 +22,17 @@
 <body onload="document.getElementById('login').focus()">
 {* défini la page extérieure *}
 <div id="conteneur_page">
- {* défini le bandeau haut *}
+{* défini le bandeau haut *}
     <header class="header_page">
 			{$messagetitre} {$nom_asso_gestassophp}
-    {* Logo de votre asso est défini dans le fichier /js/style_screen.css avec l'image dans\images\logo\logo_asso.jpg *}
+{* Logo de votre asso est défini dans le fichier /js/style_screen.css avec l'image dans\images\logo\logo_asso.jpg *}
     </header>
- {* / défini le bandeau haut *}
+{* / défini le bandeau haut *}
 
 {* défini la zone gauche *}
 	<div class="gauche_page">
 		<nav>
-			<h1>{language name = menu_adht_membres}</h1>
+			<h4>{language name = menu_adht_membres}</h4>
 			<ul>
 {if $priorite_adht == ''}
 			<li>{language name=login_user}</li>
@@ -53,7 +52,12 @@
 			<br><br>
 			<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="Syst&egrave;me mise &agrave; disposition sous un contrat Creative Commons"></a><br><br><figcaption  class="TextenoirR"><a href="./doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></figcaption>
 		</figure>
-	{* figure class="centre-txt *}
+{* !! Supprimer cette ligne SI demo pour étourdis - Voir gestassophp_sa/index.php
+			<figure class="centre-txt">
+			<img src='images/icones/help.gif' alt="alerte" width="32" height="32" title="ATTENTION pour acc&egrave;s &agrave; la version d&eacute;monstration GestAssoPhp, Merci de remplir le formulaire">
+			<p class="TexterougeR">Pour acc&egrave;s &agrave; la version d&eacute;monstration GestAssoPhp<br><a href="http://gestassophp.free.fr/cms/index.php/demo.html">Merci de remplir le formulaire</a><img src='images/icones/paire-de-lunettes-64.png' alt="lunettes" title="INUTILE de faire des essais avec DEMO ou TEST ou autres logins La *démo*, est sur demande UNIQUEMENT ! Pour cela : Merci de remplir le formulaire"></p>
+			</figure>
+ Supprimer cette ligne SI demo pour étourdis *}
 	</div>
 {* / défini la zone gauche *}
 
@@ -64,10 +68,14 @@
 
 		<header class="header_titre">&nbsp;{language name=login_adherent}</header>
 		<div class="ligne_coul"></div>
- {* défini le contenu .. *}
+{* défini le contenu .. *}
 		<div id="contenu">
-	{* div class="centre-txt *}
-  {* défini l'accées Login MdP *}
+{* !! Supprimer cette ligne SI demo pour étourdis - Voir gestassophp_sa/index.php
+		<div class="centre-txt">
+			<h2><span class="erreur-Jaunerouge">l'acc&eacute;s n'est possible qu'apr&egrave;s remise de VOS identifiants personnels <u>sur demande</u> ! <br><u>INUTILE</u> de faire des essais avec DEMO ou TEST ou autres logins<br>La *d&eacute;mo*, est sur demande <u>UNIQUEMENT</u> ! <br>Pour cela : <a href="http://gestassophp.free.fr/cms/index.php/demo.html">Merci de remplir le formulaire</a></span> </h2>
+		</div>
+Supprimer cette ligne SI demo pour étourdis *}
+{* défini l'accées Login MdP *}
 			<div class="login-box">
 			<br><img src='images/icones/login.png' alt="login" title="{language name=login_adherent_title}"><br>
 			<form action="index.php" method="post">
@@ -83,9 +91,13 @@
 				<input type="hidden" name="ident" value="1">
 			</form>
 
-  {* / défini l'accées Login MdP *}
+{* / défini l'accées Login MdP *}
 			</div>
-	{* div class="centre-txt *}
+{* !! dSupprimer cette ligne SI demo pour étourdis - Voir gestassophp_sa/index.php
+	<div class="centre-txt">
+			<h1><span class="erreur-Jaunerouge"><u>INUTILE</u> de faire des essais avec DEMO ou TEST ou autres logins<br>La *d&eacute;mo*, est sur demande <u>UNIQUEMENT</u> ! <br>Pour cela : <a href="http://gestassophp.free.fr/cms/index.php/demo.html">Merci de remplir le formulaire</a></span></h1>
+	</div>
+Supprimer cette ligne SI demo pour étourdis *}
 	<br>
 			<footer class="centre-txt">
 				<span class="TexterougeGras">&nbsp;{$texterreurlogin}
@@ -99,11 +111,11 @@
 	</div>
 {* / défini les informations de la page *}
 
- {* défini le pied de page  ne pas modifier lces lignes *}
+{* défini le pied de page  ne pas modifier lces lignes *}
 	<footer class="footer_pied_page">
 		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/" target="_blank" title="Evolution" >{$version}</a>
     </footer>
- {* / défini le pied de page *}
+{* / défini le pied de page *}
 
 </div>
 {* / défini la page extérieure *}

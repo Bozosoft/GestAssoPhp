@@ -5,50 +5,63 @@ https://github.com/ADOdb/ADOdb
 --------------------------------
 Fichier poutr GestAssophp
 --------------------------------
-	\lib\adodb (13+1+1)
+	/lib/adodb (14+1)
 		adodb.inc.php 
 		adodb-csvlib.inc.php (if you use cached recordsets - CacheExecute(), etc)  Optional
 		adodb-datadict.inc.php 
 		adodb-error.inc.php
 		adodb-errorhandler.inc.php
-		adodb-exceptions.inc.php  [adodb-errorhandler.inc.php (if you use adodb error handler or php5 exceptions). Optional]
-		adodb-iterator.inc.php (php5 functionality) 
+		adodb-exceptions.inc.php [adodb-errorhandler.inc.php (if you use adodb error handler or php5 exceptions). Optional]
 		adodb-lib.inc.php 
 		adodb-time.inc.php 
 		changelog.md (vient de /docs)  change.log.txt supprimé
+		composer.json
 		LICENSE.md (for legal reasons)  remplace license.txt supprimé  
 		README.md remplace readme.txt supprimé
-		toexport.inc.php (Voir si besoin)
-		+ composer.json
+		SECURITY.md (+ en v 5.22)
+		toexport.inc.php ( Code to export recordsets in several formats)
 		+index.html
-		++ SECURITY.md (+ en v 5.22)
+		* adodb-iterator.inc.php (php5 functionality) Supprimé
 
-
-	\lib\adodb\datadict (2+1)
-		\datadict\datadict-mysql.inc.php
-		\datadict\datadict-postgres.inc.php
+	/lib/adodb/datadict (2+1)
+		datadict-mysql.inc.php
+		datadict-postgres.inc.php
 		+index.html
 
-	\lib\adodb\drivers (7+1) -> pour mysql + postgres
-		\drivers\adodb-mysql.inc.php
-		\drivers\adodb-mysqli.inc.php
-		\drivers\adodb-postgres.inc.php (vide)
-		\drivers\adodb-postgres7.inc.php 
-		\drivers\adodb-postgres8.inc.php 
-		\drivers\adodb-postgres9.inc.php
-		\drivers\adodb-postgres64.inc.php 
+	/lib/adodb/drivers (7+1) -> pour mysql + postgres
+		adodb-mysqli.inc.php
+		adodb-postgres.inc.php (vide)
+		adodb-postgres7.inc.php 
+		adodb-postgres8.inc.php 
+		adodb-postgres9.inc.php
+		adodb-postgres64.inc.php 
 		+index.html
-	\lib\lang
-		lang\adodb-en.inc.php
-		\lang\adodb-fr.inc.php
-	+index.html
-----
-Voir si besoin
-+ toexport.inc.php VOIR ( Code to export recordsets in several formats)
+		* adodb-mysql.inc.php (supprimé en v5.22.1)
+
+	/lib/lang (2+1)
+		adodb-en.inc.php
+		adodb-fr.inc.php
+		+index.html
+
 --------------------------------
 
-20/02/2022 - ADOdb-5.22.0 datée du 08/02/2022 https://github.com/ADOdb/ADOdb/blob/v5.22.0/docs/changelog.md
+29/11/2022 validation/ 5.22.4 + 3 modifications ci-dessoous
+27/11/2022 - ADOdb-5.22.5 en cours 
+Commits on Nov 23, 2022 => devel_smartyADOdb_gestassophp.t.xt
+/CHANGELOG 		ex .mddaa697  ## [5.23.0] - Unreleased (23/11/22)
+/adodb.inc.php 		ex.daa697   v5.23.0-dev  Unreleased  (26/11/22) + #902
+/adodb-mysqli.inc.php 	ex.218cbcb Fix #877  Oct 29 
 
++ Modification #903 (26/11/22) /adodb/drivers/adodb-mysqli.inc.php (login)
+## Add line 1421 #[\AllowDynamicProperties] Deprecated: Creation of dynamic property ADORecordSet_mysqli::$adodbFetchMode is deprecated in /adodb/drivers/adodb-mysqli.inc.php on line 1456
++ Modification #907 (05/12/22) /datadict/datadict-mysql.inc.php (/Install/ Etape 3)
+## Add line 24  #[\AllowDynamicProperties]  Deprecated: Creation of dynamic property ADODB2_mysql::$quote is deprecated in /lib/adodb/adodb.inc.php on line 5789
+
+
+27/11/2022 - ADOdb-5.22.4 datée du 28/10/2022 https://github.com/ADOdb/ADOdb/releases/tag/v5.22.4
+
+================================
+20/02/2022 - ADOdb-5.22.0 datée du 08/02/2022 https://github.com/ADOdb/ADOdb/blob/v5.22.0/docs/changelog.md
 21/11/2021 - ADOdb-5.21.3  datée du 31/10/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.21.3
 22/04/2021 - ADOdb-5.21.0  datée du 27/02/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.21.0
 13/02/2021 - ADOdb-5.20.20 datée du 31/01/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.20.20 

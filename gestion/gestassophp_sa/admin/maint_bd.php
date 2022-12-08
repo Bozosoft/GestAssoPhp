@@ -22,7 +22,7 @@
 include_once '../config/connexion.php';
 $masession = new sessions(); // -->la classe session //session_start();
 // Raz  du tri
-$_SESSION['tri'] = 1; // par pour avoir colone 1 = Nom adherents sur liste // Par défaut = 0
+$_SESSION['tri'] = 1; // par pour avoir colone 1 = Noms adhérents sur liste // Par défaut = 0
 $_SESSION['tri_sens'] = 0; // pour avoir liste triée par 1--> 100 ou a-->z;
 
 // Si pas de session ...
@@ -78,7 +78,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			} //FIN si postgres OPTIMIZE
 
 // si  MySql OPTIMIZE
-			if ( TYPE_BD_AODB == 'mysql' ||  TYPE_BD_AODB == 'mysqli') { //12/01/2017
+			if ( TYPE_BD_AODB == 'mysql' ||  TYPE_BD_AODB == 'mysqli') {   // 'mysql'  cette extension est obsolète depuis PHP 5.5.0 
 				// préparation de la requête
 				$sql = "OPTIMIZE TABLE";  //////////////////////
 				//on recherche toutes les données des tables
@@ -122,7 +122,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$tpl->assign('list_structbd_o', 'Oui'); // Un seul choix posible Oui
 	$tpl->assign('sav_struct_bd', $sav_struct_bd);
 	$tpl->assign('sav_data_bd', $sav_data_bd);
-	$tpl->assign('typebdmysql', TYPE_BD); //12/01/2017 // Pour afficher ou non l'export BD réservé à mysqli uniquement
+	$tpl->assign('typebdmysql', TYPE_BD_AODB); // Pour afficher ou non l'export BD ( sauvegarde de la base de données) réservé à mysqli uniquement  // 'mysql' = extension est obsolète depuis PHP 5.5.0 
 	// Préparation pour Affichage partie variable en fonction des données VERS TEMPLATE
 	// On n'affiche rien juste le download du fichier .....
 
@@ -136,5 +136,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

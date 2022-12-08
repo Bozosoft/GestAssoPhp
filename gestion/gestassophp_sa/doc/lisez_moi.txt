@@ -40,8 +40,8 @@ Configuration nécessaire
 ************************
 Vous devez au minimum disposer d'un espace sur un serveur Web avec : 
  - un accès FTP pour l'installation des fichiers, 
-le support de PHP 5.6.x minimum ou supérieur avec le support des sessions,
- - compatible version PHP 7.x et PHP 8.x avec le support des sessions, 
+le support de PHP 7.4.x minimum ou supérieur avec le support des sessions,
+ - compatible version PHP 7.4 et PHP 8.x avec le support des sessions, 
  - un accès à une base de données type MySQL version 5 minimum (utiliser l'extension mysqli).
 ou
  - un accès à une base de données PostgreSQL version 7 ou plus.
@@ -54,7 +54,7 @@ Vous devez connaître les données de votre connexion MySQL ou PostgreSQL :
 - votre password MySQL ou PostgreSQL, 
 - le nom de la base de données crée ou a créer
 - un préfix est prévu lors de l'installation de la base de données (par défaut = gs_)
-Si vous utilisez une base de données type MySQL, attention en fonction des versions PHP il faut sélectionner en étape 2 Mysqli. 
+Si vous utilisez une base de données type MySQL, attention, il faut sélectionner en étape 2 Mysqli. 
 Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL.
 
 NOTE : Depuis PHP 5.5, l'extension MySQL originale est obsolète, il faut donc vérifier dans le fichier connexion.cfg.php l’extension : define("TYPE_BD", "mysqli");
@@ -70,10 +70,7 @@ error_reporting = E_ALL & ~E_DEPRECATED
 [Date]
 date.timezone = Europe/Paris
 
-***Pour une installation sur les pagesperso de Free.fr***
-ne pas oublier de créer un dossier /sessions à la racine de votre site, 
-sinon message en page "Installation de GestAssoPhp" :
-Warning: session_start(): open(/...../sessions/sess_xxx) failed: No such file or directory
+***Cete version ne fonctione pas pour une installation sur les pagesperso de Free.fr en PHP 5.6.x***
 Voir le lien http://gestassophp.free.fr/cms/index.php/home/questions-installation.html
 
 
@@ -87,11 +84,11 @@ Voir aussi sur http://gestassophp.free.fr/cms/index.php/home/installation-du-sys
 
 3. Copier dans le dossier "gestion_sa" le contenu de l'archive
 Vous devez avoir :
-- un dossier /gestassophp_sa (les fichiers du système [GestAssoPhp+Pg]) (voir note 1)
+- un dossier /gestassophp_sa (les fichiers du système [GestAssoPhp+Pg]) (voir note 1 plus bas)
 - un dossier /lib 
-	- smarty (système de template)
-	- adodb (système de bibliothèque d'abstraction destinée à communiquer avec différents systèmes de gestion de base de données)
-- un fichier fileloc_gestasso_sa.php
+	- smarty (système de template (gabarit d'affichage HTML)
+	- adodb (système de bibliothèque d'abstraction destinée à communiquer avec différents systèmes de gestion de base de données, ici Mysql ou PostgreSQL)
+- un fichier fileloc_gestasso_sa.php (Définira le chemin initial)
 - un fichier index.html avec lien vers gestassophp_sa/index.php (pour information à modifier ou supprimer)
 
 
@@ -101,33 +98,22 @@ NOTE :
 
 Note 1 - IMPORTANT
 - Le nom du dossier "gestassophp_sa" peut être changé à condition de changer 
-   - la ligne 17 du fichier fileloc_gestasso_sa.php :   define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');
- Si vous remplacer "gestassophp_sa" par "gestassophp_xx" votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/
+   - la ligne du fichier fileloc_gestasso_sa.php :   define('ROOT_DIR_GESTASSO', ROOT_DIR.DIRECTORY_SEPARATOR.'gestassophp_sa');
+   - la ligne du fichier /config/connexion.php $file_loc = 'fileloc_gestasso_sa.php';
+ Si vous remplacez "gestassophp_sa" par "gestassophp_xx" votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/
 
 - Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier /gestassophp_sa/config/lang.php
 
 
 POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
 ***********************************************
-- Suivant votre serveur modifiez le fichier /admin/export_bd.php
-NOTA : Exemple chez Free.fr : utiliser le fichier export_bd.php.free.php à renommer en export_bd.php
-----------------------------------------------------------------------------------------------------
-
-// ATTENTION  suivant serveur les lignes suivantes doivent être commentées ou supprimées// // supprimer les lignes suivantes car ouvre plusieurs connexions chez Free.fr				
-			$link = '';	
-			$pgsql_conn = pg_connect(" dbname=".NOM_BD." host=".SERVEUR_BD." user=".NOMUTILISATEUR_BD." password=".MOTPASSE_BD." ");
-				if ($pgsql_conn) {
-					$link = pg_port($pgsql_conn); //			$link = '5432';	
-				}	
-		
-// // Fin de supprimer les lignes
-
+- Suivant votre serveur vérfiez le fichier /admin/export_bd.php et /include/phppgdump.class.php
 
 
 4. Envoyer les fichiers en FTP sur votre site.
 ----------------------------------------------
-Dossiers (fichiers) principaux de l'archive
---------------------------------
+Dossiers (et fichiers) principaux de l'archive
+----------------------------------------------
 gestion_sa/lib/				Dossier pour les fichiers des bibliothèques de fonctionnement du système
 gestion_sa/lib/smarty/			Dossier des fichiers du système de template)
 gestion_sa/lib/adodb/			Dossier des fichiers du système de gestion de base de données MySql et POstgreSql
@@ -139,16 +125,14 @@ gestion_sa/gestassophp_sa/
 (les fichiers du système GestAssoPhp -/gestassophp_sa/ peut être changé voir Note 1 plus haut)
 gestion_sa/gestassophp_sa/adherent/
 gestion_sa/gestassophp_sa/admin/
-		*NOTA export_bd.php OU
-                *Si page perso de FREE.fr utiliser export_bd.php.free.php a renommer en export_bd.php
+		*NOTA export_bd.php
 gestion_sa/gestassophp_sa/aide/
 gestion_sa/gestassophp_sa/config/
 gestion_sa/gestassophp_sa/doc/
 gestion_sa/gestassophp_sa/fichiersadht/	Dossier pour VOS fichiers adhérents
 gestion_sa/gestassophp_sa/images/
 gestion_sa/gestassophp_sa/include/
-		*NOTA phpmysqldump.class.php OU
-                *Si page perso de FREE.fr utiliser phpmysqldump.class.php.free.php a renommer en phpmysqldump.class.php
+		*NOTA phppgdump.class.php
 gestion_sa/gestassophp_sa/install/	Dossier à renommer ou a supprimer aprés installation
 gestion_sa/gestassophp_sa/js/
 gestion_sa/gestassophp_sa/photos/	Dossier pour VOS photos adhérents
@@ -218,7 +202,7 @@ Si vous désirez faire une mise à jour utiliser les fichiers de mise à jour de
 
 B - MISE A JOUR DEPUIS UNE ANCIENNE VERSION 7xxx
 ----------------------------------------
-pour la mise à jour utiliser  le fichier diff_7x_7x+1.tar.bz2 disponible sur http://gestassophp.free.fr/cms/index.php/forrm_download.html
+pour la mise à jour utiliser le fichier diff_7x_7x+1.tar.bz2 disponible sur http://gestassophp.free.fr/cms/index.php/forrm_download.html
 
 
 - Pour information les fichiers de la version de développement sont disponibles sur 
@@ -226,9 +210,9 @@ https://git.framasoft.org/Bozosoft/GestAssoPhp
 https://github.com/Bozosoft/GestAssoPhp
 
 * Crédits *
-- GestAssoPhp+Pg utilise SmartGit (graphical Git client (Non commercial licence) pour gérer les fichiers Git
-- SmartGit can be used free of charge by Open Source developers (Non commercial licence) https://www.syntevo.com/smartgit/
+- GestAssoPhp+Pg utilise SmartGit (graphical Git client (Non commercial licence) pour gérer les fichiers Git. https://www.syntevo.com/smartgit/
+- SmartGit can be used free of charge by Open Source developers(Non commercial licence) https://www.syntevo.com/smartgit/purchase/
   
 ----------------------
-Mise à jour de cette page : 22/05/2020
+Mise à jour de cette page : 06/12/2022
 

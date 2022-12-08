@@ -196,13 +196,13 @@
 				{/if}
 		{/if}
 		</fieldset>
-	{* FIN Affichage si Création ou modification de la fiche *}
+{* FIN Affichage si Création ou modification de la fiche *}
 	{/if}
 
 			{* Affichage du texte : Champs obligatoires *}
 			<span class="TexterougeR">&nbsp;&nbsp;&nbsp;{language name = tpl_texte_oblig}</span>
 
-	{* Photo *}
+{* Photo *}
 		{if $required.creation_adht !== 1}
 			<div class="centre-txt">
 
@@ -217,7 +217,7 @@
 				{/if}
 			</div>
 		{/if}
-	{* FIN Photo *}
+{* FIN Photo *}
 
 		<div class="centre-txt"><br>
 		{* boutons Valider  Annuler*}

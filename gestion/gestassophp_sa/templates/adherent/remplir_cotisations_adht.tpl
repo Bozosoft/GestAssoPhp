@@ -50,7 +50,7 @@
 {* Form .. *}
 	<form method="post" name="maform" action="remplir_cotisations_adht.php">
 
-	{* Date d'enregistrement *}
+{* Date d'enregistrement *}
 		<label class="label_fc" title="{language name = fiche_cotis_adht_date_enr_title}"> {language name = fiche_cotis_adht_date_enr}</label>
 		<input type="text" name="date_enregist_cotis" id="date_enregist_cotis" title="{language name = fiche_cotis_adht_date_enr_title}" value="{if !empty($data_cotis_adh.date_enregist_cotis)}{$data_cotis_adh.date_enregist_cotis} {else}{$date_dujour}{/if}" size="12" maxlength="12" tabindex="1" {if !empty($disabled.date_enregist_cotis)}{$disabled.date_enregist_cotis}{/if}>
 		{if !empty($erreur_saisie.d_enregist) && $erreur_saisie.d_enregist}
@@ -58,7 +58,7 @@
 		{/if}
 <br>
 
-	{* Utilisateur *}
+{* Utilisateur *}
 		<label class="label_fc_Oblig">  {$adherent_bene} </label>
 		{if !empty($modif_fiche) && ($modif_fiche == 1)} {* if $modif_fiche == 1 *} {* ||$data_cotis_adh.id_adhtasso *}
 			{html_options name = id_adht_cotis options = $listnoms selected = {$data_cotis_adh.id_adhtasso} tabindex = "2" disabled = "disabled"}
@@ -70,7 +70,7 @@
 		{/if}
 <br><br>
 
-	{* Montant cotisation *}
+{* Montant cotisation *}
 		<label class="label_fc_Oblig"> {language name = fiche_cotis_adht_montant}</label >{* Montant cotisation *}
 		{if !empty($required.creation_cotisation) && $required.creation_cotisation == 1} {* si création cotisation *}
 			{language name = fiche_cotis_adht_montant_cotis}
@@ -84,7 +84,7 @@
 		{/if}
 <br>
 
-	{* Type cotisation *}
+{* Type cotisation *}
 		<label class="label_fc_Oblig"> {language name = fiche_cotis_adht_type}</label >{* Type cotisation *}
 		{if (!empty($archive_fiche) && ($archive_fiche == 1)) || (!empty($supprime_fiche) && ($supprime_fiche == 1) )}
 			{html_options name = id_type_cotisation options = $listnomtypecotisation selected = {$data_cotis_adh.id_type_cotisation} tabindex = "4" disabled = "disabled"}
@@ -96,7 +96,7 @@
 		{/if}
 <br><br>
 
-	{* Date début cotisation *}
+{* Date début cotisation *}
 		<label class="label_fc_Oblig" title="{language name = tpl_texte_date_title}"> {language name = fiche_cotis_adht_date_deb}</label >
 		<input type="text" name="date_debut_cotis" id="date_debut_cotis" title="{language name = tpl_texte_date_title}" value="{if !empty($data_cotis_adh.date_debut_cotis)}{$data_cotis_adh.date_debut_cotis}{else}{$date_dujour}{/if}" size="12" maxlength="12" tabindex="5" {if !empty($disabled.date_debut_cotis)}{$disabled.date_debut_cotis}{/if}>
 		{if !empty($erreur_saisie.d_debut_cotis) && $erreur_saisie.d_debut_cotis}
@@ -109,7 +109,7 @@
 		{/if}
 <br>
 
-	{* Date fin cotisation *}
+{* Date fin cotisation *}
 		<label class="label_fc_Oblig" title="{language name = tpl_texte_date_title}"> {language name = fiche_cotis_adht_date_fin}</label >
 		<input type="text" name="date_fin_cotis" id="date_fin_cotis" title="{language name = tpl_texte_date_title}" value="{if !empty($data_cotis_adh.date_fin_cotis)}{$data_cotis_adh.date_fin_cotis}{else}{$date_3112}{/if}" size="12" maxlength="12" tabindex="6" {if !empty($disabled.date_fin_cotis)}{$disabled.date_fin_cotis}{/if}>
 		{if !empty($alert_saisie.d_fin_cotis_alert) && $alert_saisie.d_fin_cotis_alert}
@@ -137,7 +137,7 @@
 		<input type="text" name="info_cotis" id="info_cotis" title="{language name = fiche_cotis_adht_comm_title}" value="{if !empty($data_cotis_adh.info_cotis)}{$data_cotis_adh.info_cotis}{/if}" size="72"  maxlength="80" tabindex="7" placeholder="{language name = fiche_cotis_adht_comm_placeholder}" {if !empty($disabled.info_cotis)}{$disabled.info_cotis}{/if}>
 <br>
 
-	{* Raison de l'archivage *}
+{* Raison de l'archivage *}
 		{* if $supprime_fiche == 1 || $archive_fiche == 1 *}
 		{if (!empty($supprime_fiche) && ($supprime_fiche == 1)) || (!empty($archive_fiche) && ($archive_fiche == 1))}
 			<label class="label_fc_Oblig" title="{language name = fiche_cotis_adht_raison_title} 30 caract&egrave;res maxi" > {language name = fiche_cotis_adht_raison}</label>

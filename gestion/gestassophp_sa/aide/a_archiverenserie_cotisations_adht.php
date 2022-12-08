@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :	a_archiverenserie_cotisations_adht.php
- *  Affiche l'aide pour la liste des cotisations Adhérent (partie Admin)
+ *  Affiche l'aide pour la liste des cotisations Adhérent - Adhérents
 */
 
 	include_once '../config/connexion.php';

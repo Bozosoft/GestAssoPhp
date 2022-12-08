@@ -41,7 +41,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	$prenom_adht = $_SESSION['ses_prenom_adht']; // pour affichage
 	$nom_adht = $_SESSION['ses_nom_adht'] ; // pour affichage
 
-	$adherent=array(); // On passe par un Tableau pour affichage adherent
+	$adherent=array(); // On passe par un Tableau pour affichage adhérent
 	$erreur_saisie = array(); //Erreur  V 7.3
 
 /***** Tout le monde a le  DROIT DE CONSUTER */
@@ -92,7 +92,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		}
 
 		if ($image_adht != "") {
-		// pour affichage de la photo avec lien vers  pour agrandir dans une autre fenetre
+		// pour affichage de la photo avec lien vers  pour agrandir dans une autre fenêtre
 			if (function_exists("ImageCreateFromString")) {
 	            $imagedata = getimagesize($image_adht);
 			} else {
@@ -135,5 +135,3 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	/***** Si erreur Retour vers la page de login ... avec message */
 	header('location: ../index.php?texterreur='._LANG_MESSAGE_TEXTERREUR);
 }
-
-?>

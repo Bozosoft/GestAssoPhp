@@ -170,7 +170,7 @@
 	}
 
 
-/***** Recherche pour savoir si  Driver postgres (PostgreSQL Support) et/ou mysql  (MySQL Support) existe */
+/***** Recherche pour savoir si Driver postgres (PostgreSQL Support) et/ou mysqli (MySQL Support) existe */
 		$postgres = function_exists('pg_connect');
 		$pgsql_bd = 'PostgreSQL : '.($postgres ? 'Oui' : '<strong>Non</strong>');
 		$mysqli = function_exists('mysqli_connect');
@@ -199,5 +199,3 @@
 	$content = $tpl->fetch('install_2.tpl'); // affichage ...
 	$tpl->assign('content', $content);
 	$tpl->display('index_instal.tpl');
-
-?>

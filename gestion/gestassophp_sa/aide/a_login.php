@@ -16,7 +16,7 @@
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
  *  Fichier :   a_login.php
- *  Affiche l'aide pour la page login
+ *  Affiche l'aide pour la page login - Connexion
 */
 
 	include_once '../config/connexion.php';

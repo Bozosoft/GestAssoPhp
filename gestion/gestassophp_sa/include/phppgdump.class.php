@@ -628,5 +628,3 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 	}
 
 } //end  class
-
-?>
