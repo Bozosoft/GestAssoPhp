@@ -18,7 +18,7 @@
  * @copyright 2000-2013 John Lim
  * @copyright 2014 Damien Regad, Mark Newnham and the ADOdb community
  */
-
+## Add line 931 #[\AllowDynamicProperties]  Deprecated: Creation of dynamic property ADORecordSet_postgres9::$adodbFetchMode is deprecated in in lib/adodb/drivers/adodb-postgres64.inc.php on line 952
 // security - hide paths
 if (!defined('ADODB_DIR')) die();
 
@@ -928,7 +928,7 @@ class ADODB_postgres64 extends ADOConnection{
 /*--------------------------------------------------------------------------------------
 	Class Name: Recordset
 --------------------------------------------------------------------------------------*/
-
+#[\AllowDynamicProperties]
 class ADORecordSet_postgres64 extends ADORecordSet{
 	var $_blobArr;
 	var $databaseType = "postgres64";

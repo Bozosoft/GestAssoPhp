@@ -61,7 +61,7 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 /***** ATTENTION pour Free.fr */
 // ATTENTION  suivant le serveur les lignes suivantes doivent être commentées ou supprimées
 // ** supprimer les lignes suivantes car cela ouvre plusieurs connexions chez Free.fr et ce n'est pas permis
-// ** VOIR fichier export_bd.php.free.php prévu à cet effet ET à renommer en export_bd.php.php
+// ** VOIR fichier export_bd.php.free.php prévu à cet effet ET à renommer en export_bd.php.php //  Nota pour ancienne version PHP 5.6.xx
 			$link = '';
 			$pgsql_conn = pg_connect(" dbname=".NOM_BD." host=".SERVEUR_BD." user=".NOMUTILISATEUR_BD." password=".MOTPASSE_BD." ");
 				if ($pgsql_conn) {
@@ -71,11 +71,11 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 			$db->Close() ; // ferme les connexions
 			$pg_sav = new phpmypostgresqldump( SERVEUR_BD, NOMUTILISATEUR_BD, MOTPASSE_BD, NOM_BD, CURRENTLANGUAGE, $link);
-			if ($sav_struct_bd == 'Non') {
+			// if ($sav_struct_bd == 'Non') {
 				$pg_sav->struct_yes = 0; // 1 = structure  0 pas de stucture
-			} else {
-				$pg_sav->struct_yes = 1; // 1 = structure  0 pas de stucture
-			}
+			// } else {  
+				// $pg_sav->struct_yes = 1; // 1 = structure  0 pas de stucture
+			//}  //  Ne PAS proposer de sauver la structure si base postgres à cause de la routine "Structure for table" de phppgdump.class.php
 
 			$pg_sav->data_yes = 1; //1 = données
 			$pg_sav->encoding = "UTF8"; // + Encodoge Base ATTENTION MODIFIER si necessaire

@@ -75,6 +75,9 @@
 
  *  29/12/2009 remplace var par  private ou public PHP 5.x
  *  version......... : 1.01  pour gestassophp 2010-2020
+ *  10/12/2022 Correction PHP 8.1x,PHP 8.2.x : Deprecated: Using ${var} .. Using ${var}  ....
+ *  10/12/2022 Correction PHP 8.1x,PHP 8.2.x :  Deprecated: pg_escape_string(): Automatic fetching of PostgreSQL connection is deprecated  on line $record[$f] = pg_escape_string(trim($data));  => + ($this->link) ET  preg_replace(): Passing null to parameter #3 ($subject) ligne  preg_replace('.....$data)  => + (string)
+ * 12/12/2022 Modifications requête Structure : colonne "adsrc" supprimée en Postgres 12 + ajout "ORDER BY attnum" pour affichage backup.
 */
 
 
@@ -121,7 +124,8 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 	function __construct ($host, $user, $password, $base, $langue, $port) {
 		$this->language = $langue;
 		// Établit une connexion PostgreSQL
-		$this->link = pg_pconnect("host = ${host} port = ${port} dbname = ${base} user = ${user} password = ${password}");
+//		$this->link = pg_pconnect("host = ${host} port = ${port} dbname = ${base} user = ${user} password = ${password}"); // Deprecated: Using ${var}
+		$this->link = pg_pconnect("host = {$host} port = {$port} dbname = {$base} user = {$user} password = {$password}");
 			if(!$this->link){$this->errr = $this->message('err_pg_sql'); return false;} // ("Impossible de se connecter à la base");
 		$this->base = $base;
 		$this->host = $host;
@@ -297,44 +301,44 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 			if($this->struct_yes == 1) {
 
 				$_sequences = array();
-				$this->ecrire("\n-- \n-- Structure for table '${table}' \n-- \n");
+				$this->ecrire("\n-- \n-- Structure for table '{$table}' \n-- \n");
 
 	         // Use DROP TABLE statement before INSERT ?
 				if ($this->usedroptable)
-					$this->ecrire("\n DROP TABLE ${table} CASCADE;\n");  // cas 1  structure only  backup_test_2009_12_11__14_50.sql
+					$this->ecrire("\n DROP TABLE {$table} CASCADE;\n");  // cas 1  structure only 
 				elseif ($this->usetruncatetable)
-					$this->ecrire("TRUNCATE TABLE ${table};\n");
-
-	            $strsql .= "CREATE TABLE ${table} ( \n";  //+ \n
-
-	            $sql = "SELECT attnum, attname, typname, atttypmod-4 AS atttypmod, attnotnull, atthasdef, adsrc AS def\n".
+					$this->ecrire("TRUNCATE TABLE {$table};\n");
+// adsrc AS def -> Colonne  supprimée en Postgres 12
+	            $strsql .= "CREATE TABLE {$table} (\n";  //+ \n et supprimer l'espace après la ,
+				//12/12/22 -ligne 314 en fin $sql = "SELECT  .... , adsrc AS def  ET   -ligne 319 en fin  "SELECT attnum .... , '' AS def
+	            $sql = "SELECT attnum, attname, typname, atttypmod-4 AS atttypmod, attnotnull, atthasdef\n".
 	                   "FROM pg_attribute, pg_class, pg_type, pg_attrdef\n".
 	                   "WHERE pg_class.oid=attrelid\n".
 	                   "AND pg_type.oid=atttypid AND attnum>0 AND pg_class.oid=adrelid AND adnum=attnum\n".
-	                   "AND atthasdef='t' AND lower(relname) ='${table}' UNION\n".
-	                   "SELECT attnum, attname, typname, atttypmod-4 AS atttypmod, attnotnull, atthasdef, '' AS def\n".
+	                   "AND atthasdef='t' AND lower(relname) ='{$table}' UNION\n".
+	                   "SELECT attnum, attname, typname, atttypmod-4 AS atttypmod, attnotnull, atthasdef\n".
 	                   "FROM pg_attribute, pg_class, pg_type WHERE pg_class.oid=attrelid\n".
-	                   "AND pg_type.oid=atttypid AND attnum>0 AND atthasdef='f' AND lower(relname) ='${table}'\n";
-	            $this->query($sql);
+	                   "AND pg_type.oid=atttypid AND attnum>0 AND atthasdef='f' AND lower(relname) ='{$table}' ORDER BY attnum \n";
+	            $this->query($sql);  // 12/12/22 + ligne 321 Ajout  ORDER BY attnum pour affichagz dans l'ordre de la Colonne
 	            while ($this->next_record()) {
-					$_attnum     = $this->get('attnum');
+					$_attnum     = $this->get('attnum'); // le numéro de Colonne
 					$_attname    = $this->escape_keyword($this->get('attname'));
 					$_typname    = $this->get('typname');
 					$_atttypmod  = $this->get('atttypmod');
 					$_attnotnull = $this->get('attnotnull');
 					$_atthasdef  = $this->get('atthasdef');
-					$_def        = $this->get('def');
+					//$_def = $this->get('def'); //  adsrc AS def -> Colonne  supprimée en Postgres 12
 
-						if (preg_match("/^nextval/", $_def)) {
+	/*					if (preg_match("/^nextval/",  (string)$_def)) {   //  if (preg_match("/^nextval/", $_def)) {  //  preg_match(): Passing null to parameter #2 ($subject)
 							$_t = explode("'", $_def);
 							$_sequences[] = $_t[1];
-						}
+						}*/
 
-					$strsql .= "${_attname} ${_typname}";
-						if ($_typname == "varchar") $strsql .= "(${_atttypmod})";
+					$strsql .= "{$_attname} {$_typname}"; 
+						if ($_typname == "varchar") $strsql .= "({$_atttypmod})";
 						if ($_attnotnull == "t")    $strsql .= " NOT NULL";
-						if ($_atthasdef == "t")     $strsql .= " DEFAULT ${_def}";
-					$strsql .= ", \n"; //+ \n
+						if ($_atthasdef == "t")     $strsql .= " DEFAULT ''"; // def -> Colonne  supprimé  // EX $strsql .= " DEFAULT {$_def}"; 
+					$strsql .= ",\n"; //+ \n et supprimer l'espace après la ,
 	            }
 	            $strsql  = rtrim($strsql, ",");
 	            $strsql .= ");\n";
@@ -342,7 +346,7 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 	            //--[ PASS 3.1: Creating sequences
 	            if ($_sequences) {
 					foreach($_sequences as $_seq_name) {
-						$sql = "SELECT * FROM ${_seq_name}\n";
+						$sql = "SELECT * FROM {$_seq_name}\n";
 						$this->query($sql);
 						$this->next_record();
 
@@ -352,19 +356,19 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 						$_lastvalue   = $this->get('last_value');
 						$_cachevalue  = $this->get('cache_value');
 
-						$this->ecrire("CREATE SEQUENCE ${_seq_name} INCREMENT ${_incrementby} MINVALUE ${_minvalue} ".
-	                                  "MAXVALUE ${_maxvalue} START ${_lastvalue} CACHE ${_cachevalue};\n");
+						$this->ecrire("CREATE SEQUENCE {$_seq_name} INCREMENT {$_incrementby} MINVALUE {$_minvalue} ".
+	                                  "MAXVALUE {$_maxvalue} START {$_lastvalue} CACHE {$_cachevalue};\n");
 	              }
 	            }
 	            $this->ecrire($strsql);
 
 
 	           //---[ PASS 5: Generating data indexes (Primary)
-	            $this->ecrire("\n-- Indexes for table '${table}' \n");
+	            $this->ecrire("\n-- Indexes for table '{$table}' \n");
 
 	            $sql = "SELECT pg_index.indisprimary, pg_catalog.pg_get_indexdef(pg_index.indexrelid)\n".
 	                   "FROM pg_catalog.pg_class c, pg_catalog.pg_class c2, pg_catalog.pg_index AS pg_index\n".
-	                   "WHERE c.relname = '${table}'\n".
+	                   "WHERE c.relname = '{$table}'\n".
 	                   "AND c.oid = pg_index.indrelid\n".
 	                   "AND pg_index.indexrelid = c2.oid\n";
 
@@ -383,10 +387,10 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 
 
 						list( $_pkey, $_tablename, $_fieldname) = explode("|", $strsql);
-						$this->ecrire("ALTER TABLE ONLY ${_tablename} \n ADD CONSTRAINT ${_pkey} ${_keyword} ${_fieldname}; \n"); // + \n  .au milieu
+						$this->ecrire("ALTER TABLE ONLY {$_tablename} \n ADD CONSTRAINT {$_pkey} {$_keyword} {$_fieldname}; \n"); // + \n  .au milieu
 						unset($strsql);
 					}
-					else $this->ecrire("${_pggetindexdef};\n");
+					else $this->ecrire("{$_pggetindexdef};\n");
 	            }
 
 	        } // Fin if($this->struct_yes == 1)
@@ -414,8 +418,8 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
                $_table   = $this->get('table');
                $_conname = $this->get('conname');
                $_constraintdef = $this->get('pg_get_constraintdef');
-			$this->ecrire("\n-- Name : '${_conname}' \n"); //+
-			$this->ecrire("ALTER TABLE ONLY ${_table} \n ADD CONSTRAINT ${_conname} ${_constraintdef}; \n"); // + \n au miileu
+			$this->ecrire("\n-- Name : '{$_conname}' \n"); //+
+			$this->ecrire("ALTER TABLE ONLY {$_table} \n ADD CONSTRAINT {$_conname} {$_constraintdef}; \n"); // + \n au miileu
             }
 
 		} //  End  if   Generating relationships tables
@@ -435,11 +439,11 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 
 	            $field_attribs = array();
 	            //---[ PASS 4: Generating INSERTs for data
-	            $this->ecrire("\n-- \n-- Data for table '${table}' \n-- \n");
-				$this->ecrire("TRUNCATE TABLE ${table};\n");
+	            $this->ecrire("\n-- \n-- Data for table '{$table}' \n-- \n");
+				$this->ecrire("TRUNCATE TABLE {$table};\n");
 
 	            //---[ PASS 4.1: Get field attributes to check if it's null or bytea (to be escaped)
-	            $sql = "SELECT * FROM ${table} LIMIT 0;\n";
+	            $sql = "SELECT * FROM {$table} LIMIT 0;\n";
 	            $this->query($sql);
 	            $fields = $this->field_names();
 
@@ -447,7 +451,7 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 	               $field_attribs[$field] = $this->getfieldinfo($table, $field);
 	            //---| END PASS 4.1
 
-	            $sql = "SELECT * FROM ${table}\n";
+	            $sql = "SELECT * FROM {$table}\n";
 	            $this->query($sql);
 
 	            while ($this->next_record()) {
@@ -457,14 +461,14 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 						if ($field_attribs[$f]['is_binary']) {  // Binary Data
 	                     $record[$f] = addcslashes(pg_escape_bytea($data),"\$");
 						} else	{  // Strings
-	                     $data = preg_replace('/\x0a/', '', $data);
-	                     $data = preg_replace('/\x0d/', '\r', $data);
-	                     $record[$f] = pg_escape_string(trim($data));
+	                     $data = preg_replace('/\x0a/', '', (string)$data); // + (string)  // EX $data = preg_replace('/\x0a/', '', $data); 
+	                     $data = preg_replace('/\x0d/', '\r', (string)$data);  // + (string)  // EX $data = preg_replace('/\x0d/', '\r', $data);
+	                     $record[$f] = pg_escape_string(($this->link), trim($data)); // + ($this->link),  // EX $record[$f] = pg_escape_string(trim($data)); 
 						}
 					}
 					$fieldnames = ($this->usecompleteinsert) ?  "(".implode(",",$fields).")" : "";
 
-					$strsql = "INSERT INTO ${table}${fieldnames} VALUES({". (implode("},{",$fields))."});";
+					$strsql = "INSERT INTO {$table}{$fieldnames} VALUES({". (implode("},{",$fields))."});";
 					foreach($fields as $f) {
 						if ($record[$f] != '')
 							$str = sprintf("'%s'", $record[$f]);
@@ -502,7 +506,7 @@ class phpmypostgresqldump {  // basée sur phpmysqldump
 
       $sql = "SELECT typname, attnotnull \n".
              "FROM pg_attribute, pg_class, pg_type WHERE pg_class.oid=attrelid \n".
-             "AND pg_type.oid=atttypid AND attnum>0 AND lower(relname) ='${uitable}' and attname = '${uifield}';\n";
+             "AND pg_type.oid=atttypid AND attnum>0 AND lower(relname) ='{$uitable}' and attname = '{$uifield}';\n";
 
       $this->query($sql);
       $this->next_record();

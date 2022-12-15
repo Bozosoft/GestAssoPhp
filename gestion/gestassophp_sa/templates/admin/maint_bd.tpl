@@ -21,8 +21,12 @@
 	{* si la BD est de type mysqli ou postgres *}
 		<form action="export_bd.php" method="post" name="maint_form">
 			<div class="Lignegris_pad2_Center_Gras">{language name=admin_maint_bd_typebd}</div>
-			<div>{html_options name = "struct" options = $list_structbd_on selected = 'Non'} 	{* la structure par défaut Non *}
-				<span class="Textenoir">&nbsp;{language name=admin_maint_bd_sav_struct}</span></div>
+			<div>
+				{if $typebdmysql == mysqli} {* Ne PAS proposer de sauver la structure si base postgres *}	
+			{html_options name = "struct" options = $list_structbd_on selected = 'Non'} 	{* la structure par défaut Non *}		
+				<span class="Textenoir">&nbsp;{language name=admin_maint_bd_sav_struct}</span>
+				{/if}
+			</div>
 			<div>{html_options name = "data" options = $list_structbd_on selected = 'Oui'}    	{* les données par défaut Oui *}
 				<span class="TextenoirGras">&nbsp;{language name = admin_maint_bd_sav_data}</span></div>
 			<br>

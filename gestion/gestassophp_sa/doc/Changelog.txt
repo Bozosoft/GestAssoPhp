@@ -18,19 +18,28 @@
  */
 
 
-Version 7.8.0-dev1 - 08/12/2022 - En cours (Dev1)
+Version 7.8.0-dev2 - 15/12/2022 - En cours (Dev2)
 -------------------------------------------
+- Modification des fichiers export_bd.php et maint_bd.tpl pour ne plus proposer que la sauvegarde des données de la BD Postgres
+- Corrections PHP 8.1,2 et modification pour export structure de /include/phppgdump.class.php
+ + suppression de la colonne adsrc en Postgres 12, retouche sur sortie export structure. 
+ + Correction PHP 8.1x,PHP 8.2.x : Deprecated: Using ${var} .. Using ${var}  ....
+ + Correction PHP 8.1x,PHP 8.2.x :  Deprecated: pg_escape_string(): Automatic fetching of PostgreSQL connection is deprecated  on line $record[$f] = pg_escape_string(trim($data));  => + ($this->link)
+ + ET  preg_replace(): Passing null to parameter #3 ($subject) ligne  preg_replace('.....$data)  => + (string)
+- Corrections PHP 8.1,2 /lib/adodb/drivers/adodb-postgres64.inc.php ->  Add line 931 #[\AllowDynamicProperties]
 
+* version 7.8.0-dev1 - 08/12/2022 - En cours (Dev1)
+-------------------------------------------
 ATTENTION PHP MINI = 7.4
-- Corrections HTML5, modification @version, correction typos
+- Corrections HTML5, modifications de @version, corrections typos
 - Remise à jour de l'installateur en V 1.5.0 
-- Modifications PHP 8.2.x 
+- Modifications pour PHP 8.1.x, PHP 8.2
   * adresse_adht,disponib_adh dans /adherent/remplir_infogene_adht.php
   * mb_convert_encoding($string, 'ISO-8859-1', 'UTF-8');  REMPLACE  utf8_decode($string);  CAUSE Function utf8_decode() is deprecated en PHP 8.2 sur adherent/export_tadhts.php, adherent/export_tadhts_cotisechue.php, adherent/export_tcotis.php
-- Corrections ADOdb pour PHP 8.2
-  + Modification #903 (26/11/22) /adodb/drivers/adodb-mysqli.inc.php (login)
+- Corrections ADOdb pour PHP 8.2 (en attente de la version ADOdb 5.22.5)
+  + Modification ADOdb #903 (26/11/22) /adodb/drivers/adodb-mysqli.inc.php (login)
 ## Add line 1421 #[\AllowDynamicProperties] Deprecated: Creation of dynamic property ADORecordSet_mysqli::$adodbFetchMode is deprecated in /adodb/drivers/adodb-mysqli.inc.php on line 1456
-  + Modification #907 (05/12/22) /datadict/datadict-mysql.inc.php (/Install/ Etape 3)
+  + Modification ADOdb #907 (05/12/22) /datadict/datadict-mysql.inc.php (/Install/ Etape 3)
 ## Add line 24  #[\AllowDynamicProperties]  Deprecated: Creation of dynamic property ADODB2_mysql::$quote is deprecated in /lib/adodb/adodb.inc.php on line 5789
 - Mise à jour de ADOdb à la version 5.22.4 (modifications de V 5.22.0 à V 5.22.4)	
   https://github.com/ADOdb/ADOdb/releases/tag/v5.22.4
