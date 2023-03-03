@@ -17,6 +17,15 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
+Version 7.8.0-dev3 - 02/03/2023 - En cours (Dev3)
+-------------------------------------------
+- Corrections PHP 8.1,2 /lib/adodb/ suivant Commits du 26/02/23
+- Tests Postgres PHP 8.2.3
+- Corrections /lib/smarty/ PHP 8.1 warning on null strings in modifiers #834 /plugins/modifier.truncate.php
+- Suppresion des anciens fichiers Smarty : SmartyBC.class.php
+ /sysplugins/smarty_internal_resource_registered.php, smarty_internal_compile_private_php.php, smarty_internal_compile_include_php.php
+- Correction typo fichier liste_adht.tpl
+
 
 Version 7.8.0-dev2 - 15/12/2022 - En cours (Dev2)
 -------------------------------------------

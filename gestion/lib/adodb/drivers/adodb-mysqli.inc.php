@@ -23,7 +23,7 @@
  * @copyright 2000-2013 John Lim
  * @copyright 2014 Damien Regad, Mark Newnham and the ADOdb community
  */
-## Add line 1421 #[\AllowDynamicProperties] Deprecated: Creation of dynamic property ADORecordSet_mysqli::$adodbFetchMode is deprecated in /adodb/drivers/adodb-mysqli.inc.php on line 1456
+
 // security - hide paths
 if (!defined('ADODB_DIR')) {
 	die();
@@ -1061,21 +1061,11 @@ class ADODB_mysqli extends ADOConnection {
 	 */
 	function Prepare($sql)
 	{
-		/*
-		* Flag the insert_id method to use the correct retrieval method
-		*/
+		// Flag the insert_id method to use the correct retrieval method
 		$this->usePreparedStatement = true;
 
-		/*
-		* Prepared statements are not yet handled correctly
-		*/
+		// Prepared statements are not yet handled correctly
 		return $sql;
-		$stmt = $this->_connectionID->prepare($sql);
-		if (!$stmt) {
-			echo $this->errorMsg();
-			return $sql;
-		}
-		return array($sql,$stmt);
 	}
 
 	/**
@@ -1187,33 +1177,7 @@ class ADODB_mysqli extends ADOConnection {
 	{
 		global $ADODB_COUNTRECS;
 
-		if (is_array($sql)) {
-			// Prepare() not supported because mysqli_stmt_execute does not return a recordset, but
-			// returns as bound variables.
-
-			$stmt = $sql[1];
-			$a = '';
-			foreach ($inputarr as $v) {
-				if (is_string($v)) {
-					$a .= 's';
-				} else {
-					if (is_integer($v)) {
-						$a .= 'i';
-					} else {
-						$a .= 'd';
-					}
-				}
-			}
-
-			// set prepared statement flags
-			if ($this->usePreparedStatement) {
-				$this->useLastInsertStatement = true;
-			}
-
-			$fnarr = array_merge(array($stmt, $a), $inputarr);
-			call_user_func_array('mysqli_stmt_bind_param', $fnarr);
-			return mysqli_stmt_execute($stmt);
-		} elseif (is_string($sql) && is_array($inputarr)) {
+		if (is_string($sql) && is_array($inputarr)) {
 			// This is support for true prepared queries with bound parameters
 			// set prepared statement flags
 			$this->usePreparedStatement = true;
@@ -1418,7 +1382,7 @@ class ADODB_mysqli extends ADOConnection {
 	}
 
 }
-#[\AllowDynamicProperties]
+
 /**
  * Class ADORecordSet_mysqli
  */

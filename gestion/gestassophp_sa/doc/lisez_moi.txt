@@ -44,7 +44,7 @@ le support de PHP 7.4.x minimum ou supérieur avec le support des sessions,
  - compatible version PHP 7.4 et PHP 8.x avec le support des sessions, 
  - un accès à une base de données type MySQL version 5 minimum (utiliser l'extension mysqli).
 ou
- - un accès à une base de données PostgreSQL version 7 ou plus.
+ - un accès à une base de données PostgreSQL version 12 ou plus.
 Attention aux fichiers .htaccess fournis, il faudra vérifier la compatibilité avec votre hébergement.
 
 
@@ -64,8 +64,8 @@ Vérifier sur votre serveur que les fonctionnalité 'magic_quotes_...' sont bien
 NOTA installation en local sous WAMP ou EsayPhp ou ...
 Vérifier ou modifier la configuration dans le php.ini
 ; Error handling and logging ;
-; Production Value: E_ALL & ~E_DEPRECATED
-error_reporting = E_ALL & ~E_DEPRECATED
+; Production Value: E_ALL & ~E_DEPRECATED & ~E_STRICT
+error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
 
 [Date]
 date.timezone = Europe/Paris
@@ -107,7 +107,7 @@ Note 1 - IMPORTANT
 
 POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
 ***********************************************
-- Suivant votre serveur vérfiez le fichier /admin/export_bd.php et /include/phppgdump.class.php
+- Suivant votre serveur vérfiez le fichier /admin/export_bd.php et /include/phppgdump.class.php ( voir *NOTA plus bas)
 
 
 4. Envoyer les fichiers en FTP sur votre site.
@@ -163,7 +163,7 @@ il est nécessaire d'accorder des permissions à certains répertoires, de mani�
 
 6. Faites pointer votre navigateur sur l'URL d'installation (ex : http://votreserveur/gestion_sa/gestassophp_sa/install) 
 	
-Etapes de l'installation
+Etapes de l'installation (voir la page détaillée : http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html)
 ------------------------
 Etape 1 : Vérification de la configuration PHP et des permissions des répertoires.
 Etape 2 : Information sur la base de données.
@@ -214,5 +214,5 @@ https://github.com/Bozosoft/GestAssoPhp
 - SmartGit can be used free of charge by Open Source developers(Non commercial licence) https://www.syntevo.com/smartgit/purchase/
   
 ----------------------
-Mise à jour de cette page : 06/12/2022
+Mise à jour de cette page : 15/12/2022
 

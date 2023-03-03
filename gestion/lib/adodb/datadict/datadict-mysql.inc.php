@@ -18,10 +18,10 @@
  * @copyright 2000-2013 John Lim
  * @copyright 2014 Damien Regad, Mark Newnham and the ADOdb community
  */
-## Add line 24  #[\AllowDynamicProperties]  Deprecated: Creation of dynamic property ADODB2_mysql::$quote is deprecated in /lib/adodb/adodb.inc.php on line 5789
+
 // security - hide paths
 if (!defined('ADODB_DIR')) die();
- #[\AllowDynamicProperties]
+
 class ADODB2_mysql extends ADODB_DataDict {
 	var $databaseType = 'mysql';
 	var $alterCol = ' MODIFY COLUMN';

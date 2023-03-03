@@ -35,14 +35,24 @@ Fichier pour GestAssophp
 		modifier.debug_print_var.php
 		modifier.escape.php 
 		modifier.string_format.php (@link  corrigé 30/11/22)
-		modifier.truncate.php
+		modifier.truncate.php (#834)
 		shared.escape_special_chars.php
 		+index.html
 
 --------------------------------
 
+PHP 8.1 deprecation warnings on null strings in modifiers (#834) Commits on Jan 16, 2023
+
+A tester diff-smarty_430-master170123  20/01/23
+	/sysplugins/smarty_internal_errorhandler.php /commit/a34ee98e214114370de417d147de6b2e5de4d3d6
+https://github.com/smarty-php/smarty/commit/5988116c8146d284d5d93495991a06197428b67b
+	/plugins/shared.escape_special_chars.php
+	/plugins/modifier.truncate.php
+/Smarty.class.php  *...
+/CHANGELOG.md 
+
 27/11/2022 Smarty v4.3.0   ## [4.3.0] - 2022-11-22 https://github.com/smarty-php/smarty/releases/tag/v4.3.0
-** fichiers vides
+** fichiers supprimés
 - SmartyBC.class.php Dropped deprecated API calls that where only accessible through SmartyBC [4.0.0-rc.0] - 2021-10-13
  /sysplugins/
 - smarty_internal_resource_registered.php =>  This file was deleted  v4.0.0-v3.1.40

@@ -106,7 +106,7 @@
 				{/if}
 			</th>
 		{* Tel Portable *}
-			<th class="LignegrisTC" style="width:12%;">{
+			<th class="LignegrisTC" style="width:12%;">
 				<a href="liste_adht.php?tri=4&amp;affiche_nb_adht={$affiche_nb_adht}&amp;filtre_membre={if !empty($filtremembre_adht)}{$filtremembre_adht}{/if}&amp;filtre_nom={if !empty($filtre_adht_nom)}{$filtre_adht_nom}{/if}" title="{language name = tpl_title_clictri}"> {language name = tpl_col_adht_portable}  </a>
 				{if $smarty.session.tri eq 4}
 					{if $smarty.session.tri_sens eq 0}

@@ -45,9 +45,34 @@ Fichier poutr GestAssophp
 
 --------------------------------
 
+02/03/23 PHP 8.2.3 postgres
+Ajout des fichiers adodb-datadict.inc.php + adodb.inc.php Commits on Feb 26, 2023
+datadict/datadict-mysql.inc.php #907 + adodb-mysqli.inc.php #903 sont OK
+
+19/01/23
++ /datadict/datadict-postgres.inc.php OUI
+  /datadict/datadict-mysql.inc.php --> rien voir ## Add line 24 #907 ? 
++ /drivers/adodb-mysqli.inc.php  Voir si corrige ## Add line 1421 #903 ?
++ /drivers/adodb-postgres64.inc.php  Voir si corrige Add line 931   ? #913 -> #917 ? OUI
++ /adodb.inc.php		-> NON bug vers datadict/datadict-mysql.inc.php
++ changelog.md  ## [5.22.5] - Unreleased
+-- Fix autoExecute() $where parameter type
+-  [#915](https://github.com/ADOdb/ADOdb/issues/915)
+-- pgsql: fix "column already exists" error when adding a new column
+-  [#897](https://github.com/ADOdb/ADOdb/issues/897)
+-- Creation of dynamic property deprecated warning in PHP 8.2
+-  [#913](https://github.com/ADOdb/ADOdb/issues/913)
+-  [#917](https://github.com/ADOdb/ADOdb/issues/917)
+++ ADOdb-5.22.5 en cours ajout suite 19/01/23
+
+-----------
+15/12/2022  #913 Related to #917 (16/01/22) https://github.com/ADOdb/ADOdb/pull/917
+- Corrections PHP 8.1,2 /lib/adodb/drivers/adodb-postgres64.inc.php  
+ ->  Add line 931 #[\AllowDynamicProperties] 
+
 29/11/2022 validation/ 5.22.4 + 3 modifications ci-dessoous
 27/11/2022 - ADOdb-5.22.5 en cours 
-Commits on Nov 23, 2022 => devel_smartyADOdb_gestassophp.t.xt
+Commits on Nov 23, 2022 => devel_smartyADOdb_gestassophp.txt
 /CHANGELOG 		ex .mddaa697  ## [5.23.0] - Unreleased (23/11/22)
 /adodb.inc.php 		ex.daa697   v5.23.0-dev  Unreleased  (26/11/22) + #902
 /adodb-mysqli.inc.php 	ex.218cbcb Fix #877  Oct 29 
