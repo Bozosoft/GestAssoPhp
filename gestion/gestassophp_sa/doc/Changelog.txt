@@ -17,7 +17,13 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
-Version 7.8.0-dev3 - 02/03/2023 - En cours (Dev3)
+
+Version 7.8.0-dev4 - 01/04/2023 - En cours (Dev4)
+-------------------------------------------
+- Correction du 28/03/2023 Securité Smarty à la version 4.3.1 (vulnerability in Javascript escaping)  https://github.com/smarty-php/smarty/releases/tag/v4.3.1
+- Corrections PHP /lib/adodb/ suivant Commits du 23/03/23
+
+* version 7.8.0-dev3 - 02/03/2023 - En cours (Dev3)
 -------------------------------------------
 - Corrections PHP 8.1,2 /lib/adodb/ suivant Commits du 26/02/23
 - Tests Postgres PHP 8.2.3
@@ -26,8 +32,7 @@ Version 7.8.0-dev3 - 02/03/2023 - En cours (Dev3)
  /sysplugins/smarty_internal_resource_registered.php, smarty_internal_compile_private_php.php, smarty_internal_compile_include_php.php
 - Correction typo fichier liste_adht.tpl
 
-
-Version 7.8.0-dev2 - 15/12/2022 - En cours (Dev2)
+* version 7.8.0-dev2 - 15/12/2022 - En cours (Dev2)
 -------------------------------------------
 - Modification des fichiers export_bd.php et maint_bd.tpl pour ne plus proposer que la sauvegarde des données de la BD Postgres
 - Corrections PHP 8.1,2 et modification pour export structure de /include/phppgdump.class.php
@@ -54,7 +59,6 @@ ATTENTION PHP MINI = 7.4
   https://github.com/ADOdb/ADOdb/releases/tag/v5.22.4
 - Mise à jour de Smarty à la version 4.3.0 (modifications de V 3.1.47 à V 4.3.0)
   https://github.com/smarty-php/smarty/releases/tag/v4.3.0
-
 
 Version 7.6.13 - 30/10/2022 - Finale
 -------------------------------------------

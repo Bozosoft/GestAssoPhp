@@ -221,8 +221,12 @@ if (!defined('_ADODB_LAYER')) {
 	// CLASS ADOFieldObject
 	//==============================================================================================
 	/**
-	 * Helper class for FetchFields -- holds info on a column
+	 * Helper class for FetchFields -- holds info on a column.
+	 *
+	 * Note: Dynamic properties are required here, as some drivers may require
+	 * the object to hold database-specific field metadata.
 	 */
+	#[\AllowDynamicProperties]
 	class ADOFieldObject {
 		/**
 		 * @var string Field name
@@ -240,6 +244,11 @@ if (!defined('_ADODB_LAYER')) {
 		public $type = '';
 
 		/**
+		 * @var int|null Numeric field scale.
+		 */
+		public $scale;
+
+		/**
 		 * @var bool True if field can be NULL
 		 */
 		public $not_null = false;
@@ -253,6 +262,11 @@ if (!defined('_ADODB_LAYER')) {
 		 * @var bool True if field is unique key
 		 */
 		public $unique = false;
+
+		/**
+		 * @var bool True if field is automatically incremented
+		 */
+		public $auto_increment = false;
 
 		/**
 		 * @var bool True if field has a default value
@@ -413,10 +427,7 @@ if (!defined('_ADODB_LAYER')) {
 		 */
 		function getdirname($hash) {
 			global $ADODB_CACHE_DIR;
-			if (!isset($this->notSafeMode)) {
-				$this->notSafeMode = !ini_get('safe_mode');
-			}
-			return ($this->notSafeMode) ? $ADODB_CACHE_DIR.'/'.substr($hash,0,2) : $ADODB_CACHE_DIR;
+			return $ADODB_CACHE_DIR . '/' . substr($hash, 0, 2);
 		}
 
 		/**
@@ -431,7 +442,7 @@ if (!defined('_ADODB_LAYER')) {
 			global $ADODB_CACHE_PERMS;
 
 			$dir = $this->getdirname($hash);
-			if ($this->notSafeMode && !file_exists($dir)) {
+			if (!file_exists($dir)) {
 				$oldu = umask(0);
 				if (!@mkdir($dir, empty($ADODB_CACHE_PERMS) ? 0771 : $ADODB_CACHE_PERMS)) {
 					if(!is_dir($dir) && $debug) {
@@ -484,7 +495,14 @@ if (!defined('_ADODB_LAYER')) {
 	//
 	var $dataProvider = 'native';
 	var $databaseType = '';		/// RDBMS currently in use, eg. odbc, mysql, mssql
-	var $database = '';			/// Name of database to be used.
+
+	/**
+	 * @var string Current database name.
+	 *
+	 * This used to be stored in the $databaseName property, which was marked
+	 * as deprecated in 4.66 and removed in 5.22.5.
+	 */
+	public $database = '';
 
 	/**
 	 * @var string If the driver is PDO, then the dsnType is e.g. sqlsrv, otherwise empty
@@ -511,8 +529,33 @@ if (!defined('_ADODB_LAYER')) {
 	var $leftBracket = '[';		/// left square bracked for t-sql styled column names
 	var $rightBracket = ']';	/// right square bracked for t-sql styled column names
 	var $charSet=false;			/// character set to use - only for interbase, postgres and oci8
+
+	/** @var string SQL statement to get databases */
 	var $metaDatabasesSQL = '';
+
+	/** @var string SQL statement to get database tables */
 	var $metaTablesSQL = '';
+
+	/** @var string SQL statement to get table columns. */
+	var $metaColumnsSQL;
+
+	/**
+	 * SQL statement to get the last IDENTITY value inserted into an IDENTITY
+	 * column in the same scope.
+	 * @see https://learn.microsoft.com/en-us/sql/t-sql/functions/scope-identity-transact-sql
+	 * @var string
+	 */
+	var $identitySQL;
+
+	/** @var string SQL statement to create a Sequence . */
+	var $_genSeqSQL;
+
+	/** @var string SQL statement to drop a Sequence. */
+	var $_dropSeqSQL;
+
+	/** @var string SQL statement to generate a Sequence ID. */
+	var $_genIDSQL;
+
 	var $uniqueOrderBy = false; /// All order by columns have to be unique
 	var $emptyDate = '&nbsp;';
 	var $emptyTimeStamp = '&nbsp;';
@@ -610,6 +653,10 @@ if (!defined('_ADODB_LAYER')) {
 
 	var $null2null = 'null'; // in autoexecute/getinsertsql/getupdatesql, this value will be converted to a null
 	var $bulkBind = false; // enable 2D Execute array
+
+	/** @var string SQL statement executed by some drivers after successful connection. */
+	public $connectStmt = '';
+
 	//
 	// PRIVATE VARS
 	//
@@ -617,14 +664,34 @@ if (!defined('_ADODB_LAYER')) {
 	var $_transOK = null;
 	/** @var resource Identifier for the native database connection */
 	var $_connectionID = false;
-	var $_errorMsg = false;		/// A variable which was used to keep the returned last error message.  The value will
-								/// then returned by the errorMsg() function
-	var $_errorCode = false;	/// Last error code, not guaranteed to be used - only by oci8
+
+	/**
+	 * Stores the last returned error message.
+	 * @see ADOConnection::errorMsg()
+	 * @var string|false
+	 */
+	var $_errorMsg = false;
+
+	/**
+	 * Stores the last returned error code.
+	 * Not guaranteed to be used. Only some drivers actually populate it.
+	 * @var int|false
+	 */
+	var $_errorCode = false;
+
 	var $_queryID = false;		/// This variable keeps the last created result link identifier
 
 	var $_isPersistentConnection = false;	/// A boolean variable to state whether its a persistent connection or normal connection.	*/
 	var $_bindInputArray = false; /// set to true if ADOConnection.Execute() permits binding of array parameters.
-	var $_evalAll = false;
+
+	/**
+	 * Eval string used to filter data.
+	 * Only used in the deprecated Text driver.
+	 * @see https://adodb.org/dokuwiki/doku.php?id=v5:database:text#workaround
+	 * @var string
+	 */
+	var $evalAll = false;
+
 	var $_affected = false;
 	var $_logsql = false;
 	var $_transmode = ''; // transaction mode
@@ -658,6 +725,12 @@ if (!defined('_ADODB_LAYER')) {
 	 * );
 	 */
 	public $customMetaTypes = array();
+
+	/** @var ADORecordSet Recordset used to retrieve MetaType information */
+	var $_metars;
+
+	/** @var string a specified locale. */
+	var $locale;
 
 
 	/**
@@ -2444,7 +2517,7 @@ if (!defined('_ADODB_LAYER')) {
 	 *  - userid
 	 *  - setFetchMode (adodb 4.23)
 	 *
-	 * When not in safe mode, we create 256 sub-directories in the cache directory ($ADODB_CACHE_DIR).
+	 * We create 256 sub-directories in the cache directory ($ADODB_CACHE_DIR).
 	 * Assuming that we can have 50,000 files per directory with good performance,
 	 * then we can scale to 12.8 million unique cached recordsets. Wow!
 	 */
@@ -3905,6 +3978,12 @@ class ADORecordSet implements IteratorAggregate {
 	 * public variables
 	 */
 	var $dataProvider = "native";
+
+	/**
+	 * @var string Table name (used in _adodb_getupdatesql() and _adodb_getinsertsql())-
+	 */
+	public $tableName = '';
+
 	/** @var bool|array  */
 	var $fields = false;	/// holds the current row data
 	var $blobSize = 100;	/// any varchar/char field this size or greater is treated as a blob
@@ -3949,26 +4028,29 @@ class ADORecordSet implements IteratorAggregate {
 	public $customActualTypes;
 	public $customMetaTypes;
 
+	/** @var int Only used in _adodb_getinsertsql() */
+	public $insertSig;
 
 	/**
-	* @var ADOFieldObject[] Field metadata cache
-	* @see fieldTypesArray()
+	 * @var ADOFieldObject[] Field metadata cache
+	 * @see fieldTypesArray()
 	 */
 	protected $fieldObjectsCache;
-	
+
 	/**
-	* @var bool True if we have retrieved the fields metadata
-	*/
+	 * @var bool True if we have retrieved the fields metadata
+	 */
 	protected $fieldObjectsRetrieved = false;
 
-	/*
-	* Cross-reference the objects by name for easy access
-	*/
+	/**
+	 * @var array Cross-reference the objects by name for easy access
+	 */
 	protected $fieldObjectsIndex = array();
 
-	/*
-	* Defines the Fetch Mode for a recordset
-	*/
+	/**
+	 * @var int Defines the Fetch Mode for a recordset
+	 * See the ADODB_FETCH_* constants
+	 */
 	public $adodbFetchMode;
 
 	/**
@@ -5784,6 +5866,7 @@ class ADORecordSet implements IteratorAggregate {
 		}
 		include_once($path);
 		$class = "ADODB2_$drivername";
+		/** @var ADODB_DataDict $dict */
 		$dict = new $class();
 		$dict->dataProvider = $conn->dataProvider;
 		$dict->connection = $conn;

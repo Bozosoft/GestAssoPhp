@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [4.3.1] - 2023-03-28
+
+### Security
+- Fixed Cross site scripting vulnerability in Javascript escaping. This addresses CVE-2023-28447.
+
 ### Fixed
 - `$smarty->muteUndefinedOrNullWarnings()` now also mutes PHP7 notices for undefined array indexes [#736](https://github.com/smarty-php/smarty/issues/736)
 - `$smarty->muteUndefinedOrNullWarnings()` now treats undefined vars and array access of a null or false variables 

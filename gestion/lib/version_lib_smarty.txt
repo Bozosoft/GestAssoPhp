@@ -20,7 +20,7 @@ Fichier pour GestAssophp
 		Smarty.class.php
 		** SmartyBC.class.php (fichier vide)
 		+ index.html
-		+ SMARTY_VERSION_4.3.0 (modifications 3.1.47-4.3.0)
+		+ SMARTY_VERSION_4.3.1 (modifications 3.1.47-4.3.1)
 
 	/lib/smarty/sysplugins --->Tous les fichiers (154 + 1)
 		** (dont 3 fichiers vides)
@@ -41,15 +41,17 @@ Fichier pour GestAssophp
 
 --------------------------------
 
-PHP 8.1 deprecation warnings on null strings in modifiers (#834) Commits on Jan 16, 2023
-
-A tester diff-smarty_430-master170123  20/01/23
-	/sysplugins/smarty_internal_errorhandler.php /commit/a34ee98e214114370de417d147de6b2e5de4d3d6
-https://github.com/smarty-php/smarty/commit/5988116c8146d284d5d93495991a06197428b67b
-	/plugins/shared.escape_special_chars.php
-	/plugins/modifier.truncate.php
-/Smarty.class.php  *...
-/CHANGELOG.md 
+[4.3.1] - 2023-03-28
+Security
+    Fixed Cross site scripting vulnerability in Javascript escaping. This addresses CVE-2023-28447.
++ /plugins/modifier.escape.php (Cross site scripting vulnerability in Javascript escaping)
+NOTA /plugins/modifiercompiler.escape.php -> NON ut=lisé
++ /plugins/shared.escape_special_chars.php
++ SECURITY.md
++ CHANGELOG.md
++ Smarty.class.php const SMARTY_VERSION = '4.3.1';
++ SMARTY_VERSION_4.3.1 
+- SMARTY_VERSION_4.3.0
 
 27/11/2022 Smarty v4.3.0   ## [4.3.0] - 2022-11-22 https://github.com/smarty-php/smarty/releases/tag/v4.3.0
 ** fichiers supprimés

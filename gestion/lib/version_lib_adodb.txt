@@ -15,7 +15,6 @@ Fichier poutr GestAssophp
 		adodb-lib.inc.php 
 		adodb-time.inc.php 
 		changelog.md (vient de /docs)  change.log.txt supprimé
-		composer.json
 		LICENSE.md (for legal reasons)  remplace license.txt supprimé  
 		README.md remplace readme.txt supprimé
 		SECURITY.md (+ en v 5.22)
@@ -45,6 +44,10 @@ Fichier poutr GestAssophp
 
 --------------------------------
 
+31/03/23  - composer.json
++ /drivers/adodb-mysqli.inc.php + /drivers/adodb-postgres64.inc.php
++ /adodb-datadict.inc.php + /adodb-exceptions.inc.php + /adodb.inc.php
++ /changelog.md + /SECURITY.md
 02/03/23 PHP 8.2.3 postgres
 Ajout des fichiers adodb-datadict.inc.php + adodb.inc.php Commits on Feb 26, 2023
 datadict/datadict-mysql.inc.php #907 + adodb-mysqli.inc.php #903 sont OK
