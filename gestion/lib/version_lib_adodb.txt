@@ -44,50 +44,10 @@ Fichier poutr GestAssophp
 
 --------------------------------
 
-31/03/23  - composer.json
-+ /drivers/adodb-mysqli.inc.php + /drivers/adodb-postgres64.inc.php
-+ /adodb-datadict.inc.php + /adodb-exceptions.inc.php + /adodb.inc.php
-+ /changelog.md + /SECURITY.md
-02/03/23 PHP 8.2.3 postgres
-Ajout des fichiers adodb-datadict.inc.php + adodb.inc.php Commits on Feb 26, 2023
-datadict/datadict-mysql.inc.php #907 + adodb-mysqli.inc.php #903 sont OK
 
-19/01/23
-+ /datadict/datadict-postgres.inc.php OUI
-  /datadict/datadict-mysql.inc.php --> rien voir ## Add line 24 #907 ? 
-+ /drivers/adodb-mysqli.inc.php  Voir si corrige ## Add line 1421 #903 ?
-+ /drivers/adodb-postgres64.inc.php  Voir si corrige Add line 931   ? #913 -> #917 ? OUI
-+ /adodb.inc.php		-> NON bug vers datadict/datadict-mysql.inc.php
-+ changelog.md  ## [5.22.5] - Unreleased
--- Fix autoExecute() $where parameter type
--  [#915](https://github.com/ADOdb/ADOdb/issues/915)
--- pgsql: fix "column already exists" error when adding a new column
--  [#897](https://github.com/ADOdb/ADOdb/issues/897)
--- Creation of dynamic property deprecated warning in PHP 8.2
--  [#913](https://github.com/ADOdb/ADOdb/issues/913)
--  [#917](https://github.com/ADOdb/ADOdb/issues/917)
-++ ADOdb-5.22.5 en cours ajout suite 19/01/23
+06/04/2023 - ADOdb-5.22.4 datée du 03/04/2023  https://github.com/ADOdb/ADOdb/blob/v5.22.5/docs/changelog.md
 
------------
-15/12/2022  #913 Related to #917 (16/01/22) https://github.com/ADOdb/ADOdb/pull/917
-- Corrections PHP 8.1,2 /lib/adodb/drivers/adodb-postgres64.inc.php  
- ->  Add line 931 #[\AllowDynamicProperties] 
-
-29/11/2022 validation/ 5.22.4 + 3 modifications ci-dessoous
-27/11/2022 - ADOdb-5.22.5 en cours 
-Commits on Nov 23, 2022 => devel_smartyADOdb_gestassophp.txt
-/CHANGELOG 		ex .mddaa697  ## [5.23.0] - Unreleased (23/11/22)
-/adodb.inc.php 		ex.daa697   v5.23.0-dev  Unreleased  (26/11/22) + #902
-/adodb-mysqli.inc.php 	ex.218cbcb Fix #877  Oct 29 
-
-+ Modification #903 (26/11/22) /adodb/drivers/adodb-mysqli.inc.php (login)
-## Add line 1421 #[\AllowDynamicProperties] Deprecated: Creation of dynamic property ADORecordSet_mysqli::$adodbFetchMode is deprecated in /adodb/drivers/adodb-mysqli.inc.php on line 1456
-+ Modification #907 (05/12/22) /datadict/datadict-mysql.inc.php (/Install/ Etape 3)
-## Add line 24  #[\AllowDynamicProperties]  Deprecated: Creation of dynamic property ADODB2_mysql::$quote is deprecated in /lib/adodb/adodb.inc.php on line 5789
-
-
-27/11/2022 - ADOdb-5.22.4 datée du 28/10/2022 https://github.com/ADOdb/ADOdb/releases/tag/v5.22.4
-
+27/11/2022 - ADOdb-5.22.4 datée du 28/10/2022 https://github.com/ADOdb/ADOdb/blob/v5.22.4/docs/changelog.md
 ================================
 20/02/2022 - ADOdb-5.22.0 datée du 08/02/2022 https://github.com/ADOdb/ADOdb/blob/v5.22.0/docs/changelog.md
 21/11/2021 - ADOdb-5.21.3  datée du 31/10/2021 https://github.com/ADOdb/ADOdb/releases/tag/v5.21.3

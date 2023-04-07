@@ -26,10 +26,6 @@ class ADODB_postgres64 extends ADOConnection{
 	var $databaseType = 'postgres64';
 	var $dataProvider = 'postgres';
 	var $hasInsertID = true;
-	/** @var PgSql\Connection|resource|false Identifier for the native database connection */
-	var $_connectionID = false;
-	/** @var PgSql\Connection|resource|false */
-	var $_queryID;
 	/** @var PgSql\Connection|resource|false */
 	var $_resultid = false;
 	var $concat_operator='||';
@@ -121,7 +117,9 @@ class ADODB_postgres64 extends ADOConnection{
 				// If PHP has been compiled with PostgreSQL 7.3 or lower, then
 				// server version is not set so we use pg_parameter_status()
 				// which includes logic to obtain values server_version
-				'version' => $version['server'] ?? pg_parameter_status($this->_connectionID, 'server_version'),
+				'version' => isset($version['server'])
+					? $version['server']
+					: pg_parameter_status($this->_connectionID, 'server_version'),
 				'client' => $version['client'],
 				'description' => null,
 			);
@@ -138,15 +136,7 @@ class ADODB_postgres64 extends ADOConnection{
 		return " coalesce($field, $ifNull) ";
 	}
 
-	/**
-	 * Get the last id - never tested.
-	 *
-	 * @param string $tablename
-	 * @param string $fieldname
-	 * @return false|mixed
-	 *
-	 * @noinspection PhpUnused
-	 */
+	// get the last id - never tested
 	function pg_insert_id($tablename,$fieldname)
 	{
 		$result=pg_query($this->_connectionID, 'SELECT last_value FROM '. $tablename .'_'. $fieldname .'_seq');
@@ -168,9 +158,7 @@ class ADODB_postgres64 extends ADOConnection{
 	 */
 	protected function _insertID($table = '', $column = '')
 	{
-		if ($this->_resultid === false) {
-			return false;
-		}
+		if ($this->_resultid === false) return false;
 		$oid = pg_last_oid($this->_resultid);
 		// to really return the id, we need the table and column-name, else we can only return the oid != id
 		return empty($table) || empty($column) ? $oid : $this->GetOne("SELECT $column FROM $table WHERE oid=".(int)$oid);
@@ -178,9 +166,7 @@ class ADODB_postgres64 extends ADOConnection{
 
 	function _affectedrows()
 	{
-		if ($this->_resultid === false) {
-			return false;
-		}
+		if ($this->_resultid === false) return false;
 		return pg_affected_rows($this->_resultid);
 	}
 
@@ -195,14 +181,13 @@ class ADODB_postgres64 extends ADOConnection{
 		return pg_query($this->_connectionID, 'begin '.$this->_transmode);
 	}
 
-	function RowLock($table, $where, $col='1 as adodbignore')
+	function RowLock($tables,$where,$col='1 as adodbignore')
 	{
-		if (!$this->transCnt) {
-			$this->BeginTrans();
-		}
-		return $this->GetOne("select $col from $table where $where for update");
+		if (!$this->transCnt) $this->BeginTrans();
+		return $this->GetOne("select $col from $tables where $where for update");
 	}
 
+	// returns true/false.
 	function CommitTrans($ok=true)
 	{
 		if ($this->transOff) return true;
@@ -212,6 +197,7 @@ class ADODB_postgres64 extends ADOConnection{
 		return pg_query($this->_connectionID, 'commit');
 	}
 
+	// returns true/false
 	function RollbackTrans()
 	{
 		if ($this->transOff) return true;
@@ -276,6 +262,8 @@ class ADODB_postgres64 extends ADOConnection{
 		}
 	}
 
+
+	// Format date column in sql string given an input format that understands Y M D
 	function SQLDate($fmt, $col=false)
 	{
 		if (!$col) $col = $this->sysTimeStamp;
@@ -355,24 +343,15 @@ class ADODB_postgres64 extends ADOConnection{
 
 
 
-	/**
-	 * Update a BLOB from a file.
-	 *
-	 * The procedure stores the object id in the table and imports the object using
-	 * postgres proprietary blob handling routines.
-	 *
-	 * Usage example:
-	 * $conn->updateBlobFile('table', 'blob_col', '/path/to/file', 'id=1');
-	 *
-	 * @param string $table
-	 * @param string $column
-	 * @param string $path     Filename containing blob data
-	 * @param mixed  $where    {@see updateBlob()}
-	 * @param string $blobtype supports 'BLOB' and 'CLOB'
-	 *
-	 * @return bool success
-	 */
-	function updateBlobFile($table,$column,$path,$where,$blobtype='BLOB')
+	/*
+	* Load a Large Object from a file
+	* - the procedure stores the object id in the table and imports the object using
+	* postgres proprietary blob handling routines
+	*
+	* contributed by Mattia Rossi mattia@technologist.com
+	* modified for safe mode by juraj chlebec
+	*/
+	function UpdateBlobFile($table,$column,$path,$where,$blobtype='BLOB')
 	{
 		pg_query($this->_connectionID, 'begin');
 
@@ -388,25 +367,24 @@ class ADODB_postgres64 extends ADOConnection{
 		// $oid = pg_lo_import ($path);
 		pg_query($this->_connectionID, 'commit');
 		$rs = ADOConnection::UpdateBlob($table,$column,$oid,$where,$blobtype);
-		return !empty($rs);
+		$rez = !empty($rs);
+		return $rez;
 	}
 
-	/**
-	 * Deletes/Unlinks a Blob from the database, otherwise it will be left behind.
-	 *
-	 * contributed by Todd Rogers todd#windfox.net
-	 *
-	 * @param mixed $blob
-	 * @return bool True on success, false on failure.
-	 *
-	 * @noinspection PhpUnused
-	 */
-	function BlobDelete($blob)
+	/*
+	* Deletes/Unlinks a Blob from the database, otherwise it
+	* will be left behind
+	*
+	* Returns TRUE on success or FALSE on failure.
+	*
+	* contributed by Todd Rogers todd#windfox.net
+	*/
+	function BlobDelete( $blob )
 	{
 		pg_query($this->_connectionID, 'begin');
 		$result = @pg_lo_unlink($this->_connectionID, $blob);
 		pg_query($this->_connectionID, 'commit');
-		return $result;
+		return( $result );
 	}
 
 	/*
@@ -418,21 +396,19 @@ class ADODB_postgres64 extends ADOConnection{
 		return is_numeric($oid);
 	}
 
-	/**
-	 * If an OID is detected, then we use pg_lo_* to open the oid file and read the
-	 * real blob from the db using the oid supplied as a parameter. If you are storing
-	 * blobs using bytea, we autodetect and process it so this function is not needed.
-	 *
-	 * Contributed by Mattia Rossi mattia@technologist.com
-	 *
-	 * @link https://www.postgresql.org/docs/current/largeobjects.html
-	 *
-	 * @param mixed $blob
-	 * @param int|false $maxsize Defaults to $db->maxblobsize if false
-	 * @param bool $hastrans
-	 * @return string|false The blob
-	 */
-	function BlobDecode($blob, $maxsize=false, $hastrans=true)
+	/*
+	* If an OID is detected, then we use pg_lo_* to open the oid file and read the
+	* real blob from the db using the oid supplied as a parameter. If you are storing
+	* blobs using bytea, we autodetect and process it so this function is not needed.
+	*
+	* contributed by Mattia Rossi mattia@technologist.com
+	*
+	* see http://www.postgresql.org/idocs/index.php?largeobjects.html
+	*
+	* Since adodb 4.54, this returns the blob, instead of sending it to stdout. Also
+	* added maxsize parameter, which defaults to $db->maxblobsize if not defined.
+	*/
+	function BlobDecode($blob,$maxsize=false,$hastrans=true)
 	{
 		if (!$this->GuessOID($blob)) return $blob;
 
@@ -452,7 +428,7 @@ class ADODB_postgres64 extends ADOConnection{
 	/**
 	 * Encode binary value prior to DB storage.
 	 *
-	 * @link https://www.postgresql.org/docs/current/static/datatype-binary.html
+	 * See https://www.postgresql.org/docs/current/static/datatype-binary.html
 	 *
 	 * NOTE: SQL string literals (input strings) must be preceded with two
 	 * backslashes due to the fact that they must pass through two parsers in
@@ -513,6 +489,7 @@ class ADODB_postgres64 extends ADOConnection{
 		global $ADODB_FETCH_MODE;
 
 		$schema = false;
+		$false = false;
 		$this->_findschema($table,$schema);
 
 		if ($normalize) $table = strtolower($table);
@@ -526,7 +503,7 @@ class ADODB_postgres64 extends ADOConnection{
 		$ADODB_FETCH_MODE = $save;
 
 		if ($rs === false) {
-			return false;
+			return $false;
 		}
 		if (!empty($this->metaKeySQL)) {
 			// If we want the primary keys, we have to issue a separate query
@@ -544,8 +521,6 @@ class ADODB_postgres64 extends ADOConnection{
 
 			$rskey->Close();
 			unset($rskey);
-		} else {
-			$keys = [];
 		}
 
 		$rsdefa = array();
@@ -598,29 +573,28 @@ class ADODB_postgres64 extends ADOConnection{
 			//Freek
 			$fld->not_null = $rs->fields[4] == 't';
 
+
 			// Freek
 			if (is_array($keys)) {
 				foreach($keys as $key) {
-					if ($fld->name == $key['column_name'] && $key['primary_key'] == 't') {
+					if ($fld->name == $key['column_name'] AND $key['primary_key'] == 't')
 						$fld->primary_key = true;
-					}
-					if ($fld->name == $key['column_name'] && $key['unique_key'] == 't') {
+					if ($fld->name == $key['column_name'] AND $key['unique_key'] == 't')
 						$fld->unique = true; // What name is more compatible?
-					}
 				}
 			}
 
-			if ($ADODB_FETCH_MODE == ADODB_FETCH_NUM) {
-				$retarr[] = $fld;
-			}
-			else {
-				$retarr[($normalize) ? strtoupper($fld->name) : $fld->name] = $fld;
-			}
+			if ($ADODB_FETCH_MODE == ADODB_FETCH_NUM) $retarr[] = $fld;
+			else $retarr[($normalize) ? strtoupper($fld->name) : $fld->name] = $fld;
 
 			$rs->MoveNext();
 		}
 		$rs->Close();
-		return $retarr ?: false;
+		if (empty($retarr))
+			return  $false;
+		else
+			return $retarr;
+
 	}
 
 	function param($name, $type='C')
@@ -664,7 +638,7 @@ class ADODB_postgres64 extends ADOConnection{
 				WHERE (c2.relname=\'%s\' or c2.relname=lower(\'%s\'))';
 		}
 
-		if (!$primary) {
+		if ($primary == FALSE) {
 			$sql .= ' AND i.indisprimary=false;';
 		}
 
@@ -681,17 +655,20 @@ class ADODB_postgres64 extends ADOConnection{
 		$ADODB_FETCH_MODE = $save;
 
 		if (!is_object($rs)) {
-			return false;
+			$false = false;
+			return $false;
 		}
 
+		// Get column names indexed by attnum so we can lookup the index key
 		$col_names = $this->MetaColumnNames($table,true,true);
-		// 3rd param is use attnum,
-		// see https://sourceforge.net/p/adodb/bugs/45/
 		$indexes = array();
 		while ($row = $rs->FetchRow()) {
 			$columns = array();
 			foreach (explode(' ', $row[2]) as $col) {
-				$columns[] = $col_names[$col];
+				// When index attribute (pg_index.indkey) is an expression, $col == 0
+				// @see https://www.postgresql.org/docs/current/catalog-pg-index.html
+				// so there is no matching column name - set it to null (see #940).
+				$columns[] = $col_names[$col] ?? null;
 			}
 
 			$indexes[$row[0]] = array(
@@ -933,17 +910,17 @@ class ADODB_postgres64 extends ADOConnection{
 	}
 
 
-	/**
-	 * @return int Maximum size of C field
-	 */
+	/*
+	* Maximum size of C field
+	*/
 	function CharMax()
 	{
 		return 1000000000;  // should be 1 Gb?
 	}
 
-	/**
-	 * @return int Maximum size of X field
-	 */
+	/*
+	* Maximum size of X field
+	*/
 	function TextMax()
 	{
 		return 1000000000; // should be 1 Gb?
@@ -967,19 +944,14 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 			global $ADODB_FETCH_MODE;
 			$mode = $ADODB_FETCH_MODE;
 		}
-		switch ($mode) {
-			case ADODB_FETCH_NUM:
-				$this->fetchMode = PGSQL_NUM;
-				break;
-			case ADODB_FETCH_ASSOC:
-				$this->fetchMode = PGSQL_ASSOC;
-				break;
+		switch ($mode)
+		{
+		case ADODB_FETCH_NUM: $this->fetchMode = PGSQL_NUM; break;
+		case ADODB_FETCH_ASSOC:$this->fetchMode = PGSQL_ASSOC; break;
 
-			case ADODB_FETCH_DEFAULT:
-			case ADODB_FETCH_BOTH:
-			default:
-				$this->fetchMode = PGSQL_BOTH;
-				break;
+		case ADODB_FETCH_DEFAULT:
+		case ADODB_FETCH_BOTH:
+		default: $this->fetchMode = PGSQL_BOTH; break;
 		}
 		$this->adodbFetchMode = $mode;
 
@@ -992,7 +964,8 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 		if ($this->fetchMode == PGSQL_ASSOC && $upper == ADODB_ASSOC_CASE_LOWER) {
 			return $this->fields;
 		}
-		return ADORecordSet::GetRowAssoc($upper);
+		$row = ADORecordSet::GetRowAssoc($upper);
+		return $row;
 	}
 
 	function _initRS()
@@ -1071,7 +1044,7 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 			}
 		}
 		if ($this->fetchMode == PGSQL_ASSOC || $this->fetchMode == PGSQL_BOTH) {
-			foreach($this->_blobArr as $v) {
+			foreach($this->_blobArr as $k => $v) {
 				$this->fields[$v] = ADORecordSet_postgres64::_decode($this->fields[$v]);
 			}
 		}
@@ -1112,7 +1085,7 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 		return pg_free_result($this->_queryID);
 	}
 
-	function MetaType($t,$len=-1, $fieldObj=false)
+	function MetaType($t,$len=-1,$fieldobj=false)
 	{
 		if (is_object($t)) {
 			$fieldobj = $t;
@@ -1122,81 +1095,71 @@ class ADORecordSet_postgres64 extends ADORecordSet{
 
 		$t = strtoupper($t);
 
-		if (array_key_exists($t, $this->connection->customActualTypes)) {
-			return $this->connection->customActualTypes[$t];
-		}
+		if (array_key_exists($t,$this->connection->customActualTypes))
+			return  $this->connection->customActualTypes[$t];
 
 		switch ($t) {
-			case 'MONEY': // stupid, postgres expects money to be a string
-			case 'INTERVAL':
-			case 'CHAR':
-			case 'CHARACTER':
-			case 'VARCHAR':
-			case 'NAME':
-			case 'BPCHAR':
-			case '_VARCHAR':
-			case 'CIDR':
-			case 'INET':
-			case 'MACADDR':
-			/** @noinspection PhpMissingBreakStatementInspection */
-			case 'UUID':
-				if ($len <= $this->blobSize) {
-					return 'C';
-				}
-				// Fall-through
+				case 'MONEY': // stupid, postgres expects money to be a string
+				case 'INTERVAL':
+				case 'CHAR':
+				case 'CHARACTER':
+				case 'VARCHAR':
+				case 'NAME':
+				case 'BPCHAR':
+				case '_VARCHAR':
+				case 'CIDR':
+				case 'INET':
+				case 'MACADDR':
+				case 'UUID':
+					if ($len <= $this->blobSize) return 'C';
 
-			case 'TEXT':
-				return 'X';
+				case 'TEXT':
+					return 'X';
 
-			case 'IMAGE': // user defined type
-			case 'BLOB': // user defined type
-			case 'BIT':    // This is a bit string, not a single bit, so don't return 'L'
-			case 'VARBIT':
-			case 'BYTEA':
-				return 'B';
+				case 'IMAGE': // user defined type
+				case 'BLOB': // user defined type
+				case 'BIT':	// This is a bit string, not a single bit, so don't return 'L'
+				case 'VARBIT':
+				case 'BYTEA':
+					return 'B';
 
-			case 'BOOL':
-			case 'BOOLEAN':
-				return 'L';
+				case 'BOOL':
+				case 'BOOLEAN':
+					return 'L';
 
-			case 'DATE':
-				return 'D';
+				case 'DATE':
+					return 'D';
 
-			case 'TIMESTAMP WITHOUT TIME ZONE':
-			case 'TIME':
-			case 'DATETIME':
-			case 'TIMESTAMP':
-			case 'TIMESTAMPTZ':
-				return 'T';
 
-			case 'SMALLINT':
-			case 'BIGINT':
-			case 'INTEGER':
-			case 'INT8':
-			case 'INT4':
-			/** @noinspection PhpMissingBreakStatementInspection */
-			case 'INT2':
-				if (isset($fieldobj)
-					&& empty($fieldobj->primary_key)
-					&& (!$this->connection->uniqueIisR || empty($fieldobj->unique))
-				) {
-					return 'I';
-				}
-				// Fall-through
+				case 'TIMESTAMP WITHOUT TIME ZONE':
+				case 'TIME':
+				case 'DATETIME':
+				case 'TIMESTAMP':
+				case 'TIMESTAMPTZ':
+					return 'T';
 
-			case 'OID':
-			case 'SERIAL':
-				return 'R';
+				case 'SMALLINT':
+				case 'BIGINT':
+				case 'INTEGER':
+				case 'INT8':
+				case 'INT4':
+				case 'INT2':
+					if (isset($fieldobj) &&
+				empty($fieldobj->primary_key) && (!$this->connection->uniqueIisR || empty($fieldobj->unique))) return 'I';
 
-			case 'NUMERIC':
-			case 'DECIMAL':
-			case 'FLOAT4':
-			case 'FLOAT8':
-				return 'N';
+				case 'OID':
+				case 'SERIAL':
+					return 'R';
 
-			default:
-				return ADODB_DEFAULT_METATYPE;
-		}
+				case 'NUMERIC':
+				case 'DECIMAL':
+				case 'FLOAT4':
+				case 'FLOAT8':
+					return 'N';
+
+				default:
+					return ADODB_DEFAULT_METATYPE;
+			}
 	}
 
 }

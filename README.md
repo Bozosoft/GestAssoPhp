@@ -2,8 +2,12 @@ GestAssoPhp  http://gestassophp.free.fr
 =======================================
 
 __Une gestion en ligne développée en PHP et MySql/PostrgreSql__  
-- Version PHP minimun : 7.4 (PHP 5.6.x jusqu’à la version 7.6.13)
-pour les associations comprenant la gestion des adhérents et de leurs cotisations 
+pour les associations comprenant la gestion des adhérents et de leurs cotisations
+- Version PHP minimun : 7.4 (PHP 5.6.x jusqu’à la version GestAssoPhp 7.6.13)
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x
+- Version MySQL : version 5 ou plus
+- Version PostrgreSql : version 12 ou plus
+
 
 - Un accès pour chacun des membres par mot de passe,
 - Un annuaire visible pour tous les membres qui ont donné leur accord,
@@ -28,7 +32,7 @@ __Configuration nécessaire pour l'installation__
 - Vous devez au minimum disposer d’un espace sur un serveur Web avec : 
   - un accès FTP ou autre pour l’installation des fichiers,
   - le support de PHP 7.4 minimum avec le support des sessions, 
-  - un accès à une base de données de type MySQL/MariaDB ou PostgreSQL version 7 minimum.
+  - un accès à une base de données de type MySQL/MariaDB ou PostgreSQL version 12 minimum.
 - Et bien sur une maîtrise de la gestion de votre hébergement !
 
 __Information détaillée__

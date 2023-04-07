@@ -66,6 +66,7 @@ class ADODB_mysqli extends ADOConnection {
 	var $socket = ''; //Default to empty string to fix HHVM bug
 	var $_bindInputArray = false;
 	var $nameQuote = '`';		/// string to use to quote identifiers and names
+	var $optionFlags = array(array(MYSQLI_READ_DEFAULT_GROUP,0));
 	var $arrayClass = 'ADORecordSet_array_mysqli';
 	var $multiQuery = false;
 	var $ssl_key = null;
@@ -175,6 +176,15 @@ class ADODB_mysqli extends ADOConnection {
 			}
 			return false;
 		}
+		/*
+		I suggest a simple fix which would enable adodb and mysqli driver to
+		read connection options from the standard mysql configuration file
+		/etc/my.cnf - "Bastien Duclaux" <bduclaux#yahoo.com>
+		*/
+		$this->optionFlags = array();
+		foreach($this->optionFlags as $arr) {
+			mysqli_options($this->_connectionID,$arr[0],$arr[1]);
+		}
 
 		// Now merge in the standard connection parameters setting
 		foreach ($this->connectionParameters as $options) {
@@ -201,6 +211,7 @@ class ADODB_mysqli extends ADOConnection {
 			$this->clientFlags = MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
 		}
 
+		#if (!empty($this->port)) $argHostname .= ":".$this->port;
 		/** @noinspection PhpCastIsUnnecessaryInspection */
 		$ok = @mysqli_real_connect($this->_connectionID,
 					$argHostname,
@@ -736,6 +747,8 @@ class ADODB_mysqli extends ADOConnection {
 
 		$fraction = $dayFraction * 24 * 3600;
 		return $date . ' + INTERVAL ' .	 $fraction.' SECOND';
+
+//		return "from_unixtime(unix_timestamp($date)+$fraction)";
 	}
 
 	/**
@@ -1002,6 +1015,7 @@ class ADODB_mysqli extends ADOConnection {
 	 */
 	function SelectDB($dbName)
 	{
+//		$this->_connectionID = $this->mysqli_resolve_link($this->_connectionID);
 		$this->database = $dbName;
 
 		if ($this->_connectionID) {
@@ -1060,11 +1074,21 @@ class ADODB_mysqli extends ADOConnection {
 	 */
 	function Prepare($sql)
 	{
-		// Flag the insert_id method to use the correct retrieval method
+		/*
+		* Flag the insert_id method to use the correct retrieval method
+		*/
 		$this->usePreparedStatement = true;
 
-		// Prepared statements are not yet handled correctly
+		/*
+		* Prepared statements are not yet handled correctly
+		*/
 		return $sql;
+		$stmt = $this->_connectionID->prepare($sql);
+		if (!$stmt) {
+			echo $this->errorMsg();
+			return $sql;
+		}
+		return array($sql,$stmt);
 	}
 
 	/**
@@ -1175,40 +1199,95 @@ class ADODB_mysqli extends ADOConnection {
 	function _query($sql, $inputarr)
 	{
 		global $ADODB_COUNTRECS;
+		// Move to the next recordset, or return false if there is none. In a stored proc
+		// call, mysqli_next_result returns true for the last "recordset", but mysqli_store_result
+		// returns false. I think this is because the last "recordset" is actually just the
+		// return value of the stored proc (ie the number of rows affected).
+		// Commented out for reasons of performance. You should retrieve every recordset yourself.
+		//	if (!mysqli_next_result($this->connection->_connectionID))	return false;
 
-		if (is_string($sql) && is_array($inputarr)) {
-			// This is support for true prepared queries with bound parameters
-			// set prepared statement flags
+		// When SQL is empty, mysqli_query() throws exception on PHP 8 (#945)
+		if (!$sql) {
+			if ($this->debug) {
+				ADOConnection::outp("Empty query");
+			}
+			return false;
+		}
+
+		if (is_array($sql)) {
+
+			// Prepare() not supported because mysqli_stmt_execute does not return a recordset, but
+			// returns as bound variables.
+
+			$stmt = $sql[1];
+			$a = '';
+			foreach($inputarr as $v) {
+				if (is_string($v)) $a .= 's';
+				else if (is_integer($v)) $a .= 'i';
+				else $a .= 'd';
+			}
+
+			/*
+			 * set prepared statement flags
+			 */
+			if ($this->usePreparedStatement)
+				$this->useLastInsertStatement = true;
+
+			$fnarr = array_merge( array($stmt,$a) , $inputarr);
+			call_user_func_array('mysqli_stmt_bind_param',$fnarr);
+			return mysqli_stmt_execute($stmt);
+		}
+		else if (is_string($sql) && is_array($inputarr))
+		{
+
+			/*
+			* This is support for true prepared queries
+			* with bound parameters
+			*
+			* set prepared statement flags
+			*/
 			$this->usePreparedStatement = true;
 			$this->usingBoundVariables = true;
 
 			$bulkBindArray = array();
-			if (is_array($inputarr[0])) {
+			if (is_array($inputarr[0]))
+			{
 				$bulkBindArray = $inputarr;
 				$inputArrayCount = count($inputarr[0]) - 1;
-			} else {
+			}
+			else
+			{
 				$bulkBindArray[] = $inputarr;
 				$inputArrayCount = count($inputarr) - 1;
 			}
 
-			// Prepare the statement with the placeholders
-			// prepare will fail if the statement is invalid, so we trap and error if necessary.
-			// Note that we are calling MySQL prepare here, not ADOdb
+
+			/*
+			* Prepare the statement with the placeholders,
+			* prepare will fail if the statement is invalid
+			* so we trap and error if necessary. Note that we
+			* are calling MySQL prepare here, not ADOdb
+			*/
 			$stmt = $this->_connectionID->prepare($sql);
-			if ($stmt === false) {
+			if ($stmt === false)
+			{
 				$this->outp_throw(
 					"SQL Statement failed on preparation: " . htmlspecialchars($sql) . "'",
 					'Execute'
 				);
 				return false;
 			}
-
-			// Make sure the number of parameters provided in the input array
-			// matches what the query expects. We must discount the first
-			// parameter which contains the data types in our inbound parameters
+			/*
+			* Make sure the number of parameters provided in the input
+			* array matches what the query expects. We must discount
+			* the first parameter which contains the data types in
+			* our inbound parameters
+			*/
 			$nparams = $stmt->param_count;
 
-			if ($nparams != $inputArrayCount) {
+			if ($nparams  != $inputArrayCount)
+			{
+
 				$this->outp_throw(
 					"Input array has " . $inputArrayCount .
 					" params, does not match query: '" . htmlspecialchars($sql) . "'",
@@ -1217,28 +1296,37 @@ class ADODB_mysqli extends ADOConnection {
 				return false;
 			}
 
-			foreach ($bulkBindArray as $inputarr) {
-				// Must pass references into call_user_func_array
+			foreach ($bulkBindArray as $inputarr)
+			{
+				/*
+				* Must pass references into call_user_func_array
+				*/
 				$paramsByReference = array();
-				foreach ($inputarr as $key => $value) {
+				foreach($inputarr as $key => $value) {
 					/** @noinspection PhpArrayAccessCanBeReplacedWithForeachValueInspection */
 					$paramsByReference[$key] = &$inputarr[$key];
 				}
 
-				// Bind the params
+				/*
+				* Bind the params
+				*/
 				call_user_func_array(array($stmt, 'bind_param'), $paramsByReference);
 
-				// Execute
+				/*
+				* Execute
+				*/
+
 				$ret = mysqli_stmt_execute($stmt);
 
 				// Store error code and message
 				$this->_errorCode = $stmt->errno;
 				$this->_errorMsg = $stmt->error;
 
-				// Did we throw an error?
-				if (!$ret) {
+				/*
+				* Did we throw an error?
+				*/
+				if ($ret == false)
 					return false;
-				}
 			}
 
 			// Tells affected_rows to be compliant
@@ -1250,9 +1338,14 @@ class ADODB_mysqli extends ADOConnection {
 
 			// Turn the statement into a result set and return it
 			return $stmt->get_result();
-		} else {
-			// Reset prepared statement flags, in case we set them previously and didn't use them
-			$this->usePreparedStatement = false;
+		}
+		else
+		{
+			/*
+			* reset prepared statement flags, in case we set them
+			* previously and didn't use them
+			*/
+			$this->usePreparedStatement   = false;
 			$this->useLastInsertStatement = false;
 
 			// Reset error code and message
@@ -1260,12 +1353,19 @@ class ADODB_mysqli extends ADOConnection {
 			$this->_errorMsg = '';
 		}
 
+		/*
+		if (!$mysql_res =  mysqli_query($this->_connectionID, $sql, ($ADODB_COUNTRECS) ? MYSQLI_STORE_RESULT : MYSQLI_USE_RESULT)) {
+			if ($this->debug) ADOConnection::outp("Query: " . $sql . " failed. " . $this->errorMsg());
+			return false;
+		}
+
+		return $mysql_res;
+		*/
+
 		if ($this->multiQuery) {
-			$rs = mysqli_multi_query($this->_connectionID, $sql . ';');
+			$rs = mysqli_multi_query($this->_connectionID, $sql.';');
 			if ($rs) {
-				$rs = ($ADODB_COUNTRECS)
-					? @mysqli_store_result($this->_connectionID)
-					: @mysqli_use_result($this->_connectionID);
+				$rs = ($ADODB_COUNTRECS) ? @mysqli_store_result( $this->_connectionID ) : @mysqli_use_result( $this->_connectionID );
 				return $rs ?: true; // mysqli_more_results( $this->_connectionID )
 			}
 		} else {
@@ -1276,10 +1376,11 @@ class ADODB_mysqli extends ADOConnection {
 			}
 		}
 
-		if ($this->debug) {
+		if($this->debug)
 			ADOConnection::outp("Query: " . $sql . " failed. " . $this->errorMsg());
-		}
+
 		return false;
+
 	}
 
 	/**

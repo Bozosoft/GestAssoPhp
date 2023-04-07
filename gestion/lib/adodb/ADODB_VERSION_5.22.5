@@ -2,18 +2,29 @@
 https://github.com/ADOdb/ADOdb
 https://github.com/ADOdb/ADOdb/blob/master/docs/changelog.md
 
-5.22.5 - Unreleased
-Fixed
-- ADODB_FETCH_DEFAULT should be treated as ASSOC in getAssoc()
-  [#886](https://github.com/ADOdb/ADOdb/issues/886)
-- Fix autoExecute() $where parameter type
-  [#915](https://github.com/ADOdb/ADOdb/issues/915)
-- pgsql: fix "column already exists" error when adding a new column
-  [#897](https://github.com/ADOdb/ADOdb/issues/897)
-- Creation of dynamic property deprecated warning in PHP 8.2
-  [#913](https://github.com/ADOdb/ADOdb/issues/913)
-  [#917](https://github.com/ADOdb/ADOdb/issues/917)
 
+5.22.5 - 2023-04-03
+Removed
+    Obsolete ADOConnection::$databaseName property #932
+    Dead code related to safe_mode #934
+    pdo: remove unnecessary methods _init() and _affectedrows() #935
+
+Fixed
+    ADODB_FETCH_DEFAULT should be treated as ASSOC in getAssoc() #886
+    Allow dynamic properties for ADOFieldObject class #906
+    Fix autoExecute() $where parameter type #915
+    Creation of dynamic property deprecated warning in PHP 8.2 #904 #907 #908 #909 #911 #912 #913 #917 #926 #933 #935
+    Partially-supported callable deprecated warning in PHP 8.2 #928
+    Passing null to non-nullable parameter is deprecated in PHP 8.1 #938
+    Define adodbFetchMode property in base ADORecordSet class #923
+    mysql: uncaught exception calling execute() with empty SQL on PHP 8 #945
+    oci8: Replace obsolete oci_free_cursor() function alias #937
+    pdo: Move setTransactionMode() to ADODB_pdo_sqlsrv class #939
+    pgsql: fix "column already exists" error when adding a new column #897
+    pgsql: undefined array key in metaIndexes() when column is an expression #940
+    pgsql: revert non-functional "Noblob optimization" #112
+    session: full table scan when accessing sessions table on MySQL #941
+    session: inconsistent DB provider check #943
 
 
 

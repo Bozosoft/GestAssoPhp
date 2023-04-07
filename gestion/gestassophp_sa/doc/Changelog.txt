@@ -7,7 +7,7 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2022
+ * @version : 2023
  * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
@@ -18,7 +18,13 @@
  */
 
 
-Version 7.8.0-dev4 - 01/04/2023 - En cours (Dev4)
+Version 7.8.0-dev5 - 06/04/2023 - En cours (Dev5)
+-------------------------------------------
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x - version minimum PHP 7.4
+- Mise à jour de ADOdb à la version 5.22.5 du 03/04/2023 (modifications de V 5.22.4 à V 5.22.5)
+https://github.com/ADOdb/ADOdb/blob/v5.22.5/docs/changelog.md
+
+* version 7.8.0-dev4 - 01/04/2023 - En cours (Dev4)
 -------------------------------------------
 - Correction du 28/03/2023 Securité Smarty à la version 4.3.1 (vulnerability in Javascript escaping)  https://github.com/smarty-php/smarty/releases/tag/v4.3.1
 - Corrections PHP /lib/adodb/ suivant Commits du 23/03/23
