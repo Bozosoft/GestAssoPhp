@@ -7,7 +7,7 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2022
+ * @version :  2023
  * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
@@ -15,7 +15,7 @@
  * @ ADOdb Library for PHP  GNU LESSER GENERAL PUBLIC LICENSE https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
- !! BIEN LIRE TOUT LE TEXTE AVANT DE DEMARRER !!
+ !! BIEN LIRE TOUT LE TEXTE AVANT DE DÉMARRER !!
 
 Conditions requises pour installer et gérer
 *******************************************
@@ -25,7 +25,7 @@ hébergement WEB (nom de domaine, gestion hébergement, ....)
 serveurs web (logs, URLs...) 
 administration à distance (FTP, chmod, ...) 
 bases de données (création, sauvegarde, restauration...)
-Eventuellement
+Éventuellement
 -------------
 contenus web (xHTML, CSS, images, ...) 
 Connaitre PHP, Smarty et adodb
@@ -50,10 +50,10 @@ Attention aux fichiers .htaccess fournis, il faudra vérifier la compatibilité 
 
 Vous devez connaître les données de votre connexion MySQL ou PostgreSQL : 
 - l'adresse du serveur MySQL ou PostgreSQL ->si vous êtes en local 'localhost'  
-- votre login MySQL ou PostgreSQL, 
-- votre password MySQL ou PostgreSQL, 
+- votre login MySQL ou PostgreSQL,
+- votre mot de passe MySQL ou PostgreSQL,
 - le nom de la base de données crée ou a créer
-- un préfix est prévu lors de l'installation de la base de données (par défaut = gs_)
+- un préfixe est prévu lors de l'installation de la base de données (par défaut = gs_)
 Si vous utilisez une base de données type MySQL, attention, il faut sélectionner en étape 2 Mysqli. 
 Si vous utilisez postgresql sélectionner en étape 2 PostgreSQL.
 
@@ -70,7 +70,7 @@ error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
 [Date]
 date.timezone = Europe/Paris
 
-***Cete version ne fonctione pas pour une installation sur les pagesperso de Free.fr en PHP 5.6.x***
+***Cette version ne fonctionne pas pour une installation sur les pagesperso de Free.fr en PHP 5.6.x***
 Voir le lien http://gestassophp.free.fr/cms/index.php/home/questions-installation.html
 
 
@@ -107,7 +107,7 @@ Note 1 - IMPORTANT
 
 POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
 ***********************************************
-- Suivant votre serveur vérfiez le fichier /admin/export_bd.php et /include/phppgdump.class.php ( voir *NOTA plus bas)
+- Suivant votre serveur vérifiez le fichier /admin/export_bd.php et /include/phppgdump.class.php ( voir *NOTA plus bas)
 
 
 4. Envoyer les fichiers en FTP sur votre site.
@@ -115,7 +115,7 @@ POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
 Dossiers (et fichiers) principaux de l'archive
 ----------------------------------------------
 gestion_sa/lib/				Dossier pour les fichiers des bibliothèques de fonctionnement du système
-gestion_sa/lib/smarty/			Dossier des fichiers du système de template)
+gestion_sa/lib/smarty/			Dossier des fichiers du système de template (gabarit d'affichage HTML)
 gestion_sa/lib/adodb/			Dossier des fichiers du système de gestion de base de données MySql et POstgreSql
 gestion_sa/lib/version_lib_smarty.txt
 gestion_sa/lib/version_lib_adodb.txt
@@ -200,7 +200,7 @@ NOTA :
 Si vous désirez faire une mise à jour utiliser les fichiers de mise à jour de la page téléchargement.
 
 
-B - MISE A JOUR DEPUIS UNE ANCIENNE VERSION 7xxx
+B - MISE A JOUR DEPUIS UNE ANCIENNE VERSION 7.xxx
 ----------------------------------------
 pour la mise à jour utiliser le fichier diff_7x_7x+1.tar.bz2 disponible sur http://gestassophp.free.fr/cms/index.php/forrm_download.html
 
@@ -210,9 +210,10 @@ https://git.framasoft.org/Bozosoft/GestAssoPhp
 https://github.com/Bozosoft/GestAssoPhp
 
 * Crédits *
-- GestAssoPhp+Pg utilise SmartGit (graphical Git client (Non commercial licence) pour gérer les fichiers Git. https://www.syntevo.com/smartgit/
-- SmartGit can be used free of charge by Open Source developers(Non commercial licence) https://www.syntevo.com/smartgit/purchase/
+- GestAssoPhp+Pg utilise Git-Cola (https://git-cola.github.io/) pour gérer les fichiers Git.
+- information sur http://jc.etiemble.free.fr/abc/index.php/trucs-astuces/git_linux0/git-cola-linux
+
   
 ----------------------
-Mise à jour de cette page : 15/12/2022
+Mise à jour de cette page : 26/04/2023
 

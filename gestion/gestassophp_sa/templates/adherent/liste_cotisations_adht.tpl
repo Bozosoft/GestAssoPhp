@@ -197,15 +197,15 @@
 			<td >
 			{if $item_cotis_adht.cotis != "999" && $affiche_liste_complete == "1"}
 				{* Nom Prénom *}
-				<a href="../adherent/liste_cotisations_adht.php?id_adht={$item_cotis_adht.id_adhtasso}" title="{language name = liste_cotis_adht_liste_title}">{$item_cotis_adht.nom_adht} {$item_cotis_adht.prenom_adht}1</a>
+				<a href="../adherent/liste_cotisations_adht.php?id_adht={$item_cotis_adht.id_adhtasso}" title="{language name = liste_cotis_adht_liste_title}">{$item_cotis_adht.nom_adht} {$item_cotis_adht.prenom_adht}</a>
 
 			{elseif $affiche_liste_complete == "" && $item_cotis_adht.cotis != "999"}
 				{* Nom Prénom si 1 seul adhérent sectionné avec lien vers fiche adht *}
-				<a href="../adherent/gerer_fiche_adht.php?id_adht={$item_cotis_adht.id_adhtasso}" title="{language name = liste_cotis_adht_visu_fiche_title}">{$item_cotis_adht.nom_adht} {$item_cotis_adht.prenom_adht}2</a>
+				<a href="../adherent/gerer_fiche_adht.php?id_adht={$item_cotis_adht.id_adhtasso}" title="{language name = liste_cotis_adht_visu_fiche_title}">{$item_cotis_adht.nom_adht} {$item_cotis_adht.prenom_adht}</a>
 
 			{else}
 				{* Nom Prénom des fiches archivées ROUGE *}
-				<span class="Texterouge">{$item_cotis_adht.nom_adht} {$item_cotis_adht.prenom_adht}3</span>
+				<span class="Texterouge">{$item_cotis_adht.nom_adht} {$item_cotis_adht.prenom_adht}</span>
 			{/if}
 			</td>
 			<td>{$item_cotis_adht.nom_type_cotisation}</td>	{* Type cotisation *}

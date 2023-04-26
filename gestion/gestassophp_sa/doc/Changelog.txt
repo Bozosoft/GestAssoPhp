@@ -18,7 +18,15 @@
  */
 
 
-Version 7.8.0-dev5 - 06/04/2023 - En cours (Dev5)
+Version 7.8.0 -26/04/2023 - Finale
+-------------------------------------------
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x - version minimum PHP 7.4
+- Correction sur le Changelog.txt
+- Mise à jour version
+- Mise à jour du fichier lisez_moi.txt
+- Correction Typo sur liste_cotisations_adht.tpl
+
+* version 7.8.0-dev5 - 06/04/2023 - En cours (Dev5)
 -------------------------------------------
 - Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x - version minimum PHP 7.4
 - Mise à jour de ADOdb à la version 5.22.5 du 03/04/2023 (modifications de V 5.22.4 à V 5.22.5)
