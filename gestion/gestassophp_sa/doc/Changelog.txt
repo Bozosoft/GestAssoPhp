@@ -18,6 +18,15 @@
  */
 
 
+Version 7.8.1-dev1 - 09/10/2023 - En cours (Dev1) 
+-------------------------------------------
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x- version minimum PHP 7.4
+- Mise à jour Smarty à la version 4.3.4 (correction /sysplugins)
+- Mise à jour de ADOdb à la version 5.22.6 du 06/11/2023
+- Correction sur le Changelog.txt
+- Mise à jour version
+
+
 Version 7.8.0 -26/04/2023 - Finale
 -------------------------------------------
 - Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x - version minimum PHP 7.4

@@ -41,6 +41,19 @@ Fichier pour GestAssophp
 
 --------------------------------
 
+[4.3.4] - 2023-09-14 https://github.com/smarty-php/smarty/releases/tag/v4.3.4
+Commits on Sep 13, 2023  Fix phpdoc
+/sysplugins/smarty_template_compiled.php
+Commits on Apr 30, 2023 Remove md5 modifier from debug.tpl (#871)  
+/sysplugins/smarty_internal_debug.php
+/sysplugins/smarty_internal_errorhandler.php
+CHANGELOG.md
+Smarty.class.php
+debug.tpl
+
+[4.3.3] - 2023-09-14
+[4.3.2] - 2023-07-19
+
 [4.3.1] - 2023-03-28
 Security
     Fixed Cross site scripting vulnerability in Javascript escaping. This addresses CVE-2023-28447.
