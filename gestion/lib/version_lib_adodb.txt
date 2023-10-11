@@ -44,7 +44,7 @@ Fichier poutr GestAssophp
 
 --------------------------------
 
-06/11/2023 - ADOdb-5.22.6 datée du 06/11/2023  https://github.com/ADOdb/ADOdb/blob/v5.22.6/docs/changelog.md
+11/106/2023 - ADOdb-5.22.6 datée du 11/06/2023  https://github.com/ADOdb/ADOdb/blob/v5.22.6/docs/changelog.md
 
 06/04/2023 - ADOdb-5.22.5 datée du 03/04/2023  https://github.com/ADOdb/ADOdb/blob/v5.22.5/docs/changelog.md
 27/11/2022 - ADOdb-5.22.4 datée du 28/10/2022 https://github.com/ADOdb/ADOdb/blob/v5.22.4/docs/changelog.md
