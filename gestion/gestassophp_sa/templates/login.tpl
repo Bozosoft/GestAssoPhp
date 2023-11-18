@@ -105,7 +105,7 @@ Supprimer cette ligne SI demo pour étourdis *}
 				{language name = mail_contacter}{mailto address="$email_adresse" text="Administrateur" subject="Autorisation_Espace_membres" encode="javascript"} {language name = mail_mail}
 				{/if}
 				</span><br><br>
-				<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="J\'ai oubli&eacute; mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br><br>
+				<span class="TextenoirR">&nbsp;{mailto address="$email_adresse" text="Oubli de mon mot de passe !" subject="Oubli_mot_de_passe_Espace_membres" encode="javascript"}</span><br><br>
 			</footer>
 		</div> {* / défini le contenu .. *}
 	</div>
