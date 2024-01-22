@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2022
- * @copyright 2007-2022 (c) JC Etiemble
+ * @version : 2024
+ * @copyright 2007-2023 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -79,11 +79,11 @@
     fiche de la ligne, et de modifier &eacute;ventuellement ces informations.<br>
     - l'ic&ocirc;ne <img src="../images/icones16/i_disquet.png" width="16" height="16" alt="" title="<?php echo _LANG_LISTE_FICHIERS_ADHT_DOWNLOAD_FILE_ICON_TITLE ;?>">
     de la colonne &quot;<span class="TextenoirGras"><?php echo _LANG_TPL_COL_ACTIONS ;?></span>&quot; permet
-    de t&eacute;l&eacute;charger vers votre ordinateur le fichier de la ligne.<br>
+    de t&eacute;l&eacute;charger vers votre ordinateur le fichier de la ligne : <br>- <span class="TextenoirGras">directement</span> ou <span class="TextenoirGras"> avec le bouton droit de la souris</span> par le sous menu <span class="TextebleuGras">Enregistrer le lien sous...</span> ou  <span class="TextebleuGras">Enregistrer la cible du lien sous...</span> suivant le navigateur.<br>
     - l'ic&ocirc;ne <img src="../images/icones16/i_delete.png" width="16" height="16" alt="" title="<?php echo _LANG_LISTE_FICHIERS_ADHT_DEL_FILE_ICON_TITLE ;?>">
-    supprime de la liste le fichier ( (<span class="Texterouge">ATTENTION</span>
+    supprime de la liste le fichier (<span class="Texterouge">ATTENTION</span>
     la suppression du fichier est irr&eacute;versible - Ce fichier est renomm&eacute;
-    sans &ecirc;tre supprim&eacute; du serveur)<br>
+    sans &ecirc;tre supprim&eacute; du serveur).<br>
   </p>
   <p class="Textenoir">Si la s&eacute;lection est &quot;<span class="TextenoirGras"><?php echo ($T_AFFICHE_FILTRE_FICHIERS[2]) ;?></span>&quot;
     :<br>

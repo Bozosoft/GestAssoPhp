@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2022
- * @copyright 2007-2022  (c) JC Etiemble
+ * @version :  2024
+ * @copyright 2007-2023  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -144,6 +144,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 			if (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".jpg")) {
 				$image_adht = "../photos/tn_" . $id_adht . ".jpg";
 				$image_adht_full = "../photos/" . $id_adht . ".jpg";
+			} // + Photo PNG
+			elseif (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".png")) {
+				$image_adht = "../photos/tn_" . $id_adht . ".png";
+				$image_adht_full = "../photos/" . $id_adht . ".png";
 			}
 			elseif (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".gif")) {
 				$image_adht = "../photos/tn_" . $id_adht . ".gif";

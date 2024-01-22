@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2022
- * @copyright 2007-2022 (c) JC Etiemble
+ * @version : 2024
+ * @copyright 2007-2023 (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -251,7 +251,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 	define('_LANG_FICHE_ADHT_CONFIRM_DEL_PHOTO', 'Êtes vous sûr de vouloir supprimer la photo ?');
 	define('_LANG_FICHE_ADHT_DEL_PHOTO_TITLE', 'Supprimer la photo'); // title=
 	define('_LANG_FICHE_ADHT_UPLOAD_PHOTO', 'Possibilité d\'envoyer une photo depuis votre ordinateur');
-	define('_LANG_FICHE_ADHT_ADD_PHOTO_TITLE', 'Cliquer ici pour ajouter une photo au format jpg ou gif'); // title=
+	define('_LANG_FICHE_ADHT_ADD_PHOTO_TITLE', 'Cliquer ici pour ajouter une photo au format jpg, png ou gif');
 // Ajouter Chp +
     define('_LANG_FICHE_ADHT_PROMOTION', 'N° adhésion');
     define('_LANG_FICHE_ADHT_PROMOTION_TITLE', 'Indiquer le N° adhésion asso');
@@ -261,7 +261,7 @@ l'UTF-8, qui permet théoriquement d'encoder toutes les langues, du français au
 */
 	define('_LANG_MESSAGE_REMPLIR_NOPHOTO', '[ Pas de photo ]');
 	define('_LANG_MESSAGE_REMPLIR_ERR_PHOTO', 'La photo semble ne pas avoir été transmise correctement');
-	define('_LANG_MESSAGE_REMPLIR_ERR_FICH_PHOTO', 'Le fichier transmis n\'est pas une image valide (GIF,  JPEG)');
+	define('_LANG_MESSAGE_REMPLIR_ERR_FICH_PHOTO', 'Le fichier transmis n\'est pas une image valide (JPG, PNG ou GIF)');
 	define('_LANG_MESSAGE_REMPLIR_NOM', 'Indiquez le Nom');
 	define('_LANG_MESSAGE_REMPLIR_PRENOM', 'Indiquez le Prénom');
 	define('_LANG_MESSAGE_REMPLIR_ERR_DATENAIS', ' Date de naissance Non valide - Format jj/mm/aaaa');

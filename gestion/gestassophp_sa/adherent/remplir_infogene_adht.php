@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2022
- * @copyright 2007-2022  (c) JC Etiemble
+ * @version : 2024
+ * @copyright 2007-2023  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -111,8 +111,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 	if($del_photo)
 	{
  		@unlink(DIR_PHOTOS . "/" . $id_adht . ".jpg");
+		@unlink(DIR_PHOTOS . "/".$id_adht.".png"); // + Photo PNG
  		@unlink(DIR_PHOTOS . "/" . $id_adht . ".gif");
  		@unlink(DIR_PHOTOS . "/tn_" . $id_adht . ".jpg");
+		@unlink(DIR_PHOTOS . "/tn_".$id_adht.".png");  // + Photo PNG
  		@unlink(DIR_PHOTOS . "/tn_" . $id_adht . ".gif");
 	}
 
@@ -126,12 +128,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		if ($_FILES['photo']['tmp_name'] != '')
 		if (is_uploaded_file($_FILES['photo']['tmp_name'])) {
 			if ($_FILES['photo']['type'] =="image/jpeg" || $_FILES['photo']['type'] =="image/pjpeg"||
+				$_FILES['photo']['type'] =="image/png"||
 			    (function_exists("ImageCreateFromGif") && $_FILES['photo']['type'] =="image/gif")) {
 				// $tmp_name = $HTTP_POST_FILES["photo"]["tmp_name"];  // $HTTP_POST_FILES -> $_FILES
 				$tmp_name = $_FILES['photo']['tmp_name'];
 				// extension du fichier (en fonction du type mime)  // pjpeg POUR IE 7 sait as lire les jpeg !!!!!!
 				if ($_FILES['photo']['type'] =="image/jpeg" || $_FILES['photo']['type'] =="image/pjpeg") {
 					$ext_image = ".jpg";
+				} // + Photo PNG
+				if ($_FILES['photo']['type'] =="image/png") {
+					$ext_image = ".png";
 				}
 				if ($_FILES['photo']['type'] =="image/gif") {
 					$ext_image = ".gif";
@@ -139,8 +145,10 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 
 				// suppression ancienne photo au cas ou !!!!
 				@unlink(DIR_PHOTOS . "/".$id_adht.".jpg");
+				@unlink(DIR_PHOTOS . "/".$id_adht.".png"); // + Photo PNG
 				@unlink(DIR_PHOTOS . "/".$id_adht.".gif");
 				@unlink(DIR_PHOTOS . "/tn_".$id_adht.".jpg");
+				@unlink(DIR_PHOTOS . "/tn_".$id_adht.".png");  // + Photo PNG
 				@unlink(DIR_PHOTOS . "/tn_".$id_adht.".gif");
 
 				// copie fichier temporaire
@@ -453,12 +461,16 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 				$tpl->assign('pnom_creation_fiche_adht', $dbresult_enr->fields['prenom_adht']." ".$dbresult_enr->fields['nom_adht']);
 				// FIN + qui a enregistré
 
-				// Ajout de la Photo -- UNIQUEMENT JPG ou GIF
+				// Ajout de la Photo -- UNIQUEMENT JPG ou GIF + Photo PNG
 				$image_adht = '';
 				if (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".jpg")) { // F:\Sites\Test\fb\gestassophp\photos\tn_53.jpg
 					$image_adht = "../photos/tn_" . $id_adht . ".jpg";
 					// http:..../photos/tn_xx.jpg
 					$image_adht_full = "../photos/" . $id_adht . ".jpg";
+				} // + Photo PNG
+				elseif (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".png")) {
+					$image_adht = "../photos/tn_" . $id_adht . ".png";
+					$image_adht_full = "../photos/" . $id_adht . ".png";
 				}
 				elseif (file_exists(DIR_PHOTOS . "/tn_" . $id_adht . ".gif")) {
 					$image_adht = "../photos/tn_" . $id_adht . ".gif";

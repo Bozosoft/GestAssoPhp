@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2022
- * @copyright 2007-2022  (c) JC Etiemble
+ * @version :  2024
+ * @copyright 2007-2023  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -180,6 +180,9 @@ if (($sessionadherent) && $log == ($_SESSION['ses_login_adht']) && $pas == ($_SE
 		$membres[$indice]['image_adht'] = ""; //$image_adht = "";
 		if (file_exists(DIR_PHOTOS . "/tn_" . $id_photo_adht . ".jpg")) {
 			$membres[$indice]['image_adht'] = "../photos/tn_" . $id_photo_adht . ".jpg";
+		}  // + Photo PNG
+		elseif (file_exists(DIR_PHOTOS . "/tn_" . $id_photo_adht . ".png")) {
+			$membres[$indice]['image_adht'] = "../photos/tn_" . $id_photo_adht . ".png";
 		}
 		elseif (file_exists(DIR_PHOTOS . "/tn_" . $id_photo_adht . ".gif")) {
 			$membres[$indice]['image_adht'] = "../photos/tn_" . $id_photo_adht . ".gif";

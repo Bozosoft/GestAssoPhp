@@ -7,8 +7,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2023
- * @copyright 2007-2022  (c) JC Etiemble
+ * @version : 2024
+ * @copyright 2007-2023  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 4.x  GNU LESSER GENERAL PUBLIC LICENSE :
@@ -17,7 +17,15 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
-Version 7.8.1-dev2 - 13/11/2023 - En cours (Dev2)
+Version 7.8.1-dev3 - 22/01/2024 - En cours (Dev3)
+-------------------------------------------
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x - version minimum PHP 7.4
+- Ajout de la possibilté des images.*.png  sur /adherent/gerer_fiche_adht.php + remplir_infogene_adht.php +liste_adht.php + /config/lang.php + aide/a_adht_remplir_infogene_adht.php
+- Ajout du fichier aide a_adht_liste_fichiers_adht.php pour télacahrgement direct par souris avec le navigateur
+- Correction sur le Changelog.txt
+- Mise à jour version
+
+* version 7.8.1-dev2 - 13/11/2023 - En cours (Dev2)
 -------------------------------------------
 - Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x - version minimum PHP 7.4
 - Mise à jour de ADOdb à la version 5.22.7 du 04/11/2023
