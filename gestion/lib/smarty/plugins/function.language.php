@@ -21,13 +21,14 @@
  *  
  */
  
- 
+ /*
+  // fonction supprimée en version 7.8.1-dev4
 function smarty_function_language($params, &$smarty) 
 { 
 
 	return constant('_LANG_'.  strtoupper($params['name'])); 
 
 } 
-
+*/
 
 ?>

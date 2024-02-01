@@ -1,7 +1,7 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2022 (c) JC Etiemble HTML5 *}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2023 (c) JC Etiemble HTML5 *}
 {* Affichage du CONTENU Visualisation cotisation adhérent pour le Reçu cotisation ... *}
 
-    <header class="header_titre">&nbsp;{language name = titre_admin_fiche_visu_cotis_adht} {$affiche_message}</header>
+    <header class="header_titre">&nbsp;{_LANG_TITRE_ADMIN_FICHE_VISU_COTIS_ADHT} {$affiche_message}</header>
 	<div class="ligne_coul"></div>
 	<div id="contenu">
 {* défini le contenu .. *}
@@ -12,7 +12,7 @@
 		</tr>
 		<tr>
 		{* Date d'enregistrement *}
-			<th class="LignegrisRight" style="width:25%;"> {language name = fiche_cotis_adht_date_enr} :</th>
+			<th class="LignegrisRight" style="width:25%;"> {_LANG_FICHE_COTIS_ADHT_DATE_ENR} :</th>
 			<td>{$data_cotis_adh.date_enregist_cotis}</td>
 		</tr>
 		<tr>
@@ -20,7 +20,7 @@
 		</tr>
 		<tr>
 		{* Adhérent N° *}
-			<th class="LignegrisRight">  {$adherent_bene} {language name = tpl_col_num} :</th>
+			<th class="LignegrisRight">  {$adherent_bene} {_LANG_TPL_COL_NUM} :</th>
 			<td>{$data_cotis_adh.id_adhtasso}<br>
 			</td>
         </tr>
@@ -36,15 +36,15 @@
 		</tr>
 		<tr>
 		{* Montant cotisation *}
-			<th class="LignegrisRight"> {language name = fiche_cotis_adht_montant} :</th>
-			<td>{$data_cotis_adh.montant_cotis} {language name = fiche_cotis_adht_euro}</td>
+			<th class="LignegrisRight"> {_LANG_FICHE_COTIS_ADHT_MONTANT} :</th>
+			<td>{$data_cotis_adh.montant_cotis} {_LANG_FICHE_COTIS_ADHT_EURO}</td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td><td>&nbsp;</td>
 		</tr>
 		<tr>
 		{* Type cotisation *}
-			<th class="LignegrisRight"> {language name = fiche_cotis_adht_type} :</th>
+			<th class="LignegrisRight"> {_LANG_FICHE_COTIS_ADHT_TYPE} :</th>
 			<td>{*$data_cotis_adh.id_type_cotisation*}{$data_cotis_adh.nom_type_cotisation}</td>
 		</tr>
 		<tr>
@@ -52,12 +52,12 @@
 		</tr>
 		<tr>
 		{* Date début cotisation *}
-			<th class="LignegrisRight"> {language name = fiche_cotis_adht_date_deb} :</th>
+			<th class="LignegrisRight"> {_LANG_FICHE_COTIS_ADHT_DATE_DEB} :</th>
 			<td>{$data_cotis_adh.date_debut_cotis}</td>
 		</tr>
 		<tr>
 		{* Date fin cotisation *}
-			<th class="LignegrisRight"> {language name = fiche_cotis_adht_date_fin} :</th>
+			<th class="LignegrisRight"> {_LANG_FICHE_COTIS_ADHT_DATE_FIN} :</th>
 			<td>{$data_cotis_adh.date_fin_cotis}</td>
 		</tr>
 		<tr>
@@ -65,12 +65,12 @@
 		</tr>
 		{* Moyen de paiement *}
 		<tr>
-			<th class="LignegrisRight"> {language name = fiche_cotis_adht_mpaie} :</th>
+			<th class="LignegrisRight"> {_LANG_FICHE_COTIS_ADHT_MPAIE} :</th>
 			<td>{$data_cotis_adh.paiement_cotis}</td>
 		</tr>
 		<tr>
 		{* Commentaire *}
-			<th class="LignegrisRight"> {language name = fiche_cotis_adht_comm} :</th>
+			<th class="LignegrisRight"> {_LANG_FICHE_COTIS_ADHT_COMM} :</th>
 			<td>{$data_cotis_adh.info_cotis}</td>
 		</tr>
 		<tr>
@@ -81,14 +81,14 @@
 		</tr>
 		<tr>
 		{* Fait le *}
-			<th class="LignegrisRight">{language name = fiche_cotis_visu_faitle} : </th><td>{$date_dujour}</td>
+			<th class="LignegrisRight">{_LANG_FICHE_COTIS_VISU_FAITLE} : </th><td>{$date_dujour}</td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td><td>&nbsp;</td>
 		</tr>
 		<tr>
 		{* bouton retour *}
-			<td>&nbsp;</td><td><a href="../adherent/liste_cotisations_adht.php?filtre_fiche=1&amp;id_adht={$data_cotis_adh.id_adhtasso}"><span class="submit_nul" title="{language name = tpl_retour_button_title}">{language name = tpl_retour_button}</span></a></td>
+			<td>&nbsp;</td><td><a href="../adherent/liste_cotisations_adht.php?filtre_fiche=1&amp;id_adht={$data_cotis_adh.id_adhtasso}"><span class="submit_nul" title="{_LANG_TPL_RETOUR_BUTTON}">{_LANG_TPL_RETOUR_BUTTON}</span></a></td>
 		</tr>
     </table>
 

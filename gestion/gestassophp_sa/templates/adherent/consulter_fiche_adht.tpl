@@ -1,15 +1,15 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2022 (c) JC Etiemble HTML5 *}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2023 (c) JC Etiemble HTML5 *}
 {* Affiche la fiche de l'adhérent Consulter fiche adhérent depuis consulter_fiche_adht.php ET consulter_fiche_adht_admin2.php *}
 {* Affichage du CONTENU avec AIDE *}
-	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_adht_consulter_fiche_adht.php','popup','height=250,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name = title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20">{language name = aide}</a></header>
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_adht_consulter_fiche_adht.php','popup','height=250,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{_LANG_TITLE_AIDE}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20">{_LANG_AIDE}</a></header>
 
-    <header class="header_titre">{$vientde}&nbsp;{language name = titre_consult_fiche_adht}</header>
+    <header class="header_titre">{$vientde}&nbsp;{_LANG_TITRE_CONSULT_FICHE_ADHT}</header>
 	<div class="ligne_coul"></div>
 	<div id="contenu"> {* défini le contenu .. *}
 {* -- si erreur -- *}
 {if !empty($erreur_saisie)}
 	{if $erreur_saisie|@count != 0}
-		<div id="erreur-box">{language name = tpl_texte_err_saisie}
+		<div id="erreur-box">{_LANG_TPL_TEXTE_ERR_SAISIE}
 			{if $erreur_saisie.id_adht}<br><span class="erreur-Jaunerouge">&nbsp;{$erreur_saisie.id_adht}</span>{/if}
 		</div>
 	{/if}
@@ -19,13 +19,13 @@
     	<table style="width:100%;">
 		<tr>
 		{* affiche Récapitulatif *}
-			<th class="LignegrisC" colspan ="2">{language name = visu_fiche_adht_recap}</th>
+			<th class="LignegrisC" colspan ="2">{_LANG_VISU_FICHE_ADHT_RECAP}</th>
 		</tr>
 		<tr>
 			{* Enregistrement N° ... du xx/xx/xxxx *}
-			<td class="Lignegris_pad1">{language name = visu_fiche_adht_enr}&nbsp;{$id_adht}&nbsp;{language name = visu_fiche_adht_enrdu}{$data_adherent.datecreationfiche_adht}</td>
+			<td class="Lignegris_pad1">{_LANG_VISU_FICHE_ADHT_ENR}&nbsp;{$id_adht}&nbsp;{_LANG_VISU_FICHE_ADHT_ENRDU}{$data_adherent.datecreationfiche_adht}</td>
 			{* Dernière modification de la fiche *}
-			<td class="Lignegris_pad1">{language name = visu_fiche_adht_lastmod}&nbsp;:&nbsp;
+			<td class="Lignegris_pad1">{_LANG_VISU_FICHE_ADHT_LASTMOD}&nbsp;:&nbsp;
 				{if $data_adherent.datemodiffiche_adht == '00/00/0000' || $data_adherent.datemodiffiche_adht == ''}
 					Aucune
 				{else}
@@ -44,7 +44,7 @@
 {* -- INFO PERSONNELLES -- *}
 	<table style="width:100%;">
 		<tr>
-			<th class="LignegrisC" colspan ="3">{language name = gestion_fiche_adht}</th>
+			<th class="LignegrisC" colspan ="3">{_LANG_GESTION_FICHE_ADHT}</th>
 			 <td>&nbsp;</td>
 		</tr>
 		<tr>
@@ -54,32 +54,32 @@
 			{$data_adherent.cp_adht}&nbsp;{$data_adherent.ville_adht}<br></td>
 		{* Colonne droite photo, section, tranche d'âge, âge *}
 		    <td  class="LignegrisC_Center" style="width:20%;" rowspan="2">{$photo_adht}</td>
-		    <td  class="LignegrisC_Center" style="width:20%;" rowspan="2">{language name = fiche_adht_ant}&nbsp;:&nbsp;{$data_adherent.nom_type_antenne}
+		    <td  class="LignegrisC_Center" style="width:20%;" rowspan="2">{_LANG_PREF_LANG_FICHE_ADHT_ANT}&nbsp;:&nbsp;{$data_adherent.nom_type_antenne}
 			<br><br>{$data_adherent.tranche_age}&nbsp;<br>
 			&nbsp;<br>
 				{if $data_adherent.age}
-					{language name = visu_fiche_adht_age}:&nbsp;{$data_adherent.age|string_format:"%d"}&nbsp;ans
+					{_LANG_VISU_FICHE_ADHT_AGE}:&nbsp;{$data_adherent.age|string_format:"%d"}&nbsp;ans
 				{/if}
 			</td>
 		</tr>
 
 		<tr>
 		{* Colonne libellé Téléphone, ... , Date de naissance,*}
-		    <td class="Lignegris_pad1" style="width:25%;">{if $data_adherent.telephonef_adht}{language name = tpl_col_adht_teleph}{/if}<br>
+		    <td class="Lignegris_pad1" style="width:25%;">{if $data_adherent.telephonef_adht}{_LANG_TPL_COL_ADHT_TELEPH}{/if}<br>
 			{if $data_adherent.telephonep_adht}
-				{language name = tpl_col_adht_portable}<br>
+				{_LANG_TPL_COL_ADHT_PORTABLE}<br>
 			{/if}
 			{if $data_adherent.telecopie_adht}
-				{language name = fiche_adht_fax}<br>
+				{_LANG_FICHE_ADHT_FAX}<br>
 			{/if}
 			{if $data_adherent.email_adht}
-				{language name = fiche_adht_mail}<br>
+				{_LANG_FICHE_ADHT_MAIL}<br>
 			{/if}
 			{if $data_adherent.siteweb_adht}
-				{language name = fiche_adht_web}<br>
+				{_LANG_FICHE_ADHT_WEB}<br>
 			{/if}
 			{if $data_adherent.datenaisance_adht <> ''}
-				{language name = tpl_adht_datenais}<br>
+				{_LANG_TPL_ADHT_DATENAIS}<br>
 			{/if}
 			</td>
 			{* Colonne données 00 00 00 00 00, ..., xx/xx/1900 *}

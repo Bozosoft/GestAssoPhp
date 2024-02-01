@@ -1,9 +1,9 @@
-{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2022 (c) JC Etiemble HTML5 *}
+{* Projet : gestassophp_sa [GestAssoPhp+Pg] copyright 2007-2023 (c) JC Etiemble HTML5 *}
 {* Affiche des logs adhérents *}
 {* Affichage du CONTENU avec AIDE *}
-	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_logs.php','popup','height=300,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{language name = title_aide}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20">{language name = aide}</a></header>
+	<header class="header_titre_aide"><a href='#' style="cursor:pointer;" onclick="javascript :window.open('../aide/a_logs.php','popup','height=300,toolbar=no,location=no,directories=no,status=yes,width=660,resizable=no,scrollbars=yes,top=10,left=10')" title="{_LANG_TITLE_AIDE}"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20">{_LANG_AIDE}</a></header>
 
-    <header class="header_titre">&nbsp;{language name = titre_admin_logs}</header>
+    <header class="header_titre">&nbsp;{_LANG_TITRE_ADMIN_LOGS}</header>
 	<div class="ligne_coul"></div>
 	<div id="contenu">
 {* défini le contenu .. *}
@@ -14,21 +14,21 @@
 			<tr>
 				<td><span class="TextenoirR">{$nb_lines}
 				 {if $nb_lines != 1}
-					{language name = admin_logs_enr_s} 
+					{_LANG_ADMIN_LOGS_ENR_S} 
 				 {else}
-					{language name = admin_logs_enr} 
+					{_LANG_ADMIN_LOGS_ENR} 
 				 {/if}
-				 &nbsp;&nbsp;<a href="../admin/export_tlogs.php?export_ok=1" title="{language name=admin_logs_title_export}">{language name=admin_logs_export}</a></span>&nbsp;<br><img src="../images/icones/exclam.png" alt="clear" width="16" height="16"><span class="TexterougeR">{language name=admin_logs_clear_logs}<a href="liste_logs.php?reset=1" onclick="return confirm('{language name=admin_logs_js_clear_logs}')"> <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="{language name=admin_logs_title_clear_logs}"></a></span></td>
-				<td class="centre-txt">{language name = tpl_select_affichepar}
+				 &nbsp;&nbsp;<a href="../admin/export_tlogs.php?export_ok=1" title="{_LANG_ADMIN_LOGS_TITLE_EXPORT}">{_LANG_ADMIN_LOGS_EXPORT}</a></span>&nbsp;<br><img src="../images/icones/exclam.png" alt="clear" width="16" height="16"><span class="TexterougeR">{_LANG_ADMIN_LOGS_CLEAR_LOGS}<a href="liste_logs.php?reset=1" onclick="return confirm('{_LANG_ADMIN_LOGS_JS_CLEAR_LOGS}')"> <img src="../images/icones/i_poubelle.gif" alt="clear" width="10" height="11" title="{_LANG_ADMIN_LOGS_TITLE_CLEAR_LOGS}"></a></span></td>
+				<td class="centre-txt">{_LANG_TPL_SELECT_AFFICHEPAR}
 					<select name="affiche_nb_fich" onchange="form.submit()">
 						{html_options options = $affichenb_log_options selected = $affiche_nb_fich}
 					</select>
 				</td>
-				<td class="aff_droite-txt" >{language name = tpl_pages}<span class="NumPageGras">
+				<td class="aff_droite-txt" >{_LANG_TPL_PAGES}<span class="NumPageGras">
 	{section name = pageLoop start = 1 loop = $nb_pages}
 			{if $smarty.section.pageLoop.index eq $numpage}{$smarty.section.pageLoop.index}
 		{else}
-			<a href="liste_logs.php?numpage_affiche={$smarty.section.pageLoop.index}&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name = tpl_go_pages}">{$smarty.section.pageLoop.index} </a>
+			<a href="liste_logs.php?numpage_affiche={$smarty.section.pageLoop.index}&amp;affiche_nb_fich={$affiche_nb_fich}" title="{_LANG_TPL_GO_PAGES}">{$smarty.section.pageLoop.index} </a>
 		{/if}
 	{/section}</span>
 				</td>
@@ -40,12 +40,12 @@
 		<tr>
 		{* # *}
 			<th class="LignegrisTC" style="width:6%;">
-				<a href="liste_logs.php?tri=0&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name = tpl_title_clictri}">#</a>
+				<a href="liste_logs.php?tri=0&amp;affiche_nb_fich={$affiche_nb_fich}" title="{_LANG_TPL_TITLE_CLICTRI}">#</a>
 				{if $smarty.session.tri eq 0}
 					{if $smarty.session.tri_sens eq 1}
-						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_up}">
+						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_UP}">
 					{else}
-						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_down}">
+						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_DOWN}">
 					{/if}
 				{else}
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
@@ -53,12 +53,12 @@
 			</th>
 		{* Date *}
 			<th class="LignegrisTC" style="width:22%;">
-				<a href="liste_logs.php?tri=1&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name = tpl_title_clictri}">{language name = tpl_col_date}</a>
+				<a href="liste_logs.php?tri=1&amp;affiche_nb_fich={$affiche_nb_fich}" title="{_LANG_TPL_TITLE_CLICTRI}">{_LANG_TPL_COL_DATE}</a>
 				{if $smarty.session.tri eq 1}
 					{if $smarty.session.tri_sens eq 1}
-						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_up}">
+						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_UP}">
 					{else}
-						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_down}">
+						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_DOWN}">
 					{/if}
 				{else}
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
@@ -66,12 +66,12 @@
 			</th>
 		{* IP *}
 			<th class="LignegrisTC" style="width:15%;">
-				<a href="liste_logs.php?tri=2&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name = tpl_title_clictri}">"IP"</a>
+				<a href="liste_logs.php?tri=2&amp;affiche_nb_fich={$affiche_nb_fich}" title="{_LANG_TPL_TITLE_CLICTRI}">"IP"</a>
 				{if $smarty.session.tri eq 2}
 					{if $smarty.session.tri_sens eq 1}
-						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_up}">
+						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_UP}">
 					{else}
-						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_down}">
+						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_DOWN}">
 					{/if}
 				{else}
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
@@ -79,12 +79,12 @@
 			</th>
 		{* Utilisateur *}
 			<th class="LignegrisTC" style="width:22%;">
-				<a href="liste_logs.php?tri=3&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name = tpl_title_clictri}">{language name=admin_logs_col_utilisateur}</a>
+				<a href="liste_logs.php?tri=3&amp;affiche_nb_fich={$affiche_nb_fich}" title="{_LANG_TPL_TITLE_CLICTRI}">{_LANG_ADMIN_LOGS_COL_UTILISATEUR}</a>
 				{if $smarty.session.tri eq 3}
 					{if $smarty.session.tri_sens eq 1}
-						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_up}">
+						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_UP}">
 					{else}
-						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_down}">
+						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_DOWN}">
 					{/if}
 				{else}
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
@@ -92,12 +92,12 @@
 			</th>
 		{* Description *}
 			<th class="LignegrisTC" style="width:35%;">
-				<a href="liste_logs.php?tri=4&amp;affiche_nb_fich={$affiche_nb_fich}" title="{language name = tpl_title_clictri}">{language name = tpl_col_description}</a>
+				<a href="liste_logs.php?tri=4&amp;affiche_nb_fich={$affiche_nb_fich}" title="{_LANG_TPL_TITLE_CLICTRI}">{_LANG_TPL_COL_DESCRIPTION}</a>
 				{if $smarty.session.tri eq 4}
 					{if $smarty.session.tri_sens eq 1}
-						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_up}">
+						<img src="../images/symboles/s_asc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_UP}">
 					{else}
-						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{language name = tpl_title_clictri_down}">
+						<img src="../images/symboles/s_desc.png" width="11" height="9" alt="" title="{_LANG_TPL_TITLE_CLICTRI_DOWN}">
 					{/if}
 				{else}
 					<img src="../images/symboles/empty.png" width="7" height="7" alt="">
@@ -115,15 +115,15 @@
 		</tr>
 {foreachelse}
 		{* La liste est vide *}
-		<tr><td colspan="6">{language name = tpl_liste_vide}</td></tr>
+		<tr><td colspan="6">{_LANG_TPL_LISTE_VIDE}</td></tr>
 {/foreach}
 	</table>
 {* Affichage du NB pages *}
-	<div class="aff_droite-txt">{language name = tpl_pages}<span class="NumPageGras">
+	<div class="aff_droite-txt">{_LANG_TPL_PAGES}<span class="NumPageGras">
 	{section name = pageLoop start = 1 loop = $nb_pages}
 		{if $smarty.section.pageLoop.index eq $numpage}{$smarty.section.pageLoop.index}
 		{else}
-			<a href="liste_logs.php?numpage_affiche={$smarty.section.pageLoop.index}" title="{language name = tpl_go_pages}">{$smarty.section.pageLoop.index} </a>
+			<a href="liste_logs.php?numpage_affiche={$smarty.section.pageLoop.index}" title="{_LANG_TPL_GO_PAGES}">{$smarty.section.pageLoop.index} </a>
 		{/if}
 	{/section}</span></div>
 {* FIN Affichage du NB pages *}

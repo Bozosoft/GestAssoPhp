@@ -20,10 +20,9 @@ Fichier pour GestAssophp
 		Smarty.class.php
 		** SmartyBC.class.php (fichier vide)
 		+ index.html
-		+ SMARTY_VERSION_4.3.1 (modifications 3.1.47-4.3.1)
+		+ SMARTY_VERSION_4.3.5
 
-	/lib/smarty/sysplugins --->Tous les fichiers (154 + 1)
-		** (dont 3 fichiers vides)
+	/lib/smarty/sysplugins --->Tous les fichiers (151 + 1)
 		+index.html
 
 	/lib/smarty/plugins -->UNIQUEMENT les fichiers suivants (10 + 1 )
@@ -41,6 +40,7 @@ Fichier pour GestAssophp
 
 --------------------------------
 
+[4.3.5] - 2024-01-23 https://github.com/smarty-php/smarty/releases/tag/v4.3.5
 [4.3.4] - 2023-09-14 https://github.com/smarty-php/smarty/releases/tag/v4.3.4
 Commits on Sep 13, 2023  Fix phpdoc
 /sysplugins/smarty_template_compiled.php
