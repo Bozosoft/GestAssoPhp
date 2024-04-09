@@ -17,21 +17,28 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
-
-Version 7.8.1-dev4 - 01/02/2024 - En cours (Dev4)
+Version 7.8.1-dev6 - 09/04/2024 - (Dev6)
 -------------------------------------------
 - Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x - version minimum PHP 7.4
+- Mise à jour de Smarty à la version 4.5.2 du 06/04/2024
+- Correction sur le Changelog.txt
+- Mise à jour version
+
+* version 7.8.1-dev5 - 19/03/2024 - (Dev5)
+-------------------------------------------
+- Mise à jour de Smarty à la version 4.5.1 du 18/03/2024
+
+* version 7.8.1-dev4 - 01/02/2024 - En cours (Dev4)
+-------------------------------------------
 - Mise à jour de Smarty à la version 4.3.5 (Add php8.3 support) + correction /sysplugins/smarty_internal_errorhandler.php
 - Simplification du systeme du fichier /config/lang.php pour la gestion des affichages du textes et messages sur les gabarits (la balise {_LANG_VIDE} remplacera l'ancienne balise {language name = vide})
-- Suppression du fichier /lib/smarty/plugins/function.language.php
+- Désactivation du fichier /lib/smarty/plugins/function.language.php
 - Modification des fichiers /templates/adherent/*.tpl, /templates/admin/*.tpl, /templates/*.tpl
 - Typo td colspan="6"=>"8" sur archiverenserie_cotisations_adht.tpl
 - Modification du fichier /config/lang.php
 - Modification du fichier /install/data.sql   pour les dates
 - Correction HTML sur /doc/CCBY-SA-France.htm
 - Correction du fichier lisez_moi.txt
-- Correction sur le Changelog.txt
-- Mise à jour version
 
 * version 7.8.1-dev3 - 22/01/2024 - En cours (Dev3)
 -------------------------------------------
