@@ -103,6 +103,7 @@ Note 1 - IMPORTANT
  Si vous remplacez "gestassophp_sa" par "gestassophp_xx" votre dossier ou se trouve les fichiers du programme se nommera /gestassophp_xx/
 
 - Vous pouvez modifier les Termes et Messages pour adapter à votre association dans le fichier /gestassophp_sa/config/lang.php
+- Note en version 7.8.1 la balise {_LANG_VIDE} remplacera l'ancienne balise {language name = vide}
 
 
 POUR UNE UTILISATION AVEC POSTGRESQL UNIQUEMENT
@@ -215,5 +216,5 @@ https://github.com/Bozosoft/GestAssoPhp
 
   
 ----------------------
-Mise à jour de cette page : 29/01/2024
+Mise à jour de cette page : 24/04/2024
 
