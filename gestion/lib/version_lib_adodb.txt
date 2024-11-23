@@ -3,7 +3,7 @@ http://adodb.org/dokuwiki/doku.php
 https://github.com/ADOdb/ADOdb
 
 --------------------------------
-Fichier poutr GestAssophp
+Fichier pour GestAssophp
 --------------------------------
 	/lib/adodb (14+1)
 		adodb.inc.php 

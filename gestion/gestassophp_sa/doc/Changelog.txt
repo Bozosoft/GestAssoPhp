@@ -17,9 +17,26 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
+
+Version 7.8.2-dev3 - 23/11/2024 - En cours (Dev3)
+-------------------------------------------
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x, 8.4.x - version minimum PHP 7.4
+- Mise à jour Smarty à la version 4.5.5 (## [4.5.5] - 2024-11-21)
+- Correction sur le Changelog.txt
+- Mise à jour version
+
+*version 7.8.2-dev2 - 22/09/2024 - En cours (Dev2)
+-------------------------------------------
+- Mise à jour Smarty à la version 4.5.4 (## [4.5.4] - 2024-08-14)
+
+*version 7.8.2-dev1 - 09/07/2024 - En cours (Dev1)
+-------------------------------------------
+- Mise à jour de Smarty à la version 4.5.3 (## [4.5.3] - 2024-05-28)
+
+
 Version 7.8.1 - 24/04/2024 - Finale
 -------------------------------------------
-- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x - version minimum PHP 7.4
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x, 8.4.x - version minimum PHP 7.4
 - Correction sur le Changelog.txt
 - Mise à jour version
 - Mise à jour du fichier lisez_moi.txt

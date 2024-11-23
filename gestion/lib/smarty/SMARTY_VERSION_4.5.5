@@ -1,7 +1,57 @@
 https://github.com/smarty-php/smarty/commits/master
 
 https://github.com/smarty-php/smarty/tree/support/4
+--------------------
 
+
+[4.5.5] - 2024-11-21 https://github.com/smarty-php/smarty/releases/tag/v4.5.5
+Add PHP 8.4 support to Smarty by @jolelievre in #1084
+
+README.md
+libs/Smarty.class.php
+src/debug.tpl (correction JCE)
+	-<script type="text/javascript">
+	+<script>
+/sysplugins/smarty_cacheresource.php
+/sysplugins/smarty_cacheresource_custom.php
+/sysplugins/smarty_cacheresource_keyvaluestore.php
+/sysplugins/smartycompilerexception.php
+/sysplugins/smarty_internal_cacheresource_file.php
+/sysplugins/smarty_internal_data.php
+/sysplugins/smarty_internal_method_createdata.php
+/sysplugins/smarty_internal_method_gettemplatevars.php
+/sysplugins/smarty_internal_resource_eval.php
+/sysplugins/smarty_internal_resource_extends.php
+/sysplugins/smarty_internal_resource_file.php
+/sysplugins/smarty_internal_resource_stream.php
+/sysplugins/smarty_internal_resource_string.php
+/sysplugins/smarty_internal_runtime_codeframe.php
+/sysplugins/smarty_internal_runtime_inheritance.php
+/sysplugins/smarty_internal_template.php
+/sysplugins/smarty_internal_templatecompilerbase.php
+/sysplugins/smarty_resource.php
+/sysplugins/smarty_resource_custom.php
+/sysplugins/smarty_template_config.php
+/sysplugins/smarty_template_source.php
+
+--------------------
+[4.5.4] - 2024-08-14 https://github.com/smarty-php/smarty/releases/tag/v4.5.4
+
+/sysplugins/smarty_internal_templatecompilerbase.php
+CHANGELOG.md
+libs/Smarty.class.php 4.5.4
+--------------------
+
+modification HTML par JCE  10/07/2024
++ /lib/smarty/debug.tpl => add missing closing tr tag #1039
+src/debug.tpl +    L147          </tr> avant {/foreach}
+
+--------------------
+[4.5.3] - 2024-05-28 https://github.com/smarty-php/smarty/releases/tag/v4.5.3
+/sysplugins/smarty_internal_compile_extends.php
+/sysplugins/smarty_internal_templatecompilerbase.php
+CHANGELOG.md
+libs/Smarty.class.php 4.5.3
 
 --------------------
 [4.5.2] - 2024-04-06 https://github.com/smarty-php/smarty/releases/tag/v4.5.2
@@ -14,7 +64,7 @@ https://github.com/smarty-php/smarty/tree/support/4
 	smarty_internal_compile_private_modifier.php
 	smarty_internal_compile_private_print_expression.php
 	smarty_internal_templatecompilerbase.php
-	smarty_security.php  				
+	smarty_security.php
 /Smarty.class.php
 /CHANGELOG.md
 
@@ -25,13 +75,13 @@ libs/sysplugins/smarty_internal_errorhandler.php
 +     '/^(Undefined index|Undefined array key|Trying to access array offset on)/',
 Smarty.class.php
 CHANGELOG.md
-README.md 
+README.md
 
 --------------------
 [4.3.4] - 2023-09-14 https://github.com/smarty-php/smarty/releases/tag/v4.3.4
 Commits on Sep 13, 2023  Fix phpdoc
 /sysplugins/smarty_template_compiled.php
-Commits on Apr 30, 2023 Remove md5 modifier from debug.tpl (#871)  
+Commits on Apr 30, 2023 Remove md5 modifier from debug.tpl (#871)
 /sysplugins/smarty_internal_debug.php
 /sysplugins/smarty_internal_errorhandler.php
 CHANGELOG.md
@@ -60,7 +110,7 @@ NOTA /plugins/modifiercompiler.escape.php -> NON utilisé
 + SECURITY.md
 + CHANGELOG.md
 + Smarty.class.php const SMARTY_VERSION = '4.3.1';
-+ SMARTY_VERSION_4.3.1 
++ SMARTY_VERSION_4.3.1
 - SMARTY_VERSION_4.3.0
 
 --------------------------------------------------------------
@@ -92,7 +142,7 @@ debug.tpl
 + functions.php
 README.md
 SECURITY.md
-Smarty.class.php 
+Smarty.class.php
 - SmartyBC.class.php fichier vide
   Dropped deprecated API calls that where only accessible through SmartyBC [4.0.0-rc.0] - 2021-10-13
 + SMARTY_VERSION_4.3.0
@@ -112,7 +162,7 @@ Smarty.class.php
  function.html_options.php
  function.mailto.php  ((m) Modif <script type="text/javascript"> => Warning => <script>)
  + modifier.count.php (ajout V 4.3.0)
- modifier.escape.php 
+ modifier.escape.php
  modifier.string_format.php (@link  corrigé 30/11/22)
  modifier.truncate.php
  shared.escape_special_chars.php
@@ -132,7 +182,7 @@ Smarty.class.php
  smarty_internal_compile_insert.php
  smarty_internal_compile_private_foreachsection.php
  smarty_internal_compile_private_modifier.php
-- smarty_internal_compile_private_php.php  fichier vide =>  This file was deleted. v4.0.0-v3.1.40 
+- smarty_internal_compile_private_php.php  fichier vide =>  This file was deleted. v4.0.0-v3.1.40
  smarty_internal_compile_private_print_expression.php
  smarty_internal_compile_private_special_variable.php
  smarty_internal_data.php
@@ -193,9 +243,8 @@ NOTE corrections/modifications JCE  (m)
 --------------------
 --- /lib/Smarty/plugins/function.mailto.php
 +++ /lib/Smarty/lib/smarty/plugins/function.mailto.php
-+  Warning: The type attribute is unnecessary for JavaScript resources. SO <script type="text/javascript"> = Warning <script> = OK 
++  Warning: The type attribute is unnecessary for JavaScript resources. SO <script type="text/javascript"> = Warning <script> = OK
 -        return '<script type="text/javascript">document.write(unescape(\'' . $js_encode . '\'))</script>';
-+        return '<script>document.write(unescape(\'' . $js_encode . '\'))</script>'; // Modification JCE 
-
++        return '<script>document.write(unescape(\'' . $js_encode . '\'))</script>'; // Modification JCE
 -        return '<script type="text/javascript">document.write(String.fromCharCode(' . implode(',', $ord) . '))</script>';
 +	    	    return '<script>document.write(String.fromCharCode(' . implode(',', $ord) . '))</script>'; // Modification JCE
