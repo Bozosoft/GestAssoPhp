@@ -7,8 +7,8 @@
  * ---------------------------
  *	
  * @author : JC Etiemble - http://jc.etiemble.free.fr
- * @version :  2024
- * @copyright 2007-2023  (c) JC Etiemble
+ * @version :  2025
+ * @copyright 2007-2025  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 3.x  GNU LESSER GENERAL PUBLIC LICENSE : https://github.com/smarty-php/smarty/blob/master/LICENSE
@@ -65,7 +65,8 @@ NOTA installation en local sous WAMP ou EsayPhp ou ...
 Vérifier ou modifier la configuration dans le php.ini
 ; Error handling and logging ;
 ; Production Value: E_ALL & ~E_DEPRECATED & ~E_STRICT
-error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT  (jusqu’à PHP 8.3)
+error_reporting(E_ALL & ~E_DEPRECATED)  (pour PHP 8.4 et plus)
 
 [Date]
 date.timezone = Europe/Paris
@@ -216,5 +217,5 @@ https://github.com/Bozosoft/GestAssoPhp
 
   
 ----------------------
-Mise à jour de cette page : 24/04/2024
+Mise à jour de cette page : 23/12/2025
 

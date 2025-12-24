@@ -3,7 +3,7 @@
 #-- Fichier :   data.sql
 #-- Installation du système
 #-- données des tables   * ENCODAGE UTF-8 sans BOM
-#-- version : 2024
+#-- version : 2025
 #--
 
 #--
@@ -26,7 +26,7 @@ INSERT INTO gs_preference_asso (id_pref, design_pref, val_pref) VALUES
 (6, 'adherent_bene', 'Utilisateur'),
 (7, '_lang_fiche_adht_ant', 'Section'),
 #-- 8, réservé
-(9, 'jma_fin_cotis','31/12/2024');
+(9, 'jma_fin_cotis','31/12/2026');
 
 
 #--

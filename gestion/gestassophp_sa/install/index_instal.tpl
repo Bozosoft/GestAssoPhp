@@ -1,4 +1,4 @@
- {* Installation de GestAssoPhp+Pg index_install.tpl @copyright 2007-2022 (c) JC Etiemble HTML5 *}
+ {* Installation de GestAssoPhp+Pg index_install.tpl @copyright 2007-2025 (c) JC Etiemble HTML5 *}
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
@@ -27,7 +27,7 @@
 			</ul>
 	</nav>
 	<br><br><br>
-	<div class="centre-txt"><img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp"><br><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='../images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise Ã  disposition sous un contrat Creative Commons"></a><br><br><span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span><br><br></div>		
+	<div class="centre-txt"><img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp"><br><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='../images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise A  disposition sous un contrat Creative Commons - Ouverture dans un nouvel onglet"></a><br><br><span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons - Ouverture dans un nouvel onglet" >Licence</a></span><br><br></div>		
 		</div>{* gauche_page *}
 
 	<div class="section_centre_page">  {* défini les infos .. *}
@@ -35,7 +35,7 @@
 	</div> {* FIN défini les infos .. *}
 	
 	<footer class="footer_pied_page">
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html" target="_blank" title="Gestion des associations - Installation" >Version : {$version_i}</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html" target="_blank" title="Gestion des associations - Installation - Ouverture dans un nouvel onglet" >Version : {$version_i}</a>
     </footer>
 	
 </div>{* FIN conteneur_page *}

@@ -3,6 +3,18 @@ https://github.com/smarty-php/smarty/commits/master
 https://github.com/smarty-php/smarty/tree/support/4
 --------------------
 
+## [4.5.6] - 2025-08-26 https://github.com/smarty-php/smarty/releases/tag/v4.5.6
+    Bugfix/1100 modifier called like a function compiled to modifier name not callback by @wisskid in #1101
+    add missing closing tr tag by @shadowwa in #1117
+    add count and debug_print_var modifier doc by @shadowwa in #1116
+    Replace SMARTY_VERSION constant with $smarty.version in debug.tpl #1073
+    Fixed escaping of array/object keys in debug_print_var
+/plugins/modifier.debug_print_var.php
+/plugins/modifier.debug_print_var.php
+/CHANGELOG.md
+/Smarty.class.php
+/debug.tpl + modif -type="text/javascript"
+- SMARTY_VERSION_4.5.5 + SMARTY_VERSION_4.5.6
 
 [4.5.5] - 2024-11-21 https://github.com/smarty-php/smarty/releases/tag/v4.5.5
 Add PHP 8.4 support to Smarty by @jolelievre in #1084

@@ -7,8 +7,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2024
- * @copyright 2007-2023  (c) JC Etiemble
+ * @version : 2025
+ * @copyright 2007-2025  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
  * @ Smarty 4.x  GNU LESSER GENERAL PUBLIC LICENSE :
@@ -17,8 +17,20 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
+Version 7.8.2-dev4 - 23/12/2025 - En cours (Dev4)
+-------------------------------------------
+- Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x, 8.4.x, 8.5.x- version minimum PHP 7.4
+- Mise à jour Smarty à la version 4.5.6 (## [4.5.6] - 2025-08-26) 
+- Mise à jour de ADOdb à la version 5.22.11 du 22/11/2025
+- Correction sur le Changelog.txt
+- Mise à jour version
+- Mise à jour du fichier install/data.sql ligne 29
+- Mise à jour du fichier install/index.php lien vers /lisez_moi.txt
+- Mise à jour du fichier index_instal.tpl
+- Mise à jour du fichier lisez_moi.txt
+- Ajout information (Maintenance BD) sur les sauvegardes dans le fichier a_admin_maint_bd.php
 
-Version 7.8.2-dev3 - 23/11/2024 - En cours (Dev3)
+*version 7.8.2-dev3 - 23/11/2024 - En cours (Dev3)
 -------------------------------------------
 - Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x, 8.4.x - version minimum PHP 7.4
 - Mise à jour Smarty à la version 4.5.5 (## [4.5.5] - 2024-11-21)

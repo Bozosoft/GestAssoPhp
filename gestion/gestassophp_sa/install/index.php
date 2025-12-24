@@ -8,8 +8,8 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2022
- * @copyright 2007-2022  (c) JC Etiemble
+ * @version : 2025
+ * @copyright 2007-2025  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
  */
 
@@ -105,7 +105,7 @@
 			</ul>
 	</nav>
 	<br><br><br>
-	<div class="centre-txt"><img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp"><br><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='../images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise à disposition sous un contrat Creative Commons"></a><br><br><span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons" >Licence</a></span><br><br></div>
+	<div class="centre-txt"><img src='../images/logo/logo_gestassophp.gif' alt="Logo" width="128" height="20" title="Logo GestAssoPhp"><br><br><a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/fr/" target="_blank"><img src='../images/licence/ccby-sa88x31.png' alt="Creative Commons License" width="88" height="31" title="mise A disposition sous un contrat Creative Commons - Ouverture dans un nouvel onglet"></a><br><br><span class="TextenoirR"><a href="../doc/CCBY-SA-France.htm" target="_blank" title="Contrat Creative Commons - Ouverture dans un nouvel onglet" >Licence</a></span><br><br></div>
 		</div> <!-- gauche_page -->
 
 <div class="section_centre_page"> <!-- centre_page -->
@@ -114,7 +114,7 @@
 	<div class="ligne_coul"></div>
 	<div id="contenu">
 
-	<br><span class='TexterougeGras'>* Avant toute installation v&eacute;rifier les informations sur le fichier <a href="../doc/lisez_moi.txt">lisez_moi.txt</a></span>
+	<br><span class='TexterougeGras'>* Avant toute installation v&eacute;rifier les informations sur le fichier <a href="../doc/lisez_moi.txt" target="_blank" title="Ouverture dans un nouvel onglet" >lisez_moi.txt</a></span>
 	<br><br><br>
 	<span class='TextenoirGras'>V&eacute;rification version PHP minimum (PHP 7.4.x):</span>
 	<br>
@@ -214,7 +214,7 @@
 
 </div>	<!-- / centre_page -->
 	<footer class="footer_pied_page">
-		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html" target="_blank" title="Gestion des associations - Installation">Version : <?php echo VERSION_I ?></a>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://gestassophp.free.fr/cms/index.php/home/installation-du-systeme.html" target="_blank" title="Gestion des associations - Installation - Ouverture dans un nouvel onglet">Version : <?php echo VERSION_I ?></a>
     </footer>
 
 </div> <!-- / conteneur_page  -->

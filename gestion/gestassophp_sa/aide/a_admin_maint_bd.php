@@ -15,45 +15,46 @@
 
 /**
  *  Directory :  /ROOT_DIR_GESTASSO/aide/
- *  Fichier :	a_admin_maint_bd.php
+ *  Fichier :   a_admin_maint_bd.php
  *  Affiche l'aide pour la maintenance de la base de données - Administration
 */
 
-	include_once '../config/connexion.php';
+    include_once '../config/connexion.php';
 ?>
 
 <!doctype html>
 <html lang='fr' dir='ltr'>
 <head>
-	<meta charset="UTF-8">
-	<meta name="author" content="JCE">
-	<meta name="Description" content="GestAssoPhp+Pg">
-	<meta name="ROBOTS" content="noindex, nofollow">
-	<meta name="keywords" lang="fr" content="GestAssoPhp">
-	<link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
-	<link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
-	<title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></title>
+    <meta charset="UTF-8">
+    <meta name="author" content="JCE">
+    <meta name="Description" content="GestAssoPhp+Pg">
+    <meta name="ROBOTS" content="noindex, nofollow">
+    <meta name="keywords" lang="fr" content="GestAssoPhp">
+    <link rel="stylesheet" type="text/css" media="screen"  href="../js/style_screen.css">
+    <link rel="stylesheet" type="text/css" media="print"  href="../js/style_print.css">
+    <title>GestAssoPhp+ Aide - <?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></title>
 </head>
 <body>
 
 <p class="AfficheTitre"><img src='../images/icones/help.gif' alt="Aide" width="20" height="20" title="Aidez-moi">
-<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></span><br>
+<span class="AfficheTitre14"><?php echo _LANG_TITRE_ADMIN_MAINT_BD ;?></span>
 </p>
 <div id="contenu">
-<p class="Textenoir">&nbsp;<br>
+<p class="Textenoir">&nbsp;
 Cette page permet la maintenance de la base de données et donc :<br>
-<br>
-- D'effectuer une optimisation de toutes les tables afin d'avoir une meilleure performance.<br>A faire une fois tous les 15 jours environ<br><br>
-
+- D'effectuer une optimisation de toutes les tables afin d'avoir une meilleure performance.<br>A faire une fois tous les 15 jours environ<br>
 - De sauvegarder de la base de données en cas de problème d'hébergement.<br>
 <br>
-<span class="TextenoirGras">Il existe donc 2 possibilités</span> :<br>
-<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (à faire une fois ou si des modifications sont apportées sur les tables<br>
-<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables (à faire en fonction de la fiabilité de l'hébergement )
-<br>
+<span class="TextenoirGras">Il existe donc 2 possibilités</span> : Pour la base  type Mysql<br>
+<span class="TextenoirGras">Non/Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_STRUCT ;?></span>, l'ossature des tables (à faire une fois ou si des modifications sont apportées sur les tables.<br>
+<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables.<br><br>
 
+<span class="TextenoirGras">Il existe donc une seule possibilité</span> : Pour la base  type PostgreSQL<br>
+<span class="TextenoirGras">Oui - <?php echo _LANG_ADMIN_MAINT_BD_SAV_DATA ;?></span> les informations contenues dans les tables.
+<br>
+<span class="TextenoirGras">De plus il est important de faire aussi une sauvegarde de l'ossature des tables et des informations contenues dans les tables à partir de votre hébergement.</span>
 </p>
-<p>&nbsp;</p>
+
 
 <span class="TextenoirR">&nbsp;&nbsp;<a href="#" onclick="self.close();">Fermer cette fen&ecirc;tre</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="javascript:window.print()">Imprimer cette page</a></span>
