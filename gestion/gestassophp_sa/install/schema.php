@@ -8,7 +8,7 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2022
+ * @version : 2026
  * @copyright 2007-2022  (c) JC Etiemble
  * @package   GestAssoPhp+Pg
 
@@ -21,6 +21,7 @@
  *  Fichier :   schema.php
  *  Installation du système
  *  ENCODAGE UTF-8 sans BOM
+ *  16/06/26  ip_log  C(30)=> ip_log  C(40) cause IPV6
 */
 
 
@@ -161,11 +162,11 @@ $erreur_saisie = array() ;
 		$erreur_saisie[$table_num] = 'erreur' ;
 		}
 
-/***** 4 Structure de la table `_logs` */
+/***** 4 Structure de la table `_logs`  Nota  16/06/26  ip_log  C(30)=> ip_log  C(40) cause IPV6 */
 	$flds = "
    id_log  I(6) KEY AUTO,
    date_log TS NOT NULL ,
-   ip_log  C(30) NOT NULL default '',
+   ip_log  C(40) NOT NULL default '',
    nom_log  C(50) NOT NULL default '',
    action_log  C(50) NOT NULL default ''
 	";

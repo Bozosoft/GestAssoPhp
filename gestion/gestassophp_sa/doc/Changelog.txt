@@ -7,7 +7,7 @@
  * ---------------------------
  *
  * @author :  JC Etiemble - http://jc.etiemble.free.fr
- * @version : 2025
+ * @version : 2026
  * @copyright 2007-2025  (c) JC Etiemble
  * @package   GestAssoPhp+Pg  - http://gestassophp.free.fr
  * @ ATTENTION GestAssoPhp+Pg utlise un dossier /lib avec
@@ -17,9 +17,18 @@
  *     https://github.com/ADOdb/ADOdb/blob/master/LICENSE.md#gnu-lesser-general-public-license
  */
 
-Version 7.8.2-dev4 - 23/12/2025 - En cours (Dev4)
+
+
+Version 7.8.2-dev5 - 18/06/2026 - En cours (Dev5)
 -------------------------------------------
 - Compatible avec PHP 7.4.x, 8.0.x, 8.1.x, 8.2.x, 8.3.x, 8.4.x, 8.5.x- version minimum PHP 7.4
+- Mise à jour du fichier schema.php champ ip_log C(30)=> ip_log C(40) cause taille IPV6
+- Correction sur le Changelog.txt
+- Mise à jour version
+
+
+*version 7.8.2-dev4 - 23/12/2025 - En cours (Dev4)
+-------------------------------------------
 - Mise à jour Smarty à la version 4.5.6 (## [4.5.6] - 2025-08-26) 
 - Mise à jour de ADOdb à la version 5.22.11 du 22/11/2025
 - Correction sur le Changelog.txt
